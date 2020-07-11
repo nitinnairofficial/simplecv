@@ -1,0 +1,26 @@
+.tab-container {
+
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .input-label {
+    display: block;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: normal;
+    text-transform: capitalize;
+    cursor: pointer;
+    position: relative;
+    top: 4px;
+    border-top: 2px solid transparent;
+  }
+
+  [id^="tab"]:checked+label {
+    background-color: #fff;
+    border-top: 2px solid $primary-color;
+    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  }
+}

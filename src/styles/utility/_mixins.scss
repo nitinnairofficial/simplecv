@@ -1,0 +1,40 @@
+// common mixins 
+ @mixin inherit-font-face {
+    font-family: $default-font-family;
+    font-size: $default-font-size;
+    font-weight: $default-font-weight;
+ }
+
+ @mixin css3-prefix($prop, $value) {
+    -webkit-#{$prop}: #{$value};
+    -moz-#{$prop}: #{$value};
+    -ms-#{$prop}: #{$value};
+    -o-#{$prop}: #{$value};
+    #{$prop}: #{$value};
+ }
+
+ @mixin text-shorten {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+ }
+
+ @mixin common-text-property {
+    font-family: $default-font-family;
+    font-size: $default-font-size;
+    font-weight: $default-font-weight;
+    font-style: $default-font-style;
+    font-stretch: $default-font-stretch;
+    line-height: $default-line-height;
+    letter-spacing: $default-letter-spacing;
+    color: $text-color;
+ }
+
+ @mixin custom-margin($prop, $val) {
+     margin-#{$prop}: #{$val};
+ }
+
+@mixin custom-padding($prop, $val) {
+    padding-#{$prop}: #{$val};
+}
+

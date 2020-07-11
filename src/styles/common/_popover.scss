@@ -1,0 +1,37 @@
+.popover-container {
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+
+  .popover-icon {
+    width: 20px;
+    height: auto;
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+
+    &:hover~.popover-content {
+      display: inline-block;
+    }
+  }
+
+  .popover-content {
+    position: absolute;
+    display: none;
+    padding: 10px;
+    z-index: $zindex-popover;
+    height: auto;
+    width: 400px;
+    background-color: $popover-background-color;
+    color: $white-color;
+    border-radius: 2px;
+    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.4;
+    top: 25px;
+    left: -120px;
+    font-weight: normal;
+  }
+}

@@ -1,0 +1,69 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: $default-font-family;
+  background-color: $page-background-color;
+  overflow-x: hidden;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.row-no-gutter {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.text-normal {
+  font-weight: normal !important;
+}
+
+.text-bold {
+  font-weight: bold !important;
+}
+
+.text-light {
+  font-weight: lighter !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.no-btn {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.no-shadow {
+  box-shadow: none !important;
+}
+
+.text-align-middle {
+  vertical-align: middle !important;
+}
+
+.no-overflow {
+  overflow: hidden;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-none {
+  display: none;
+}
+
+p {
+  font-size: 1rem !important;
+}

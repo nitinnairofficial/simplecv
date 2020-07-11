@@ -1,0 +1,32 @@
+.search-bar {
+  position: relative;
+  display: inline-block;
+  padding: 7px 10px 7px 40px;
+  font-size: 16px;
+  font-weight: normal;
+  border-radius: 3px;
+  border: 1px solid $button-border-color;
+  width: 320px;
+  vertical-align: middle;
+  background: url(/assets/icons/other-icons/search.png) no-repeat scroll 10px 10px;
+}
+
+.form-field {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: normal;
+  border-radius: 3px;
+  border: 1px solid $button-border-color;
+  width: 320px;
+  vertical-align: middle;
+}
+
+// responsive 
+
+@media (max-width: 767px) {
+  .search-bar {
+    width: 260px;
+  }
+}

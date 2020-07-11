@@ -1,0 +1,66 @@
+app-modal-dialog {
+  display: block;
+}
+
+app-modal-dialog .modal-container {
+  position: fixed;
+  top: 10%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-modal;
+  overflow: auto;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 40%;
+  max-width: 90%;
+  max-height: 80%;
+  height: inherit;
+  width: inherit;
+}
+
+app-modal-dialog .modal-container .modal-body {
+  position: relative;
+  display: block;
+  overflow-y: auto;
+}
+
+app-modal-dialog .modal-container .modal-body {
+  position: relative;
+  display: block;
+}
+
+app-modal-dialog .table-card {
+  box-shadow: none !important;
+}
+
+app-modal-dialog .modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #111;
+  opacity: 0.7;
+  z-index: $zindex-overlay;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.modal-close-btn {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  z-index: 1000;
+  color: $text-light-color;
+  text-align: center;
+  
+  &:hover {
+    background-color: $secondary-color;
+  }
+}

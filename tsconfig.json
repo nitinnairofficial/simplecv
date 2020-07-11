@@ -19,5 +19,22 @@
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
+  },
+  "paths": {
+    "@env/*": [
+      "src/environments/*"
+    ],
+    "@app-core/*": [
+      "src/app/core/*"
+    ],
+    "@app-auth/*": [
+      "src/app/authentication/*"
+    ],
+    "@app-shared/*": [
+      "src/app/shared/*"
+    ],
+    "@app-cv/*": [
+      "src/app/cv/*"
+    ],
   }
 }

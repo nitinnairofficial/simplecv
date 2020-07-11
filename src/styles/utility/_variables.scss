@@ -1,0 +1,16 @@
+// default variables
+$default-page-container-width: 1024px;
+
+$default-font-family: 'Ubuntu';
+$default-font-size: 16px;
+$default-font-weight: 400;
+$default-font-style: normal;
+$default-font-stretch: normal;
+$default-line-height: normal;
+$default-letter-spacing: normal;
+
+// space generation variables
+$spaceamounts: (0, 4, 8, 12, 16, 20, 24, 28, 32, 36,
+  40); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // all positions 
+$heading-size: (1, 2, 3, 4, 5, 6);

@@ -1,0 +1,126 @@
+.snackbar {
+  display: block;
+  width: 100%;
+  height: 48px;
+  border-radius: 4px;
+  position: fixed;
+  z-index: 1000;
+  font-size: 14px;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2),
+    0 6px 10px 0 rgba(0, 0, 0, .14),
+    0 1px 18px 0 rgba(0, 0, 0, .12);
+}
+
+.snackbar-message {
+  display: inline-block;
+  padding: 15px;
+}
+
+.snackbar-action {
+  display: inline-block;
+}
+
+.btn-snackbar {
+  font-size: 14px !important;
+  margin: 9px !important;
+  padding: 7px 14px !important;
+}
+
+.snackbar-xs {
+  width: 20% !important;
+}
+
+.snackbar-sm {
+  width: 40% !important;
+}
+
+.snackbar-md {
+  width: 60% !important;
+}
+
+.snackbar-top-left {
+  top: 25px;
+  left: 25px;
+}
+
+.snackbar-top-center {
+  top: 25px;
+  left: 50%;
+}
+
+.snackbar-xs.snackbar-top-center {
+  top: 25px;
+  left: 50%;
+  margin-left: -10%;
+}
+
+.snackbar-sm.snackbar-top-center {
+  top: 25px;
+  left: 50%;
+  margin-left: -20%;
+}
+
+.snackbar-md.snackbar-top-center {
+  top: 25px;
+  left: 50%;
+  margin-left: -30%;
+}
+
+.snackbar-top-right {
+  top: 25px;
+  right: 25px;
+}
+
+.snackbar-bottom-left {
+  bottom: 25px;
+  left: 25px;
+}
+
+.snackbar-bottom-center {
+  bottom: 25px;
+}
+
+.snackbar-xs.snackbar-bottom-center {
+  bottom: 25px;
+  left: 50%;
+  margin-left: -10%;
+}
+
+.snackbar-sm.snackbar-bottom-center {
+  bottom: 25px;
+  left: 50%;
+  margin-left: -20%;
+}
+
+.snackbar-md.snackbar-bottom-center {
+  bottom: 25px;
+  left: 50%;
+  margin-left: -30%;
+}
+
+.snackbar-bottom-right {
+  bottom: 25px;
+  right: 25px;
+}
+
+/* background colors */
+
+.snackbar-success {
+  background-color: $good-score-color;
+  color: #fff;
+}
+
+.snackbar-warning {
+  background-color: yellow;
+  color: #000;
+}
+
+.snackbar-error {
+  background-color: $bad-score-color;
+  color: #fff;
+}
+
+.snackbar-dark {
+  background-color: $black-color;
+  color: #fff;
+}

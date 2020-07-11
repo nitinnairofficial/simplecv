@@ -1,0 +1,32 @@
+.top-navigation-list {
+  display: block;
+  position: fixed;
+  height: 3.75rem;
+  width: 100vw;
+  border-bottom: 1px solid $top-navigation-border-color;
+  background-color: $white-color;
+  z-index: $zindex-top-navigation;
+
+  .top-navigation-item {
+    position: relative;
+    display: inline-block;
+    height: 3.5rem;
+    .top-navigation-link {
+      padding: 1rem 2rem;
+      display: inline-block;
+      font-size: $anchor-font-size;
+      text-decoration: none;
+      color: $text-light-color;
+      font-weight: 500;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.top-navigation-active {
+  color: $primary-color !important;
+  border-bottom: 0.25rem solid $primary-color;
+}

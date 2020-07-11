@@ -1,0 +1,30 @@
+@import 'base/reset';
+@import 'vendor/bootstrap';
+
+@import 'utility/colors';
+@import 'utility/variables';
+@import 'utility/zindex';
+@import 'utility/mixins';
+@import 'utility/functions';
+@import 'utility/fonts';
+@import 'utility/skeleton-loader';
+
+@import 'common/common';
+@import 'common/side-navigation';
+@import 'common/top-navigation';
+@import 'common/dropdown';
+@import 'common/button';
+@import 'common/input';
+@import 'common/heading';
+@import 'common/modal';
+@import 'common/tabs';
+@import 'common/popover';
+@import 'common/snackbar';
+
+
+// cv template
+@import 'common/templates';
+
+// this css import must be always at 
+// the end to override styles for responsiveness
+@import 'common/media-queries';
