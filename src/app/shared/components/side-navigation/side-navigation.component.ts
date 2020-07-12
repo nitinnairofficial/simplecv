@@ -23,9 +23,9 @@ export class SideNavigationComponent implements OnInit {
       routeIcon: "assets/icons/settings.svg",
     },
     {
-      routeLink: "help",
-      routeLabel: "Help",
-      routeIcon: "assets/icons/help.svg",
+      routeLink: "faq",
+      routeLabel: "FAQs",
+      routeIcon: "assets/icons/faq.svg",
     },
     {
       routeLink: "logout",

@@ -27,8 +27,8 @@ export class StatsComponent implements OnInit {
         labels: ["Mobile", "Tablet", "Desktop"],
         datasets: [
           {
-            data: [20, 40, 40],
-            backgroundColor: ["#878BB6", "#4ACAB4", "#FF8153"],
+            data: [20, 35, 45],
+            backgroundColor: ["#E38800", "#00B828", "#3070D4"],
           },
         ],
       },
@@ -51,10 +51,10 @@ export class StatsComponent implements OnInit {
         ],
         datasets: [
           {
-            label: "My First dataset",
-            backgroundColor: "rgb(255, 99, 132)",
-            borderColor: "rgb(255, 99, 132)",
-            data: [0, 10, 5, 2, 20, 30, 45],
+            label: "Average Views",
+            backgroundColor: "rgba(48, 112, 212, 0.1)",
+            borderColor: "#3070D4",
+            data: [0, 10, 5, 35, 20, 30, 45],
           },
         ],
       },
