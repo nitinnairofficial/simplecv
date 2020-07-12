@@ -6,6 +6,7 @@
   border-bottom: 1px solid $top-navigation-border-color;
   background-color: $white-color;
   z-index: $zindex-top-navigation;
+  top: 0;
 
   .top-navigation-item {
     position: relative;

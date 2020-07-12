@@ -9,10 +9,6 @@ body {
   overflow-x: hidden;
 }
 
-.clearfix {
-  clear: both;
-}
-
 .row-no-gutter {
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -40,30 +36,19 @@ body {
   outline: none;
 }
 
-.no-shadow {
-  box-shadow: none !important;
+.text-dark-color {
+  color: #333;
 }
 
-.text-align-middle {
-  vertical-align: middle !important;
+.text-light-color {
+  color: #666;
 }
 
-.no-overflow {
-  overflow: hidden;
-}
-
-.no-padding {
-  padding: 0 !important;
-}
-
-.d-block {
-  display: block;
-}
-
-.d-none {
-  display: none;
+.text-extra-light-color {
+  color: #999;
 }
 
 p {
   font-size: 1rem !important;
 }
+

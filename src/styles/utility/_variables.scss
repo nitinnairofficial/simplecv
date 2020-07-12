@@ -9,8 +9,3 @@ $default-font-stretch: normal;
 $default-line-height: normal;
 $default-letter-spacing: normal;
 
-// space generation variables
-$spaceamounts: (0, 4, 8, 12, 16, 20, 24, 28, 32, 36,
-  40); // Adjust this to include the pixel amounts you need.
-$sides: (top, bottom, left, right); // all positions 
-$heading-size: (1, 2, 3, 4, 5, 6);

@@ -1,28 +1,15 @@
 <div class="side-navigation">
   <ul class="navigation-list">
-    <li class="navigation-item" routerLinkActive="side-navigation-active">
-      <a class="navigation-link" [routerLink]="['/cv']">
-        <img class="icon navigation-icon" src="assets/icons/cv.svg" />
+    <li
+      class="navigation-item"
+      routerLinkActive="side-navigation-active"
+      *ngFor="let route of sideNavigationRoutes"
+    >
+      <a class="navigation-link" [routerLink]="route?.routeLink">
+        <img class="icon navigation-icon" [src]="route?.routeIcon" />
+
+        <span class="navigation-text">{{ route?.routeLabel }}</span>
       </a>
-      <span class="navigation-text">CV Builder</span>
-    </li>
-    <li class="navigation-item">
-      <a class="navigation-link">
-        <img class="icon navigation-icon" src="assets/icons/chart.svg" />
-      </a>
-      <span class="navigation-text">Stats</span>
-    </li>
-    <li class="navigation-item">
-      <a class="navigation-link">
-        <img class="icon navigation-icon" src="assets/icons/settings.svg" />
-      </a>
-      <span class="navigation-text">Settings</span>
-    </li>
-    <li class="navigation-item">
-      <a class="navigation-link">
-        <img class="icon navigation-icon" src="assets/icons/help.svg" />
-      </a>
-      <span class="navigation-text">Go Pro</span>
     </li>
   </ul>
 </div>

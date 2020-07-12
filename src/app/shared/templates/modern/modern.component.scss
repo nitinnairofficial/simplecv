@@ -6,10 +6,32 @@ h5,
 h6,
 span,
 p,
-a {
-  font-family: "Open Sans", sans-serif !important;
+a,
+ul li {
+  font-family: "Source Sans Pro", sans-serif !important;
 }
 
-p, span, a {
-    font-weight: 400 !important;
+p,
+span,
+a {
+  font-weight: 400 !important;
+}
+
+.skill-list {
+  padding: 0;
+  li {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: #EEE;
+    margin-right: 0.5rem;
+  }
+}
+
+
+ul {
+  padding-left: 2rem;
+}
+
+ul li {
+  list-style-type: disc;
 }

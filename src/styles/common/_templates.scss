@@ -1,22 +1,27 @@
 .template-container {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    min-height: 64rem;
-    max-width: 64rem;
-    background-color: $white-color;
-    font-size: 1rem;
-    margin: 10rem auto;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  min-height: 64rem;
+  max-width: 64rem;
+  background-color: $white-color;
+  font-size: 1rem;
+  margin: 0 auto;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.05);
 
-    .template-content {
-        margin: 5rem;
+  .template-content {
+    margin: 5rem;
 
-        .text-dark {
-            color: #333;
-        }
-
-        .text-light {
-            color: #666;
-        }
+    .text-dark-color {
+      color: #333;
     }
+
+    .text-light-color {
+      color: #666;
+    }
+
+    .text-extra-light-color {
+      color: #999;
+    }
+  }
 }

@@ -9,6 +9,10 @@
   color: $white-color;
   z-index: $zindex-side-navigation;
 
+  &:hover {
+    width: 15rem;
+  }
+
   .navigation-list {
     position: relative;
     display: block;
@@ -23,7 +27,6 @@
       word-wrap: break-word;
       white-space: nowrap;
       margin: 1rem 0;
-      padding: 1rem 1.75rem;
       cursor: pointer;
       &:hover {
         background-color: rgba(255, 255, 255, 0.2);
@@ -34,7 +37,10 @@
         display: inline-block;
         cursor: pointer;
         font-weight: 500;
+        padding: 1rem 1.75rem;
         color: $white-color;
+        text-decoration: none;
+        width: 100%;
       }
 
       .navigation-text {

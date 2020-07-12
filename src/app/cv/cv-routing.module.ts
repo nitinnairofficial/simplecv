@@ -11,6 +11,11 @@ const routes: Routes = [
     component: CvComponent,
     children: [
       {
+        path: "",
+        pathMatch: "full",
+        redirectTo: "editor",
+      },
+      {
         path: "editor",
         component: EditorComponent,
       },
