@@ -8,7 +8,7 @@ import { Component, OnInit } from "@angular/core";
 export class StatsComponent implements OnInit {
   public statsNavigationRoutes = [
     {
-      routeLink: "",
+      routeLink: null,
       routeLabel: "STATS",
     },
   ];
