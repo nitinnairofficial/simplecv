@@ -36,5 +36,8 @@
     "@app-cv/*": [
       "src/app/cv/*"
     ],
+    "@app-settings/*": [
+      "src/app/settings/*"
+    ],
   }
 }

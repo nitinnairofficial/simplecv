@@ -7,6 +7,7 @@ import { ModernComponent } from "./templates/modern/modern.component";
 import { DynamicTemplateComponent } from "./components/dynamic-template/dynamic-template.component";
 import { cvTemplateDirective } from "./components/dynamic-template/cv-template.directive";
 import { ClassicComponent } from './templates/classic/classic.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,15 +18,16 @@ import { ClassicComponent } from './templates/classic/classic.component';
     cvTemplateDirective,
     ClassicComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   exports: [
+    ReactiveFormsModule,
     RouterModule,
     SideNavigationComponent,
     TopNavigationComponent,
     ModernComponent,
     DynamicTemplateComponent,
     cvTemplateDirective,
-    ClassicComponent
+    ClassicComponent,
   ],
 })
 export class SharedModule {}

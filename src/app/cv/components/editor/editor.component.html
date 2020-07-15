@@ -1,0 +1,541 @@
+<div class="container" style="padding: 10rem 0;">
+  <form [formGroup]="cvForm" (ngSubmit)="onSubmit()">
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header active">
+          About
+          <div class="float-right">
+            <img class="accordion-icon" src="assets/icons/chevron.svg" />
+          </div>
+        </div>
+
+        <div class="accordion-text">
+          <ng-container
+            *ngFor="
+              let aboutSectionGroup of cvForm?.controls?.aboutSection?.controls;
+              let i = index
+            "
+            ;
+          >
+            <div>
+              <div [formGroup]="aboutSectionGroup">
+                <input
+                  class="custom-input width-50"
+                  type="text"
+                  formControlName="firstName"
+                  placeholder="First Name"
+                />
+
+                <input
+                  class="custom-input width-50"
+                  type="text"
+                  formControlName="lastName"
+                  placeholder="Last Name"
+                />
+
+                <input
+                  class="custom-input width-100"
+                  type="text"
+                  formControlName="jobTitle"
+                  placeholder="Job Title"
+                />
+
+                <input
+                  class="custom-input width-100"
+                  type="text"
+                  formControlName="website"
+                  placeholder="Your Website"
+                />
+
+                <input
+                  class="custom-input width-50"
+                  type="text"
+                  formControlName="city"
+                  placeholder="City"
+                />
+
+                <input
+                  class="custom-input width-50"
+                  type="text"
+                  formControlName="state"
+                  placeholder="State"
+                />
+
+                <input
+                  class="custom-input width-100"
+                  type="text"
+                  formControlName="country"
+                  placeholder="Country"
+                />
+
+                <textarea
+                  class="custom-textarea"
+                  type="text"
+                  formControlName="summary"
+                  placeholder="Summary"
+                ></textarea>
+                <br /><br />
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          Work Experience
+          <div class="float-right">
+            <img class="accordion-icon" src="assets/icons/chevron.svg" />
+          </div>
+        </div>
+
+        <div class="accordion-text">
+          <ng-container
+            *ngFor="
+              let workExperienceGroup of cvForm?.controls?.workExperienceSection
+                ?.controls;
+              let i = index
+            "
+          >
+            <div [formGroup]="workExperienceGroup">
+              <p class="text-dark-color">Job {{ i + 1 }} Section</p>
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="employerName"
+                placeholder="Employer/Company Name"
+              />
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="jobTitle"
+                placeholder="Job Title"
+              />
+              <input
+                class="custom-input width-50"
+                type="text"
+                formControlName="startDate"
+                placeholder="Start Date"
+              />
+              <input
+                class="custom-input width-50"
+                type="text"
+                formControlName="endDate"
+                placeholder="End Date / Present"
+              />
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="employerWebsite"
+                placeholder="Employer/Company Website"
+              />
+              <input
+                class="custom-input width-50"
+                type="text"
+                formControlName="city"
+                placeholder="City"
+              />
+              <input
+                class="custom-input width-50"
+                type="text"
+                formControlName="state"
+                placeholder="State"
+              />
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="country"
+                placeholder="Country"
+              />
+              <textarea
+                class="custom-textarea"
+                type="text"
+                formControlName="summary"
+                placeholder="Summary"
+              ></textarea>
+              <button
+                class="btn btn-outline-primary mt-4 mr-4"
+                (click)="
+                  addFormControl(
+                    'workExperienceSection',
+                    'workExperienceSection'
+                  )
+                "
+              >
+                <img class="btn-icon" src="assets/icons/add.svg" />&nbsp;Add
+                Work Experience
+              </button>
+              <button
+                *ngIf="i != 0"
+                class="btn btn-outline-danger mt-4"
+                (click)="removeFormControl('workExperienceSection', i)"
+              >
+                <img
+                  class="btn-icon"
+                  src="assets/icons/delete.svg"
+                />&nbsp;Delete Work Experience
+              </button>
+              <br /><br />
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          Education
+          <div class="float-right">
+            <img class="accordion-icon" src="assets/icons/chevron.svg" />
+          </div>
+        </div>
+
+        <div class="accordion-text">
+          <ng-container
+            *ngFor="
+              let educationSectionGroup of cvForm?.controls?.educationSection
+                ?.controls;
+              let i = index
+            "
+            ;
+          >
+            <p class="text-dark-color">School {{ i + 1 }} Section</p>
+            <div [formGroup]="educationSectionGroup">
+              <input
+                class="custom-input width-50"
+                type="text"
+                formControlName="schoolName"
+                placeholder="School Name"
+              />
+
+              <input
+                class="custom-input width-50"
+                type="text"
+                formControlName="degree"
+                placeholder="Degree/Major"
+              />
+
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="startDate"
+                placeholder="Start Date"
+              />
+
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="endDate"
+                placeholder="End Date"
+              />
+
+              <input
+                class="custom-input width-50"
+                type="text"
+                formControlName="city"
+                placeholder="City"
+              />
+
+              <input
+                class="custom-input width-50"
+                type="text"
+                formControlName="state"
+                placeholder="State"
+              />
+
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="country"
+                placeholder="Country"
+              />
+
+              <textarea
+                class="custom-textarea"
+                type="text"
+                formControlName="summary"
+                placeholder="Summary"
+              ></textarea>
+              <button
+                class="btn btn-outline-primary mt-4 mr-4"
+                (click)="addFormControl('educationSection', 'educationSection')"
+              >
+                <img class="btn-icon" src="assets/icons/add.svg" />&nbsp;Add
+                School
+              </button>
+              <button
+                *ngIf="i != 0"
+                class="btn btn-outline-danger mt-4"
+                (click)="removeFormControl('educationSection', i)"
+              >
+                <img
+                  class="btn-icon"
+                  src="assets/icons/delete.svg"
+                />&nbsp;Delete Section
+              </button>
+              <br /><br />
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          Projects
+          <div class="float-right">
+            <img class="accordion-icon" src="assets/icons/chevron.svg" />
+          </div>
+        </div>
+
+        <div class="accordion-text">
+          <ng-container
+            *ngFor="
+              let projectsSectionGroup of cvForm?.controls?.projectsSection
+                ?.controls;
+              let i = index
+            "
+            ;
+          >
+            <p class="text-dark-color">Project {{ i + 1 }} Section</p>
+            <div [formGroup]="projectsSectionGroup">
+              <input
+                class="custom-input width-50"
+                type="text"
+                formControlName="projectName"
+                placeholder="Project Name"
+              />
+
+              <input
+                class="custom-input width-50"
+                type="text"
+                formControlName="role"
+                placeholder="Your Role in Project"
+              />
+
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="startDate"
+                placeholder="Start Date"
+              />
+
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="endDate"
+                placeholder="End Date"
+              />
+
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="projectWebsite"
+                placeholder="Project Website"
+              />
+
+              <textarea
+                class="custom-textarea"
+                type="text"
+                formControlName="summary"
+                placeholder="Summary"
+              ></textarea>
+              <button
+                class="btn btn-outline-primary mt-4 mr-4"
+                (click)="addFormControl('projectsSection', 'projectsSection')"
+              >
+                <img class="btn-icon" src="assets/icons/add.svg" />&nbsp;Add
+                New Project
+              </button>
+              <button
+                *ngIf="i != 0"
+                class="btn btn-outline-danger mt-4"
+                (click)="removeFormControl('projectsSection', i)"
+              >
+                <img
+                  class="btn-icon"
+                  src="assets/icons/delete.svg"
+                />&nbsp;Delete Project Section
+              </button>
+              <br /><br />
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          Skills
+          <div class="float-right">
+            <img class="accordion-icon" src="assets/icons/chevron.svg" />
+          </div>
+        </div>
+
+        <div class="accordion-text">
+          <ng-container
+            *ngFor="
+              let skillsGroup of cvForm?.controls?.skillsSection?.controls;
+              let i = index
+            "
+          >
+            <div [formGroup]="skillsGroup">
+              <p class="text-dark-color" *ngIf="i == 0">Skills Section</p>
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="skillName"
+                placeholder="Skill {{ i + 1 }}"
+              />
+
+              <button
+                *ngIf="i == cvForm?.controls?.skillsSection?.length - 1"
+                class="btn btn-outline-primary mt-4 mr-4"
+                (click)="addFormControl('skillsSection', 'skillsSection')"
+              >
+                <img class="btn-icon" src="assets/icons/add.svg" />&nbsp;Add new
+                skill
+              </button>
+              <button
+                *ngIf="
+                  i != 0 && i == cvForm?.controls?.skillsSection?.length - 1
+                "
+                class="btn btn-outline-danger mt-4"
+                (click)="removeFormControl('skillsSection', i)"
+              >
+                <img
+                  class="btn-icon"
+                  src="assets/icons/delete.svg"
+                />&nbsp;Delete skill
+              </button>
+              <br /><br />
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          Languages
+          <div class="float-right">
+            <img class="accordion-icon" src="assets/icons/chevron.svg" />
+          </div>
+        </div>
+
+        <div class="accordion-text">
+          <ng-container
+            *ngFor="
+              let languagesGroup of cvForm?.controls?.languagesSection
+                ?.controls;
+              let i = index
+            "
+          >
+            <div [formGroup]="languagesGroup">
+              <p class="text-dark-color" *ngIf="i == 0">Languages Section</p>
+              <input
+                class="custom-input width-50"
+                type="text"
+                formControlName="language"
+                placeholder="Language {{ i + 1 }}"
+              />
+
+              <input
+                class="custom-input width-50"
+                type="text"
+                formControlName="proficiency"
+                placeholder="Proficiency"
+              />
+              <button
+                *ngIf="i == cvForm?.controls?.languagesSection?.length - 1"
+                class="btn btn-outline-primary mt-4 mr-4"
+                (click)="addFormControl('languagesSection', 'languagesSection')"
+              >
+                <img class="btn-icon" src="assets/icons/add.svg" />&nbsp;Add new
+                language
+              </button>
+              <button
+                *ngIf="
+                  i != 0 && i == cvForm?.controls?.languagesSection?.length - 1
+                "
+                class="btn btn-outline-danger mt-4"
+                (click)="removeFormControl('languagesSection', i)"
+              >
+                <img
+                  class="btn-icon"
+                  src="assets/icons/delete.svg"
+                />&nbsp;Delete language
+              </button>
+              <br /><br />
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          Awards
+          <div class="float-right">
+            <img class="accordion-icon" src="assets/icons/chevron.svg" />
+          </div>
+        </div>
+
+        <div class="accordion-text">
+          <ng-container
+            *ngFor="
+              let awardsSectionGroup of cvForm?.controls?.awardsSection
+                ?.controls;
+              let i = index
+            "
+            ;
+          >
+            <p class="text-dark-color">School {{ i + 1 }} Section</p>
+            <div [formGroup]="awardsSectionGroup">
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="awardName"
+                placeholder="Award Name"
+              />
+
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="awardDate"
+                placeholder="Date"
+              />
+
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="awardWebsite"
+                placeholder="Website"
+              />
+
+              <textarea
+                class="custom-textarea"
+                type="text"
+                formControlName="summary"
+                placeholder="Summary"
+              ></textarea>
+              <button
+                class="btn btn-outline-primary mt-4 mr-4"
+                (click)="addFormControl('awardsSection', 'awardsSection')"
+              >
+                <img class="btn-icon" src="assets/icons/add.svg" />&nbsp;Add
+                School
+              </button>
+              <button
+                *ngIf="i != 0"
+                class="btn btn-outline-danger mt-4"
+                (click)="removeFormControl('awardsSection', i)"
+              >
+                <img
+                  class="btn-icon"
+                  src="assets/icons/delete.svg"
+                />&nbsp;Delete Section
+              </button>
+              <br /><br />
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

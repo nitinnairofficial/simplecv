@@ -1,0 +1,35 @@
+.accordion-item {
+  position: relative;
+  display: block;
+  background-color: $white-color;
+  color: $primary-color;
+  font-weight: 500;
+
+  .accordion-header {
+    position: relative;
+    display: block;
+    padding: 1.5rem;
+    background-color: $secondary-color;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+    border-radius: 0.25rem;
+
+    .accordion-icon {
+      transform: rotate(0);
+      transition: transform 0.15s ease;
+    }
+  }
+}
+.accordion-text {
+  display: none;
+}
+
+.accordion-header.active + .accordion-text {
+  display: block;
+}
+
+.accordion-header.active .accordion-icon {
+  transform: rotate(180deg);
+}
