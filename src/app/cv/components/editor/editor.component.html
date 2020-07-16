@@ -40,12 +40,22 @@
                   placeholder="Job Title"
                 />
 
-                <input
-                  class="custom-input width-100"
-                  type="text"
-                  formControlName="website"
-                  placeholder="Your Website"
-                />
+                <div style="position: relative;">
+                  <input
+                    class="custom-input width-100"
+                    style="padding-right: 6rem;"
+                    type="text"
+                    formControlName="website"
+                    placeholder="Your Website"
+                    #aboutWebsite
+                  />
+                  <a
+                    class="test-link"
+                    [href]="aboutWebsite?.value"
+                    target="_blank"
+                    >Test Link</a
+                  >
+                </div>
 
                 <input
                   class="custom-input width-50"
@@ -68,12 +78,19 @@
                   placeholder="Country"
                 />
 
-                <textarea
-                  class="custom-textarea"
-                  type="text"
-                  formControlName="summary"
-                  placeholder="Summary"
-                ></textarea>
+                <div style="position: relative;">
+                  <textarea
+                    class="custom-textarea"
+                    type="text"
+                    formControlName="summary"
+                    placeholder="Summary"
+                    #aboutSummary
+                  ></textarea>
+                  <div class="text-count text-extra-light-color">
+                    {{ aboutSummary?.value?.length }} characters
+                  </div>
+                </div>
+
                 <br /><br />
               </div>
             </div>
@@ -123,12 +140,23 @@
                 formControlName="endDate"
                 placeholder="End Date / Present"
               />
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="employerWebsite"
-                placeholder="Employer/Company Website"
-              />
+
+              <div style="position: relative;">
+                <input
+                  class="custom-input width-100"
+                  style="padding-right: 6rem;"
+                  type="text"
+                  formControlName="employerWebsite"
+                  placeholder="Employer/Company Website"
+                  #employerWebsite
+                />
+                <a
+                  class="test-link"
+                  [href]="employerWebsite?.value"
+                  target="_blank"
+                  >Test Link</a
+                >
+              </div>
               <input
                 class="custom-input width-50"
                 type="text"
@@ -147,12 +175,18 @@
                 formControlName="country"
                 placeholder="Country"
               />
-              <textarea
-                class="custom-textarea"
-                type="text"
-                formControlName="summary"
-                placeholder="Summary"
-              ></textarea>
+              <div style="position: relative;">
+                <textarea
+                  class="custom-textarea"
+                  type="text"
+                  formControlName="summary"
+                  placeholder="Summary"
+                  #workSummary
+                ></textarea>
+                <div class="text-count text-extra-light-color">
+                  {{ workSummary?.value?.length }} characters
+                </div>
+              </div>
               <button
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="
@@ -249,12 +283,18 @@
                 placeholder="Country"
               />
 
-              <textarea
-                class="custom-textarea"
-                type="text"
-                formControlName="summary"
-                placeholder="Summary"
-              ></textarea>
+              <div style="position: relative;">
+                <textarea
+                  class="custom-textarea"
+                  type="text"
+                  formControlName="summary"
+                  placeholder="Summary"
+                  #educationSummary
+                ></textarea>
+                <div class="text-count text-extra-light-color">
+                  {{ educationSummary?.value?.length }} characters
+                </div>
+              </div>
               <button
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="addFormControl('educationSection', 'educationSection')"
@@ -325,25 +365,41 @@
                 placeholder="End Date"
               />
 
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="projectWebsite"
-                placeholder="Project Website"
-              />
+              <div style="position: relative;">
+                <input
+                  class="custom-input width-100"
+                  style="padding-right: 6rem;"
+                  type="text"
+                  formControlName="projectWebsite"
+                  placeholder="Project Website"
+                  #projectWebsite
+                />
+                <a
+                  class="test-link"
+                  [href]="projectWebsite?.value"
+                  target="_blank"
+                  >Test Link</a
+                >
+              </div>
 
-              <textarea
-                class="custom-textarea"
-                type="text"
-                formControlName="summary"
-                placeholder="Summary"
-              ></textarea>
+              <div style="position: relative;">
+                <textarea
+                  class="custom-textarea"
+                  type="text"
+                  formControlName="summary"
+                  placeholder="Summary"
+                  #projectSummary
+                ></textarea>
+                <div class="text-count text-extra-light-color">
+                  {{ projectSummary?.value?.length }} characters
+                </div>
+              </div>
               <button
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="addFormControl('projectsSection', 'projectsSection')"
               >
-                <img class="btn-icon" src="assets/icons/add.svg" />&nbsp;Add
-                New Project
+                <img class="btn-icon" src="assets/icons/add.svg" />&nbsp;Add New
+                Project
               </button>
               <button
                 *ngIf="i != 0"
@@ -485,7 +541,7 @@
             "
             ;
           >
-            <p class="text-dark-color">School {{ i + 1 }} Section</p>
+            <p class="text-dark-color">Award {{ i + 1 }} Section</p>
             <div [formGroup]="awardsSectionGroup">
               <input
                 class="custom-input width-100"
@@ -501,25 +557,41 @@
                 placeholder="Date"
               />
 
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="awardWebsite"
-                placeholder="Website"
-              />
+              <div style="position: relative;">
+                <input
+                  class="custom-input width-100"
+                  style="padding-right: 6rem;"
+                  type="text"
+                  formControlName="awardWebsite"
+                  placeholder="Website"
+                  #awardWebsite
+                />
+                <a
+                  class="test-link"
+                  [href]="awardWebsite?.value"
+                  target="_blank"
+                  >Test Link</a
+                >
+              </div>
 
-              <textarea
-                class="custom-textarea"
-                type="text"
-                formControlName="summary"
-                placeholder="Summary"
-              ></textarea>
+              <div style="position: relative;">
+                <textarea
+                  class="custom-textarea"
+                  type="text"
+                  formControlName="summary"
+                  placeholder="Summary"
+                  #awardSummary
+                ></textarea>
+                <div class="text-count text-extra-light-color">
+                  {{ awardSummary?.value?.length }} characters
+                </div>
+              </div>
               <button
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="addFormControl('awardsSection', 'awardsSection')"
               >
                 <img class="btn-icon" src="assets/icons/add.svg" />&nbsp;Add
-                School
+                Award
               </button>
               <button
                 *ngIf="i != 0"
@@ -529,7 +601,7 @@
                 <img
                   class="btn-icon"
                   src="assets/icons/delete.svg"
-                />&nbsp;Delete Section
+                />&nbsp;Delete Award Section
               </button>
               <br /><br />
             </div>

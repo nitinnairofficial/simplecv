@@ -1,0 +1,13 @@
+<div class="dialog" (click)="onDialogClicked($event)">
+  <button
+    *ngIf="dialogConfig?.displayCloseButton"
+    class="no-btn dialog-close-btn"
+    role="button"
+    (click)="close()"
+  >
+    <img class="dialog-close-icon" src="assets/icons/close.svg" />
+  </button>
+  <ng-template appDialogInsertion></ng-template>
+</div>
+
+<div class="overlay" (click)="onOverlayClicked($event)"></div>

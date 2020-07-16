@@ -27,9 +27,6 @@
     "@app-core/*": [
       "src/app/core/*"
     ],
-    "@app-auth/*": [
-      "src/app/authentication/*"
-    ],
     "@app-shared/*": [
       "src/app/shared/*"
     ],

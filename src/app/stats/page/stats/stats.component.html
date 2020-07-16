@@ -16,7 +16,7 @@
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 mb-4">
       <div class="card">
         <div class="card-body">
-          <h6 class="card-title text-primary">TOTAL VIEWS</h6>
+          <h6 class="card-title text-light-color">TOTAL VIEWS</h6>
           <h3 class="card-text text-dark">20</h3>
         </div>
       </div>
@@ -25,7 +25,7 @@
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 mb-4">
       <div class="card">
         <div class="card-body">
-          <h6 class="card-title text-primary">TOTAL DOWNLOADS</h6>
+          <h6 class="card-title text-light-color">TOTAL DOWNLOADS</h6>
           <h3 class="card-text text-dark">11</h3>
         </div>
       </div>
@@ -34,7 +34,7 @@
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 mb-4">
       <div class="card">
         <div class="card-body">
-          <h6 class="card-title text-primary">AVERAGE READ TIME</h6>
+          <h6 class="card-title text-light-color">AVERAGE READ TIME</h6>
           <h3 class="card-text text-dark">2m 30s</h3>
         </div>
       </div>
@@ -43,7 +43,7 @@
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 mb-4">
       <div class="card">
         <div class="card-body">
-          <h6 class="card-title text-primary">LINKS SHARED</h6>
+          <h6 class="card-title text-light-color">LINKS SHARED</h6>
           <h3 class="card-text text-dark">5</h3>
         </div>
       </div>
@@ -57,7 +57,16 @@
         <div class="card-body">
           <h6 class="card-title text-extra-light-color">VIEWS CHART</h6>
           <div>
-            <canvas id="myChart"></canvas>
+            <canvas
+              baseChart
+              [chartType]="'line'"
+              [datasets]="lineChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+              [legend]="true"
+            >
+            </canvas>
           </div>
         </div>
       </div>
@@ -68,7 +77,17 @@
         <div class="card-body">
           <h6 class="card-title text-extra-light-color">DEVICE TYPE</h6>
           <div>
-            <canvas id="myPieChart" width="360" height="360"></canvas>
+            <canvas
+              baseChart
+              [chartType]="'doughnut'"
+              [datasets]="pieChartData"
+              [labels]="pieChartLabels"
+              [options]="pieChartOptions"
+              [legend]="true"
+              [colors]="pieChartColors"
+              height="320px"
+            >
+            </canvas>
           </div>
         </div>
       </div>
