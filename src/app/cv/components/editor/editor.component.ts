@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, FormArray } from "@angular/forms";
 import { FORM_CONFIG } from "../../constants/cv.constants";
+import { CvService } from "../../services/cv/cv.service";
 
 @Component({
   selector: "app-editor",
@@ -11,7 +12,7 @@ export class EditorComponent implements OnInit {
   public cvForm: FormGroup;
   public config = FORM_CONFIG;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private cvService: CvService) {}
 
   ngOnInit() {
     // accordion-start
@@ -48,7 +49,7 @@ export class EditorComponent implements OnInit {
     this.addFormControl("awardsSection", "awardsSection");
 
     this.cvForm.valueChanges.subscribe((val) => {
-      console.log(val);
+      this.cvService.modifyData(val);
     });
   }
 
@@ -113,8 +114,9 @@ export class EditorComponent implements OnInit {
     let arraylen = Array.length;
     let newUsergroup: FormGroup = this.fb.group(this.config[formConfig]);
     Array.insert(arraylen, newUsergroup);
-    console.log(this.cvForm.value);
   }
 
-  public onSubmit() {}
+  public onSubmit() {
+    this.cvService.modifyData(this.cvForm.value);
+  }
 }

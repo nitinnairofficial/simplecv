@@ -13,6 +13,7 @@ import { DialogComponent } from "./components/dialog/dialog.component";
 import { DialogRef } from "../core/models/dialog-ref";
 import { TemplateListComponent } from "./components/template-list/template-list.component";
 import { DialogInsertionDirective } from './directives/dialog-insertion/dialog-insertion.directive';
+import { EleganceComponent } from './templates/elegance/elegance.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DialogInsertionDirective } from './directives/dialog-insertion/dialog-i
     ClassicComponent,
     DialogComponent,
     TemplateListComponent,
-    DialogInsertionDirective
+    DialogInsertionDirective,
+    EleganceComponent
   ],
   imports: [CommonModule, ReactiveFormsModule, RouterModule, ChartsModule],
   exports: [
@@ -38,6 +40,7 @@ import { DialogInsertionDirective } from './directives/dialog-insertion/dialog-i
     cvTemplateDirective,
     ClassicComponent,
     TemplateListComponent,
+    EleganceComponent
   ],
   entryComponents: [DialogComponent, TemplateListComponent],
   providers: [DialogRef],

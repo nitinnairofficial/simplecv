@@ -20,7 +20,7 @@ export class StatsComponent implements OnInit {
 
   lineChartLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   lineChartColors = [
-    { backgroundColor: "rgba(48, 112, 212, 0.1)", borderColor: "#3070D4" },
+    { backgroundColor: "rgba(48, 112, 212, 0.1)", borderColor: "#1278ed" },
   ];
   pieChartOptions = {
     responsive: true,
@@ -29,7 +29,7 @@ export class StatsComponent implements OnInit {
   pieChartData = [{ data: [330, 600, 260], label: "Account A" }];
 
   pieChartLabels = ["Desktop", "Tablet", "Mobile"];
-  pieChartColors = [{ backgroundColor: ["#3070D4", "#00A124", "#DC9100"] }];
+  pieChartColors = [{ backgroundColor: ["#1278ed", "#00A124", "#DC9100"] }];
   constructor() {}
 
   ngOnInit(): void {}

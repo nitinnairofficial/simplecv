@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { EditorComponent } from './components/editor/editor.component';
 import { PreviewComponent } from './components/preview/preview.component';
 import { ShareComponent } from './components/share/share.component';
+import { CvService } from './services/cv/cv.service';
 
 
 @NgModule({
@@ -15,6 +16,9 @@ import { ShareComponent } from './components/share/share.component';
     CommonModule,
     SharedModule,
     CvRoutingModule
+  ],
+  providers: [
+    CvService
   ]
 })
 export class CvModule { }

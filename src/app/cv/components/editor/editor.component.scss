@@ -4,7 +4,7 @@
   padding: 1rem;
   font-size: 1rem;
   line-height: 1.5;
-  color: #333;
+  color: #212121;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
@@ -18,7 +18,7 @@
   padding: 1rem;
   font-size: 1rem;
   line-height: 1.5;
-  color: #333;
+  color: #212121;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
@@ -31,33 +31,40 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
-.custom-input::-ms-expand {
+.custom-input::-ms-expand,
+.custom-textarea::-ms-expand {
   background-color: transparent;
   border: 0;
 }
-.custom-input:focus {
-  color: #495057;
+.custom-input:focus,
+.custom-textarea:focus {
+  color: #212121;
   background-color: #fff;
   border-color: #80bdff;
   outline: 0;
 }
-.custom-input::-webkit-input-placeholder {
+.custom-input::-webkit-input-placeholder,
+.custom-textarea::-webkit-input-placeholder {
   color: #999;
   opacity: 1;
 }
-.custom-input::-moz-placeholder {
+.custom-input::-moz-placeholder,
+.custom-textarea::-moz-placeholder {
   color: #999;
   opacity: 1;
 }
-.custom-input:-ms-input-placeholder {
+.custom-input:-ms-input-placeholder,
+.custom-textarea:-ms-input-placeholder {
   color: #999;
   opacity: 1;
 }
-.custom-input::-ms-input-placeholder {
+.custom-input::-ms-input-placeholder,
+.custom-textarea::-ms-input-placeholder {
   color: #999;
   opacity: 1;
 }
-.custom-input::placeholder {
+.custom-input::placeholder,
+.custom-textarea::placeholder {
   color: #999;
   opacity: 1;
 }
