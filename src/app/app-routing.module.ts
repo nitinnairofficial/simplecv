@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: "",
     redirectTo: "home",
-    pathMatch: "full"
+    pathMatch: "full",
   },
   {
     path: "home",
@@ -15,6 +15,10 @@ const routes: Routes = [
     path: "dashboard",
     loadChildren: () =>
       import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
+  },
+  {
+    path: "cv/:userId",
+    loadChildren: () => import("./cv/cv.module").then((m) => m.CvModule),
   },
 ];
 

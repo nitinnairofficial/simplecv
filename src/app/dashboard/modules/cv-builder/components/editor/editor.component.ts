@@ -12,7 +12,7 @@ export class EditorComponent implements OnInit {
   public cvForm: FormGroup;
   public config = FORM_CONFIG;
 
-  constructor(private fb: FormBuilder, private cvService: CvBuilderService) {}
+  constructor(private fb: FormBuilder, private CvBuilderService: CvBuilderService) {}
 
   ngOnInit() {
     // accordion-start
@@ -49,7 +49,7 @@ export class EditorComponent implements OnInit {
     this.addFormControl("awardsSection", "awardsSection");
 
     this.cvForm.valueChanges.subscribe((val) => {
-      this.cvService.modifyData(val);
+      this.CvBuilderService.modifyData(val);
     });
   }
 
@@ -117,6 +117,6 @@ export class EditorComponent implements OnInit {
   }
 
   public onSubmit() {
-    this.cvService.modifyData(this.cvForm.value);
+    this.CvBuilderService.modifyData(this.cvForm.value);
   }
 }

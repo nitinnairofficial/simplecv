@@ -8,9 +8,7 @@ import {
 import { ModernComponent } from "../../templates/modern/modern.component";
 import { cvTemplateDirective } from "./cv-template.directive";
 import { ClassicComponent } from "../../templates/classic/classic.component";
-import { DialogService } from "src/app/core/services/dialog/dialog.service";
-import { TemplateListComponent } from "../template-list/template-list.component";
-import { EleganceComponent } from '../../templates/elegance/elegance.component';
+import { EleganceComponent } from "../../templates/elegance/elegance.component";
 
 @Component({
   selector: "app-dynamic-template",
@@ -24,16 +22,13 @@ export class DynamicTemplateComponent implements OnInit {
   public config = {
     modern: ModernComponent,
     classic: ClassicComponent,
-    elegance: EleganceComponent
+    elegance: EleganceComponent,
   };
 
-  constructor(
-    private componentFactoryResolver: ComponentFactoryResolver,
-    private dialogService: DialogService
-  ) {}
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
   ngOnInit(): void {
-    this.createComponent("elegance");
+    this.createComponent("modern");
   }
 
   public createComponent(compName: string) {
@@ -44,9 +39,5 @@ export class DynamicTemplateComponent implements OnInit {
     viewContainerRef.clear();
     const componentRef = viewContainerRef.createComponent(componentFactory);
     (<DynamicTemplateComponent>componentRef.instance).data = this.data;
-  }
-
-  public OpenChangeTemplateDialog() {
-    this.dialogService.open(TemplateListComponent, {});
   }
 }

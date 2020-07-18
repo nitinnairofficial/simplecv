@@ -22,9 +22,9 @@ export class CvBuilderComponent implements OnInit {
     },
   ];
 
-  constructor(private cvService: CvBuilderService) {}
+  constructor(private CvBuilderService: CvBuilderService) {}
 
   ngOnInit(): void {
-    this.cvService.cvData.subscribe((data) => {});
+    this.CvBuilderService.cvData.subscribe((data) => {});
   }
 }
