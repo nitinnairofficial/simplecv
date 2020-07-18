@@ -12,8 +12,7 @@ const routes: Routes = [
     children: [
       {
         path: "",
-        pathMatch: "full",
-        redirectTo: "editor",
+        redirectTo: "editor"
       },
       {
         path: "editor",

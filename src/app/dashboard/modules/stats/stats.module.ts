@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 
 import { StatsRoutingModule } from "./stats-routing.module";
 import { StatsComponent } from "./page/stats/stats.component";
-import { SharedModule } from "../shared/shared.module";
+import { SharedModule } from "src/app/shared/shared.module";
 
 @NgModule({
   declarations: [StatsComponent],

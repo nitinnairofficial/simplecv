@@ -2,7 +2,10 @@
   <div class="template-content">
     <div class="row mb-4">
       <div class="col">
-        <h2 class="text-dark-color text-bold">{{ data?.firstName }} {{ data?.lastName }}</h2>
+        <h2 class="text-dark-color text-bold" *ngIf="data?.aboutSection">
+          {{ (data?.aboutSection)[0]?.firstName }}
+          {{ (data?.aboutSection)[0]?.lastName }}
+        </h2>
         <p class="text-light-color">Frontend Developer</p>
 
         <p class="text-light-color">

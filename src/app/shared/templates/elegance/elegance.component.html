@@ -27,42 +27,31 @@
       <div class="col-lg-8">
         <h6 class="text-extra-light-color text-bold mb-4">WORK EXPERIENCE</h6>
 
-        <h3 class="text-dark-color text-bold">Google Inc.</h3>
-        <p class="text-light-color mb-16">
-          Frontend Developer | Aug, 2016 - Sep, 2018
-        </p>
+        <ng-container *ngFor="let employer of data?.workExperienceSection">
+          <h3 class="text-dark-color text-bold">{{ employer?.employerName}}</h3>
+          <p class="text-light-color mb-16">
+            Frontend Developer | Aug, 2016 - Sep, 2018
+          </p>
 
-        <p class="text-dark-color">
-          I’m a multi-disciplined artist and problem solver in design and
-          photography with over 11 years of industry experience working to
-          develop brands through effective visual communication and intuitive
-          experiences.
-        </p>
-
-        <h3 class="text-dark-color text-bold">Google Inc.</h3>
-        <p class="text-light-color">
-          Frontend Developer | Aug, 2016 - Sep, 2018
-        </p>
-
-        <p class="text-dark-color">
-          I’m a multi-disciplined artist and problem solver in design and
-          photography with over 11 years of industry experience working to
-          develop brands through effective visual communication and intuitive
-          experiences.
-        </p>
-
-        <ul class="mb-4">
-          <li>
-            Lead formalizing the design process and implementing new design
-            systems and software to bring a consistent visual language to
-            various new B2C experiences
-          </li>
-          <li>Champion and practice a holistic UX process</li>
-          <li>
-            Lead conceptual planning for driving the end-to-end user experience
-            ensuring that EXPRESS builds the minimal viable product
-          </li>
-        </ul>
+          <p class="text-dark-color">
+            I’m a multi-disciplined artist and problem solver in design and
+            photography with over 11 years of industry experience working to
+            develop brands through effective visual communication and intuitive
+            experiences.
+          </p>
+          <ul class="mb-4">
+            <li>
+              Lead formalizing the design process and implementing new design
+              systems and software to bring a consistent visual language to
+              various new B2C experiences
+            </li>
+            <li>Champion and practice a holistic UX process</li>
+            <li>
+              Lead conceptual planning for driving the end-to-end user
+              experience ensuring that EXPRESS builds the minimal viable product
+            </li>
+          </ul>
+        </ng-container>
 
         <div class="clearfix"></div>
 

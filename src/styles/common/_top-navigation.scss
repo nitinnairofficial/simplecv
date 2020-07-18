@@ -31,3 +31,25 @@
   color: $primary-color !important;
   border-bottom: 0.25rem solid $primary-color;
 }
+
+.mobile-navigation {
+  position: fixed;
+  display: none;
+  height: 4rem;
+  background-color: $primary-color;
+  color: $white-color;
+  padding: 1.5rem;
+  padding-left: 4rem;
+  width: 100vw;
+  z-index: $zindex-top-navigation;
+}
+
+@media (max-width: 1280px) {
+  .mobile-navigation {
+    display: block;
+  }
+
+  .top-navigation-list {
+    top: 4rem;
+  }
+}
