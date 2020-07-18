@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, FormArray } from "@angular/forms";
 import { FORM_CONFIG } from "../../constants/cv.constants";
-import { CvService } from "../../services/cv/cv.service";
+import { CvBuilderService } from '../../services/cv/cv-builder.service';
 
 @Component({
   selector: "app-editor",
@@ -12,7 +12,7 @@ export class EditorComponent implements OnInit {
   public cvForm: FormGroup;
   public config = FORM_CONFIG;
 
-  constructor(private fb: FormBuilder, private cvService: CvService) {}
+  constructor(private fb: FormBuilder, private cvService: CvBuilderService) {}
 
   ngOnInit() {
     // accordion-start

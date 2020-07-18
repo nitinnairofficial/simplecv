@@ -9,12 +9,12 @@ const routes: Routes = [
     children: [
       {
         path: "",
-        redirectTo: "cv"
+        redirectTo: "cv-builder"
       },
       {
-        path: "cv",
+        path: "cv-builder",
         loadChildren: () =>
-          import("./modules/cv/cv.module").then((m) => m.CvModule),
+          import("./modules/cv-builder/cv-builder.module").then((m) => m.CvBuilderModule),
       },
       {
         path: "stats",

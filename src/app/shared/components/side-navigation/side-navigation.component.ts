@@ -8,7 +8,12 @@ import { Component, OnInit } from "@angular/core";
 export class SideNavigationComponent implements OnInit {
   public sideNavigationRoutes = [
     {
-      routeLink: "cv",
+      routeLink: "/home",
+      routeLabel: "Home",
+      routeIcon: "assets/icons/home.svg",
+    },
+    {
+      routeLink: "cv-builder",
       routeLabel: "CV Builder",
       routeIcon: "assets/icons/cv.svg",
     },

@@ -4,7 +4,7 @@ import { BehaviorSubject } from "rxjs";
 @Injectable({
   providedIn: "root",
 })
-export class CvService {
+export class CvBuilderService {
   private dataSource = new BehaviorSubject({});
   public cvData = this.dataSource.asObservable();
 

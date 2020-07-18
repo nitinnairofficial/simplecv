@@ -30,8 +30,8 @@
     "@app-shared/*": [
       "src/app/shared/*"
     ],
-    "@app-cv/*": [
-      "src/app/cv/*"
+    "@app-cv-builder/*": [
+      "src/app/cv-builder/*"
     ],
     "@app-settings/*": [
       "src/app/settings/*"

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { CvService } from "../../services/cv/cv.service";
+import { CvBuilderService } from '../../services/cv/cv-builder.service';
 
 @Component({
   selector: "app-preview",
@@ -8,7 +8,7 @@ import { CvService } from "../../services/cv/cv.service";
 })
 export class PreviewComponent implements OnInit {
   public sendData = {};
-  constructor(private cvService: CvService) {}
+  constructor(private cvService: CvBuilderService) {}
 
   ngOnInit(): void {
     this.cvService.cvData.subscribe((data) => {
