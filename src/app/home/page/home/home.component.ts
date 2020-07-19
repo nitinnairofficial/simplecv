@@ -14,4 +14,8 @@ export class HomeComponent implements OnInit {
   public navigateToDashboard() {
     this.router.navigate(["/dashboard"]);
   }
+
+  public navigateToLogin() {
+    this.router.navigate(["/auth"]);
+  }
 }

@@ -9,6 +9,7 @@ import { ModernComponent } from "../../templates/modern/modern.component";
 import { cvTemplateDirective } from "./cv-template.directive";
 import { ClassicComponent } from "../../templates/classic/classic.component";
 import { EleganceComponent } from "../../templates/elegance/elegance.component";
+import { RioComponent } from "../../templates/rio/rio.component";
 
 @Component({
   selector: "app-dynamic-template",
@@ -23,12 +24,13 @@ export class DynamicTemplateComponent implements OnInit {
     modern: ModernComponent,
     classic: ClassicComponent,
     elegance: EleganceComponent,
+    rio: RioComponent,
   };
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
   ngOnInit(): void {
-    this.createComponent("modern");
+    this.createComponent("rio");
   }
 
   public createComponent(compName: string) {

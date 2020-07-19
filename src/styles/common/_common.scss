@@ -72,3 +72,10 @@ p {
     }
   }
 }
+
+@media (max-width: 576px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

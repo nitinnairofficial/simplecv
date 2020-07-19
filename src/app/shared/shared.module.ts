@@ -12,8 +12,9 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { DialogComponent } from "./components/dialog/dialog.component";
 import { DialogRef } from "../core/models/dialog-ref";
 import { TemplateListComponent } from "./components/template-list/template-list.component";
-import { DialogInsertionDirective } from './directives/dialog-insertion/dialog-insertion.directive';
-import { EleganceComponent } from './templates/elegance/elegance.component';
+import { DialogInsertionDirective } from "./directives/dialog-insertion/dialog-insertion.directive";
+import { EleganceComponent } from "./templates/elegance/elegance.component";
+import { RioComponent } from "./templates/rio/rio.component";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EleganceComponent } from './templates/elegance/elegance.component';
     DialogComponent,
     TemplateListComponent,
     DialogInsertionDirective,
-    EleganceComponent
+    EleganceComponent,
+    RioComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, RouterModule, ChartsModule],
   exports: [
@@ -40,7 +42,8 @@ import { EleganceComponent } from './templates/elegance/elegance.component';
     cvTemplateDirective,
     ClassicComponent,
     TemplateListComponent,
-    EleganceComponent
+    EleganceComponent,
+    RioComponent,
   ],
   entryComponents: [DialogComponent, TemplateListComponent],
   providers: [DialogRef],
