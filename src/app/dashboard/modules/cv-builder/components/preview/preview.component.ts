@@ -9,7 +9,7 @@ import { TemplateListComponent } from "src/app/shared/components/template-list/t
   styleUrls: ["./preview.component.scss"],
 })
 export class PreviewComponent implements OnInit {
-  public sendData = {};
+  public sendData: any;
   constructor(
     private CvBuilderService: CvBuilderService,
     private dialogService: DialogService
@@ -17,11 +17,21 @@ export class PreviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.CvBuilderService.cvData.subscribe((data) => {
-      this.sendData = data;
+      this.sendData = {
+        ...data,
+        templateName: "modern",
+      };
     });
   }
 
   public OpenChangeTemplateDialog() {
-    this.dialogService.open(TemplateListComponent, {});
+    const dialogRef = this.dialogService.open(TemplateListComponent, {});
+
+    dialogRef.afterClosed.subscribe((templateName) => {
+      this.sendData = {
+        ...this.sendData,
+        templateName: templateName,
+      };
+    });
   }
 }

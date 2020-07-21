@@ -8,13 +8,20 @@
           different templates to help your create magnificent resumes.
         </div>
         <button
-          class="btn btn-success text-bold"
-          (click)="navigateToDashboard()"
+          class="btn btn-success text-bold mr-4"
+          (click)="navigateToRoute('/auth/signup')"
         >
           Get Started&nbsp;<img
             class="icon"
             src="assets/icons/right-arrow.svg"
           />
+        </button>
+
+        <button
+          class="btn btn-outline-light text-bold"
+          (click)="navigateToRoute('/auth/login')"
+        >
+          Login
         </button>
       </div>
     </div>

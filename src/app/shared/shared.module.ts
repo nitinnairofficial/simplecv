@@ -15,6 +15,7 @@ import { TemplateListComponent } from "./components/template-list/template-list.
 import { DialogInsertionDirective } from "./directives/dialog-insertion/dialog-insertion.directive";
 import { EleganceComponent } from "./templates/elegance/elegance.component";
 import { RioComponent } from "./templates/rio/rio.component";
+import { SafePipe } from './pipes/safe-pipe/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { RioComponent } from "./templates/rio/rio.component";
     DialogInsertionDirective,
     EleganceComponent,
     RioComponent,
+    SafePipe,
   ],
   imports: [CommonModule, ReactiveFormsModule, RouterModule, ChartsModule],
   exports: [
@@ -44,6 +46,7 @@ import { RioComponent } from "./templates/rio/rio.component";
     TemplateListComponent,
     EleganceComponent,
     RioComponent,
+    SafePipe
   ],
   entryComponents: [DialogComponent, TemplateListComponent],
   providers: [DialogRef],

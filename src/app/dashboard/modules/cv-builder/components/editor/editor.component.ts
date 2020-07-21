@@ -50,6 +50,7 @@ export class EditorComponent implements OnInit {
 
     this.cvForm.valueChanges.subscribe((val) => {
       this.CvBuilderService.modifyData(val);
+      console.log(JSON.stringify(val));
     });
   }
 
