@@ -2,30 +2,40 @@
   <div class="card-body">
     <h5 class="card-title">Login to your account</h5>
 
-    <div class="form-group">
-      <input
-        type="email"
-        class="form-control"
-        id="exampleInputEmail1"
-        aria-describedby="emailHelp"
-        placeholder="Enter email"
-      />
-    </div>
-    <div class="form-group">
-      <input
-        type="password"
-        class="form-control"
-        id="exampleInputPassword1"
-        placeholder="Password"
-      />
-    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control"
+          id="emailId"
+          aria-describedby="emailHelp"
+          placeholder="Enter email"
+          formControlName="emailId"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control"
+          id="passwordText"
+          placeholder="Password"
+          formControlName="password"
+        />
+      </div>
 
-    <div class="card-text mb-4">
-      <a routerLink="/auth/forgot-password">Forgot password?</a>
-    </div>
+      <div class="card-text mb-4">
+        <a routerLink="/auth/forgot-password">Forgot password?</a>
+      </div>
 
-    <button class="btn btn-success">Login</button>
-    <div class="card-text">
+      <button class="btn btn-success">Login</button>
+    </form>
+
+    <div class="text-center text-light-color divider">OR</div>
+
+    <button class="btn btn-danger">Login with Google</button>
+    <button class="btn btn-dark">Login with GitHub</button>
+
+    <div class="card-text mt-4">
       <a routerLink="/auth/signup">Don't have an account? Sign up</a>
     </div>
   </div>

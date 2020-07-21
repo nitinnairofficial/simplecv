@@ -6,12 +6,10 @@ import {
   ComponentFactoryResolver,
   OnChanges,
 } from "@angular/core";
-import { ModernComponent } from "../../templates/modern/modern.component";
 import { cvTemplateDirective } from "./cv-template.directive";
-import { ClassicComponent } from "../../templates/classic/classic.component";
-import { EleganceComponent } from "../../templates/elegance/elegance.component";
 import { RioComponent } from "../../templates/rio/rio.component";
-import { DialogRef } from "src/app/core/models/dialog-ref";
+import { BerlinComponent } from "../../templates/berlin/berlin.component";
+import { TokyoComponent } from "../../templates/tokyo/tokyo.component";
 
 @Component({
   selector: "app-dynamic-template",
@@ -23,9 +21,8 @@ export class DynamicTemplateComponent implements OnInit, OnChanges {
   @ViewChild(cvTemplateDirective, { static: true })
   cvTemplate: cvTemplateDirective;
   public config = {
-    modern: ModernComponent,
-    classic: ClassicComponent,
-    elegance: EleganceComponent,
+    tokyo: TokyoComponent,
+    berlin: BerlinComponent,
     rio: RioComponent,
   };
 

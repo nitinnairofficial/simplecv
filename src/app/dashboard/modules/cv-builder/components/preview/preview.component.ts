@@ -10,6 +10,7 @@ import { TemplateListComponent } from "src/app/shared/components/template-list/t
 })
 export class PreviewComponent implements OnInit {
   public sendData: any;
+  public defaultTemplate = "tokyo";
   constructor(
     private CvBuilderService: CvBuilderService,
     private dialogService: DialogService
@@ -19,7 +20,7 @@ export class PreviewComponent implements OnInit {
     this.CvBuilderService.cvData.subscribe((data) => {
       this.sendData = {
         ...data,
-        templateName: "modern",
+        templateName: this.defaultTemplate,
       };
     });
   }

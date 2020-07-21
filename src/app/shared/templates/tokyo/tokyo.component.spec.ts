@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModernComponent } from './modern.component';
+import { TokyoComponent } from './tokyo.component';
 
 describe('ModernComponent', () => {
-  let component: ModernComponent;
-  let fixture: ComponentFixture<ModernComponent>;
+  let component: TokyoComponent;
+  let fixture: ComponentFixture<TokyoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModernComponent ]
+      declarations: [ TokyoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModernComponent);
+    fixture = TestBed.createComponent(TokyoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
