@@ -13,6 +13,9 @@ import { TemplateListComponent } from "./components/template-list/template-list.
 import { DialogInsertionDirective } from "./directives/dialog-insertion/dialog-insertion.directive";
 import { RioComponent } from "./templates/rio/rio.component";
 import { SafePipe } from "./pipes/safe-pipe/safe.pipe";
+import { ThemeListComponent } from "./components/theme-list/theme-list.component";
+import { BerlinComponent } from "./templates/berlin/berlin.component";
+import { TokyoComponent } from "./templates/tokyo/tokyo.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { SafePipe } from "./pipes/safe-pipe/safe.pipe";
     TemplateListComponent,
     DialogInsertionDirective,
     RioComponent,
+    TokyoComponent,
+    BerlinComponent,
     SafePipe,
+    ThemeListComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, RouterModule, ChartsModule],
   exports: [
@@ -36,7 +42,10 @@ import { SafePipe } from "./pipes/safe-pipe/safe.pipe";
     DynamicTemplateComponent,
     cvTemplateDirective,
     TemplateListComponent,
+    ThemeListComponent,
     RioComponent,
+    BerlinComponent,
+    TokyoComponent,
     SafePipe,
   ],
   entryComponents: [DialogComponent, TemplateListComponent],

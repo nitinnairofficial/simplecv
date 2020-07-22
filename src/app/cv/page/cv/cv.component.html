@@ -1,6 +1,7 @@
 <div
   class="container-fluid"
-  style="background-color: #ddebff; padding: 6rem 0;"
+  style="padding: 6rem 0;"
+  [ngStyle]="{ 'background-color': sendData?.styleSettings?.cvBackgroundColor }"
 >
   <app-dynamic-template [data]="sendData"></app-dynamic-template>
 

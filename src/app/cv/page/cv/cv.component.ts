@@ -7,7 +7,7 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ["./cv.component.scss"],
 })
 export class CvComponent implements OnInit {
-  public sendData = {};
+  public sendData: any;
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -21,6 +21,13 @@ export class CvComponent implements OnInit {
               lastName: "Nair",
             },
           ],
+          cvSettings: {
+            templateName: "berlin",
+          },
+          styleSettings: {
+            cvBackgroundColor: "rgba(250, 33, 123, 0.1)",
+            cvSectionTextColor: "rgb(250, 33, 123)",
+          },
         };
       } else {
         this.sendData = {
@@ -30,6 +37,13 @@ export class CvComponent implements OnInit {
               lastName: "World",
             },
           ],
+          cvSettings: {
+            templateName: "berlin",
+          },
+          styleSettings: {
+            cvBackgroundColor: "rgba(250, 33, 123, 0.1)",
+            cvSectionTextColor: "rgb(250, 33, 123)",
+          },
         };
       }
     });

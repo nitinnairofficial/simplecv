@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { CvBuilderService } from "../../services/cv/cv-builder.service";
 import { DialogService } from "src/app/core/services/dialog/dialog.service";
 import { TemplateListComponent } from "src/app/shared/components/template-list/template-list.component";
+import { ThemeListComponent } from "src/app/shared/components/theme-list/theme-list.component";
 
 @Component({
   selector: "app-preview",
@@ -20,7 +21,9 @@ export class PreviewComponent implements OnInit {
     this.CvBuilderService.cvData.subscribe((data) => {
       this.sendData = {
         ...data,
-        templateName: this.defaultTemplate,
+        cvSettings: {
+          templateName: this.defaultTemplate,
+        },
       };
     });
   }
@@ -31,7 +34,23 @@ export class PreviewComponent implements OnInit {
     dialogRef.afterClosed.subscribe((templateName) => {
       this.sendData = {
         ...this.sendData,
-        templateName: templateName,
+        cvSettings: {
+          templateName: templateName,
+        },
+      };
+    });
+  }
+
+  public OpenChangeThemeDialog() {
+    const dialogRef = this.dialogService.open(ThemeListComponent, {});
+
+    dialogRef.afterClosed.subscribe((themeName) => {
+      this.sendData = {
+        ...this.sendData,
+        styleSettings: {
+          cvBackgroundColor: themeName.cvBackgroundColor,
+          cvSectionTextColor: themeName.cvSectionTextColor,
+        },
       };
     });
   }

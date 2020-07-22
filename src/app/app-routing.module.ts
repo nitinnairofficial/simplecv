@@ -27,6 +27,11 @@ const routes: Routes = [
     path: "cv/:userId",
     loadChildren: () => import("./cv/cv.module").then((m) => m.CvModule),
   },
+  {
+    path: "**",
+    redirectTo: "home",
+    pathMatch: "full",
+  },
 ];
 
 @NgModule({

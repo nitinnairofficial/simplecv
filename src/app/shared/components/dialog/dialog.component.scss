@@ -30,6 +30,10 @@
   z-index: 8000;
 }
 
+.dialog-close-btn {
+  z-index: 9000;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;

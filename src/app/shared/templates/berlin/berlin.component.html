@@ -25,10 +25,19 @@
 
     <div class="row mb-4">
       <div class="col-lg-8">
-        <h6 class="text-extra-light-color text-bold mb-4">WORK EXPERIENCE</h6>
+        <h6
+          class="mb-4"
+          [ngStyle]="{
+            color: data?.styleSettings?.cvSectionTextColor
+          }"
+        >
+          WORK EXPERIENCE
+        </h6>
 
         <ng-container *ngFor="let employer of data?.workExperienceSection">
-          <h3 class="text-dark-color text-bold">{{ employer?.employerName}}</h3>
+          <h3 class="text-dark-color text-bold">
+            {{ employer?.employerName }}
+          </h3>
           <p class="text-light-color mb-16">
             Frontend Developer | Aug, 2016 - Sep, 2018
           </p>
@@ -55,7 +64,14 @@
 
         <div class="clearfix"></div>
 
-        <h6 class="text-extra-light-color text-bold pt-4 mb-4">EDUCATION</h6>
+        <h6
+          class="pt-4 mb-4"
+          [ngStyle]="{
+            color: data?.styleSettings?.cvSectionTextColor
+          }"
+        >
+          EDUCATION
+        </h6>
 
         <h3 class="text-dark-color text-bold">Harvard University</h3>
         <p class="text-light-color">
@@ -71,7 +87,14 @@
       </div>
 
       <div class="col-lg-4">
-        <h6 class="text-extra-light-color text-bold mb-4">SKILLS</h6>
+        <h6
+          class="text-bold mb-4"
+          [ngStyle]="{
+            color: data?.styleSettings?.cvSectionTextColor
+          }"
+        >
+          SKILLS
+        </h6>
 
         <ul class="skill-list">
           <li *ngFor="let skill of data?.skillsSection">

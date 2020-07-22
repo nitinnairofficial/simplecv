@@ -1,16 +1,18 @@
 <div
   class="container-fluid"
-  style="background-color: #ddebff; padding: 9rem 0;"
+  style="padding: 9rem 0;"
+  [ngStyle]="{ 'background-color': sendData?.styleSettings?.cvBackgroundColor }"
 >
   <div class="container">
     <div class="row mb-4">
       <div class="col">
         <div class="float-right">
-          <button
-            class="btn btn-primary"
-            (click)="OpenChangeTemplateDialog()"
-          >
-            <img src="assets/icons/templates.svg" />&nbsp; Change Template
+          <button class="btn btn-link mr-4" (click)="OpenChangeThemeDialog()">
+            <img class="btn-icon" src="assets/icons/theme.svg" />Choose Theme
+          </button>
+          <button class="btn btn-success" (click)="OpenChangeTemplateDialog()">
+            <img class="btn-icon" src="assets/icons/templates.svg" />
+            Change Template
           </button>
         </div>
       </div>

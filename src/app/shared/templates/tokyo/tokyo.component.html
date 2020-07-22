@@ -23,7 +23,14 @@
 
     <div class="row mb-4">
       <div class="col">
-        <h6 class="text-extra-light-color text-bold mb-4">WORK EXPERIENCE</h6>
+        <h6
+          class="mb-4"
+          [ngStyle]="{
+            'color': data?.styleSettings?.cvSectionTextColor
+          }"
+        >
+          WORK EXPERIENCE
+        </h6>
 
         <h3 class="text-dark-color text-bold">Google Inc.</h3>
         <p class="text-light-color mb-16">
@@ -70,7 +77,14 @@
 
     <div class="row mb-4">
       <div class="col">
-        <h6 class="text-extra-light-color text-bold mb-4">EDUCATION</h6>
+        <h6
+          class="mb-4"
+          [ngStyle]="{
+            'color': data?.styleSettings?.cvSectionTextColor
+          }"
+        >
+          EDUCATION
+        </h6>
 
         <h3 class="text-dark-color text-bold">Harvard University</h3>
         <p class="text-light-color">
@@ -88,7 +102,14 @@
 
     <div class="row mb-4">
       <div class="col">
-        <h6 class="text-extra-light-color text-bold mb-4">SKILLS</h6>
+        <h6
+          class="mb-4"
+          [ngStyle]="{
+            'color': data?.styleSettings?.cvSectionTextColor
+          }"
+        >
+          SKILLS
+        </h6>
 
         <ul class="skill-list">
           <li>Angular 2+</li>
