@@ -1,5 +1,8 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { PageNotFoundComponent } from "./shared/components/page-not-found/page-not-found.component";
+import { AuthGuard } from "./core/guards/auth/auth.guard";
+import { SecureGuard } from "./core/guards/secure/secure.guard";
 
 const routes: Routes = [
   {
@@ -17,11 +20,13 @@ const routes: Routes = [
       import("./authentication/authentication.module").then(
         (m) => m.AuthenticationModule
       ),
+    canActivate: [SecureGuard],
   },
   {
     path: "dashboard",
     loadChildren: () =>
       import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
+    canActivate: [],
   },
   {
     path: "cv/:userId",
@@ -29,8 +34,7 @@ const routes: Routes = [
   },
   {
     path: "**",
-    redirectTo: "home",
-    pathMatch: "full",
+    component: PageNotFoundComponent,
   },
 ];
 

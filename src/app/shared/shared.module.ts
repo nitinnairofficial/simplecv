@@ -16,6 +16,7 @@ import { SafePipe } from "./pipes/safe-pipe/safe.pipe";
 import { ThemeListComponent } from "./components/theme-list/theme-list.component";
 import { BerlinComponent } from "./templates/berlin/berlin.component";
 import { TokyoComponent } from "./templates/tokyo/tokyo.component";
+import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { TokyoComponent } from "./templates/tokyo/tokyo.component";
     BerlinComponent,
     SafePipe,
     ThemeListComponent,
+    PageNotFoundComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, RouterModule, ChartsModule],
   exports: [
@@ -39,6 +41,7 @@ import { TokyoComponent } from "./templates/tokyo/tokyo.component";
     ChartsModule,
     SideNavigationComponent,
     TopNavigationComponent,
+    PageNotFoundComponent,
     DynamicTemplateComponent,
     cvTemplateDirective,
     TemplateListComponent,

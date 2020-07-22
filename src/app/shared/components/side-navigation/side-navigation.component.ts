@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { AuthenticationService } from "src/app/authentication/services/authentication/authentication.service";
 
 @Component({
   selector: "app-side-navigation",
@@ -32,13 +33,12 @@ export class SideNavigationComponent implements OnInit {
       routeLabel: "FAQs",
       routeIcon: "assets/icons/faq.svg",
     },
-    {
-      routeLink: "logout",
-      routeLabel: "Logout",
-      routeIcon: "assets/icons/logout.svg",
-    },
   ];
-  constructor() {}
+  constructor(private authenticationService: AuthenticationService) {}
 
   ngOnInit(): void {}
+
+  public logout() {
+    this.authenticationService.logout();
+  }
 }

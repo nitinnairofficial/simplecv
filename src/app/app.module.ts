@@ -8,9 +8,25 @@ import { SharedModule } from "./shared/shared.module";
 import { CoreModule } from "./core/core.module";
 import { HomeModule } from "./home/home.module";
 
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCYPUG0XN1rA89dbTE9snXWUn5xFpwUiRA",
+  authDomain: "fir-auth-45b4a.firebaseapp.com",
+  databaseURL: "https://fir-auth-45b4a.firebaseio.com",
+  projectId: "fir-auth-45b4a",
+  storageBucket: "fir-auth-45b4a.appspot.com",
+  messagingSenderId: "248041844902",
+  appId: "1:248041844902:web:9e80fe6ac60e26b112c467",
+  measurementId: "G-6CDYH8CDZJ",
+};
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,

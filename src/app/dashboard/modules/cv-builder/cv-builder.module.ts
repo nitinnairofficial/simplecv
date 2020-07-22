@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
-import { CvRoutingModule } from "./cv-routing.module";
+import { CvBuilderRoutingModule } from "./cv-builder-routing.module";
 import { EditorComponent } from "./components/editor/editor.component";
 import { PreviewComponent } from "./components/preview/preview.component";
 import { ShareComponent } from "./components/share/share.component";
@@ -16,7 +16,7 @@ import { CvBuilderService } from "./services/cv/cv-builder.service";
     PreviewComponent,
     ShareComponent,
   ],
-  imports: [CommonModule, SharedModule, CvRoutingModule],
+  imports: [CommonModule, SharedModule, CvBuilderRoutingModule],
   providers: [CvBuilderService],
 })
 export class CvBuilderModule {}

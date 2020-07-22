@@ -24,6 +24,10 @@ export class PreviewComponent implements OnInit {
         cvSettings: {
           templateName: this.defaultTemplate,
         },
+        styleSettings: {
+          cvBackgroundColor: "#DDEBFF",
+          cvSectionTextColor: "#0052CC",
+        },
       };
     });
   }
