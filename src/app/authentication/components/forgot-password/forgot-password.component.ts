@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { AuthenticationService } from "../../services/authentication/authentication.service";
+import { AngularFireAuth } from "@angular/fire/auth";
 
 @Component({
   selector: "app-forgot-password",
@@ -9,9 +10,10 @@ import { AuthenticationService } from "../../services/authentication/authenticat
 })
 export class ForgotPasswordComponent implements OnInit {
   public forgotPasswordForm: FormGroup;
+  public loader = false;
   constructor(
     private fb: FormBuilder,
-    private authenticationService: AuthenticationService
+    public angularFireAuth: AngularFireAuth
   ) {}
 
   ngOnInit(): void {
@@ -21,7 +23,22 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   public onForgotPassword() {
+    this.loader = true;
     const forgotPasswordFormValue = this.forgotPasswordForm.value;
-    this.authenticationService.forgotPassword(forgotPasswordFormValue.email);
+    this.forgotPassword(forgotPasswordFormValue.emailId);
+  }
+
+  // Reset Forggot password
+  public forgotPassword(passwordResetEmail) {
+    return this.angularFireAuth
+      .sendPasswordResetEmail(passwordResetEmail)
+      .then((res) => {
+        this.loader = false;
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+        this.loader = false;
+      });
   }
 }
