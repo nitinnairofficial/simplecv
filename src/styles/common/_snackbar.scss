@@ -1,19 +1,22 @@
 .snackbar {
   display: block;
   width: 100%;
-  height: 48px;
-  border-radius: 4px;
+  min-height: 48px;
+  border-radius: 0.25rem;
   position: fixed;
   z-index: 1000;
-  font-size: 14px;
-  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2),
-    0 6px 10px 0 rgba(0, 0, 0, .14),
-    0 1px 18px 0 rgba(0, 0, 0, .12);
+  font-size: 0.875rem;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  font-family: $default-font-family;
+  overflow: hidden;
 }
 
 .snackbar-message {
   display: inline-block;
   padding: 15px;
+  word-wrap: wrap;
+  white-space: wrap;
 }
 
 .snackbar-action {
@@ -104,21 +107,6 @@
 }
 
 /* background colors */
-
-.snackbar-success {
-  background-color: $good-score-color;
-  color: #fff;
-}
-
-.snackbar-warning {
-  background-color: yellow;
-  color: #000;
-}
-
-.snackbar-error {
-  background-color: $bad-score-color;
-  color: #fff;
-}
 
 .snackbar-dark {
   background-color: $black-color;
