@@ -1,0 +1,105 @@
+<div class="container" style="margin-top: 10rem;">
+  <div class="row mb-4">
+    <div class="col">
+      <h5 class="card-title">CV Stats</h5>
+      <p class="text-light-color">
+        You can view your CV related stats here and use the duration range
+        filter to view the stats for different duration.
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title text-normal text-extra-light-color">
+            TOTAL VIEWS
+          </h6>
+          <h3 class="card-text text-dark">20</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title text-normal text-extra-light-color">
+            TOTAL DOWNLOADS
+          </h6>
+          <h3 class="card-text text-dark">11</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title text-normal text-extra-light-color">
+            AVERAGE READ TIME
+          </h6>
+          <h3 class="card-text text-dark">2m 30s</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title text-normal text-extra-light-color">
+            LINKS SHARED
+          </h6>
+          <h3 class="card-text text-dark">5</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card-group"></div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 mt-4">
+      <div class="card" style="height: 24rem;">
+        <div class="card-body">
+          <h6 class="card-title text-normal text-extra-light-color">
+            VIEWS CHART
+          </h6>
+          <div>
+            <canvas
+              baseChart
+              [chartType]="'line'"
+              [datasets]="lineChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+              [legend]="true"
+            >
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 mt-4">
+      <div class="card" style="height: 24rem;">
+        <div class="card-body">
+          <h6 class="card-title text-normal text-extra-light-color">
+            DEVICE TYPE
+          </h6>
+          <div>
+            <canvas
+              baseChart
+              [chartType]="'doughnut'"
+              [datasets]="pieChartData"
+              [labels]="pieChartLabels"
+              [options]="pieChartOptions"
+              [legend]="true"
+              [colors]="pieChartColors"
+              height="320px"
+            >
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
