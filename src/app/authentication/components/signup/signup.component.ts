@@ -55,6 +55,7 @@ export class SignupComponent implements OnInit {
       .then((res) => {
         this.sendVerificationMail();
         this.loader = false;
+        this.router.navigate(["/auth/verify-email"]);
       })
       .catch((error) => {
         console.log("Something is wrong:", error);
@@ -86,23 +87,6 @@ export class SignupComponent implements OnInit {
       .catch((error) => {
         console.log(error);
         this.googleLoader = false;
-      });
-  }
-
-  // Firebase Google Sign-in
-  public loginWithGithub() {
-    this.githubLoader = true;
-    return this.oAuthProvider(new firebase.auth.GithubAuthProvider())
-      .then((res) => {
-        console.log("Successfully logged in!");
-        this.githubLoader = false;
-        setTimeout(() => {
-          this.router.navigate(["/dashboard"]);
-        }, 100);
-      })
-      .catch((error) => {
-        console.log(error);
-        this.githubLoader = false;
       });
   }
 }

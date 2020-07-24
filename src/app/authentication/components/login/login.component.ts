@@ -40,8 +40,12 @@ export class LoginComponent implements OnInit {
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
         if (res.user.emailVerified !== true) {
+          console.log("email not verified!");
         } else {
           console.log("Successfully signed in!");
+
+          localStorage.setItem("user", JSON.stringify(res.user));
+
           setTimeout(() => {
             this.router.navigate(["/dashboard"]);
           }, 100);
@@ -80,23 +84,6 @@ export class LoginComponent implements OnInit {
       .catch((error) => {
         console.log(error);
         this.googleLoader = false;
-      });
-  }
-
-  // Firebase Github Sign-in
-  public loginWithGithub() {
-    this.githubLoader = true;
-    this.oAuthProvider(new firebase.auth.GithubAuthProvider())
-      .then((res) => {
-        console.log("Successfully logged in!");
-        setTimeout(() => {
-          this.router.navigate(["dashboard"]);
-        }, 100);
-        this.githubLoader = false;
-      })
-      .catch((error) => {
-        console.log(error);
-        this.githubLoader = false;
       });
   }
 }

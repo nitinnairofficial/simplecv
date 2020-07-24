@@ -39,20 +39,10 @@
 
     <button class="btn btn-danger" (click)="loginWithGoogle()">
       <span *ngIf="!googleLoader"
-        ><img class="btn-icon" src="assets/icons/google.svg" />Login with
+        ><img class="btn-icon-left" src="assets/icons/google.svg" />Login with
         Google</span
       >
       <div *ngIf="googleLoader" class="spinner-border text-light" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </button>
-
-    <button class="btn btn-dark" (click)="loginWithGithub()">
-      <span *ngIf="!githubLoader"
-        ><img class="btn-icon" src="assets/icons/github.svg" />Login with
-        GitHub</span
-      >
-      <div *ngIf="githubLoader" class="spinner-border text-light" role="status">
         <span class="sr-only">Loading...</span>
       </div>
     </button>

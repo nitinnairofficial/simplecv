@@ -73,8 +73,12 @@ p {
   }
 }
 
-.btn-icon {
+.btn-icon-left {
   margin-right: 0.5rem;
+}
+
+.btn-icon-right {
+  margin-left: 0.5rem;
 }
 
 @media (max-width: 576px) {
