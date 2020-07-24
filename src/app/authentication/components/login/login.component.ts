@@ -4,6 +4,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { Router } from "@angular/router";
 import * as firebase from "firebase/app";
 import "firebase/auth";
+import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
 
 @Component({
   selector: "app-login",
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public angularFireAuth: AngularFireAuth,
-    private router: Router
+    private router: Router,
+    public snackbarService: SnackbarService
   ) {}
 
   ngOnInit(): void {
@@ -40,10 +42,8 @@ export class LoginComponent implements OnInit {
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
         if (res.user.emailVerified !== true) {
-          console.log("email not verified!");
+          this.snackbarService.show("Please verify your email address.");
         } else {
-          console.log("Successfully signed in!");
-
           localStorage.setItem("user", JSON.stringify(res.user));
 
           setTimeout(() => {
@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
         this.loader = false;
       })
       .catch((err) => {
-        console.log("Something is wrong:", err);
+        this.snackbarService.show(err.message);
         this.loader = false;
       });
   }

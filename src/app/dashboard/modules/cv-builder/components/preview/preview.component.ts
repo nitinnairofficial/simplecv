@@ -12,6 +12,8 @@ import { ThemeListComponent } from "src/app/shared/components/theme-list/theme-l
 export class PreviewComponent implements OnInit {
   public sendData: any;
   public defaultTemplate = "tokyo";
+  public loader = false;
+
   constructor(
     private CvBuilderService: CvBuilderService,
     private dialogService: DialogService

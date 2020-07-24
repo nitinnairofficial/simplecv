@@ -11,6 +11,7 @@ import { CvBuilderService } from '../../services/cv/cv-builder.service';
 export class EditorComponent implements OnInit {
   public cvForm: FormGroup;
   public config = FORM_CONFIG;
+  public loader = false;
 
   constructor(private fb: FormBuilder, private CvBuilderService: CvBuilderService) {}
 

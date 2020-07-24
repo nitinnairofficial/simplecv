@@ -3,7 +3,17 @@
     <div class="row">
       <div class="col">
         <button class="btn btn-success float-right mb-4">
-          <img class="btn-icon-left" src="assets/icons/save.svg" />Save Data
+          <span *ngIf="!loader">
+            <img class="btn-icon-left" src="assets/icons/save.svg" />Save
+            Details
+          </span>
+          <ng-container *ngIf="loader">
+            <div class="spinner-border text-light btn-icon-left" role="status">
+              <span class="sr-only">Saving...</span>
+            </div>
+
+            <span>Saving...</span>
+          </ng-container>
         </button>
       </div>
     </div>
@@ -47,23 +57,6 @@
                   placeholder="Job Title"
                 />
 
-                <div style="position: relative;">
-                  <input
-                    class="custom-input width-100"
-                    style="padding-right: 6rem;"
-                    type="text"
-                    formControlName="website"
-                    placeholder="Your Website"
-                    #aboutWebsite
-                  />
-                  <a
-                    class="test-link"
-                    [href]="aboutWebsite?.value"
-                    target="_blank"
-                    >Test Link</a
-                  >
-                </div>
-
                 <input
                   class="custom-input width-50"
                   type="text"
@@ -84,6 +77,37 @@
                   formControlName="country"
                   placeholder="Country"
                 />
+
+                <input
+                  class="custom-input width-50"
+                  type="text"
+                  formControlName="emailId"
+                  placeholder="Email Id"
+                />
+
+                <input
+                  class="custom-input width-50"
+                  type="text"
+                  formControlName="phoneNumber"
+                  placeholder="Phone number"
+                />
+
+                <div style="position: relative;">
+                  <input
+                    class="custom-input width-100"
+                    style="padding-right: 6rem;"
+                    type="text"
+                    formControlName="website"
+                    placeholder="Your Website"
+                    #aboutWebsite
+                  />
+                  <a
+                    class="test-link"
+                    [href]="aboutWebsite?.value"
+                    target="_blank"
+                    >Test Link</a
+                  >
+                </div>
 
                 <div style="position: relative;">
                   <textarea

@@ -4,6 +4,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import { Router } from "@angular/router";
+import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
 @Component({
   selector: "app-signup",
   templateUrl: "./signup.component.html",
@@ -18,7 +19,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public angularFireAuth: AngularFireAuth,
-    private router: Router
+    private router: Router,
+    private snackbarService: SnackbarService
   ) {}
 
   ngOnInit(): void {
@@ -58,8 +60,8 @@ export class SignupComponent implements OnInit {
         this.router.navigate(["/auth/verify-email"]);
       })
       .catch((error) => {
-        console.log("Something is wrong:", error);
         this.loader = false;
+        this.snackbarService.show(error.message);
       });
   }
 

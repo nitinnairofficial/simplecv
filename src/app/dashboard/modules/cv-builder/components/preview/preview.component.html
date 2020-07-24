@@ -8,11 +8,32 @@
       <div class="col">
         <div class="float-right">
           <button class="btn btn-link mr-4" (click)="OpenChangeThemeDialog()">
-            <img class="btn-icon-left" src="assets/icons/theme.svg" />Choose Theme
+            <img class="btn-icon-left" src="assets/icons/theme.svg" />Choose
+            Theme
           </button>
-          <button class="btn btn-success" (click)="OpenChangeTemplateDialog()">
+          <button
+            class="btn btn-primary mr-4"
+            (click)="OpenChangeTemplateDialog()"
+          >
             <img class="btn-icon-left" src="assets/icons/templates.svg" />
             Change Template
+          </button>
+
+          <button class="btn btn-success">
+            <span *ngIf="!loader">
+              <img class="btn-icon-left" src="assets/icons/save.svg" />Save
+              Changes
+            </span>
+            <ng-container *ngIf="loader">
+              <div
+                class="spinner-border text-light btn-icon-left"
+                role="status"
+              >
+                <span class="sr-only">Saving...</span>
+              </div>
+
+              <span>Saving...</span>
+            </ng-container>
           </button>
         </div>
       </div>

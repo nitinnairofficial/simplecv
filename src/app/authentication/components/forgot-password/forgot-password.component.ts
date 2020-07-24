@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { AuthenticationService } from "../../services/authentication/authentication.service";
 import { AngularFireAuth } from "@angular/fire/auth";
+import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
 
 @Component({
   selector: "app-forgot-password",
@@ -13,7 +14,8 @@ export class ForgotPasswordComponent implements OnInit {
   public loader = false;
   constructor(
     private fb: FormBuilder,
-    public angularFireAuth: AngularFireAuth
+    public angularFireAuth: AngularFireAuth,
+    private snackbarService: SnackbarService
   ) {}
 
   ngOnInit(): void {
@@ -37,7 +39,7 @@ export class ForgotPasswordComponent implements OnInit {
         console.log(res);
       })
       .catch((err) => {
-        console.log(err);
+        this.snackbarService.show(err.message);
         this.loader = false;
       });
   }
