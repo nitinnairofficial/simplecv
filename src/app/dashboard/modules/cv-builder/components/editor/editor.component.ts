@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, FormArray } from "@angular/forms";
 import { FORM_CONFIG } from "../../constants/cv.constants";
-import { CvBuilderService } from '../../services/cv/cv-builder.service';
+import { CvBuilderService } from "../../services/cv/cv-builder.service";
+import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
 
 @Component({
   selector: "app-editor",
@@ -13,7 +14,11 @@ export class EditorComponent implements OnInit {
   public config = FORM_CONFIG;
   public loader = false;
 
-  constructor(private fb: FormBuilder, private CvBuilderService: CvBuilderService) {}
+  constructor(
+    private fb: FormBuilder,
+    private CvBuilderService: CvBuilderService,
+    private snackbarService: SnackbarService
+  ) {}
 
   ngOnInit() {
     // accordion-start
@@ -119,6 +124,7 @@ export class EditorComponent implements OnInit {
   }
 
   public onSubmit() {
+    this.snackbarService.show("CV details saved successfully.", "success");
     this.CvBuilderService.modifyData(this.cvForm.value);
   }
 }

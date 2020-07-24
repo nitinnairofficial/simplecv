@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder } from "@angular/forms";
+import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
 
 @Component({
   selector: "app-share",
@@ -10,7 +11,10 @@ export class ShareComponent implements OnInit {
   public cvSettingsForm: FormGroup;
   public loader = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private snackbarService: SnackbarService
+  ) {}
 
   ngOnInit(): void {
     this.cvSettingsForm = this.formBuilder.group({
@@ -23,6 +27,7 @@ export class ShareComponent implements OnInit {
   public onSubmit() {
     this.loader = true;
     setTimeout(() => {
+      this.snackbarService.show("CV details saved successfully", "success");
       this.loader = false;
     }, 2000);
   }

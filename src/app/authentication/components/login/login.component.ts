@@ -42,7 +42,10 @@ export class LoginComponent implements OnInit {
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
         if (res.user.emailVerified !== true) {
-          this.snackbarService.show("Please verify your email address.");
+          this.snackbarService.show(
+            "Please verify your email address.",
+            "error"
+          );
         } else {
           localStorage.setItem("user", JSON.stringify(res.user));
 
@@ -53,7 +56,7 @@ export class LoginComponent implements OnInit {
         this.loader = false;
       })
       .catch((err) => {
-        this.snackbarService.show(err.message);
+        this.snackbarService.show(err.message, "error");
         this.loader = false;
       });
   }

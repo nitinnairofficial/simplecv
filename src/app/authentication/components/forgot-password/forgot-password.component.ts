@@ -39,7 +39,7 @@ export class ForgotPasswordComponent implements OnInit {
         console.log(res);
       })
       .catch((err) => {
-        this.snackbarService.show(err.message);
+        this.snackbarService.show(err.message, "error");
         this.loader = false;
       });
   }

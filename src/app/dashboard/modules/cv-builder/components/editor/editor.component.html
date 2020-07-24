@@ -221,6 +221,7 @@
                 </div>
               </div>
               <button
+                *ngIf="i == cvForm?.controls?.workExperienceSection?.length - 1"
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="
                   addFormControl(
@@ -330,6 +331,7 @@
                 </div>
               </div>
               <button
+                *ngIf="i == cvForm?.controls?.educationSection?.length - 1"
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="addFormControl('educationSection', 'educationSection')"
               >
@@ -430,6 +432,7 @@
                 </div>
               </div>
               <button
+                *ngIf="i == cvForm?.controls?.projectsSection?.length - 1"
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="addFormControl('projectsSection', 'projectsSection')"
               >
@@ -623,6 +626,7 @@
                 </div>
               </div>
               <button
+                *ngIf="i == cvForm?.controls?.awardsSection?.length - 1"
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="addFormControl('awardsSection', 'awardsSection')"
               >

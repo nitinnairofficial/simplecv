@@ -1,8 +1,12 @@
 <div
   class="snackbar snackbar-xs snackbar-dark snackbar-bottom-center"
   *ngIf="showSnackbar"
+  [ngClass]="snackbarType"
 >
   <div class="snackbar-message">
-    {{ snackbarMessage }}
+    <span class="snackbar-title" [ngClass]="snackbarType">{{
+      snackbarType
+    }}</span>
+    <span class="snackbar-text"></span>{{ snackbarMessage }}
   </div>
 </div>
