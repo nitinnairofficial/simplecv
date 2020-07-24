@@ -8,8 +8,8 @@ import { Component, OnInit } from "@angular/core";
 export class SettingsComponent implements OnInit {
   public settingsNavigationRoutes = [
     {
-      routeLink: "",
-      routeLabel: "SETTINGS",
+      routeLink: "account-settings",
+      routeLabel: "ACCOUNT SETTINGS",
     },
   ];
   constructor() {}
