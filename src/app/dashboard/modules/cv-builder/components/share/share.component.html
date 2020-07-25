@@ -20,43 +20,71 @@
         Select any of the below options for your Online CV permissions.
       </div>
     </div>
-    <div class="row mb-4">
+    <div class="row pt-4 mb-4">
       <div class="col-lg-4">
-        <div
-          class="card"
-          style="
-            background-color: rgba(40, 167, 69, 0.1);
-            border: 2px solid #28a745;
-          "
-        >
-          <div class="card-body">
-            <div class="card-title text-bold" style="color: #28a745;">
-              Private
-            </div>
-            <p class="card-text text-light-color">
-              Select this if you want to hide your CV. Your CV will not be
-              visible during Google Search.
-            </p>
-          </div>
-        </div>
+        <label
+          class="radio-btn"
+          [ngStyle]="{
+            'border-bottom-color':
+              cvSettingsForm?.controls?.cvPermissionType?.value == 'private'
+                ? '#28a745'
+                : '#EEE'
+          }"
+          >Private
+          <input
+            type="radio"
+            formControlName="cvPermissionType"
+            value="private"
+          />
+          <span class="checkmark"></span>
+          <p class="card-text text-light-color mt-2 text-small">
+            Select this if you want to hide your CV. Your CV will not be visible
+            during Google Search.
+          </p>
+        </label>
       </div>
       <div class="col-lg-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="card-title">Public</div>
-            <p class="card-text text-light-color">
-              Select this if you want to showcase your CV online. Your CV will
-              be visible during Google Search.
-            </p>
-          </div>
+        <label
+          class="radio-btn"
+          [ngStyle]="{
+            'border-bottom-color':
+              cvSettingsForm?.controls?.cvPermissionType?.value == 'public'
+                ? '#28a745'
+                : '#EEE'
+          }"
+          >Public
+          <input
+            type="radio"
+            formControlName="cvPermissionType"
+            value="public"
+          />
+          <span class="checkmark"></span>
+          <p class="card-text text-light-color mt-2 text-small">
+            Select this if you want to showcase your CV online. Your CV will be
+            visible during Google Search.
+          </p>
+        </label>
+      </div>
+    </div>
+
+    <div class="row pt-4 mb-4">
+      <div class="col-lg-4">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            aria-describedby="customURL"
+            placeholder="Enter Custom URL"
+            formControlName="cvCustomUrl"
+          />
         </div>
       </div>
     </div>
 
-    <div class="row mb-4">
+    <div class="row pt-4 mb-4">
       <div class="col">
         <label class="switch mr-4">
-          <input type="checkbox" />
+          <input type="checkbox" formControlName="hideBranding" />
           <span class="slider round"></span>
         </label>
         <span>Hide Branding</span>
@@ -66,14 +94,14 @@
     <div class="row mb-4">
       <div class="col">
         <label class="switch mr-4">
-          <input type="checkbox" />
+          <input type="checkbox" formControlName="hideEmailAndPhone" />
           <span class="slider round"></span>
         </label>
         <span>Hide Email & Phone number</span>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row pt-4">
       <div class="col">
         <button class="btn btn-success">
           <span *ngIf="!loader">

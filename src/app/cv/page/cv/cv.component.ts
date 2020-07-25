@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
+import { CoreService } from "src/app/core/services/core/core.service";
+import { finalize } from "rxjs/operators";
 
 @Component({
   selector: "app-cv",
@@ -8,44 +10,29 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class CvComponent implements OnInit {
   public sendData: any;
-  constructor(private activatedRoute: ActivatedRoute) {}
+  public loader: boolean = false;
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private coreService: CoreService
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((params) => {
+      this.loader = true;
       const userId = params.get("userId");
-      if (userId == "nitin") {
-        this.sendData = {
-          aboutSection: [
-            {
-              firstName: "Nitin",
-              lastName: "Nair",
-            },
-          ],
-          cvSettings: {
-            templateName: "berlin",
+
+      this.coreService
+        .getCvData(userId)
+        .pipe(finalize(() => (this.loader = false)))
+        .subscribe(
+          (res) => {
+            console.log(res);
           },
-          styleSettings: {
-            cvBackgroundColor: "rgba(250, 33, 123, 0.1)",
-            cvSectionTextColor: "rgb(250, 33, 123)",
-          },
-        };
-      } else {
-        this.sendData = {
-          aboutSection: [
-            {
-              firstName: "Hello",
-              lastName: "World",
-            },
-          ],
-          cvSettings: {
-            templateName: "berlin",
-          },
-          styleSettings: {
-            cvBackgroundColor: "rgba(250, 33, 123, 0.1)",
-            cvSectionTextColor: "rgb(250, 33, 123)",
-          },
-        };
-      }
+          (err) => {
+            this.router.navigate(["/page-not-found"]);
+          }
+        );
     });
   }
 }

@@ -33,8 +33,12 @@ const routes: Routes = [
     loadChildren: () => import("./cv/cv.module").then((m) => m.CvModule),
   },
   {
-    path: "**",
+    path: "page-not-found",
     component: PageNotFoundComponent,
+  },
+  {
+    path: "**",
+    redirectTo: "page-not-found",
   },
 ];
 
