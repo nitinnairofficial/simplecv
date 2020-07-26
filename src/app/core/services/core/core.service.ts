@@ -13,7 +13,7 @@ export class CoreService {
     const httpParams = {
       params: params,
     };
-    return this.httpClient.get(API.GET_CV_DETAILS, httpParams);
+    return this.httpClient.get(API.GET_CV_DETAILS);
   }
 
   public getCvStats(params: any): Observable<any> {

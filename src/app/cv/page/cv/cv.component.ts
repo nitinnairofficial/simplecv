@@ -27,14 +27,11 @@ export class CvComponent implements OnInit {
         .pipe(finalize(() => (this.loader = false)))
         .subscribe(
           (res) => {
-            this.sendData = {
-              cvSettings: {
-                templateName: "berlin",
-              },
-            };
+            console.log(res);
           },
           (err) => {
-            this.router.navigate(["/page-not-found"]);
+            console.log(err);
+            // this.router.navigate(["/page-not-found"]);
           }
         );
     });

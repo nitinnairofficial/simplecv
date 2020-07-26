@@ -10,6 +10,7 @@ import { cvTemplateDirective } from "./cv-template.directive";
 import { RioComponent } from "../../templates/rio/rio.component";
 import { BerlinComponent } from "../../templates/berlin/berlin.component";
 import { TokyoComponent } from "../../templates/tokyo/tokyo.component";
+import { TEMPLATE_CONFIG } from "../../constants/shared.constants";
 
 @Component({
   selector: "app-dynamic-template",
@@ -20,11 +21,6 @@ export class DynamicTemplateComponent implements OnInit, OnChanges {
   @Input() data: any;
   @ViewChild(cvTemplateDirective, { static: true })
   cvTemplate: cvTemplateDirective;
-  public config = {
-    tokyo: TokyoComponent,
-    berlin: BerlinComponent,
-    rio: RioComponent,
-  };
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
@@ -44,7 +40,7 @@ export class DynamicTemplateComponent implements OnInit, OnChanges {
 
   public createComponent(compName: string) {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
-      this.config[compName]
+      TEMPLATE_CONFIG[compName]
     );
     const viewContainerRef = this.cvTemplate.viewContainerRef;
     viewContainerRef.clear();
