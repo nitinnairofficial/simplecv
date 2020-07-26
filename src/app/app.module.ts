@@ -10,6 +10,7 @@ import { HomeModule } from "./home/home.module";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { HttpClientModule } from "@angular/common/http";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCYPUG0XN1rA89dbTE9snXWUn5xFpwUiRA",
@@ -29,6 +30,7 @@ const firebaseConfig = {
     AngularFireAuthModule,
     BrowserModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule,
     CoreModule,
     SharedModule,

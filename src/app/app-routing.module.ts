@@ -29,7 +29,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: "cv/:userId",
+    path: "cv/:cvId",
     loadChildren: () => import("./cv/cv.module").then((m) => m.CvModule),
   },
   {
