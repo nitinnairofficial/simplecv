@@ -9,17 +9,24 @@ const routes: Routes = [
     children: [
       {
         path: "",
-        redirectTo: "cv-builder"
+        redirectTo: "cv-builder",
       },
       {
         path: "cv-builder",
         loadChildren: () =>
-          import("./modules/cv-builder/cv-builder.module").then((m) => m.CvBuilderModule),
+          import("./modules/cv-builder/cv-builder.module").then(
+            (m) => m.CvBuilderModule
+          ),
       },
       {
         path: "stats",
         loadChildren: () =>
           import("./modules/stats/stats.module").then((m) => m.StatsModule),
+      },
+      {
+        path: "faq",
+        loadChildren: () =>
+          import("./modules/faq/faq.module").then((m) => m.FaqModule),
       },
       {
         path: "settings",

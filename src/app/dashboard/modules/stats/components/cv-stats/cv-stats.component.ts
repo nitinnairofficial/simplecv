@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { CoreService } from "src/app/core/services/core/core.service";
+import { finalize } from "rxjs/operators";
 
 @Component({
   selector: "app-cv-stats",
@@ -10,12 +12,12 @@ export class CvStatsComponent implements OnInit {
     responsive: true,
   };
 
-  lineChartData = [{ data: [2, 5, 3, 9, 5, 3, 11], label: "Average Views" }];
+  lineChartData = [
+    { data: [0, 5, 7, 0, 3, 0, 9], label: "Average Views", barThickness: 16 },
+  ];
 
   lineChartLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  lineChartColors = [
-    { backgroundColor: "rgba(48, 112, 212, 0.1)", borderColor: "#1278ed" },
-  ];
+  lineChartColors = [{ backgroundColor: "#1278ed", borderColor: "#1278ed" }];
   pieChartOptions = {
     responsive: true,
   };
@@ -24,7 +26,13 @@ export class CvStatsComponent implements OnInit {
 
   pieChartLabels = ["Desktop", "Tablet", "Mobile"];
   pieChartColors = [{ backgroundColor: ["#1278ed", "#00A124", "#DC9100"] }];
-  constructor() {}
 
-  ngOnInit(): void {}
+  constructor(private coreService: CoreService) {}
+
+  ngOnInit(): void {
+    this.coreService.getCvStats("").subscribe(
+      (res) => {},
+      (err) => {}
+    );
+  }
 }

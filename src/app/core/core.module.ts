@@ -1,7 +1,8 @@
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { CacheInterceptorService } from './interceptors/cacheInterceptor.service';
+import { CacheInterceptorService } from "./interceptors/cacheInterceptor.service";
+import { HttpCacheService } from "./services/cache/cache.service";
 
 @NgModule({
   declarations: [],
@@ -12,6 +13,7 @@ import { CacheInterceptorService } from './interceptors/cacheInterceptor.service
       useClass: CacheInterceptorService,
       multi: true,
     },
+    HttpCacheService,
   ],
 })
 export class CoreModule {}

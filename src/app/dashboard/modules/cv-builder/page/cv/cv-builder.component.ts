@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CvBuilderService } from "../../services/cv/cv-builder.service";
+import { CoreService } from "src/app/core/services/core/core.service";
 
 @Component({
   selector: "app-cv-builder",
@@ -22,9 +23,15 @@ export class CvBuilderComponent implements OnInit {
     },
   ];
 
-  constructor(private CvBuilderService: CvBuilderService) {}
+  constructor(
+    private coreService: CoreService,
+    private CvBuilderService: CvBuilderService
+  ) {}
 
   ngOnInit(): void {
-    this.CvBuilderService.cvData.subscribe((data) => {});
+    this.coreService.getCvDetails("").subscribe(
+      (res) => {},
+      (err) => {}
+    );
   }
 }

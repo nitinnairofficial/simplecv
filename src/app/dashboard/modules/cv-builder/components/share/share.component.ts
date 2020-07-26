@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
 import { CvBuilderService } from "../../services/cv/cv-builder.service";
+import { CoreService } from "src/app/core/services/core/core.service";
 
 @Component({
   selector: "app-share",
@@ -16,7 +17,8 @@ export class ShareComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private snackbarService: SnackbarService,
-    private CvBuilderService: CvBuilderService
+    private CvBuilderService: CvBuilderService,
+    private coreSerivce: CoreService
   ) {}
 
   ngOnInit(): void {
@@ -55,5 +57,12 @@ export class ShareComponent implements OnInit {
       this.snackbarService.show("CV details saved successfully", "success");
       this.loader = false;
     }, 2000);
+  }
+
+  public downloadCV(fileType) {
+    this.coreSerivce.downloadCV(fileType).subscribe(
+      (res) => {},
+      (err) => {}
+    );
   }
 }

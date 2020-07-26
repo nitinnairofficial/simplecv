@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
-import { AngularFireAuth } from "@angular/fire/auth";
+import { CoreService } from "src/app/core/services/core/core.service";
+import { finalize } from "rxjs/operators";
 
 @Component({
   selector: "app-account-settings",
@@ -10,12 +11,13 @@ import { AngularFireAuth } from "@angular/fire/auth";
 })
 export class AccountSettingsComponent implements OnInit {
   public changePasswordForm: FormGroup;
-  public loader = false;
+  public changePasswordloader = false;
+  public deleteAccountLoader = false;
   public userEmail: string;
   constructor(
     private formBuilder: FormBuilder,
     private snackbarService: SnackbarService,
-    public angularFireAuth: AngularFireAuth
+    private coreService: CoreService
   ) {}
 
   ngOnInit(): void {
@@ -29,6 +31,37 @@ export class AccountSettingsComponent implements OnInit {
   }
 
   public onChangePassword() {
-    this.snackbarService.show("Password changed successfully", "success");
+    this.changePasswordloader = true;
+    const changePasswordFormValue = this.changePasswordForm.value;
+
+    this.coreService
+      .changeUserPassword("")
+      .pipe(finalize(() => (this.changePasswordloader = false)))
+      .subscribe(
+        (res) => {
+          this.snackbarService.show("", "");
+        },
+        (err) => {
+          this.snackbarService.show("", "");
+        }
+      );
+  }
+
+  public onDeleteAccount() {
+    if (confirm("Are you sure you want to delete your account?")) {
+      this.coreService
+        .deleteUserAccount("")
+        .pipe(finalize(() => (this.deleteAccountLoader = false)))
+        .subscribe(
+          (res) => {
+            this.snackbarService.show("", "");
+          },
+          (err) => {
+            this.snackbarService.show("", "");
+          }
+        );
+    } else {
+      return;
+    }
   }
 }

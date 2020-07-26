@@ -20,19 +20,50 @@ export class CvComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((params) => {
       this.loader = true;
-      const userId = params.get("userId");
+      const uniqueCvUrl = params.get("cvId");
 
       this.coreService
-        .getCvData(userId)
+        .getCvDetails(uniqueCvUrl)
         .pipe(finalize(() => (this.loader = false)))
         .subscribe(
           (res) => {
-            console.log(res);
+            this.sendData = {
+              cvSettings: {
+                templateName: "berlin",
+              },
+            };
           },
           (err) => {
             this.router.navigate(["/page-not-found"]);
           }
         );
+    });
+
+    // send beacon
+
+    window.addEventListener("unload", function (event) {
+      var data = JSON.stringify({
+        totalTimeSpent: "2min",
+        resumeDownloaded: true,
+        selectedTemplate: 2,
+        resumeId: "nitinnair@gmail.com",
+        emailId: "nitinnair@gmail.com",
+      });
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(
+          "http://localhost:8081/api/resume/nitinnair@gmail.com",
+          data
+        );
+      } else {
+        var xhr;
+        xhr = new XMLHttpRequest();
+        xhr.open(
+          "post",
+          "http://localhost:8081/api/resume/nitinnair@gmail.com",
+          false
+        );
+        xhr.send(data);
+      }
     });
   }
 }

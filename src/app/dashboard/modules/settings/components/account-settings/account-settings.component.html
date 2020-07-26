@@ -4,7 +4,7 @@
       <h5 class="card-title mb-4">Account Details</h5>
       <p class="pt-4 text-light-color">
         Email Id<br />
-        <span class="text-primary">{{ userEmail || 'N/A' }}</span>
+        <span class="text-primary">{{ userEmail || "N/A" }}</span>
       </p>
     </div>
   </div>
@@ -44,9 +44,9 @@
     </div>
 
     <button class="btn btn-success mt-4">
-      Change password
+      <span *ngIf="!changePasswordloader">Change password</span>
 
-      <ng-container *ngIf="loader">
+      <ng-container *ngIf="changePasswordloader">
         <div class="spinner-border text-light btn-icon-left" role="status">
           <span class="sr-only">Saving...</span>
         </div>
@@ -61,11 +61,21 @@
     <div class="col">
       <h5 class="card-title text-danger">Danger Zone</h5>
       <p class="mb-4 text-light-color">
-        Once you delete you account, all your account related data will be
-        deleted.
+        Once you delete your account, all your account related data will be
+        deleted and this process is irreversible.
       </p>
 
-      <button class="btn btn-outline-danger mt-4">Delete Account</button>
+      <button class="btn btn-outline-danger mt-4" (click)="onDeleteAccount()">
+        <span *ngIf="!deleteAccountLoader">Delete Account</span>
+
+        <ng-container *ngIf="deleteAccountLoader">
+          <div class="spinner-border text-light btn-icon-left" role="status">
+            <span class="sr-only">Deleting...</span>
+          </div>
+
+          <span>Deleting...</span>
+        </ng-container>
+      </button>
     </div>
   </div>
 </div>

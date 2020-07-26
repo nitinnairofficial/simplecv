@@ -3,5 +3,12 @@ import { environment } from "src/environments/environment";
 export class API {
   public static SERVER_URL = environment.serverUrl;
 
-  public static GET_CV_DATA = `${API.SERVER_URL}/getCvData`;
+  public static GET_CV_DETAILS = `${API.SERVER_URL}`;
+  public static UPDATE_CV_DETAILS = `${API.SERVER_URL}`;
+  public static GET_CV_STATS = `${API.SERVER_URL}`;
+  public static UPDATE_CV_STATS = `${API.SERVER_URL}`;
+  public static DOWNLOAD_CV = `${API.SERVER_URL}`;
+
+  public static UPDATE_USER_PASSWORD = `${API.SERVER_URL}`;
+  public static DELETE_USER = `${API.SERVER_URL}`;
 }
