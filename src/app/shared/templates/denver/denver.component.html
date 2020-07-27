@@ -112,7 +112,7 @@
           }"
         />
 
-        <ng-container>
+        <ng-container *ngFor="let employer of data?.workExperienceSection">
           <h5 class="text-dark-color text-bold">
             {{ employer?.employerName }}
           </h5>
