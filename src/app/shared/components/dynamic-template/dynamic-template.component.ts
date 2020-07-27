@@ -7,9 +7,6 @@ import {
   OnChanges,
 } from "@angular/core";
 import { cvTemplateDirective } from "./cv-template.directive";
-import { RioComponent } from "../../templates/rio/rio.component";
-import { BerlinComponent } from "../../templates/berlin/berlin.component";
-import { TokyoComponent } from "../../templates/tokyo/tokyo.component";
 import { TEMPLATE_CONFIG } from "../../constants/shared.constants";
 
 @Component({

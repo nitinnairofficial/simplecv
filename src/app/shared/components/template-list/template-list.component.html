@@ -6,12 +6,12 @@
     </p>
   </div>
 </div>
-<button class="btn btn-success mr-4" (click)="selectedTemplate('tokyo')">
-  Tokyo
-</button>
-<button class="btn btn-success mr-4" (click)="selectedTemplate('berlin')">
-  Berlin
-</button>
-<button class="btn btn-success mr-4" (click)="selectedTemplate('rio')">
-  Rio
-</button>
+
+<ng-container *ngFor="let template of templateList">
+  <button
+    class="btn btn-success mr-4"
+    (click)="selectedTemplate(template?.templateName)"
+  >
+    {{ template?.templateName }}
+  </button>
+</ng-container>
