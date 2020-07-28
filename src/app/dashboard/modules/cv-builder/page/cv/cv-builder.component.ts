@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { CvBuilderService } from "../../services/cv/cv-builder.service";
 import { CoreService } from "src/app/core/services/core/core.service";
+import { DUMMY_DATA } from "../../constants/cv.constants";
 
 @Component({
   selector: "app-cv-builder",
@@ -28,10 +29,12 @@ export class CvBuilderComponent implements OnInit {
     private CvBuilderService: CvBuilderService
   ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.coreService.getCvDetails("").subscribe(
       (res) => {},
       (err) => {}
     );
+
+    this.CvBuilderService.modifyData(DUMMY_DATA);
   }
 }

@@ -24,7 +24,7 @@ export class PreviewComponent implements OnInit {
     this.CvBuilderService.cvData.subscribe((data) => {
       this.sendData = {
         ...data,
-        ...DUMMY_DATA,
+        ...this.sendData,
         cvSettings: {
           templateName: this.defaultTemplate,
         },

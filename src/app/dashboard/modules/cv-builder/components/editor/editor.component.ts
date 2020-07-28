@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, FormArray } from "@angular/forms";
-import { FORM_CONFIG } from "../../constants/cv.constants";
+import { FORM_CONFIG, INITIAL_FORM } from "../../constants/cv.constants";
 import { CvBuilderService } from "../../services/cv/cv-builder.service";
 import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
 
@@ -46,64 +46,26 @@ export class EditorComponent implements OnInit {
       awardsSection: this.fb.array([]),
     });
 
-    this.addFormControl("aboutSection", "aboutSection");
-    this.addFormControl("workExperienceSection", "workExperienceSection");
-    this.addFormControl("educationSection", "educationSection");
-    this.addFormControl("projectsSection", "projectsSection");
-    this.addFormControl("skillsSection", "skillsSection");
-    this.addFormControl("languagesSection", "languagesSection");
-    this.addFormControl("awardsSection", "awardsSection");
+    if (localStorage.getItem("CV_FORM") == null) {
+      localStorage.setItem("CV_FORM", JSON.stringify(INITIAL_FORM));
+    }
 
     this.cvForm.valueChanges.subscribe((val) => {
+      localStorage.setItem("CV_FORM", JSON.stringify(val));
       this.CvBuilderService.modifyData(val);
-      console.log(JSON.stringify(val));
     });
+    const savedForm = JSON.parse(localStorage.getItem("CV_FORM"));
+    this.loadDataFromResponse(savedForm);
   }
 
-  loadDataFromResponse() {
-    const data = {
-      users: [
-        {
-          firstName: "Max",
-          lastName: "Parker",
-        },
-        {
-          firstName: "Max1",
-          lastName: "Parker1",
-        },
-        {
-          firstName: "Max2",
-          lastName: "Parker2",
-        },
-      ],
-      work: [
-        {
-          workType: "Web",
-          workTitle: "Frontend",
-        },
-        {
-          workType: "Web1",
-          workTitle: "Frontend1",
-        },
-        {
-          workType: "work2",
-          workTitle: "Frontend2",
-        },
-      ],
-    };
-
-    const formArray = new FormArray([]);
-
-    data.work.forEach((s) => {
-      formArray.push(
-        this.fb.group({
-          workType: s.workType,
-          workTitle: s.workTitle,
-        })
-      );
+  loadDataFromResponse(data) {
+    Object.keys(data).forEach((x) => {
+      const formConfig = data[x];
+      const getCon = this.cvForm.get(x) as FormArray;
+      formConfig.forEach((y) => {
+        getCon.push(this.fb.group(y));
+      });
     });
-
-    this.cvForm.setControl("work", formArray);
   }
 
   removeFormControl(controlName, i) {
@@ -126,5 +88,13 @@ export class EditorComponent implements OnInit {
   public onSubmit() {
     this.snackbarService.show("CV details saved successfully.", "success");
     this.CvBuilderService.modifyData(this.cvForm.value);
+  }
+
+  public resetForm() {
+    if (confirm("Are you sure you want to delete all form data?")) {
+      this.cvForm.reset();
+    } else {
+      return;
+    }
   }
 }
