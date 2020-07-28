@@ -1,0 +1,24 @@
+ul {
+  padding-left: 2rem;
+}
+
+ul li {
+  list-style-type: disc;
+}
+
+.skill-list {
+  padding: 0;
+  li {
+    list-style-type: none;
+  }
+}
+
+h6 {
+  font-weight: 400 !important;
+  padding-left: 1rem;
+  border-bottom: 0.25rem solid #ddd;
+}
+
+.text-stretch {
+  letter-spacing: 0.5rem;
+}
