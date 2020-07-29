@@ -1,9 +1,28 @@
-<div
-  class="container-fluid"
-  style="padding: 6rem 0;"
-  [ngStyle]="{ 'background-color': sendData?.styleSettings?.cvBackgroundColor }"
->
+<div class="container-fluid public-cv">
   <app-dynamic-template [data]="sendData"></app-dynamic-template>
 
-  <div class="branding">Made with <a href="">CloudCV</a></div>
+  <div class="container">
+    <div class="row pt-4">
+      <div class="col-lg-6">
+        <button class="btn btn-light mr-4" title="Download CV">
+          <img src="assets/icons/download.svg" />
+        </button>
+        <button class="btn btn-light" title="Share CV">
+          <img src="assets/icons/share.svg" />
+        </button>
+      </div>
+      <div class="col-lg-6">
+        <div class="branding text-right">
+          <button
+            class="btn btn-light text-light-color"
+            (click)="navigateToRoute('/home')"
+          >
+            Powered by
+            <img src="assets/icons/logo.svg" class="btn-icon-left" />
+            <span class="text-primary">CloudCV</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

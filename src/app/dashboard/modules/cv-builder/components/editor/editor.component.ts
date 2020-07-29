@@ -1,8 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, FormArray } from "@angular/forms";
-import { FORM_CONFIG, INITIAL_FORM } from "../../constants/cv.constants";
 import { CvBuilderService } from "../../services/cv/cv-builder.service";
 import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
+import { FORM_CONFIG, DUMMY_FORM, INITIAL_FORM } from "../../constants/cv.constants";
+import { CoreService } from "src/app/core/services/core/core.service";
+import { finalize } from "rxjs/operators";
 
 @Component({
   selector: "app-editor",
@@ -12,12 +14,13 @@ import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service
 export class EditorComponent implements OnInit {
   public cvForm: FormGroup;
   public config = FORM_CONFIG;
-  public loader = false;
+  public formLoader = false;
 
   constructor(
     private fb: FormBuilder,
     private CvBuilderService: CvBuilderService,
-    private snackbarService: SnackbarService
+    private snackbarService: SnackbarService,
+    private coreService: CoreService
   ) {}
 
   ngOnInit() {
@@ -47,7 +50,7 @@ export class EditorComponent implements OnInit {
     });
 
     if (localStorage.getItem("CV_FORM") == null) {
-      localStorage.setItem("CV_FORM", JSON.stringify(INITIAL_FORM));
+      localStorage.setItem("CV_FORM", JSON.stringify(DUMMY_FORM));
     }
 
     this.cvForm.valueChanges.subscribe((val) => {
@@ -86,8 +89,30 @@ export class EditorComponent implements OnInit {
   }
 
   public onSubmit() {
-    this.snackbarService.show("CV details saved successfully.", "success");
+    this.formLoader = true;
     this.CvBuilderService.modifyData(this.cvForm.value);
+
+    this.coreService
+      .updateCvDetails(this.cvForm.value)
+      .pipe(
+        finalize(() => {
+          this.formLoader = false;
+        })
+      )
+      .subscribe(
+        () => {
+          this.snackbarService.show(
+            "CV details saved successfully.",
+            "success"
+          );
+        },
+        (err) => {
+          this.snackbarService.show(
+            "CV details saving failed. Please try again later.",
+            "error"
+          );
+        }
+      );
   }
 
   public resetForm() {

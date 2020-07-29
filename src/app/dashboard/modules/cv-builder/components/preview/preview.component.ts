@@ -3,7 +3,6 @@ import { CvBuilderService } from "../../services/cv/cv-builder.service";
 import { DialogService } from "src/app/core/services/dialog/dialog.service";
 import { TemplateListComponent } from "src/app/shared/components/template-list/template-list.component";
 import { ThemeListComponent } from "src/app/shared/components/theme-list/theme-list.component";
-import { DUMMY_DATA } from "../../constants/cv.constants";
 
 @Component({
   selector: "app-preview",

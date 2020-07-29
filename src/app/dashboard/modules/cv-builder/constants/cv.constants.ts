@@ -64,7 +64,7 @@ export const AWARDS_SECTION = {
 };
 
 export const LANGUAGES_SECTION = {
-  language: [""],
+  languageName: [""],
   proficiency: [""],
 };
 
@@ -82,7 +82,13 @@ export const FORM_CONFIG = {
   awardsSection: AWARDS_SECTION,
 };
 
-export const DUMMY_DATA = {
+export const DUMMY_FORM = {
+  cvSettings: {
+    templateName: "stockholm",
+  },
+  styleSettings: {
+    cvSectionTextColor: "blue",
+  },
   aboutSection: [
     {
       firstName: "Nitin",
@@ -239,6 +245,12 @@ export const DUMMY_DATA = {
 };
 
 export const INITIAL_FORM = {
+  cvSettings: {
+    templateName: "berlin",
+  },
+  styleSettings: {
+    cvSectionTextColor: "green",
+  },
   aboutSection: [
     {
       firstName: "",

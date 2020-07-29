@@ -16,6 +16,16 @@ export class CoreService {
     return this.httpClient.get(API.GET_CV_DETAILS);
   }
 
+  public updateCvDetails(params: any): Observable<any> {
+    const httpParams = {
+      resumeId: "nitinnairdev@gmail.com",
+      emailId: "nitinnairdev@gmail.com",
+      selectedTemplate: "nitinnairdev@gmail.com",
+      params: params,
+    };
+    return this.httpClient.post(API.UPDATE_CV_DETAILS, httpParams);
+  }
+
   public getCvStats(params: any): Observable<any> {
     const httpParams = {
       params: params,
