@@ -9,5 +9,10 @@ export class OsloComponent implements OnInit {
   @Input() data: any;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.data = {
+      ...this.data.cvFormData,
+      styleSettings: this.data.styleSettings,
+    };
+  }
 }

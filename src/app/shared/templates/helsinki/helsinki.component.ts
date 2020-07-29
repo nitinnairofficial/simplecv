@@ -11,6 +11,10 @@ export class HelsinkiComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.data = {
+      ...this.data.cvFormData,
+      styleSettings: this.data.styleSettings,
+    };
   }
 
 }

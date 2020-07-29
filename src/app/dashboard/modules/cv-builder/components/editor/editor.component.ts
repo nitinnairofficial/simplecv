@@ -63,8 +63,8 @@ export class EditorComponent implements OnInit {
         "CV_DETAILS",
         JSON.stringify({
           ...DUMMY_FORM,
-          ...val,
-          ...savedForm
+          ...savedForm,
+          cvFormData: val
         })
       );
       this.CvBuilderService.modifyData(val);

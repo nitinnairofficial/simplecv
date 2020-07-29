@@ -2,13 +2,17 @@
   <div class="template-content">
     <div class="row">
       <div class="col">
-        <h1>
-          {{ (data?.aboutSection)[0]?.firstName | uppercase }}
-          {{ (data?.aboutSection)[0]?.lastName | uppercase }}
-        </h1>
-        <p class="text-light-color">
-          {{ (data?.aboutSection)[0]?.jobTitle }}
-        </p>
+        <ng-container
+          *ngFor="let about of data?.aboutSection"
+        >
+          <h1>
+            {{ about?.firstName | uppercase }}
+            {{ about?.lastName | uppercase }}
+          </h1>
+          <p class="text-light-color">
+            {{ about?.jobTitle }}
+          </p>
+        </ng-container>
       </div>
     </div>
 
