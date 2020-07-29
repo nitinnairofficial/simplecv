@@ -2,7 +2,11 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, FormArray } from "@angular/forms";
 import { CvBuilderService } from "../../services/cv/cv-builder.service";
 import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
-import { FORM_CONFIG, DUMMY_FORM, INITIAL_FORM } from "../../constants/cv.constants";
+import {
+  FORM_CONFIG,
+  DUMMY_FORM,
+  INITIAL_FORM,
+} from "../../constants/cv.constants";
 import { CoreService } from "src/app/core/services/core/core.service";
 import { finalize } from "rxjs/operators";
 
@@ -49,16 +53,24 @@ export class EditorComponent implements OnInit {
       awardsSection: this.fb.array([]),
     });
 
-    if (localStorage.getItem("CV_FORM") == null) {
-      localStorage.setItem("CV_FORM", JSON.stringify(DUMMY_FORM));
+    if (localStorage.getItem("CV_DETAILS") == null) {
+      localStorage.setItem("CV_DETAILS", JSON.stringify(DUMMY_FORM));
     }
 
+    const savedForm = JSON.parse(localStorage.getItem("CV_DETAILS"));
     this.cvForm.valueChanges.subscribe((val) => {
-      localStorage.setItem("CV_FORM", JSON.stringify(val));
+      localStorage.setItem(
+        "CV_DETAILS",
+        JSON.stringify({
+          ...DUMMY_FORM,
+          ...val,
+          ...savedForm
+        })
+      );
       this.CvBuilderService.modifyData(val);
     });
-    const savedForm = JSON.parse(localStorage.getItem("CV_FORM"));
-    this.loadDataFromResponse(savedForm);
+
+    this.loadDataFromResponse(savedForm.cvFormData);
   }
 
   loadDataFromResponse(data) {

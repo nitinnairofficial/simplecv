@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { CoreService } from "src/app/core/services/core/core.service";
-import { finalize } from "rxjs/operators";
 import { DUMMY_FORM } from "src/app/dashboard/modules/cv-builder/constants/cv.constants";
 
 @Component({
@@ -45,9 +44,7 @@ export class CvComponent implements OnInit {
       var data = JSON.stringify({
         totalTimeSpent: "2min",
         resumeDownloaded: true,
-        selectedTemplate: 2,
-        resumeId: "nitinnair@gmail.com",
-        emailId: "nitinnair@gmail.com",
+        totalShared: 2,
       });
       if (navigator.sendBeacon) {
         navigator.sendBeacon(
@@ -70,4 +67,6 @@ export class CvComponent implements OnInit {
   public navigateToRoute(route) {
     this.router.navigate([route]);
   }
+
+  public downloadCv() {}
 }

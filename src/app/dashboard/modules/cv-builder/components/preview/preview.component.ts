@@ -20,19 +20,8 @@ export class PreviewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.CvBuilderService.cvData.subscribe((data) => {
-      this.sendData = {
-        ...data,
-        ...this.sendData,
-        cvSettings: {
-          templateName: this.defaultTemplate,
-        },
-        styleSettings: {
-          cvBackgroundColor: "#DDEBFF",
-          cvSectionTextColor: "#0052CC",
-        },
-      };
-    });
+    const savedForm = JSON.parse(localStorage.getItem("CV_DETAILS"));
+    this.sendData = savedForm;
   }
 
   public OpenChangeTemplateDialog() {
@@ -45,6 +34,16 @@ export class PreviewComponent implements OnInit {
           templateName: templateName,
         },
       };
+
+      localStorage.setItem(
+        "CV_DETAILS",
+        JSON.stringify({
+          ...this.sendData,
+          cvSettings: {
+            templateName: templateName,
+          },
+        })
+      );
     });
   }
 
@@ -55,10 +54,18 @@ export class PreviewComponent implements OnInit {
       this.sendData = {
         ...this.sendData,
         styleSettings: {
-          cvBackgroundColor: themeName.cvBackgroundColor,
           cvSectionTextColor: themeName.cvSectionTextColor,
         },
       };
+      localStorage.setItem(
+        "CV_DETAILS",
+        JSON.stringify({
+          ...this.sendData,
+          styleSettings: {
+            cvSectionTextColor: themeName.cvSectionTextColor,
+          },
+        })
+      );
     });
   }
 }

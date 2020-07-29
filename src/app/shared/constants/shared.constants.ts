@@ -3,7 +3,6 @@ import { RioComponent } from "../templates/rio/rio.component";
 import { BerlinComponent } from "../templates/berlin/berlin.component";
 import { DenverComponent } from "../templates/denver/denver.component";
 import { HelsinkiComponent } from "../templates/helsinki/helsinki.component";
-import { MoscowComponent } from "../templates/moscow/moscow.component";
 import { NairobiComponent } from "../templates/nairobi/nairobi.component";
 import { OsloComponent } from "../templates/oslo/oslo.component";
 import { StockholmComponent } from "../templates/stockholm/stockholm.component";
@@ -29,7 +28,6 @@ export const TEMPLATE_CONFIG = {
   rio: RioComponent,
   denver: DenverComponent,
   helsinki: HelsinkiComponent,
-  moscow: MoscowComponent,
   nairobi: NairobiComponent,
   oslo: OsloComponent,
   stockholm: StockholmComponent,

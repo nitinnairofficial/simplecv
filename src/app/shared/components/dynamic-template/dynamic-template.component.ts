@@ -22,14 +22,15 @@ export class DynamicTemplateComponent implements OnInit, OnChanges {
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
   ngOnInit(): void {
-    if (this.data) {
+    if (this.data && this.data.cvSettings) {
       const templateName = this.data.cvSettings.templateName;
       this.createComponent(templateName);
     }
   }
 
   public ngOnChanges() {
-    if (this.data) {
+    if (this.data && this.data.cvSettings) {
+      console.log(this.data);
       const templateName = this.data.cvSettings.templateName;
       this.createComponent(templateName);
     }

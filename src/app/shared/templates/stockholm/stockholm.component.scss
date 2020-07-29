@@ -1,3 +1,16 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p,
+a,
+ul li {
+  font-family: "Source Sans Pro", sans-serif !important;
+}
+
 ul {
   padding-left: 2rem;
 }
@@ -15,5 +28,12 @@ ul li {
 
 h6 {
   font-weight: 400 !important;
-  border-bottom: 0.25rem solid #ddd;
+  border-bottom: 0.25rem solid #f1f5f9;
+}
+
+a,
+span,
+ul li,
+p {
+  font-size: 1.1rem !important;
 }

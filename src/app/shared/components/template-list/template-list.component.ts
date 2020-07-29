@@ -27,9 +27,6 @@ export class TemplateListComponent implements OnInit {
       templateName: "oslo",
     },
     {
-      templateName: "moscow",
-    },
-    {
       templateName: "stockholm",
     },
     {

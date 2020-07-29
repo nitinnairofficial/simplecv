@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row pt-4">
       <div class="col-lg-6">
-        <button class="btn btn-light mr-4" title="Download CV">
+        <button class="btn btn-light mr-4" title="Download CV" (click)="downloadCv()">
           <img src="assets/icons/download.svg" />
         </button>
         <button class="btn btn-light" title="Share CV">
@@ -16,6 +16,7 @@
           <button
             class="btn btn-light text-light-color"
             (click)="navigateToRoute('/home')"
+            title="Visit CloudCV"
           >
             Powered by
             <img src="assets/icons/logo.svg" class="btn-icon-left" />

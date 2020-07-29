@@ -18,12 +18,11 @@ import { BerlinComponent } from "./templates/berlin/berlin.component";
 import { TokyoComponent } from "./templates/tokyo/tokyo.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 import { SnackbarComponent } from "./components/snackbar/snackbar.component";
-import { NairobiComponent } from './templates/nairobi/nairobi.component';
-import { MoscowComponent } from './templates/moscow/moscow.component';
-import { DenverComponent } from './templates/denver/denver.component';
-import { OsloComponent } from './templates/oslo/oslo.component';
-import { StockholmComponent } from './templates/stockholm/stockholm.component';
-import { HelsinkiComponent } from './templates/helsinki/helsinki.component';
+import { NairobiComponent } from "./templates/nairobi/nairobi.component";
+import { DenverComponent } from "./templates/denver/denver.component";
+import { OsloComponent } from "./templates/oslo/oslo.component";
+import { StockholmComponent } from "./templates/stockholm/stockholm.component";
+import { HelsinkiComponent } from "./templates/helsinki/helsinki.component";
 
 @NgModule({
   declarations: [
@@ -42,7 +41,6 @@ import { HelsinkiComponent } from './templates/helsinki/helsinki.component';
     PageNotFoundComponent,
     SnackbarComponent,
     NairobiComponent,
-    MoscowComponent,
     DenverComponent,
     OsloComponent,
     StockholmComponent,
@@ -66,7 +64,7 @@ import { HelsinkiComponent } from './templates/helsinki/helsinki.component';
     TokyoComponent,
     SafePipe,
   ],
-  entryComponents: [DialogComponent, TemplateListComponent],
+  entryComponents: [DialogComponent],
   providers: [DialogRef],
 })
 export class SharedModule {}

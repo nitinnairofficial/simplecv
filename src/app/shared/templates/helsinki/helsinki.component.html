@@ -1,1 +1,234 @@
-<p>helsinki works!</p>
+<div class="template-container template-modern">
+  <div class="template-content">
+    <div class="row mb-4">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9">
+        <h2 class="text-dark-color text-bold" *ngIf="data?.aboutSection">
+          {{ (data?.aboutSection)[0]?.firstName }}
+          {{ (data?.aboutSection)[0]?.lastName }}
+        </h2>
+        <p class="text-light-color">
+          {{ (data?.aboutSection)[0]?.jobTitle }}
+        </p>
+
+        <p class="text-light-color">
+          {{ (data?.aboutSection)[0]?.city }},
+          {{ (data?.aboutSection)[0]?.state }} |
+          {{ (data?.aboutSection)[0]?.emailId }} |
+          {{ (data?.aboutSection)[0]?.website }} |
+          {{ (data?.aboutSection)[0]?.phoneNumber }}
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3">
+        <h6
+          class="mb-4 float-right"
+          [ngStyle]="{
+            color: data?.styleSettings?.cvSectionTextColor,
+            'border-bottom-color': data?.styleSettings?.cvSectionTextColor
+          }"
+        >
+          SUMMARY
+        </h6>
+      </div>
+      <div
+        class="col-lg-9 section-right"
+        [ngStyle]="{
+          'border-left-color': data?.styleSettings?.cvSectionTextColor
+        }"
+      >
+        <p class="text-dark-color">
+          {{ (data?.aboutSection)[0]?.summary }}
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3">
+        <h6
+          class="mb-4 float-right"
+          [ngStyle]="{
+            color: data?.styleSettings?.cvSectionTextColor,
+            'border-bottom-color': data?.styleSettings?.cvSectionTextColor
+          }"
+        >
+          WORK EXPERIENCE
+        </h6>
+      </div>
+      <div
+        class="col-lg-9 section-right"
+        [ngStyle]="{
+          'border-left-color': data?.styleSettings?.cvSectionTextColor
+        }"
+      >
+        <ng-container *ngFor="let employer of data?.workExperienceSection">
+          <h5 class="text-dark-color text-bold">
+            {{ employer?.employerName }}
+          </h5>
+          <p class="text-light-color mb-16">
+            {{ employer?.jobTitle }} | {{ employer?.startDate }} -
+            {{ employer?.endDate }} | {{ employer?.employmentType }}
+          </p>
+
+          <p class="text-normal">
+            {{ employer?.summary }}
+          </p>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3">
+        <h6
+          class="mb-4 float-right"
+          [ngStyle]="{
+            color: data?.styleSettings?.cvSectionTextColor,
+            'border-bottom-color': data?.styleSettings?.cvSectionTextColor
+          }"
+        >
+          EDUCATION
+        </h6>
+      </div>
+      <div
+        class="col-lg-9 section-right"
+        [ngStyle]="{
+          'border-left-color': data?.styleSettings?.cvSectionTextColor
+        }"
+      >
+        <ng-container *ngFor="let school of data?.educationSection">
+          <h5 class="text-dark-color text-bold">
+            {{ school?.schoolName }}
+          </h5>
+          <p class="text-light-color mb-16">
+            {{ school?.degree }} | {{ school?.startDate }} -
+            {{ school?.endDate }}
+          </p>
+
+          <p class="text-dark-color">
+            {{ school?.summary }}
+          </p>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3">
+        <h6
+          class="mb-4 float-right"
+          [ngStyle]="{
+            color: data?.styleSettings?.cvSectionTextColor
+          }"
+        >
+          PROJECTS
+        </h6>
+      </div>
+      <div
+        class="col-lg-9 section-right"
+        [ngStyle]="{
+          'border-left-color': data?.styleSettings?.cvSectionTextColor
+        }"
+      >
+        <ng-container *ngFor="let project of data?.projectsSection">
+          <h5 class="text-dark-color text-bold">
+            {{ project?.projectName }}
+          </h5>
+          <p class="text-light-color mb-16">
+            {{ project?.role }} | {{ project?.startDate }} -
+            {{ project?.endDate }}
+          </p>
+
+          <p class="text-dark-color">
+            {{ project?.summary }}
+          </p>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3">
+        <h6
+          class="mb-4 float-right"
+          [ngStyle]="{
+            color: data?.styleSettings?.cvSectionTextColor,
+            'border-bottom-color': data?.styleSettings?.cvSectionTextColor
+          }"
+        >
+          SKILLS
+        </h6>
+      </div>
+      <div
+        class="col-lg-9 section-right"
+        [ngStyle]="{
+          'border-left-color': data?.styleSettings?.cvSectionTextColor
+        }"
+      >
+        <ul class="skill-list">
+          <li *ngFor="let skill of data?.skillsSection">
+            {{ skill?.skillName }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3">
+        <h6
+          class="mb-4 float-right"
+          [ngStyle]="{
+            color: data?.styleSettings?.cvSectionTextColor,
+            'border-bottom-color': data?.styleSettings?.cvSectionTextColor
+          }"
+        >
+          LANGUAGES
+        </h6>
+      </div>
+      <div
+        class="col-lg-9 section-right"
+        [ngStyle]="{
+          'border-left-color': data?.styleSettings?.cvSectionTextColor
+        }"
+      >
+        <ng-container *ngFor="let language of data?.languagesSection">
+          <div class="mb-4">
+            <span class="d-block"> {{ language?.languageName }}</span>
+            <span class="d-block text-extra-light-color">{{
+              language?.proficiency
+            }}</span>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3">
+        <h6
+          class="mb-4 float-right"
+          [ngStyle]="{
+            color: data?.styleSettings?.cvSectionTextColor,
+            'border-bottom-color': data?.styleSettings?.cvSectionTextColor
+          }"
+        >
+          AWARDS
+        </h6>
+      </div>
+      <div
+        class="col-lg-9 section-right"
+        [ngStyle]="{
+          'border-left-color': data?.styleSettings?.cvSectionTextColor
+        }"
+      >
+        <ng-container *ngFor="let award of data?.awardsSection">
+          <div class="mb-4">
+            <h5 class="d-block">{{ award?.awardName }}</h5>
+            <span class="d-block text-extra-light-color mb-4">{{
+              award?.awardDate
+            }}</span>
+            <span class="d-block text-normal">{{ award?.summary }}</span>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
