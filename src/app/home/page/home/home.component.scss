@@ -1,27 +1,43 @@
 .bg {
-  background-color: #0052CC;
+  background-color: #0052cc;
   height: 600px;
   background-repeat: no-repeat;
   background-size: contain;
   align-items: center;
   overflow: auto;
-  height: 90vh;
+  height: 100vh;
   width: 100vw;
+
+  h1 {
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    text-align: center;
+    max-width: 60%;
+  }
+
+  .text {
+    font-size: 1.2rem !important;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    max-width: 60%;
+    font-weight: 400;
+  }
 }
 
-h1 {
-  margin: 2rem auto;
-  margin-top: 10rem;
-  color: #FFF;
-  text-align: center;
-  max-width: 60%;
+.bg2 {
+  background-color: #ddebff;
 }
 
-.text {
-  color: #FFF;
-  font-size: 1.2rem !important;
-  margin: 0 auto;
-  margin-bottom: 2rem;
-  max-width: 60%;
-  font-weight: 400;
+.bg3 {
+  background-color: #0052cc;
+}
+
+.footer {
+  background-color: #222831;
+  height: auto;
+  padding: 6rem 0;
+}
+
+.page-section {
+  padding: 4rem 0;
 }

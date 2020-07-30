@@ -61,6 +61,7 @@
         </div>
 
         <h6
+          *ngIf="(data?.projectsSection)[0]?.projectName"
           class="pt-4 mb-4"
           [ngStyle]="{
             color: data?.styleSettings?.cvSectionTextColor
@@ -77,12 +78,15 @@
         />
 
         <ul class="skill-list">
-          <li *ngFor="let skill of data?.skillsSection">
-            {{ skill?.skillName }}
-          </li>
+          <ng-container *ngFor="let skill of data?.skillsSection">
+            <li *ngIf="skill?.skillName">
+              {{ skill?.skillName }}
+            </li>
+          </ng-container>
         </ul>
 
         <h6
+          *ngIf="(data?.languagesSection)[0]?.languageName"
           class="pt-4 mb-4"
           [ngStyle]="{
             color: data?.styleSettings?.cvSectionTextColor
@@ -130,6 +134,7 @@
         </p>
 
         <h6
+          *ngIf="(data?.workExperienceSection)[0]?.employerName"
           class="pt-4 mb-4"
           [ngStyle]="{
             color: data?.styleSettings?.cvSectionTextColor
@@ -160,6 +165,7 @@
         </ng-container>
 
         <h6
+          *ngIf="(data?.educationSection)[0]?.schoolName"
           class="pt-4 mb-4"
           [ngStyle]="{
             color: data?.styleSettings?.cvSectionTextColor
@@ -192,6 +198,7 @@
         <div class="clearfix"></div>
 
         <h6
+          *ngIf="(data?.awardsSection)[0]?.awardName"
           class="pt-4 mb-4"
           [ngStyle]="{
             color: data?.styleSettings?.cvSectionTextColor

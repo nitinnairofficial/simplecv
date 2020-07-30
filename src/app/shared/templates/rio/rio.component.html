@@ -17,6 +17,21 @@
           {{ (data?.aboutSection)[0]?.website }} |
           {{ (data?.aboutSection)[0]?.phoneNumber }}
         </p>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col">
+        <h6
+          class="mb-4"
+          [ngStyle]="{
+            color: data?.styleSettings?.cvSectionTextColor,
+            'border-bottom-color': data?.styleSettings?.cvSectionTextColor
+          }"
+        >
+          SUMMARY
+        </h6>
+
         <p class="text-dark-color">
           {{ (data?.aboutSection)[0]?.summary }}
         </p>
