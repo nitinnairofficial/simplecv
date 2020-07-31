@@ -1,4 +1,4 @@
-<div class="container" style="padding: 10rem 0;">
+<div class="container sub-container" style="padding: 10rem 0;">
   <form [formGroup]="cvForm" (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col">
@@ -237,18 +237,14 @@
                   )
                 "
               >
-                <img class="btn-icon" src="assets/icons/add.svg" />&nbsp;Add
-                Work Experience
+                Add Job
               </button>
               <button
                 *ngIf="i != 0"
                 class="btn btn-outline-danger mt-4"
                 (click)="removeFormControl('workExperienceSection', i)"
               >
-                <img
-                  class="btn-icon"
-                  src="assets/icons/delete.svg"
-                />&nbsp;Delete Work Experience
+                Delete Job
               </button>
               <br /><br />
             </div>
@@ -342,18 +338,14 @@
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="addFormControl('educationSection', 'educationSection')"
               >
-                <img class="btn-icon" src="assets/icons/add.svg" />&nbsp;Add
-                School
+                Add School
               </button>
               <button
                 *ngIf="i != 0"
                 class="btn btn-outline-danger mt-4"
                 (click)="removeFormControl('educationSection', i)"
               >
-                <img
-                  class="btn-icon"
-                  src="assets/icons/delete.svg"
-                />&nbsp;Delete Section
+                Delete School
               </button>
               <br /><br />
             </div>
@@ -443,18 +435,14 @@
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="addFormControl('projectsSection', 'projectsSection')"
               >
-                <img class="btn-icon" src="assets/icons/add.svg" />&nbsp;Add New
-                Project
+                Add New Project
               </button>
               <button
                 *ngIf="i != 0"
                 class="btn btn-outline-danger mt-4"
                 (click)="removeFormControl('projectsSection', i)"
               >
-                <img
-                  class="btn-icon"
-                  src="assets/icons/delete.svg"
-                />&nbsp;Delete Project Section
+                Delete Project
               </button>
               <br /><br />
             </div>
@@ -491,8 +479,7 @@
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="addFormControl('skillsSection', 'skillsSection')"
               >
-                <img class="btn-icon" src="assets/icons/add.svg" />&nbsp;Add new
-                skill
+                Add new skill
               </button>
               <button
                 *ngIf="
@@ -501,10 +488,7 @@
                 class="btn btn-outline-danger mt-4"
                 (click)="removeFormControl('skillsSection', i)"
               >
-                <img
-                  class="btn-icon"
-                  src="assets/icons/delete.svg"
-                />&nbsp;Delete skill
+                Delete skill
               </button>
               <br /><br />
             </div>
@@ -548,8 +532,7 @@
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="addFormControl('languagesSection', 'languagesSection')"
               >
-                <img class="btn-icon" src="assets/icons/add.svg" />&nbsp;Add new
-                language
+                Add new language
               </button>
               <button
                 *ngIf="
@@ -558,10 +541,7 @@
                 class="btn btn-outline-danger mt-4"
                 (click)="removeFormControl('languagesSection', i)"
               >
-                <img
-                  class="btn-icon"
-                  src="assets/icons/delete.svg"
-                />&nbsp;Delete language
+                Delete language
               </button>
               <br /><br />
             </div>
@@ -637,18 +617,14 @@
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="addFormControl('awardsSection', 'awardsSection')"
               >
-                <img class="btn-icon" src="assets/icons/add.svg" />&nbsp;Add
-                Award
+                Add Award
               </button>
               <button
                 *ngIf="i != 0"
                 class="btn btn-outline-danger mt-4"
                 (click)="removeFormControl('awardsSection', i)"
               >
-                <img
-                  class="btn-icon"
-                  src="assets/icons/delete.svg"
-                />&nbsp;Delete Award Section
+                Delete Award
               </button>
               <br /><br />
             </div>

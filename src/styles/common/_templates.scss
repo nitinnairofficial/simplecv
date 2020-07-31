@@ -8,6 +8,7 @@
   font-size: 1rem;
   margin: 0 auto;
   transition: 0.3s ease;
+  box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.25);
 
   .template-content {
     margin: 5rem;
@@ -23,5 +24,18 @@
     .text-extra-light-color {
       color: #999;
     }
+  }
+}
+
+
+@media (max-width: 1280px) {
+  .template-content {
+    margin: 2rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .template-content {
+    margin: 1rem !important;
   }
 }

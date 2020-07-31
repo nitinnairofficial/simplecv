@@ -17,6 +17,18 @@
           {{ (data?.aboutSection)[0]?.phoneNumber }} |
           {{ (data?.aboutSection)[0]?.emailId }}
         </p>
+
+        <h6
+          *ngIf="(data?.aboutSection)[0]?.summary?.length"
+          class="mb-4"
+          [ngStyle]="{
+            color: data?.styleSettings?.cvSectionTextColor,
+            'border-bottom-color': data?.styleSettings?.cvSectionTextColor
+          }"
+        >
+          SUMMARY
+        </h6>
+
         <p class="text-dark-color">
           {{ (data?.aboutSection)[0]?.summary }}
         </p>
