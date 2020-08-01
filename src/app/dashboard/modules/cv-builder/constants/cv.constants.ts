@@ -87,8 +87,7 @@ export const DUMMY_FORM = {
     templateName: "oslo",
   },
   styleSettings: {
-    cvBackgroundColor: "#DDEBFF",
-    cvSectionTextColor: "#0069db",
+    themeColor: "#0069db",
   },
   cvFormData: {
     aboutSection: [

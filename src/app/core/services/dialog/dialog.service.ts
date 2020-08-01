@@ -11,22 +11,22 @@ import {
   InjectionToken,
   Optional,
   Inject,
-} from '@angular/core';
-import { DialogConfig } from '../../models/dialog-config';
-import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
-import { DialogRef } from '../../models/dialog-ref';
-import { DialogInjector } from '../../models/dialog-injector';
-
+} from "@angular/core";
+import { DialogConfig } from "../../models/dialog-config";
+import { DialogComponent } from "src/app/shared/components/dialog/dialog.component";
+import { DialogRef } from "../../models/dialog-ref";
+import { DialogInjector } from "../../models/dialog-injector";
 
 /** Injection token that can be used to access the data that was passed in to a dialog. */
-export const DIALOG_DATA = new InjectionToken<any>('DialogData');
+export const DIALOG_DATA = new InjectionToken<any>("DialogData");
 
 /** Injection token that can be used to specify default dialog options. */
-export const DIALOG_DEFAULT_OPTIONS =
-  new InjectionToken<DialogConfig>('dialog-default-options');
+export const DIALOG_DEFAULT_OPTIONS = new InjectionToken<DialogConfig>(
+  "dialog-default-options"
+);
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class DialogService {
   dialogComponentRef: ComponentRef<DialogComponent>;
@@ -35,8 +35,10 @@ export class DialogService {
     private componentFactoryResolver: ComponentFactoryResolver,
     private appRef: ApplicationRef,
     private injector: Injector,
-    @Optional() @Inject(DIALOG_DEFAULT_OPTIONS) private defaultOptions: DialogConfig,
-  ) { }
+    @Optional()
+    @Inject(DIALOG_DEFAULT_OPTIONS)
+    private defaultOptions: DialogConfig
+  ) {}
 
   private appendDialogComponentToBody(config?: DialogConfig) {
     const dialogRef = new DialogRef();
@@ -52,13 +54,18 @@ export class DialogService {
     });
 
     // Get the factory of DialogComponent
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(DialogComponent);
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
+      DialogComponent
+    );
     // Create an instance of DialogComponent
-    const componentRef = componentFactory.create(new DialogInjector(this.injector, map));
+    const componentRef = componentFactory.create(
+      new DialogInjector(this.injector, map)
+    );
     // Attach the new component to the angular component tree (which is separate from the DOM)
     this.appRef.attachView(componentRef.hostView);
     // Get the root DOM-element of our DialogComponent and attach it to the HTML-body
-    const domElem = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
+    const domElem = (componentRef.hostView as EmbeddedViewRef<any>)
+      .rootNodes[0] as HTMLElement;
     document.body.appendChild(domElem);
 
     this.updateElementSize(domElem, config);
@@ -66,8 +73,8 @@ export class DialogService {
     this.applyOtherConfiguration(domElem, config);
 
     // to disable htmlbody scrolling
-    document.body.classList.add('modal-open');
-    document.getElementById('html').classList.add('modal-open');
+    document.body.classList.add("modal-open");
+    document.getElementById("html").classList.add("modal-open");
 
     this.dialogComponentRef = componentRef;
 
@@ -81,8 +88,8 @@ export class DialogService {
   private removeDialogComponentFromBody() {
     this.appRef.detachView(this.dialogComponentRef.hostView);
     this.dialogComponentRef.destroy();
-    document.body.classList.remove('modal-open');
-    document.getElementById('html').classList.remove('modal-open');
+    document.body.classList.remove("modal-open");
+    document.getElementById("html").classList.remove("modal-open");
   }
 
   private updateElementSize(domElem: HTMLElement, config?: DialogConfig) {
@@ -118,12 +125,8 @@ export class DialogService {
 
     if (dialogElem) {
       const dialogDivElemStyle = dialogElem.style;
-      const {
-        top = null,
-        bottom = null,
-        left = null,
-        right = null,
-      } = config.position || {};
+      const { top = null, bottom = null, left = null, right = null } =
+        config.position || {};
       if (top !== null) {
         dialogDivElemStyle.marginTop = this.coerceCssPixelValue(top);
       }
@@ -139,21 +142,24 @@ export class DialogService {
     }
 
     if (overlayElem && config.removeOverlayBackground) {
-      overlayElem.style.background = 'none';
+      overlayElem.style.background = "none";
     }
   }
 
   /** Coerces a value to a CSS pixel value. */
   private coerceCssPixelValue(value: any): string {
     if (value == null) {
-      return '';
+      return "";
     }
 
-    return typeof value === 'string' ? value : `${value}px`;
+    return typeof value === "string" ? value : `${value}px`;
   }
 
   public open(componentType: Type<any>, config?: DialogConfig) {
-    config = applyConfigDefaults(config, this.defaultOptions || new DialogConfig());
+    config = applyConfigDefaults(
+      config,
+      this.defaultOptions || new DialogConfig()
+    );
     const dialogRef = this.appendDialogComponentToBody(config);
     this.dialogComponentRef.instance.childComponentType = componentType;
     return dialogRef;
@@ -166,6 +172,9 @@ export class DialogService {
  * @param defaultOptions Default options provided.
  * @returns The new configuration object.
  */
-function applyConfigDefaults(config?: DialogConfig, defaultOptions?: DialogConfig): DialogConfig {
+function applyConfigDefaults(
+  config?: DialogConfig,
+  defaultOptions?: DialogConfig
+): DialogConfig {
   return { ...defaultOptions, ...config };
 }

@@ -1,7 +1,7 @@
 <div
   class="template-container"
   [ngStyle]="{
-    'border-left-color': data?.styleSettings?.cvSectionTextColor
+    'border-left-color': data?.styleSettings?.themeColor
   }"
 >
   <div class="template-content">
@@ -22,7 +22,7 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.cvSectionTextColor
+            color: data?.styleSettings?.themeColor
           }"
         >
           CONTACT INFO
@@ -31,7 +31,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.styleSettings?.cvSectionTextColor
+            'background-color': data?.styleSettings?.themeColor
           }"
         />
 
@@ -64,7 +64,7 @@
           *ngIf="(data?.projectsSection)[0]?.projectName"
           class="pt-4 mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.cvSectionTextColor
+            color: data?.styleSettings?.themeColor
           }"
         >
           SKILLS
@@ -73,7 +73,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.styleSettings?.cvSectionTextColor
+            'background-color': data?.styleSettings?.themeColor
           }"
         />
 
@@ -89,7 +89,7 @@
           *ngIf="(data?.languagesSection)[0]?.languageName"
           class="pt-4 mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.cvSectionTextColor
+            color: data?.styleSettings?.themeColor
           }"
         >
           LANGUAGES
@@ -98,7 +98,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.styleSettings?.cvSectionTextColor
+            'background-color': data?.styleSettings?.themeColor
           }"
         />
 
@@ -116,7 +116,7 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.cvSectionTextColor
+            color: data?.styleSettings?.themeColor
           }"
         >
           SUMMARY
@@ -125,7 +125,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.styleSettings?.cvSectionTextColor
+            'background-color': data?.styleSettings?.themeColor
           }"
         />
 
@@ -137,7 +137,7 @@
           *ngIf="(data?.workExperienceSection)[0]?.employerName"
           class="pt-4 mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.cvSectionTextColor
+            color: data?.styleSettings?.themeColor
           }"
         >
           WORK EXPERIENCE
@@ -146,7 +146,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.styleSettings?.cvSectionTextColor
+            'background-color': data?.styleSettings?.themeColor
           }"
         />
 
@@ -168,7 +168,7 @@
           *ngIf="(data?.educationSection)[0]?.schoolName"
           class="pt-4 mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.cvSectionTextColor
+            color: data?.styleSettings?.themeColor
           }"
         >
           EDUCATION
@@ -177,7 +177,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.styleSettings?.cvSectionTextColor
+            'background-color': data?.styleSettings?.themeColor
           }"
         />
 
@@ -201,7 +201,7 @@
           *ngIf="(data?.awardsSection)[0]?.awardName"
           class="pt-4 mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.cvSectionTextColor
+            color: data?.styleSettings?.themeColor
           }"
         >
           AWARDS
@@ -210,13 +210,13 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.styleSettings?.cvSectionTextColor
+            'background-color': data?.styleSettings?.themeColor
           }"
         />
 
         <ng-container *ngFor="let award of data?.awardsSection">
           <div class="mb-4">
-            <h5 class="d-block">{{ award?.awardName }}</h5>
+            <h5 class="d-block text-bold">{{ award?.awardName }}</h5>
             <span class="d-block text-extra-light-color mb-4">{{
               award?.awardDate
             }}</span>

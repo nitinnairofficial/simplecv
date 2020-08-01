@@ -48,13 +48,17 @@ export class PreviewComponent implements OnInit {
   }
 
   public OpenChangeThemeDialog() {
-    const dialogRef = this.dialogService.open(ThemeListComponent, {});
+    const dialogRef = this.dialogService.open(ThemeListComponent, {
+      data: {
+        themeColor: this.sendData.styleSettings.themeColor
+      }
+    });
 
     dialogRef.afterClosed.subscribe((themeName) => {
       this.sendData = {
         ...this.sendData,
         styleSettings: {
-          cvSectionTextColor: themeName.cvSectionTextColor,
+          themeColor: themeName.themeColor,
         },
       };
       localStorage.setItem(
@@ -62,7 +66,7 @@ export class PreviewComponent implements OnInit {
         JSON.stringify({
           ...this.sendData,
           styleSettings: {
-            cvSectionTextColor: themeName.cvSectionTextColor,
+            themeColor: themeName.themeColor,
           },
         })
       );

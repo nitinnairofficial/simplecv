@@ -1,18 +1,22 @@
 <div class="row">
   <div class="col">
-    <h5>Choose Theme</h5>
+    <h5>Choose Theme Color</h5>
     <p class="text-light-color">
       Select any of the colors below to apply theme.
     </p>
   </div>
 </div>
 
-<button class="btn btn-success mr-4" (click)="selectedTheme('blue')">
-  Blue
-</button>
-<button class="btn btn-success mr-4" (click)="selectedTheme('purple')">
-  Purple
-</button>
-<button class="btn btn-success mr-4" (click)="selectedTheme('pink')">
-  Pink
-</button>
+<div class="row">
+  <ng-container *ngFor="let theme of themeList">
+    <div class="col-lg-3 col-sm-4 col-md-4 col-xs-6">
+      <button
+        class="btn btn-theme"
+        [ngStyle]="{ 'background-color': theme?.value }"
+        (click)="selectedTheme(theme?.value)"
+      >
+      <img *ngIf="theme?.value == selectedThemeColor" src="assets/icons/save.svg">
+    </button>
+    </div>
+  </ng-container>
+</div>

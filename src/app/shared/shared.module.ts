@@ -14,9 +14,10 @@ import { DialogInsertionDirective } from "./directives/dialog-insertion/dialog-i
 import { RioComponent } from "./templates/rio/rio.component";
 import { SafePipe } from "./pipes/safe-pipe/safe.pipe";
 import { ThemeListComponent } from "./components/theme-list/theme-list.component";
+import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
+
 import { BerlinComponent } from "./templates/berlin/berlin.component";
 import { TokyoComponent } from "./templates/tokyo/tokyo.component";
-import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 import { SnackbarComponent } from "./components/snackbar/snackbar.component";
 import { NairobiComponent } from "./templates/nairobi/nairobi.component";
 import { DenverComponent } from "./templates/denver/denver.component";
@@ -31,8 +32,8 @@ import { HelsinkiComponent } from "./templates/helsinki/helsinki.component";
     DynamicTemplateComponent,
     cvTemplateDirective,
     DialogComponent,
-    TemplateListComponent,
     DialogInsertionDirective,
+    TemplateListComponent,
     RioComponent,
     TokyoComponent,
     BerlinComponent,
@@ -64,7 +65,7 @@ import { HelsinkiComponent } from "./templates/helsinki/helsinki.component";
     TokyoComponent,
     SafePipe,
   ],
-  entryComponents: [DialogComponent],
+  entryComponents: [DialogComponent, TemplateListComponent, ThemeListComponent],
   providers: [DialogRef],
 })
 export class SharedModule {}

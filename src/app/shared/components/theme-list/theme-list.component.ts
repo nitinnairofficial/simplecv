@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Inject, Optional } from "@angular/core";
 import { DialogRef } from "src/app/core/models/dialog-ref";
-import { THEME_CONFIG } from '../../constants/shared.constants';
+import { THEME_LIST } from "../../constants/shared.constants";
+import { DIALOG_DATA } from "src/app/core/services/dialog/dialog.service";
 
 @Component({
   selector: "app-theme-list",
@@ -8,11 +9,21 @@ import { THEME_CONFIG } from '../../constants/shared.constants';
   styleUrls: ["./theme-list.component.scss"],
 })
 export class ThemeListComponent implements OnInit {
-  constructor(private dialogRef: DialogRef) {}
+  public themeList = THEME_LIST;
+  public selectedThemeColor: any;
+  constructor(
+    private dialogRef: DialogRef,
+    @Optional() @Inject(DIALOG_DATA) public data: any = {}
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.selectedThemeColor = this.data.themeColor;
+  }
 
-  public selectedTheme(themeName) {
-    this.dialogRef.close(THEME_CONFIG[themeName]);
+  public selectedTheme(themeValue) {
+    console.log(themeValue);
+    this.dialogRef.close({
+      themeColor: themeValue,
+    });
   }
 }

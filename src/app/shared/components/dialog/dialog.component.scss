@@ -1,16 +1,17 @@
 .dialog {
   position: fixed;
   top: 50%;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 9000;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   margin: 0 auto;
   background: #fff;
-  height: 80vh;
-  width: 80vw;
+  min-height: 60vh;
+  min-width: 40vw;
+  max-height: 80vh;
+  max-width: 60vw;
   opacity: 1;
   box-shadow: 0 0px 4px 0px rgba(0, 0, 0, 0.1);
   background: #fff;
@@ -32,6 +33,10 @@
 
 .dialog-close-btn {
   z-index: 9000;
+  position: fixed;
+  width: 2rem;
+  height: 2rem;
+  outline: none;
 }
 
 @keyframes fadeIn {
@@ -45,8 +50,8 @@
 
 @media (max-width: 640px) {
   .dialog {
-    width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    min-width: 100vw;
     border-radius: 0;
   }
 }

@@ -7,20 +7,56 @@ import { NairobiComponent } from "../templates/nairobi/nairobi.component";
 import { OsloComponent } from "../templates/oslo/oslo.component";
 import { StockholmComponent } from "../templates/stockholm/stockholm.component";
 
-export const THEME_CONFIG = {
-  blue: {
-    cvBackgroundColor: "#DDEBFF",
-    cvSectionTextColor: "#0069db",
+export const THEME_LIST = [
+  {
+    label: "blue",
+    value: "#0069db",
   },
-  pink: {
-    cvBackgroundColor: "rgba(250, 33, 123, 0.1)",
-    cvSectionTextColor: "rgb(250, 33, 123)",
+  {
+    label: "red",
+    value: "#FF4500",
   },
-  purple: {
-    cvBackgroundColor: "rgba(148,0,211,0.1)",
-    cvSectionTextColor: "rgb(148,0,211)",
+  {
+    label: "green",
+    value: "#228B22",
   },
-};
+  {
+    label: "darkorange",
+    value: "darkorange",
+  },
+  {
+    label: "brown",
+    value: "#A52A2A",
+  },
+  {
+    label: "pink",
+    value: "#FF1493",
+  },
+  {
+    label: "darkblue",
+    value: "#191970",
+  },
+  {
+    label: "purple",
+    value: "rgb(148,0,211)",
+  },
+  {
+    label: "lightblue",
+    value: "#1E90FF",
+  },
+  {
+    label: "indigo",
+    value: "#4B0082",
+  },
+  {
+    label: "maroon",
+    value: "#800000",
+  },
+  {
+    label: "gray",
+    value: "#808080",
+  },
+];
 
 export const TEMPLATE_CONFIG = {
   tokyo: TokyoComponent,
