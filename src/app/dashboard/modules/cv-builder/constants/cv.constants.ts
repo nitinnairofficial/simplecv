@@ -88,7 +88,7 @@ export const DUMMY_FORM = {
   },
   styleSettings: {
     cvBackgroundColor: "#DDEBFF",
-    cvSectionTextColor: "#0052CC",
+    cvSectionTextColor: "#0069db",
   },
   cvFormData: {
     aboutSection: [

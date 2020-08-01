@@ -1,8 +1,8 @@
 <div class="container sub-container" style="padding: 10rem 0;">
   <form [formGroup]="cvForm" (ngSubmit)="onSubmit()">
-    <div class="row">
+    <div class="row desktop">
       <div class="col">
-        <button class="btn btn-success float-right mb-4">
+        <button class="btn btn-success float-right ml-4 mb-4">
           <span *ngIf="!formLoader">
             <img class="btn-icon-left" src="assets/icons/save.svg" />Save
             Details
@@ -17,7 +17,7 @@
         </button>
 
         <button
-          class="btn btn-outline-danger float-right mr-4"
+          class="btn btn-outline-danger float-right"
           (click)="resetForm()"
         >
           Clear Form
@@ -630,6 +630,31 @@
             </div>
           </ng-container>
         </div>
+      </div>
+    </div>
+
+    <div class="row mobile">
+      <div class="col">
+        <button class="btn btn-success float-right ml-4 mb-4">
+          <span *ngIf="!formLoader">
+            <img class="btn-icon-left" src="assets/icons/save.svg" />Save
+            Details
+          </span>
+          <ng-container *ngIf="formLoader">
+            <div class="spinner-border text-light btn-icon-left" role="status">
+              <span class="sr-only">Saving...</span>
+            </div>
+
+            <span>Saving...</span>
+          </ng-container>
+        </button>
+
+        <button
+          class="btn btn-outline-danger float-right"
+          (click)="resetForm()"
+        >
+          Clear Form
+        </button>
       </div>
     </div>
   </form>

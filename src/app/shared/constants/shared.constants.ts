@@ -10,7 +10,7 @@ import { StockholmComponent } from "../templates/stockholm/stockholm.component";
 export const THEME_CONFIG = {
   blue: {
     cvBackgroundColor: "#DDEBFF",
-    cvSectionTextColor: "#0052CC",
+    cvSectionTextColor: "#0069db",
   },
   pink: {
     cvBackgroundColor: "rgba(250, 33, 123, 0.1)",

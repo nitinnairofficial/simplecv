@@ -42,3 +42,11 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 640px) {
+  .dialog {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+}

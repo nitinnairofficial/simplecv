@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthenticationService } from "src/app/authentication/services/authentication/authentication.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-side-navigation",
@@ -34,11 +35,21 @@ export class SideNavigationComponent implements OnInit {
       routeIcon: "assets/icons/faq.svg",
     },
   ];
+
+  public translateVal = -15;
   constructor(private authenticationService: AuthenticationService) {}
 
   ngOnInit(): void {}
 
   public logout() {
     this.authenticationService.logout();
+  }
+
+  public openMenu() {
+    this.translateVal = 0;
+  }
+
+  public closeMenu() {
+    this.translateVal = -15;
   }
 }

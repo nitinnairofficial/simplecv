@@ -1,5 +1,5 @@
 .bg {
-  background-color: #0052cc;
+  background-color: #0069db;
   height: 600px;
   background-repeat: no-repeat;
   background-size: contain;
@@ -29,7 +29,7 @@
 }
 
 .bg3 {
-  background-color: #0052cc;
+  background-color: #0069db;
 }
 
 .footer {
@@ -40,4 +40,19 @@
 
 .page-section {
   padding: 4rem 0;
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .bg .text {
+    font-size: 1rem !important;
+    max-width: 96%;
+  }
+
+  .bg h1 {
+    max-width: 96%;
+  }
 }

@@ -41,3 +41,13 @@ ul li,
 p {
   font-size: 1.1rem !important;
 }
+
+.text-orientation {
+  text-align: right;
+}
+
+@media (max-width: 1280px) {
+  .text-orientation {
+    text-align: left;
+  }
+}

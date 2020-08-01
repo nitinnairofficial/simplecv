@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { CoreService } from "src/app/core/services/core/core.service";
 import { DUMMY_FORM } from "src/app/dashboard/modules/cv-builder/constants/cv.constants";
+import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
 
 @Component({
   selector: "app-cv",
@@ -14,7 +15,8 @@ export class CvComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private coreService: CoreService
+    private coreService: CoreService,
+    private snackbarService: SnackbarService
   ) {}
 
   ngOnInit(): void {
@@ -68,5 +70,11 @@ export class CvComponent implements OnInit {
     this.router.navigate([route]);
   }
 
-  public downloadCv() {}
+  public downloadCV() {
+    this.snackbarService.show("Resume downloaded successfully", "success");
+  }
+
+  public shareCV() {
+    this.snackbarService.show("Resume link copied successfully", "success");
+  }
 }
