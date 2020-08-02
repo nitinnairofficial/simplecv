@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { CoreService } from "src/app/core/services/core/core.service";
 import { DUMMY_FORM } from "src/app/dashboard/modules/cv-builder/constants/cv.constants";
 import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: "app-cv",
@@ -20,23 +21,23 @@ export class CvComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.activatedRoute.paramMap.subscribe((params) => {
-    //   this.loader = true;
-    //   const uniqueCvUrl = params.get("cvId");
+    this.activatedRoute.paramMap.subscribe((params) => {
+      this.loader = true;
+      const uniqueCvUrl = params.get("cvId");
 
-    //   this.coreService
-    //     .getCvDetails(uniqueCvUrl)
-    //     .pipe(finalize(() => (this.loader = false)))
-    //     .subscribe(
-    //       (res) => {
-    //         console.log(res);
-    //       },
-    //       (err) => {
-    //         console.log(err);
-    //         // this.router.navigate(["/page-not-found"]);
-    //       }
-    //     );
-    // });
+      this.coreService
+        .getCvDetails(uniqueCvUrl)
+        .pipe(finalize(() => (this.loader = false)))
+        .subscribe(
+          (res) => {
+            console.log(res);
+          },
+          (err) => {
+            console.log(err);
+            // this.router.navigate(["/page-not-found"]);
+          }
+        );
+    });
 
     this.sendData = DUMMY_FORM;
 
@@ -64,6 +65,8 @@ export class CvComponent implements OnInit {
         xhr.send(data);
       }
     });
+
+    this.getDeviceType();
   }
 
   public navigateToRoute(route) {
@@ -76,5 +79,24 @@ export class CvComponent implements OnInit {
 
   public shareCV() {
     this.snackbarService.show("Resume link copied successfully", "success");
+  }
+
+  public getDeviceType() {
+    const getDeviceType = () => {
+      const ua = navigator.userAgent;
+      if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+        return "tablet";
+      }
+      if (
+        /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+          ua
+        )
+      ) {
+        return "mobile";
+      }
+      return "desktop";
+    };
+    console.log(getDeviceType());
+    
   }
 }

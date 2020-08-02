@@ -22,23 +22,24 @@ export class ShareComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    const savedForm = JSON.parse(localStorage.getItem("CV_DETAILS"));
+    this.sendData = savedForm;
+
     this.cvSettingsForm = this.formBuilder.group({
       cvPermissionType: ["private", Validators.required],
-      cvCustomUrl: ["", Validators.required],
+      cvId: ["", Validators.required],
       hideBranding: [false],
       hideEmailAndPhone: [false],
     });
 
-    const cvSettingsFormValue = this.cvSettingsForm.value;
-
-    this.CvBuilderService.cvData.subscribe((data) => {
+    if (savedForm) {
       this.cvSettingsForm.patchValue({
-        cvPermissionType: cvSettingsFormValue.cvPermissionType,
-        cvCustomUrl: cvSettingsFormValue.cvCustomUrl,
-        hideBranding: cvSettingsFormValue.hideBranding,
-        hideEmailAndPhone: cvSettingsFormValue.hideEmailAndPhone,
+        hideBranding: savedForm.cvSettings.hideBranding,
+        cvPermissionType: savedForm.cvSettings.cvPermissionType,
+        cvId: savedForm.cvSettings.cvId,
+        hideEmailAndPhone: savedForm.cvSettings.hideEmailAndPhone,
       });
-    });
+    }
   }
 
   public onSubmit() {

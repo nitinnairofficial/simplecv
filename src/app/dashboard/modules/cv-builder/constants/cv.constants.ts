@@ -84,7 +84,11 @@ export const FORM_CONFIG = {
 
 export const DUMMY_FORM = {
   cvSettings: {
-    templateName: "oslo",
+    templateName: "tokyo",
+    hideBranding: true,
+    hideEmailAndPhone: true,
+    cvPermissionType: "public",
+    cvId: "emiliaparker",
   },
   styleSettings: {
     themeColor: "#0069db",
