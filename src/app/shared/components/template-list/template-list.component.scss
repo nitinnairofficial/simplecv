@@ -1,0 +1,30 @@
+.template-image {
+  height: 28rem;
+  width: 100%;
+  outline: none;
+  border: 2px solid #ddd;
+  &:hover {
+    border-color: #0069db;
+  }
+}
+
+.template-card {
+  margin-bottom: 3rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.selected-item {
+  background-color: #0069db;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.25rem;
+  color: #fff;
+  top: 45%;
+  left: 50%;
+  text-align: center;
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -26,7 +26,7 @@ export const THEME_LIST = [
   },
   {
     label: "brown",
-    value: "#A52A2A",
+    value: "#8B4513",
   },
   {
     label: "pink",
@@ -41,8 +41,8 @@ export const THEME_LIST = [
     value: "rgb(148,0,211)",
   },
   {
-    label: "lightblue",
-    value: "#1E90FF",
+    label: "teal",
+    value: "#009188",
   },
   {
     label: "indigo",

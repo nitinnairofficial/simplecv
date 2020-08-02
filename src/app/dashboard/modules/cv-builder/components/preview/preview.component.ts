@@ -25,7 +25,11 @@ export class PreviewComponent implements OnInit {
   }
 
   public OpenChangeTemplateDialog() {
-    const dialogRef = this.dialogService.open(TemplateListComponent, {});
+    const dialogRef = this.dialogService.open(TemplateListComponent, {
+      data: {
+        templateName: this.sendData.cvSettings.templateName,
+      },
+    });
 
     dialogRef.afterClosed.subscribe((templateName) => {
       this.sendData = {
@@ -50,8 +54,8 @@ export class PreviewComponent implements OnInit {
   public OpenChangeThemeDialog() {
     const dialogRef = this.dialogService.open(ThemeListComponent, {
       data: {
-        themeColor: this.sendData.styleSettings.themeColor
-      }
+        themeColor: this.sendData.styleSettings.themeColor,
+      },
     });
 
     dialogRef.afterClosed.subscribe((themeName) => {

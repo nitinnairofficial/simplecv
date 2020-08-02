@@ -227,6 +227,24 @@
                   {{ workSummary?.value?.split(" ").length - 1 }} words
                 </div>
               </div>
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="point1"
+                placeholder="Summary point 1"
+              />
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="point2"
+                placeholder="Summary point 2"
+              />
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="point3"
+                placeholder="Summary point 3"
+              />
               <button
                 *ngIf="i == cvForm?.controls?.workExperienceSection?.length - 1"
                 class="btn btn-outline-primary mt-4 mr-4"
@@ -430,6 +448,26 @@
                   {{ projectSummary?.value?.split(" ").length - 1 }} words
                 </div>
               </div>
+
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="point1"
+                placeholder="Summary point 1"
+              />
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="point2"
+                placeholder="Summary point 2"
+              />
+              <input
+                class="custom-input width-100"
+                type="text"
+                formControlName="point3"
+                placeholder="Summary point 3"
+              />
+
               <button
                 *ngIf="i == cvForm?.controls?.projectsSection?.length - 1"
                 class="btn btn-outline-primary mt-4 mr-4"

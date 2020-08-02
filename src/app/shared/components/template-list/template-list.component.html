@@ -7,11 +7,29 @@
   </div>
 </div>
 
-<ng-container *ngFor="let template of templateList">
-  <button
-    class="btn btn-success mr-4"
-    (click)="selectedTemplate(template?.templateName)"
-  >
-    {{ template?.templateName }}
-  </button>
-</ng-container>
+<div class="row">
+  <ng-container *ngFor="let template of templateList">
+    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
+      <div
+        role="button"
+        class="template-card"
+        (click)="selectedTemplate(template?.templateName)"
+      >
+        <img
+          class="template-image d-block mb-4"
+          [src]="template?.templateImage"
+        />
+        <p class="text-center text-medium text-primary">
+          {{ template?.templateName | titlecase }}
+        </p>
+
+        <div
+          class="selected-item"
+          *ngIf="selectedTemplateName === template?.templateName"
+        >
+          <img src="assets/icons/save.svg" class="mr-2" />
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
