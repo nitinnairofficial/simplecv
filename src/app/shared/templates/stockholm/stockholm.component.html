@@ -127,6 +127,12 @@
           <p class="text-dark-color">
             {{ employer?.summary }}
           </p>
+
+          <ul>
+            <li *ngIf="employer?.point1">{{ employer?.point1 }}</li>
+            <li *ngIf="employer?.point2">{{ employer?.point2 }}</li>
+            <li *ngIf="employer?.point3">{{ employer?.point3 }}</li>
+          </ul>
         </ng-container>
 
         <div class="clearfix"></div>

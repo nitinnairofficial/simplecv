@@ -72,6 +72,10 @@ p {
   margin-left: 5rem;
 }
 
+.container {
+  overflow-x: hidden !important;
+}
+
 .desktop {
   display: block;
   min-height: 4rem;

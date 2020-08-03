@@ -47,6 +47,12 @@
           <p class="text-dark-color" *ngIf="employer?.summary?.length">
             {{ employer?.summary }}
           </p>
+
+          <ul>
+            <li *ngIf="employer?.point1">{{ employer?.point1 }}</li>
+            <li *ngIf="employer?.point2">{{ employer?.point2 }}</li>
+            <li *ngIf="employer?.point3">{{ employer?.point3 }}</li>
+          </ul>
         </ng-container>
 
         <div class="clearfix"></div>
@@ -101,6 +107,12 @@
           <p class="text-dark-color" *ngIf="project?.summary">
             {{ project?.summary }}
           </p>
+
+          <ul>
+            <li *ngIf="project?.point1">{{ project?.point1 }}</li>
+            <li *ngIf="project?.point2">{{ project?.point2 }}</li>
+            <li *ngIf="project?.point3">{{ project?.point3 }}</li>
+          </ul>
         </ng-container>
 
         <div class="clearfix"></div>

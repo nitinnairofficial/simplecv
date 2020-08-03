@@ -162,6 +162,12 @@
           <p class="text-normal">
             {{ employer?.summary }}
           </p>
+
+          <ul>
+            <li *ngIf="employer?.point1">{{ employer?.point1 }}</li>
+            <li *ngIf="employer?.point2">{{ employer?.point2 }}</li>
+            <li *ngIf="employer?.point3">{{ employer?.point3 }}</li>
+          </ul>
         </ng-container>
 
         <h6
@@ -193,6 +199,45 @@
           <p class="text-dark-color">
             {{ school?.summary }}
           </p>
+        </ng-container>
+
+        <div class="clearfix"></div>
+
+        <h6
+          *ngIf="(data?.projectsSection)[0]?.projectName"
+          class="pt-4 mb-4"
+          [ngStyle]="{
+            color: data?.styleSettings?.themeColor
+          }"
+        >
+          EDUCATION
+        </h6>
+
+        <hr
+          class="divider"
+          [ngStyle]="{
+            'background-color': data?.styleSettings?.themeColor
+          }"
+        />
+
+        <ng-container *ngFor="let project of data?.projectsSection">
+          <h5 class="text-dark-color text-medium">
+            {{ project?.projectName }}
+          </h5>
+          <p class="text-light-color mb-16">
+            {{ project?.role }} | {{ project?.startDate }} -
+            {{ project?.endDate }}
+          </p>
+
+          <p class="text-dark-color">
+            {{ project?.summary }}
+          </p>
+
+          <ul>
+            <li *ngIf="project?.point1">{{ project?.point1 }}</li>
+            <li *ngIf="project?.point2">{{ project?.point2 }}</li>
+            <li *ngIf="project?.point3">{{ project?.point3 }}</li>
+          </ul>
         </ng-container>
 
         <div class="clearfix"></div>

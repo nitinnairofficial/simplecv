@@ -122,3 +122,9 @@
     display: block;
   }
 }
+
+@media (max-width: 640px) {
+  .navigation-item {
+    margin: 0 !important;
+  }
+}
