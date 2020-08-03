@@ -35,6 +35,7 @@ export class PreviewComponent implements OnInit {
       this.sendData = {
         ...this.sendData,
         cvSettings: {
+          ...this.sendData.cvSettings,
           templateName: templateName,
         },
       };
@@ -44,6 +45,7 @@ export class PreviewComponent implements OnInit {
         JSON.stringify({
           ...this.sendData,
           cvSettings: {
+            ...this.sendData.cvSettings,
             templateName: templateName,
           },
         })

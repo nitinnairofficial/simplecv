@@ -13,9 +13,11 @@
         <p class="text-light-color">
           {{ (data?.aboutSection)[0]?.city }},
           {{ (data?.aboutSection)[0]?.state }} |
-          {{ (data?.aboutSection)[0]?.emailId }} |
           {{ (data?.aboutSection)[0]?.website }} |
-          {{ (data?.aboutSection)[0]?.phoneNumber }}
+          <span *ngIf="data?.cvSettings?.hideEmailAndPhone == false"
+            >| {{ (data?.aboutSection)[0]?.phoneNumber }} |
+            {{ (data?.aboutSection)[0]?.emailId }}</span
+          >
         </p>
       </div>
     </div>

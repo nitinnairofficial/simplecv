@@ -47,7 +47,7 @@
           </span>
         </div>
 
-        <div class="mb-4">
+        <div class="mb-4" *ngIf="data?.cvSettings?.hideEmailAndPhone == false">
           <span class="d-block text-extra-light-color">Email</span>
           <span class="d-block">{{ (data?.aboutSection)[0]?.emailId }}</span>
         </div>
@@ -57,12 +57,41 @@
           <span class="d-block"> {{ (data?.aboutSection)[0]?.website }}</span>
         </div>
 
-        <div class="mb-4">
+        <div class="mb-4" *ngIf="data?.cvSettings?.hideEmailAndPhone == false">
           <span class="d-block text-extra-light-color">Phone number</span>
           <span class="d-block">
             {{ (data?.aboutSection)[0]?.phoneNumber }}
           </span>
         </div>
+
+        <div class="clearfix"></div>
+
+        <h6
+          *ngIf="(data?.educationSection)[0]?.schoolName"
+          class="pt-4 pb-4 mb-4"
+          [ngStyle]="{
+            color: data?.styleSettings?.themeColor,
+            'border-bottom-color': data?.styleSettings?.themeColor
+          }"
+        >
+          EDUCATION
+        </h6>
+
+        <ng-container *ngFor="let school of data?.educationSection">
+          <h5 class="text-dark-color text-bold">
+            {{ school?.schoolName }}
+          </h5>
+          <p class="text-light-color mb-16">
+            {{ school?.degree }} | {{ school?.startDate }} -
+            {{ school?.endDate }}
+          </p>
+
+          <p class="text-dark-color">
+            {{ school?.summary }}
+          </p>
+        </ng-container>
+
+        <div class="clearfix"></div>
 
         <h6
           *ngIf="(data?.projectsSection)[0]?.projectName"
@@ -138,28 +167,34 @@
         <div class="clearfix"></div>
 
         <h6
-          *ngIf="(data?.educationSection)[0]?.schoolName"
+          *ngIf="(data?.projectsSection)[0]?.projectName"
           class="pt-4 pb-4 mb-4"
           [ngStyle]="{
             color: data?.styleSettings?.themeColor,
             'border-bottom-color': data?.styleSettings?.themeColor
           }"
         >
-          EDUCATION
+          PROJECTS
         </h6>
 
-        <ng-container *ngFor="let school of data?.educationSection">
+        <ng-container *ngFor="let project of data?.projectsSection">
           <h5 class="text-dark-color text-bold">
-            {{ school?.schoolName }}
+            {{ project?.projectName }}
           </h5>
           <p class="text-light-color mb-16">
-            {{ school?.degree }} | {{ school?.startDate }} -
-            {{ school?.endDate }}
+            {{ project?.role }} | {{ project?.startDate }} -
+            {{ project?.endDate }}
           </p>
 
           <p class="text-dark-color">
-            {{ school?.summary }}
+            {{ project?.summary }}
           </p>
+
+          <ul>
+            <li *ngIf="project?.point1">{{ project?.point1 }}</li>
+            <li *ngIf="project?.point2">{{ project?.point2 }}</li>
+            <li *ngIf="project?.point3">{{ project?.point3 }}</li>
+          </ul>
         </ng-container>
 
         <h6

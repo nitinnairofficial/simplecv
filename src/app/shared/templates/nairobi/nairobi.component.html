@@ -166,7 +166,7 @@
           </span>
         </div>
 
-        <div class="mb-4">
+        <div class="mb-4" *ngIf="data?.cvSettings?.hideEmailAndPhone == false">
           <span
             class="d-block text-extra-light-color"
             *ngIf="(data?.aboutSection)[0]?.emailId"
@@ -175,7 +175,7 @@
           <span class="d-block">{{ (data?.aboutSection)[0]?.emailId }}</span>
         </div>
 
-        <div class="mb-4">
+        <div class="mb-4" *ngIf="data?.cvSettings?.hideEmailAndPhone == false">
           <span
             class="d-block text-extra-light-color"
             *ngIf="(data?.aboutSection)[0]?.website"
