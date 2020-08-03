@@ -56,27 +56,6 @@ p {
   font-size: 1rem !important;
 }
 
-.dialog-close-btn {
-  position: absolute;
-  right: 2rem;
-  top: 1rem;
-  display: inline-block;
-  height: 1.5rem;
-  width: 1.5rem;
-  cursor: pointer;
-  text-align: center;
-  border-radius: 50%;
-  outline: none;
-
-  .dialog-close-icon {
-    border-radius: 50%;
-    padding: 0.25rem;
-    &:hover {
-      background-color: #eaf1fb;
-    }
-  }
-}
-
 .text-small {
   font-size: 0.875rem !important;
 }

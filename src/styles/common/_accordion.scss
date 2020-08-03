@@ -33,3 +33,9 @@
 .accordion-header.active .accordion-icon {
   transform: rotate(180deg);
 }
+
+@media screen and (max-width: 768px) {
+  .accordion-header {
+    padding: 1rem !important;
+  }
+}

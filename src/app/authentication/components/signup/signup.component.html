@@ -1,49 +1,55 @@
-<div class="card authentication-card">
-  <div class="card-body">
-    <h5 class="card-title">Sign up to create account</h5>
+<div class="container sub-container" style="padding: 8rem 0;">
+  <div class="card authentication-card">
+    <div class="card-body">
+      <h5 class="card-title">Sign up to create account</h5>
 
-    <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
-      <div class="form-group">
-        <input
-          type="email"
-          class="form-control"
-          id="emaiId"
-          aria-describedby="emailHelp"
-          placeholder="Enter email"
-          formControlName="emailId"
-        />
-      </div>
-      <div class="form-group">
-        <input
-          type="password"
-          class="form-control"
-          id="passwordText"
-          placeholder="Password"
-          formControlName="password"
-        />
-      </div>
-      <button class="btn btn-success">
-        <span *ngIf="!loader">Sign up</span>
-        <div *ngIf="loader" class="spinner-border text-light" role="status">
+      <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+        <div class="form-group">
+          <input
+            type="email"
+            class="form-control"
+            id="emaiId"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+            formControlName="emailId"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            class="form-control"
+            id="passwordText"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </div>
+        <button class="btn btn-success">
+          <span *ngIf="!loader">Sign up</span>
+          <div *ngIf="loader" class="spinner-border text-light" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </button>
+      </form>
+
+      <div class="text-center text-light-color divider">OR</div>
+
+      <button class="btn btn-danger" (click)="loginWithGoogle()">
+        <span *ngIf="!googleLoader"
+          ><img class="btn-icon-left" src="assets/icons/google.svg" />Sign up
+          with Google</span
+        >
+        <div
+          *ngIf="googleLoader"
+          class="spinner-border text-light"
+          role="status"
+        >
           <span class="sr-only">Loading...</span>
         </div>
       </button>
-    </form>
 
-    <div class="text-center text-light-color divider">OR</div>
-
-    <button class="btn btn-danger" (click)="loginWithGoogle()">
-      <span *ngIf="!googleLoader"
-        ><img class="btn-icon-left" src="assets/icons/google.svg" />Sign up with
-        Google</span
-      >
-      <div *ngIf="googleLoader" class="spinner-border text-light" role="status">
-        <span class="sr-only">Loading...</span>
+      <div class="card-text mt-4">
+        <a routerLink="/auth/login">Already have an account? Log in</a>
       </div>
-    </button>
-
-    <div class="card-text mt-4">
-      <a routerLink="/auth/login">Already have an account? Log in</a>
     </div>
   </div>
 </div>
