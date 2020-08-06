@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthenticationService } from "src/app/authentication/services/authentication/authentication.service";
-import { Router } from "@angular/router";
 
 @Component({
   selector: "app-side-navigation",
@@ -15,8 +14,8 @@ export class SideNavigationComponent implements OnInit {
       routeIcon: "assets/icons/home.svg",
     },
     {
-      routeLink: "cv-builder",
-      routeLabel: "CV Builder",
+      routeLink: "resume-builder",
+      routeLabel: "Resume Builder",
       routeIcon: "assets/icons/cv.svg",
     },
     {

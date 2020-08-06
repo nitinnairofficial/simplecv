@@ -8,7 +8,7 @@ import { Component, OnInit } from "@angular/core";
 export class FaqComponent implements OnInit {
   public faqNavigationRoutes = [
     {
-      routeLink: "cv-faqs",
+      routeLink: "resume-faqs",
       routeLabel: "FAQs",
     },
   ];

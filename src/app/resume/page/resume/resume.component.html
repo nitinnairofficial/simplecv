@@ -1,0 +1,31 @@
+<div class="container-fluid public-cv">
+  <div class="container sub-container">
+    <app-dynamic-template [data]="sendData"></app-dynamic-template>
+    <div class="row pt-4">
+      <div class="col-lg-6">
+        <button
+          class="btn btn-light mr-4"
+          title="Download resume"
+          (click)="downloadResume()"
+        >
+          <img src="assets/icons/download.svg" />
+        </button>
+        <button class="btn btn-light" title="Share resume" (click)="shareResume()">
+          <img src="assets/icons/share.svg" />
+        </button>
+      </div>
+      <div class="col-lg-6">
+        <div class="branding text-right">
+          <button
+            class="btn btn-light text-light-color"
+            (click)="navigateToRoute('/home')"
+            title="Visit CloudCV"
+          >
+            Made with
+            <span class="text-primary">CloudCV</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

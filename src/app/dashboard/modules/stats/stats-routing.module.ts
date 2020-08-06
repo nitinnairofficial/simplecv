@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { StatsComponent } from "./page/stats/stats.component";
-import { CvStatsComponent } from "./components/cv-stats/cv-stats.component";
+import { ResumeStatsComponent } from "./components/resume-stats/resume-stats.component";
 
 const routes: Routes = [
   {
@@ -10,11 +10,11 @@ const routes: Routes = [
     children: [
       {
         path: "",
-        redirectTo: "cv-stats",
+        redirectTo: "resume-stats",
       },
       {
-        path: "cv-stats",
-        component: CvStatsComponent,
+        path: "resume-stats",
+        component: ResumeStatsComponent,
       },
     ],
   },

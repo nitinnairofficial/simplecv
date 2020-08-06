@@ -29,8 +29,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: "cv/:cvId",
-    loadChildren: () => import("./cv/cv.module").then((m) => m.CvModule),
+    path: "resume/:resumeId",
+    loadChildren: () => import("./resume/resume.module").then((m) => m.ResumeModule),
   },
   {
     path: "page-not-found",

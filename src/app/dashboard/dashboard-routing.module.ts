@@ -9,13 +9,13 @@ const routes: Routes = [
     children: [
       {
         path: "",
-        redirectTo: "cv-builder",
+        redirectTo: "resume-builder",
       },
       {
-        path: "cv-builder",
+        path: "resume-builder",
         loadChildren: () =>
-          import("./modules/cv-builder/cv-builder.module").then(
-            (m) => m.CvBuilderModule
+          import("./modules/resume-builder/resume-builder.module").then(
+            (m) => m.ResumeBuilderModule
           ),
       },
       {
