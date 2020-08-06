@@ -110,14 +110,14 @@ export const FORM_CONFIG = {
 };
 
 export const DUMMY_FORM = {
-  cvSettings: {
+  resumeSettings: {
     templateName: "tokyo",
     hideBranding: true,
     hideEmailAndPhone: true,
-    cvPermissionType: "public",
-    cvId: "emiliaparker",
+    resumePermissionType: "public",
+    resumeId: "emiliaparker",
   },
-  styleSettings: {
+  resumeStyles: {
     themeColor: "#0069db",
   },
   cvFormData: {

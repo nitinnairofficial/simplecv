@@ -15,7 +15,7 @@
           {{ (data?.aboutSection)[0]?.city }},
           {{ (data?.aboutSection)[0]?.state }} |
           {{ (data?.aboutSection)[0]?.website }}
-          <span *ngIf="data?.cvSettings?.hideEmailAndPhone == false"
+          <span *ngIf="data?.resumeSettings?.hideEmailAndPhone == false"
             >| {{ (data?.aboutSection)[0]?.phoneNumber }} |
             {{ (data?.aboutSection)[0]?.emailId }}</span
           >
@@ -28,8 +28,8 @@
         <h6
           class="mb-4 text-orientation"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           SUMMARY
@@ -38,7 +38,7 @@
       <div
         class="col-lg-9 section-right"
         [ngStyle]="{
-          'border-left-color': data?.styleSettings?.themeColor
+          'border-left-color': data?.resumeStyles?.themeColor
         }"
       >
         <p class="text-dark-color">
@@ -53,8 +53,8 @@
           *ngIf="(data?.workExperienceSection)[0]?.employerName"
           class="mb-4 text-orientation"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           WORK EXPERIENCE
@@ -63,7 +63,7 @@
       <div
         class="col-lg-9 section-right"
         [ngStyle]="{
-          'border-left-color': data?.styleSettings?.themeColor
+          'border-left-color': data?.resumeStyles?.themeColor
         }"
       >
         <ng-container *ngFor="let employer of data?.workExperienceSection">
@@ -93,8 +93,8 @@
         <h6
           class="mb-4 text-orientation"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           EDUCATION
@@ -104,7 +104,7 @@
         *ngIf="(data?.educationSection)[0]?.schoolName"
         class="col-lg-9 section-right"
         [ngStyle]="{
-          'border-left-color': data?.styleSettings?.themeColor
+          'border-left-color': data?.resumeStyles?.themeColor
         }"
       >
         <ng-container *ngFor="let school of data?.educationSection">
@@ -129,7 +129,7 @@
           *ngIf="(data?.projectsSection)[0]?.projectName"
           class="mb-4 text-orientation"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor
           }"
         >
           PROJECTS
@@ -138,7 +138,7 @@
       <div
         class="col-lg-9 section-right"
         [ngStyle]="{
-          'border-left-color': data?.styleSettings?.themeColor
+          'border-left-color': data?.resumeStyles?.themeColor
         }"
       >
         <ng-container *ngFor="let project of data?.projectsSection">
@@ -169,8 +169,8 @@
           *ngIf="(data?.projectsSection)[0]?.projectName"
           class="mb-4 text-orientation"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           SKILLS
@@ -179,7 +179,7 @@
       <div
         class="col-lg-9 section-right"
         [ngStyle]="{
-          'border-left-color': data?.styleSettings?.themeColor
+          'border-left-color': data?.resumeStyles?.themeColor
         }"
       >
         <ul class="skill-list">
@@ -198,8 +198,8 @@
           *ngIf="(data?.languagesSection)[0]?.languageName"
           class="mb-4 text-orientation"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           LANGUAGES
@@ -208,7 +208,7 @@
       <div
         class="col-lg-9 section-right"
         [ngStyle]="{
-          'border-left-color': data?.styleSettings?.themeColor
+          'border-left-color': data?.resumeStyles?.themeColor
         }"
       >
         <div class="row">
@@ -230,8 +230,8 @@
           *ngIf="(data?.awardsSection)[0]?.awardName"
           class="mb-4 text-orientation"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           AWARDS
@@ -240,7 +240,7 @@
       <div
         class="col-lg-9 section-right"
         [ngStyle]="{
-          'border-left-color': data?.styleSettings?.themeColor
+          'border-left-color': data?.resumeStyles?.themeColor
         }"
       >
         <ng-container *ngFor="let award of data?.awardsSection">

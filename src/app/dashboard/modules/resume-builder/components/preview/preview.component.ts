@@ -16,32 +16,32 @@ export class PreviewComponent implements OnInit {
   constructor(private dialogService: DialogService) {}
 
   ngOnInit(): void {
-    const savedForm = JSON.parse(localStorage.getItem("CV_DETAILS"));
+    const savedForm = JSON.parse(localStorage.getItem("RESUME_DETAILS"));
     this.sendData = savedForm;
   }
 
   public OpenChangeTemplateDialog() {
     const dialogRef = this.dialogService.open(TemplateListComponent, {
       data: {
-        templateName: this.sendData.cvSettings.templateName,
+        templateName: this.sendData.resumeSettings.templateName,
       },
     });
 
     dialogRef.afterClosed.subscribe((templateName) => {
       this.sendData = {
         ...this.sendData,
-        cvSettings: {
-          ...this.sendData.cvSettings,
+        resumeSettings: {
+          ...this.sendData.resumeSettings,
           templateName: templateName,
         },
       };
 
       localStorage.setItem(
-        "CV_DETAILS",
+        "RESUME_DETAILS",
         JSON.stringify({
           ...this.sendData,
-          cvSettings: {
-            ...this.sendData.cvSettings,
+          resumeSettings: {
+            ...this.sendData.resumeSettings,
             templateName: templateName,
           },
         })
@@ -52,22 +52,22 @@ export class PreviewComponent implements OnInit {
   public OpenChangeThemeDialog() {
     const dialogRef = this.dialogService.open(ThemeListComponent, {
       data: {
-        themeColor: this.sendData.styleSettings.themeColor,
+        themeColor: this.sendData.resumeStyles.themeColor,
       },
     });
 
     dialogRef.afterClosed.subscribe((themeName) => {
       this.sendData = {
         ...this.sendData,
-        styleSettings: {
+        resumeStyles: {
           themeColor: themeName.themeColor,
         },
       };
       localStorage.setItem(
-        "CV_DETAILS",
+        "RESUME_DETAILS",
         JSON.stringify({
           ...this.sendData,
-          styleSettings: {
+          resumeStyles: {
             themeColor: themeName.themeColor,
           },
         })

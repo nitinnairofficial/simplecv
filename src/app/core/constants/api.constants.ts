@@ -3,8 +3,8 @@ import { environment } from "src/environments/environment";
 export class API {
   public static SERVER_URL = environment.serverUrl;
 
-  public static GET_CV_DETAILS = `${API.SERVER_URL}`;
-  public static UPDATE_CV_DETAILS = `${API.SERVER_URL}`;
+  public static GET_RESUME_DETAILS = `${API.SERVER_URL}`;
+  public static UPDATE_RESUME_DETAILS = `${API.SERVER_URL}`;
   public static GET_CV_STATS = `${API.SERVER_URL}`;
   public static UPDATE_CV_STATS = `${API.SERVER_URL}`;
   public static DOWNLOAD_CV = `${API.SERVER_URL}`;

@@ -15,7 +15,7 @@ import { ResumeBuilderService } from "../../services/resume-builder/resume-build
   styleUrls: ["./editor.component.scss"],
 })
 export class EditorComponent implements OnInit {
-  public cvForm: FormGroup;
+  public resumeEditorForm: FormGroup;
   public config = FORM_CONFIG;
   public formLoader = false;
 
@@ -42,7 +42,7 @@ export class EditorComponent implements OnInit {
     );
     // accordion-end
 
-    this.cvForm = this.fb.group({
+    this.resumeEditorForm = this.fb.group({
       aboutSection: this.fb.array([]),
       workExperienceSection: this.fb.array([]),
       educationSection: this.fb.array([]),
@@ -52,30 +52,30 @@ export class EditorComponent implements OnInit {
       awardsSection: this.fb.array([]),
     });
 
-    if (localStorage.getItem("CV_DETAILS") == null) {
-      localStorage.setItem("CV_DETAILS", JSON.stringify(DUMMY_FORM));
+    if (localStorage.getItem("RESUME_DETAILS") == null) {
+      localStorage.setItem("RESUME_DETAILS", JSON.stringify(DUMMY_FORM));
     }
 
-    const savedForm = JSON.parse(localStorage.getItem("CV_DETAILS"));
-    this.cvForm.valueChanges.subscribe((val) => {
+    const savedForm = JSON.parse(localStorage.getItem("RESUME_DETAILS"));
+    this.resumeEditorForm.valueChanges.subscribe((val) => {
       localStorage.setItem(
-        "CV_DETAILS",
+        "RESUME_DETAILS",
         JSON.stringify({
           ...DUMMY_FORM,
           ...savedForm,
-          cvFormData: val,
+          resumeEditorFormData: val,
         })
       );
       this.resumeBuilderService.modifyData(val);
     });
 
-    this.loadDataFromResponse(savedForm.cvFormData);
+    this.loadDataFromResponse(savedForm.resumeEditorFormData);
   }
 
   loadDataFromResponse(data) {
     Object.keys(data).forEach((x) => {
       const formConfig = data[x];
-      const getCon = this.cvForm.get(x) as FormArray;
+      const getCon = this.resumeEditorForm.get(x) as FormArray;
       formConfig.forEach((y) => {
         getCon.push(this.fb.group(y));
       });
@@ -84,16 +84,16 @@ export class EditorComponent implements OnInit {
 
   removeFormControl(controlName, i) {
     if (confirm("Are you sure you want to delete this section?")) {
-      let Array = this.cvForm.controls[controlName] as FormArray;
+      let Array = this.resumeEditorForm.controls[controlName] as FormArray;
       Array.removeAt(i);
-      console.log(this.cvForm.value);
+      console.log(this.resumeEditorForm.value);
     } else {
       return;
     }
   }
 
   addFormControl(controlName, formConfig) {
-    let Array = this.cvForm.controls[controlName] as FormArray;
+    let Array = this.resumeEditorForm.controls[controlName] as FormArray;
     let arraylen = Array.length;
     let newUsergroup: FormGroup = this.fb.group(this.config[formConfig]);
     Array.insert(arraylen, newUsergroup);
@@ -101,10 +101,10 @@ export class EditorComponent implements OnInit {
 
   public onSubmit() {
     this.formLoader = true;
-    this.resumeBuilderService.modifyData(this.cvForm.value);
+    this.resumeBuilderService.modifyData(this.resumeEditorForm.value);
 
     this.coreService
-      .updateCvDetails(this.cvForm.value)
+      .updateCvDetails(this.resumeEditorForm.value)
       .pipe(
         finalize(() => {
           this.formLoader = false;
@@ -113,13 +113,13 @@ export class EditorComponent implements OnInit {
       .subscribe(
         () => {
           this.snackbarService.show(
-            "CV details saved successfully.",
+            "Resume details saved successfully.",
             "success"
           );
         },
         (err) => {
           this.snackbarService.show(
-            "CV details saving failed. Please try again later.",
+            "Resume details saving failed. Please try again later.",
             "error"
           );
         }
@@ -128,7 +128,7 @@ export class EditorComponent implements OnInit {
 
   public resetForm() {
     if (confirm("Are you sure you want to delete all form data?")) {
-      this.cvForm.reset();
+      this.resumeEditorForm.reset();
     } else {
       return;
     }

@@ -13,7 +13,7 @@ export class CoreService {
     const httpParams = {
       params: params,
     };
-    return this.httpClient.get(API.GET_CV_DETAILS);
+    return this.httpClient.get(API.GET_RESUME_DETAILS);
   }
 
   public updateCvDetails(params: any): Observable<any> {
@@ -23,34 +23,34 @@ export class CoreService {
       selectedTemplate: "nitinnairdev@gmail.com",
       params: params,
     };
-    return this.httpClient.post(API.UPDATE_CV_DETAILS, httpParams);
+    return this.httpClient.post(API.UPDATE_RESUME_DETAILS, httpParams);
   }
 
   public getCvStats(params: any): Observable<any> {
     const httpParams = {
       params: params,
     };
-    return this.httpClient.get(API.GET_CV_DETAILS, httpParams);
+    return this.httpClient.get(API.GET_RESUME_DETAILS, httpParams);
   }
 
   public downloadCV(params: any): Observable<any> {
     const httpParams = {
       params: params,
     };
-    return this.httpClient.get(API.GET_CV_DETAILS, httpParams);
+    return this.httpClient.get(API.GET_RESUME_DETAILS, httpParams);
   }
 
   public changeUserPassword(params): Observable<any> {
     const httpParams = {
       params: params,
     };
-    return this.httpClient.post(API.GET_CV_DETAILS, httpParams);
+    return this.httpClient.post(API.GET_RESUME_DETAILS, httpParams);
   }
 
   public deleteUserAccount(params): Observable<any> {
     const httpParams = {
       params: params,
     };
-    return this.httpClient.post(API.GET_CV_DETAILS, httpParams);
+    return this.httpClient.post(API.GET_RESUME_DETAILS, httpParams);
   }
 }

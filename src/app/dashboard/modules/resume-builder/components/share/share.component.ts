@@ -24,12 +24,12 @@ export class ShareComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const savedForm = JSON.parse(localStorage.getItem("CV_DETAILS"));
+    const savedForm = JSON.parse(localStorage.getItem("RESUME_DETAILS"));
     this.sendData = savedForm;
 
     this.publicResumeForm = this.formBuilder.group({
-      cvPermissionType: ["private", Validators.required],
-      cvId: ["", Validators.required],
+      resumePermissionType: ["private", Validators.required],
+      resumeId: ["", Validators.required],
       hideBranding: [false],
       hideEmailAndPhone: [false],
     });
@@ -40,10 +40,10 @@ export class ShareComponent implements OnInit {
 
     if (savedForm) {
       this.publicResumeForm.patchValue({
-        hideBranding: savedForm.cvSettings.hideBranding,
-        cvPermissionType: savedForm.cvSettings.cvPermissionType,
-        cvId: savedForm.cvSettings.cvId,
-        hideEmailAndPhone: savedForm.cvSettings.hideEmailAndPhone,
+        hideBranding: savedForm.resumeSettings.hideBranding,
+        resumePermissionType: savedForm.resumeSettings.resumePermissionType,
+        resumeId: savedForm.resumeSettings.resumeId,
+        hideEmailAndPhone: savedForm.resumeSettings.hideEmailAndPhone,
       });
     }
   }
@@ -52,8 +52,8 @@ export class ShareComponent implements OnInit {
     const publicResumeFormValue = this.publicResumeForm.value;
     this.sendData = {
       ...this.sendData,
-      cvSettings: {
-        cvPermissionType: publicResumeFormValue.cvPermissionType,
+      resumeSettings: {
+        resumePermissionType: publicResumeFormValue.resumePermissionType,
         cvCustomUrl: publicResumeFormValue.cvCustomUrl,
         hideBranding: publicResumeFormValue.hideBranding,
         hideEmailAndPhone: publicResumeFormValue.hideEmailAndPhone,

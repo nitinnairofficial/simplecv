@@ -1,5 +1,5 @@
 <div class="container sub-container" style="padding: 10rem 0;">
-  <form [formGroup]="cvForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="resumeEditorForm" (ngSubmit)="onSubmit()">
     <div class="row desktop">
       <div class="col">
         <button class="btn btn-success float-right ml-4 mb-4">
@@ -36,7 +36,7 @@
         <div class="accordion-text">
           <ng-container
             *ngFor="
-              let aboutSectionGroup of cvForm?.controls?.aboutSection?.controls;
+              let aboutSectionGroup of resumeEditorForm?.controls?.aboutSection?.controls;
               let i = index
             "
             ;
@@ -148,7 +148,7 @@
         <div class="accordion-text">
           <ng-container
             *ngFor="
-              let workExperienceGroup of cvForm?.controls?.workExperienceSection
+              let workExperienceGroup of resumeEditorForm?.controls?.workExperienceSection
                 ?.controls;
               let i = index
             "
@@ -246,7 +246,7 @@
                 placeholder="Summary point 3"
               />
               <button
-                *ngIf="i == cvForm?.controls?.workExperienceSection?.length - 1"
+                *ngIf="i == resumeEditorForm?.controls?.workExperienceSection?.length - 1"
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="
                   addFormControl(
@@ -281,7 +281,7 @@
         <div class="accordion-text">
           <ng-container
             *ngFor="
-              let educationSectionGroup of cvForm?.controls?.educationSection
+              let educationSectionGroup of resumeEditorForm?.controls?.educationSection
                 ?.controls;
               let i = index
             "
@@ -352,7 +352,7 @@
                 </div>
               </div>
               <button
-                *ngIf="i == cvForm?.controls?.educationSection?.length - 1"
+                *ngIf="i == resumeEditorForm?.controls?.educationSection?.length - 1"
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="addFormControl('educationSection', 'educationSection')"
               >
@@ -382,7 +382,7 @@
         <div class="accordion-text">
           <ng-container
             *ngFor="
-              let projectsSectionGroup of cvForm?.controls?.projectsSection
+              let projectsSectionGroup of resumeEditorForm?.controls?.projectsSection
                 ?.controls;
               let i = index
             "
@@ -469,7 +469,7 @@
               />
 
               <button
-                *ngIf="i == cvForm?.controls?.projectsSection?.length - 1"
+                *ngIf="i == resumeEditorForm?.controls?.projectsSection?.length - 1"
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="addFormControl('projectsSection', 'projectsSection')"
               >
@@ -499,7 +499,7 @@
         <div class="accordion-text">
           <ng-container
             *ngFor="
-              let skillsGroup of cvForm?.controls?.skillsSection?.controls;
+              let skillsGroup of resumeEditorForm?.controls?.skillsSection?.controls;
               let i = index
             "
           >
@@ -513,7 +513,7 @@
               />
 
               <button
-                *ngIf="i == cvForm?.controls?.skillsSection?.length - 1"
+                *ngIf="i == resumeEditorForm?.controls?.skillsSection?.length - 1"
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="addFormControl('skillsSection', 'skillsSection')"
               >
@@ -521,7 +521,7 @@
               </button>
               <button
                 *ngIf="
-                  i != 0 && i == cvForm?.controls?.skillsSection?.length - 1
+                  i != 0 && i == resumeEditorForm?.controls?.skillsSection?.length - 1
                 "
                 class="btn btn-outline-danger mt-4"
                 (click)="removeFormControl('skillsSection', i)"
@@ -545,7 +545,7 @@
         <div class="accordion-text">
           <ng-container
             *ngFor="
-              let languagesGroup of cvForm?.controls?.languagesSection
+              let languagesGroup of resumeEditorForm?.controls?.languagesSection
                 ?.controls;
               let i = index
             "
@@ -566,7 +566,7 @@
                 placeholder="Proficiency"
               />
               <button
-                *ngIf="i == cvForm?.controls?.languagesSection?.length - 1"
+                *ngIf="i == resumeEditorForm?.controls?.languagesSection?.length - 1"
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="addFormControl('languagesSection', 'languagesSection')"
               >
@@ -574,7 +574,7 @@
               </button>
               <button
                 *ngIf="
-                  i != 0 && i == cvForm?.controls?.languagesSection?.length - 1
+                  i != 0 && i == resumeEditorForm?.controls?.languagesSection?.length - 1
                 "
                 class="btn btn-outline-danger mt-4"
                 (click)="removeFormControl('languagesSection', i)"
@@ -598,7 +598,7 @@
         <div class="accordion-text">
           <ng-container
             *ngFor="
-              let awardsSectionGroup of cvForm?.controls?.awardsSection
+              let awardsSectionGroup of resumeEditorForm?.controls?.awardsSection
                 ?.controls;
               let i = index
             "
@@ -651,7 +651,7 @@
                 </div>
               </div>
               <button
-                *ngIf="i == cvForm?.controls?.awardsSection?.length - 1"
+                *ngIf="i == resumeEditorForm?.controls?.awardsSection?.length - 1"
                 class="btn btn-outline-primary mt-4 mr-4"
                 (click)="addFormControl('awardsSection', 'awardsSection')"
               >

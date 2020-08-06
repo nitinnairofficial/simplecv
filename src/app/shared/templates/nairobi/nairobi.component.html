@@ -23,7 +23,7 @@
           *ngIf="(data?.workExperienceSection)[0]?.employerName"
           class="mb-4 text-normal"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor
           }"
         >
           WORK EXPERIENCE
@@ -61,7 +61,7 @@
           *ngIf="(data?.educationSection)[0]?.schoolName"
           class="pt-4 mb-4 text-normal"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor
           }"
         >
           EDUCATION
@@ -88,7 +88,7 @@
           *ngIf="(data?.projectsSection)[0]?.projectName"
           class="pt-4 mb-4 text-normal"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor
           }"
         >
           PROJECTS
@@ -121,7 +121,7 @@
           *ngIf="(data?.awardsSection)[0]?.awardName"
           class="pt-4 mb-4 text-normal"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor
           }"
         >
           AWARDS
@@ -146,7 +146,7 @@
           *ngIf="(data?.aboutSection)[0]?.city"
           class="mb-4 text-normal"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor
           }"
         >
           CONTACT INFO
@@ -166,7 +166,7 @@
           </span>
         </div>
 
-        <div class="mb-4" *ngIf="data?.cvSettings?.hideEmailAndPhone == false">
+        <div class="mb-4" *ngIf="data?.resumeSettings?.hideEmailAndPhone == false">
           <span
             class="d-block text-extra-light-color"
             *ngIf="(data?.aboutSection)[0]?.emailId"
@@ -175,7 +175,7 @@
           <span class="d-block">{{ (data?.aboutSection)[0]?.emailId }}</span>
         </div>
 
-        <div class="mb-4" *ngIf="data?.cvSettings?.hideEmailAndPhone == false">
+        <div class="mb-4" *ngIf="data?.resumeSettings?.hideEmailAndPhone == false">
           <span
             class="d-block text-extra-light-color"
             *ngIf="(data?.aboutSection)[0]?.website"
@@ -198,7 +198,7 @@
           *ngIf="(data?.skillsSection)[0]?.skillName"
           class="pt-4 mb-4 text-normal"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor
           }"
         >
           SKILLS
@@ -216,7 +216,7 @@
           *ngIf="(data?.languagesSection)[0]?.languageName"
           class="pt-4 mb-4 text-normal"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor
           }"
         >
           LANGUAGES

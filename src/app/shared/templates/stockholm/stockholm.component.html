@@ -15,8 +15,8 @@
           *ngIf="(data?.aboutSection)[0]?.summary"
           class="mb-4 pt-4 pb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           SUMMARY
@@ -32,8 +32,8 @@
         <h6
           class="text-bold mb-4 pt-4 pb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           CONTACT INFO
@@ -47,7 +47,7 @@
           </span>
         </div>
 
-        <div class="mb-4" *ngIf="data?.cvSettings?.hideEmailAndPhone == false">
+        <div class="mb-4" *ngIf="data?.resumeSettings?.hideEmailAndPhone == false">
           <span class="d-block text-extra-light-color">Email</span>
           <span class="d-block">{{ (data?.aboutSection)[0]?.emailId }}</span>
         </div>
@@ -57,7 +57,7 @@
           <span class="d-block"> {{ (data?.aboutSection)[0]?.website }}</span>
         </div>
 
-        <div class="mb-4" *ngIf="data?.cvSettings?.hideEmailAndPhone == false">
+        <div class="mb-4" *ngIf="data?.resumeSettings?.hideEmailAndPhone == false">
           <span class="d-block text-extra-light-color">Phone number</span>
           <span class="d-block">
             {{ (data?.aboutSection)[0]?.phoneNumber }}
@@ -70,8 +70,8 @@
           *ngIf="(data?.educationSection)[0]?.schoolName"
           class="pt-4 pb-4 mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           EDUCATION
@@ -97,8 +97,8 @@
           *ngIf="(data?.projectsSection)[0]?.projectName"
           class="text-bold mb-4 pt-4 pb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           SKILLS
@@ -115,8 +115,8 @@
         <h6
           class="text-bold mb-4 pt-4 pb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           LANGUAGES
@@ -137,8 +137,8 @@
           *ngIf="(data?.workExperienceSection)[0]?.employerName"
           class="mb-4 pt-4 pb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           WORK EXPERIENCE
@@ -170,8 +170,8 @@
           *ngIf="(data?.projectsSection)[0]?.projectName"
           class="pt-4 pb-4 mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           PROJECTS
@@ -201,8 +201,8 @@
           *ngIf="(data?.awardsSection)[0]?.awardName"
           class="pt-4 pb-4 mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           AWARDS

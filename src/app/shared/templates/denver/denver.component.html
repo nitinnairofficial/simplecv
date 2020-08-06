@@ -1,7 +1,7 @@
 <div
   class="template-container"
   [ngStyle]="{
-    'border-left-color': data?.styleSettings?.themeColor
+    'border-left-color': data?.resumeStyles?.themeColor
   }"
 >
   <div class="template-content">
@@ -22,7 +22,7 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor
           }"
         >
           CONTACT INFO
@@ -31,7 +31,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.styleSettings?.themeColor
+            'background-color': data?.resumeStyles?.themeColor
           }"
         />
 
@@ -43,7 +43,7 @@
           </span>
         </div>
 
-        <div class="mb-4" *ngIf="data?.cvSettings?.hideEmailAndPhone == false">
+        <div class="mb-4" *ngIf="data?.resumeSettings?.hideEmailAndPhone == false">
           <span class="d-block text-extra-light-color">Email</span>
           <span class="d-block">{{ (data?.aboutSection)[0]?.emailId }}</span>
         </div>
@@ -53,7 +53,7 @@
           <span class="d-block"> {{ (data?.aboutSection)[0]?.website }}</span>
         </div>
 
-        <div class="mb-4" *ngIf="data?.cvSettings?.hideEmailAndPhone == false">
+        <div class="mb-4" *ngIf="data?.resumeSettings?.hideEmailAndPhone == false">
           <span class="d-block text-extra-light-color">Phone number</span>
           <span class="d-block">
             {{ (data?.aboutSection)[0]?.phoneNumber }}
@@ -64,7 +64,7 @@
           *ngIf="(data?.projectsSection)[0]?.projectName"
           class="pt-4 mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor
           }"
         >
           SKILLS
@@ -73,7 +73,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.styleSettings?.themeColor
+            'background-color': data?.resumeStyles?.themeColor
           }"
         />
 
@@ -89,7 +89,7 @@
           *ngIf="(data?.languagesSection)[0]?.languageName"
           class="pt-4 mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor
           }"
         >
           LANGUAGES
@@ -98,7 +98,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.styleSettings?.themeColor
+            'background-color': data?.resumeStyles?.themeColor
           }"
         />
 
@@ -116,7 +116,7 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor
           }"
         >
           SUMMARY
@@ -125,7 +125,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.styleSettings?.themeColor
+            'background-color': data?.resumeStyles?.themeColor
           }"
         />
 
@@ -137,7 +137,7 @@
           *ngIf="(data?.workExperienceSection)[0]?.employerName"
           class="pt-4 mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor
           }"
         >
           WORK EXPERIENCE
@@ -146,7 +146,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.styleSettings?.themeColor
+            'background-color': data?.resumeStyles?.themeColor
           }"
         />
 
@@ -174,7 +174,7 @@
           *ngIf="(data?.educationSection)[0]?.schoolName"
           class="pt-4 mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor
           }"
         >
           EDUCATION
@@ -183,7 +183,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.styleSettings?.themeColor
+            'background-color': data?.resumeStyles?.themeColor
           }"
         />
 
@@ -207,7 +207,7 @@
           *ngIf="(data?.projectsSection)[0]?.projectName"
           class="pt-4 mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor
           }"
         >
           EDUCATION
@@ -216,7 +216,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.styleSettings?.themeColor
+            'background-color': data?.resumeStyles?.themeColor
           }"
         />
 
@@ -246,7 +246,7 @@
           *ngIf="(data?.awardsSection)[0]?.awardName"
           class="pt-4 mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor
           }"
         >
           AWARDS
@@ -255,7 +255,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.styleSettings?.themeColor
+            'background-color': data?.resumeStyles?.themeColor
           }"
         />
 

@@ -14,7 +14,7 @@
           {{ (data?.aboutSection)[0]?.city }},
           {{ (data?.aboutSection)[0]?.state }} |
           {{ (data?.aboutSection)[0]?.website }} |
-          <span *ngIf="data?.cvSettings?.hideEmailAndPhone == false"
+          <span *ngIf="data?.resumeSettings?.hideEmailAndPhone == false"
             >| {{ (data?.aboutSection)[0]?.phoneNumber }} |
             {{ (data?.aboutSection)[0]?.emailId }}</span
           >
@@ -27,8 +27,8 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           SUMMARY
@@ -45,8 +45,8 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           WORK EXPERIENCE
@@ -79,8 +79,8 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           EDUCATION
@@ -107,8 +107,8 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           PROJECTS
@@ -141,8 +141,8 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           SKILLS
@@ -161,8 +161,8 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           LANGUAGES
@@ -186,8 +186,8 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.styleSettings?.themeColor,
-            'border-bottom-color': data?.styleSettings?.themeColor
+            color: data?.resumeStyles?.themeColor,
+            'border-bottom-color': data?.resumeStyles?.themeColor
           }"
         >
           AWARDS

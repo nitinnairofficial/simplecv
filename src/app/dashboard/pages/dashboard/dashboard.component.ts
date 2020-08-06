@@ -9,7 +9,7 @@ export class DashboardComponent implements OnInit {
   public sideNavigationRoutes = [
     {
       routeLink: "cv",
-      routeLabel: "CV Builder",
+      routeLabel: "Resume Builder",
       routeIcon: "assets/icons/cv.svg",
     },
     {
