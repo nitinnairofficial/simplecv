@@ -54,7 +54,7 @@ export class ShareComponent implements OnInit {
       ...this.sendData,
       resumeSettings: {
         resumePermissionType: publicResumeFormValue.resumePermissionType,
-        cvCustomUrl: publicResumeFormValue.cvCustomUrl,
+        resumeCustomUrl: publicResumeFormValue.resumeCustomUrl,
         hideBranding: publicResumeFormValue.hideBranding,
         hideEmailAndPhone: publicResumeFormValue.hideEmailAndPhone,
       },

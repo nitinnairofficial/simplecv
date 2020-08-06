@@ -25,7 +25,7 @@ export class ResumeBuilderComponent implements OnInit {
   constructor(private coreService: CoreService) {}
 
   public ngOnInit(): void {
-    this.coreService.getCvDetails("").subscribe(
+    this.coreService.getResumeDetails("").subscribe(
       (res) => {},
       (err) => {}
     );

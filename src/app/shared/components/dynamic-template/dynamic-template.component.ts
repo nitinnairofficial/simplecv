@@ -6,7 +6,7 @@ import {
   ComponentFactoryResolver,
   OnChanges,
 } from "@angular/core";
-import { cvTemplateDirective } from "./cv-template.directive";
+import { ResumeTemplateDirective } from "./resume-template.directive";
 import { TEMPLATE_CONFIG } from "../../constants/shared.constants";
 
 @Component({
@@ -16,8 +16,8 @@ import { TEMPLATE_CONFIG } from "../../constants/shared.constants";
 })
 export class DynamicTemplateComponent implements OnInit, OnChanges {
   @Input() data: any;
-  @ViewChild(cvTemplateDirective, { static: true })
-  cvTemplate: cvTemplateDirective;
+  @ViewChild(ResumeTemplateDirective, { static: true })
+  resumeTemplate: ResumeTemplateDirective;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
@@ -39,7 +39,7 @@ export class DynamicTemplateComponent implements OnInit, OnChanges {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
       TEMPLATE_CONFIG[compName]
     );
-    const viewContainerRef = this.cvTemplate.viewContainerRef;
+    const viewContainerRef = this.resumeTemplate.viewContainerRef;
     viewContainerRef.clear();
     const componentRef = viewContainerRef.createComponent(componentFactory);
     (<DynamicTemplateComponent>componentRef.instance).data = this.data;

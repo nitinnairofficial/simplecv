@@ -120,7 +120,7 @@ export const DUMMY_FORM = {
   resumeStyles: {
     themeColor: "#0069db",
   },
-  cvFormData: {
+  resumeFormData: {
     aboutSection: [
       {
         firstName: "Emilia",

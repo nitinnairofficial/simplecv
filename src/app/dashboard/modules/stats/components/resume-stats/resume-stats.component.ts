@@ -29,7 +29,7 @@ export class ResumeStatsComponent implements OnInit {
   constructor(private coreService: CoreService) {}
 
   ngOnInit(): void {
-    this.coreService.getCvStats("").subscribe(
+    this.coreService.getResumeStats("").subscribe(
       (res) => {},
       (err) => {}
     );

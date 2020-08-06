@@ -8,9 +8,9 @@ import { Component, OnInit } from "@angular/core";
 export class DashboardComponent implements OnInit {
   public sideNavigationRoutes = [
     {
-      routeLink: "cv",
+      routeLink: "resume",
       routeLabel: "Resume Builder",
-      routeIcon: "assets/icons/cv.svg",
+      routeIcon: "assets/icons/resume.svg",
     },
     {
       routeLink: "stats",

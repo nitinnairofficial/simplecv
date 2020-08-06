@@ -6,7 +6,7 @@ import { BehaviorSubject } from "rxjs";
 })
 export class ResumeBuilderService {
   private dataSource = new BehaviorSubject({});
-  public cvData = this.dataSource.asObservable();
+  public resumeData = this.dataSource.asObservable();
 
   constructor() {}
 

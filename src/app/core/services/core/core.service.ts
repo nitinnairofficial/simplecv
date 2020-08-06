@@ -9,14 +9,14 @@ import { Observable } from "rxjs";
 export class CoreService {
   constructor(private httpClient: HttpClient) {}
 
-  public getCvDetails(params: any): Observable<any> {
+  public getResumeDetails(params: any): Observable<any> {
     const httpParams = {
       params: params,
     };
     return this.httpClient.get(API.GET_RESUME_DETAILS);
   }
 
-  public updateCvDetails(params: any): Observable<any> {
+  public updateResumeDetails(params: any): Observable<any> {
     const httpParams = {
       resumeId: "nitinnairdev@gmail.com",
       emailId: "nitinnairdev@gmail.com",
@@ -26,7 +26,7 @@ export class CoreService {
     return this.httpClient.post(API.UPDATE_RESUME_DETAILS, httpParams);
   }
 
-  public getCvStats(params: any): Observable<any> {
+  public getResumeStats(params: any): Observable<any> {
     const httpParams = {
       params: params,
     };

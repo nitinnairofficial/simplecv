@@ -23,10 +23,10 @@ export class ResumeComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((params) => {
       this.loader = true;
-      const uniqueCvUrl = params.get("resumeId");
+      const uniqueResumeUrl = params.get("resumeId");
 
       this.coreService
-        .getCvDetails(uniqueCvUrl)
+        .getResumeDetails(uniqueResumeUrl)
         .pipe(finalize(() => (this.loader = false)))
         .subscribe(
           (res) => {

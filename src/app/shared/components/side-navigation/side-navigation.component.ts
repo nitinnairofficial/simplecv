@@ -16,7 +16,7 @@ export class SideNavigationComponent implements OnInit {
     {
       routeLink: "resume-builder",
       routeLabel: "Resume Builder",
-      routeIcon: "assets/icons/cv.svg",
+      routeIcon: "assets/icons/resume.svg",
     },
     {
       routeLink: "stats",

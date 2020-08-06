@@ -104,7 +104,7 @@ export class EditorComponent implements OnInit {
     this.resumeBuilderService.modifyData(this.resumeEditorForm.value);
 
     this.coreService
-      .updateCvDetails(this.resumeEditorForm.value)
+      .updateResumeDetails(this.resumeEditorForm.value)
       .pipe(
         finalize(() => {
           this.formLoader = false;

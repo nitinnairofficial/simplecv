@@ -5,7 +5,6 @@ import { SideNavigationComponent } from "./components/side-navigation/side-navig
 import { RouterModule } from "@angular/router";
 import { TopNavigationComponent } from "./components/top-navigation/top-navigation.component";
 import { DynamicTemplateComponent } from "./components/dynamic-template/dynamic-template.component";
-import { cvTemplateDirective } from "./components/dynamic-template/cv-template.directive";
 import { ReactiveFormsModule } from "@angular/forms";
 import { DialogComponent } from "./components/dialog/dialog.component";
 import { DialogRef } from "../core/models/dialog-ref";
@@ -24,13 +23,14 @@ import { DenverComponent } from "./templates/denver/denver.component";
 import { OsloComponent } from "./templates/oslo/oslo.component";
 import { StockholmComponent } from "./templates/stockholm/stockholm.component";
 import { HelsinkiComponent } from "./templates/helsinki/helsinki.component";
+import { ResumeTemplateDirective } from './components/dynamic-template/resume-template.directive';
 
 @NgModule({
   declarations: [
     SideNavigationComponent,
     TopNavigationComponent,
     DynamicTemplateComponent,
-    cvTemplateDirective,
+    ResumeTemplateDirective,
     DialogComponent,
     DialogInsertionDirective,
     TemplateListComponent,
@@ -57,7 +57,7 @@ import { HelsinkiComponent } from "./templates/helsinki/helsinki.component";
     PageNotFoundComponent,
     SnackbarComponent,
     DynamicTemplateComponent,
-    cvTemplateDirective,
+    ResumeTemplateDirective,
     TemplateListComponent,
     ThemeListComponent,
     RioComponent,

@@ -1,8 +1,8 @@
 import { Directive, ViewContainerRef } from "@angular/core";
 
 @Directive({
-  selector: "[cv-template]",
+  selector: "[resume-template]",
 })
-export class cvTemplateDirective {
+export class ResumeTemplateDirective {
   constructor(public viewContainerRef: ViewContainerRef) {}
 }
