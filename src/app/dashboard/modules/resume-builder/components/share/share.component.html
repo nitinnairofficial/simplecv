@@ -6,8 +6,7 @@
   </div>
   <div class="row mb-4">
     <div class="col">
-      <button class="btn btn-outline-primary mr-4">Download as PDF</button>
-      <button class="btn btn-outline-primary">Download as DOCX</button>
+      <button class="btn btn-outline-primary mr-4">Download Resume PDF</button>
     </div>
   </div>
 
@@ -130,6 +129,7 @@
           <th scope="col">Sharing With</th>
           <th scope="col">Created Date</th>
           <th scope="col">Expiry Date</th>
+          <th scope="col">Copy Link</th>
           <th scope="col">Stats</th>
           <th scope="col">Delete</th>
         </tr>
@@ -142,6 +142,9 @@
           <td>{{ item?.sharingWith }}</td>
           <td>{{ item?.createdDate }}</td>
           <td>{{ item?.expiryDate }}</td>
+          <td>
+            <img src="assets/icons/copy.svg" />
+          </td>
           <td>
             <img src="assets/icons/analytics.svg" />
           </td>

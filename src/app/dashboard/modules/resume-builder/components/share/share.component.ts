@@ -78,8 +78,8 @@ export class ShareComponent implements OnInit {
     }, 2000);
   }
 
-  public downloadCV(fileType) {
-    this.coreSerivce.downloadCV(fileType).subscribe(
+  public downloadResume(fileType) {
+    this.coreSerivce.downloadResume(fileType).subscribe(
       (res) => {},
       (err) => {}
     );

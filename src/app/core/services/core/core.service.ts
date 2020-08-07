@@ -33,7 +33,7 @@ export class CoreService {
     return this.httpClient.get(API.GET_RESUME_DETAILS, httpParams);
   }
 
-  public downloadCV(params: any): Observable<any> {
+  public downloadResume(params: any): Observable<any> {
     const httpParams = {
       params: params,
     };

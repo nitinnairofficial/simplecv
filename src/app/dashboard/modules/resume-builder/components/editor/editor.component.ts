@@ -69,7 +69,7 @@ export class EditorComponent implements OnInit {
       this.resumeBuilderService.modifyData(val);
     });
 
-    this.loadDataFromResponse(savedForm.resumeEditorFormData);
+    this.loadDataFromResponse(savedForm.resumeFormData);
   }
 
   loadDataFromResponse(data) {
