@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, Form } from "@angular/forms";
 import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
 import { CoreService } from "src/app/core/services/core/core.service";
 import { PRIVATE_RESUME_LIST } from "../../constants/resume-builder.constants";
+import { WebStorageService } from "src/app/core/services/web-storage/web-storage.service";
 
 @Component({
   selector: "app-share",
@@ -21,11 +22,12 @@ export class ShareComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private snackbarService: SnackbarService,
-    private coreSerivce: CoreService
+    private coreSerivce: CoreService,
+    private webStorageService: WebStorageService
   ) {}
 
   ngOnInit(): void {
-    const savedForm = JSON.parse(localStorage.getItem("RESUME_DETAILS"));
+    const savedForm = this.webStorageService.getStorageValue("RESUME_DETAILS");
     this.sendData = savedForm;
 
     this.publicResumeForm = this.formBuilder.group({

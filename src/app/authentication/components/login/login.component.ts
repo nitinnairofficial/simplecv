@@ -8,6 +8,7 @@ import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service
 import { CoreService } from "src/app/core/services/core/core.service";
 import { finalize } from "rxjs/operators";
 import { AccessService } from "src/app/core/services/access/access.service";
+import { WebStorageService } from "src/app/core/services/web-storage/web-storage.service";
 
 @Component({
   selector: "app-login",
@@ -23,9 +24,10 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     public angularFireAuth: AngularFireAuth,
     private router: Router,
-    public snackbarService: SnackbarService,
-    public coreService: CoreService,
-    public accessService: AccessService
+    private snackbarService: SnackbarService,
+    private coreService: CoreService,
+    private accessService: AccessService,
+    private webStorageService: WebStorageService
   ) {}
 
   ngOnInit(): void {
@@ -52,7 +54,9 @@ export class LoginComponent implements OnInit {
             "error"
           );
         } else {
-          localStorage.setItem("USER_DETAILS", JSON.stringify(res.user));
+          this.webStorageService.setStorageValue(
+            "USER_DETAILS",res.user
+          );
 
           setTimeout(() => {
             this.router.navigate(["/dashboard"]);

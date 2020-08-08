@@ -5,7 +5,7 @@ import { SideNavigationComponent } from "./components/side-navigation/side-navig
 import { RouterModule } from "@angular/router";
 import { TopNavigationComponent } from "./components/top-navigation/top-navigation.component";
 import { DynamicTemplateComponent } from "./components/dynamic-template/dynamic-template.component";
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { DialogComponent } from "./components/dialog/dialog.component";
 import { DialogRef } from "../core/models/dialog-ref";
 import { TemplateListComponent } from "./components/template-list/template-list.component";
@@ -23,7 +23,7 @@ import { DenverComponent } from "./templates/denver/denver.component";
 import { OsloComponent } from "./templates/oslo/oslo.component";
 import { StockholmComponent } from "./templates/stockholm/stockholm.component";
 import { HelsinkiComponent } from "./templates/helsinki/helsinki.component";
-import { ResumeTemplateDirective } from './components/dynamic-template/resume-template.directive';
+import { ResumeTemplateDirective } from "./components/dynamic-template/resume-template.directive";
 
 @NgModule({
   declarations: [
@@ -47,8 +47,15 @@ import { ResumeTemplateDirective } from './components/dynamic-template/resume-te
     StockholmComponent,
     HelsinkiComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, ChartsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    ChartsModule,
+    FormsModule,
+  ],
   exports: [
+    FormsModule,
     ReactiveFormsModule,
     RouterModule,
     ChartsModule,

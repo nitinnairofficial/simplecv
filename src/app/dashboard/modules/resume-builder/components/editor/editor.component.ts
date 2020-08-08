@@ -9,6 +9,7 @@ import {
 import { CoreService } from "src/app/core/services/core/core.service";
 import { finalize } from "rxjs/operators";
 import { ResumeBuilderService } from "../../services/resume-builder/resume-builder.service";
+import { WebStorageService } from "src/app/core/services/web-storage/web-storage.service";
 
 @Component({
   selector: "app-editor",
@@ -24,7 +25,8 @@ export class EditorComponent implements OnInit {
     private fb: FormBuilder,
     private resumeBuilderService: ResumeBuilderService,
     private snackbarService: SnackbarService,
-    private coreService: CoreService
+    private coreService: CoreService,
+    private webStorageService: WebStorageService
   ) {}
 
   ngOnInit() {
@@ -53,20 +55,18 @@ export class EditorComponent implements OnInit {
       awardsSection: this.fb.array([]),
     });
 
-    if (localStorage.getItem("RESUME_DETAILS") == null) {
-      localStorage.setItem("RESUME_DETAILS", JSON.stringify(DUMMY_FORM));
+    if (this.webStorageService.getStorageValue("RESUME_DETAILS") == null) {
+      this.webStorageService.setStorageValue("RESUME_DETAILS", DUMMY_FORM);
     }
 
-    const savedForm = JSON.parse(localStorage.getItem("RESUME_DETAILS"));
+    const savedForm = this.webStorageService.getStorageValue("RESUME_DETAILS");
+
     this.resumeEditorForm.valueChanges.subscribe((val) => {
-      localStorage.setItem(
-        "RESUME_DETAILS",
-        JSON.stringify({
-          ...DUMMY_FORM,
-          ...savedForm,
-          resumeEditorFormData: val,
-        })
-      );
+      this.webStorageService.setStorageValue("RESUME_DETAILS", {
+        ...DUMMY_FORM,
+        ...savedForm,
+        resumeFormData: val,
+      });
       this.resumeBuilderService.modifyData(val);
     });
 
@@ -131,7 +131,7 @@ export class EditorComponent implements OnInit {
   public resetForm() {
     if (confirm("Are you sure you want to delete all form data?")) {
       this.resumeEditorForm.reset();
-      localStorage.setItem("RESUME_DETAILS", JSON.stringify(INITIAL_FORM));
+      this.webStorageService.setStorageValue("RESUME_DETAILS", INITIAL_FORM);
     } else {
       return;
     }

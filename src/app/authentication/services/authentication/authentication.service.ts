@@ -3,6 +3,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { Router } from "@angular/router";
 import * as firebase from "firebase/app";
 import "firebase/auth";
+import { WebStorageService } from "src/app/core/services/web-storage/web-storage.service";
 
 @Injectable({
   providedIn: "root",
@@ -11,16 +12,15 @@ export class AuthenticationService {
   public userData: any; // Save logged in user data
   constructor(
     public angularFireAuth: AngularFireAuth, // Inject Firebase auth service
-    public router: Router
+    public router: Router,
+    private webStorageService: WebStorageService
   ) {
     this.angularFireAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
-        localStorage.setItem("USER_DETAILS", JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem("USER_DETAILS"));
+        this.webStorageService.setStorageValue("USER_DETAILS", this.userData);
       } else {
-        localStorage.setItem("USER_DETAILS", null);
-        JSON.parse(localStorage.getItem("USER_DETAILS"));
+        this.webStorageService.setStorageValue("USER_DETAILS", null);
       }
     });
   }
@@ -31,11 +31,9 @@ export class AuthenticationService {
     this.angularFireAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
-        localStorage.setItem("USER_DETAILS", JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem("USER_DETAILS"));
+        this.webStorageService.setStorageValue("USER_DETAILS", this.userData);
       } else {
-        localStorage.setItem("USER_DETAILS", null);
-        JSON.parse(localStorage.getItem("USER_DETAILS"));
+        this.webStorageService.setStorageValue("USER_DETAILS", null);
       }
     });
   }
@@ -119,14 +117,14 @@ export class AuthenticationService {
 
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem("USER_DETAILS"));
+    const user = this.webStorageService.getStorageValue("USER_DETAILS");
     return user !== null && user.emailVerified !== false ? true : false;
   }
 
   /* log out */
   public logout() {
     return this.angularFireAuth.signOut().then(() => {
-      localStorage.removeItem("user");
+      this.webStorageService.clearAll();
       this.router.navigate(["/auth/login"]);
     });
   }

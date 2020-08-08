@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
 import { CoreService } from "src/app/core/services/core/core.service";
 import { finalize } from "rxjs/operators";
+import { WebStorageService } from "src/app/core/services/web-storage/web-storage.service";
 
 @Component({
   selector: "app-account-settings",
@@ -17,11 +18,12 @@ export class AccountSettingsComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private snackbarService: SnackbarService,
-    private coreService: CoreService
+    private coreService: CoreService,
+    private webStorageService: WebStorageService
   ) {}
 
   ngOnInit(): void {
-    const userDetail = JSON.parse(localStorage.getItem("user"));
+    const userDetail = this.webStorageService.getStorageValue("user");
     this.userEmail = userDetail && userDetail.email;
 
     this.changePasswordForm = this.formBuilder.group({

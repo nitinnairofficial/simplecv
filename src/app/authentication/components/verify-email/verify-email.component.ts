@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { WebStorageService } from "src/app/core/services/web-storage/web-storage.service";
 
 @Component({
   selector: "app-verify-email",
@@ -8,10 +9,13 @@ import { Router } from "@angular/router";
 })
 export class VerifyEmailComponent implements OnInit {
   public userEmail: string;
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private webStorageService: WebStorageService
+  ) {}
 
   ngOnInit(): void {
-    const userDetail = JSON.parse(localStorage.getItem("user"));
+    const userDetail = this.webStorageService.getStorageValue("USER_DETAILS");
     this.userEmail = userDetail && userDetail.email;
   }
 
