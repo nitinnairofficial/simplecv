@@ -5,6 +5,9 @@ import { Router } from "@angular/router";
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
+import { CoreService } from "src/app/core/services/core/core.service";
+import { finalize } from "rxjs/operators";
+import { AccessService } from "src/app/core/services/access/access.service";
 
 @Component({
   selector: "app-login",
@@ -20,7 +23,9 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     public angularFireAuth: AngularFireAuth,
     private router: Router,
-    public snackbarService: SnackbarService
+    public snackbarService: SnackbarService,
+    public coreService: CoreService,
+    public accessService: AccessService
   ) {}
 
   ngOnInit(): void {
@@ -47,7 +52,7 @@ export class LoginComponent implements OnInit {
             "error"
           );
         } else {
-          localStorage.setItem("user", JSON.stringify(res.user));
+          localStorage.setItem("USER_DETAILS", JSON.stringify(res.user));
 
           setTimeout(() => {
             this.router.navigate(["/dashboard"]);
@@ -88,5 +93,17 @@ export class LoginComponent implements OnInit {
         console.log(error);
         this.googleLoader = false;
       });
+  }
+
+  public generateToken() {
+    this.coreService
+      .generateToken({})
+      .pipe(finalize(() => {}))
+      .subscribe(
+        (res) => {
+          this.accessService.setLoginInfo(res);
+        },
+        (err) => {}
+      );
   }
 }

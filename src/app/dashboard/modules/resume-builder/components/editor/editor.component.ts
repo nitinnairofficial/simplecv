@@ -4,6 +4,7 @@ import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service
 import {
   FORM_CONFIG,
   DUMMY_FORM,
+  INITIAL_FORM,
 } from "../../constants/resume-builder.constants";
 import { CoreService } from "src/app/core/services/core/core.service";
 import { finalize } from "rxjs/operators";
@@ -103,8 +104,9 @@ export class EditorComponent implements OnInit {
     this.formLoader = true;
     this.resumeBuilderService.modifyData(this.resumeEditorForm.value);
 
+    const formChanges = this.getDirtyValues(this.resumeEditorForm);
     this.coreService
-      .updateResumeDetails(this.resumeEditorForm.value)
+      .updateResumeDetails(formChanges)
       .pipe(
         finalize(() => {
           this.formLoader = false;
@@ -129,8 +131,25 @@ export class EditorComponent implements OnInit {
   public resetForm() {
     if (confirm("Are you sure you want to delete all form data?")) {
       this.resumeEditorForm.reset();
+      localStorage.setItem("RESUME_DETAILS", JSON.stringify(INITIAL_FORM));
     } else {
       return;
     }
+  }
+
+  public getDirtyValues(form) {
+    let dirtyValues = {};
+
+    Object.keys(form.controls).forEach((key) => {
+      let currentControl = form.controls[key];
+
+      if (currentControl.dirty) {
+        if (currentControl.controls)
+          dirtyValues[key] = this.getDirtyValues(currentControl);
+        else dirtyValues[key] = currentControl.value;
+      }
+    });
+
+    return dirtyValues;
   }
 }

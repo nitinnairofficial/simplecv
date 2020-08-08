@@ -16,11 +16,11 @@ export class AuthenticationService {
     this.angularFireAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
-        localStorage.setItem("user", JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem("user"));
+        localStorage.setItem("USER_DETAILS", JSON.stringify(this.userData));
+        JSON.parse(localStorage.getItem("USER_DETAILS"));
       } else {
-        localStorage.setItem("user", null);
-        JSON.parse(localStorage.getItem("user"));
+        localStorage.setItem("USER_DETAILS", null);
+        JSON.parse(localStorage.getItem("USER_DETAILS"));
       }
     });
   }
@@ -31,11 +31,11 @@ export class AuthenticationService {
     this.angularFireAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
-        localStorage.setItem("user", JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem("user"));
+        localStorage.setItem("USER_DETAILS", JSON.stringify(this.userData));
+        JSON.parse(localStorage.getItem("USER_DETAILS"));
       } else {
-        localStorage.setItem("user", null);
-        JSON.parse(localStorage.getItem("user"));
+        localStorage.setItem("USER_DETAILS", null);
+        JSON.parse(localStorage.getItem("USER_DETAILS"));
       }
     });
   }
@@ -119,7 +119,7 @@ export class AuthenticationService {
 
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(localStorage.getItem("USER_DETAILS"));
     return user !== null && user.emailVerified !== false ? true : false;
   }
 

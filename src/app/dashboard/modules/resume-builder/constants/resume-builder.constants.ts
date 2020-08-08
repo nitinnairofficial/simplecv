@@ -10,6 +10,7 @@ export const PRIVATE_RESUME_LIST = [
       averageReadTime: "2m 30s",
       totalLinksShared: "5",
     },
+    isOpened: false,
   },
   {
     resumeId: "abcxyz123456",
@@ -22,6 +23,7 @@ export const PRIVATE_RESUME_LIST = [
       averageReadTime: "2m 30s",
       totalLinksShared: "5",
     },
+    isOpened: false,
   },
 ];
 
@@ -261,80 +263,92 @@ export const DUMMY_FORM = {
 };
 
 export const INITIAL_FORM = {
-  aboutSection: [
-    {
-      firstName: "",
-      lastName: "",
-      jobTitle: "",
-      website: "",
-      emailId: "",
-      phoneNumber: "",
-      city: "",
-      state: "",
-      country: "",
-      summary: "",
-    },
-  ],
-  workExperienceSection: [
-    {
-      employerName: "",
-      jobTitle: "",
-      employmentType: "",
-      startDate: "",
-      endDate: "",
-      employerWebsite: "",
-      city: "",
-      state: "",
-      country: "",
-      summary: "",
-      point1: "",
-      point2: "",
-      point3: "",
-    },
-  ],
-  educationSection: [
-    {
-      schoolName: "",
-      degree: "",
-      startDate: "",
-      endDate: "",
-      schoolWebsite: "",
-      city: "",
-      state: "",
-      country: "",
-      summary: "",
-    },
-  ],
-  projectsSection: [
-    {
-      projectName: "",
-      role: "",
-      projectWebsite: "",
-      startDate: "",
-      endDate: "",
-      summary: "",
-      point1: "",
-      point2: "",
-      point3: "",
-    },
-  ],
-  skillsSection: [
-    {
-      skillName: "",
-    },
-  ],
-  languagesSection: [
-    {
-      languageName: "",
-      proficiency: "",
-    },
-  ],
-  awardsSection: [
-    {
-      awardName: "",
-      awardDate: "",
-      awardWebsite: "",
-      summary: "",
-    },
-  ],
+  resumeSettings: {
+    templateName: "tokyo",
+    hideBranding: true,
+    hideEmailAndPhone: true,
+    resumePermissionType: "public",
+    resumeId: "emiliaparker",
+  },
+  resumeStyles: {
+    themeColor: "#0069db",
+  },
+  resumeFormData: {
+    aboutSection: [
+      {
+        firstName: "",
+        lastName: "",
+        jobTitle: "",
+        website: "",
+        emailId: "",
+        phoneNumber: "",
+        city: "",
+        state: "",
+        country: "",
+        summary: "",
+      },
+    ],
+    workExperienceSection: [
+      {
+        employerName: "",
+        jobTitle: "",
+        employmentType: "",
+        startDate: "",
+        endDate: "",
+        employerWebsite: "",
+        city: "",
+        state: "",
+        country: "",
+        summary: "",
+        point1: "",
+        point2: "",
+        point3: "",
+      },
+    ],
+    educationSection: [
+      {
+        schoolName: "",
+        degree: "",
+        startDate: "",
+        endDate: "",
+        schoolWebsite: "",
+        city: "",
+        state: "",
+        country: "",
+        summary: "",
+      },
+    ],
+    projectsSection: [
+      {
+        projectName: "",
+        role: "",
+        projectWebsite: "",
+        startDate: "",
+        endDate: "",
+        summary: "",
+        point1: "",
+        point2: "",
+        point3: "",
+      },
+    ],
+    skillsSection: [
+      {
+        skillName: "",
+      },
+    ],
+    languagesSection: [
+      {
+        languageName: "",
+        proficiency: "",
+      },
+    ],
+    awardsSection: [
+      {
+        awardName: "",
+        awardDate: "",
+        awardWebsite: "",
+        summary: "",
+      },
+    ],
+  },
 };

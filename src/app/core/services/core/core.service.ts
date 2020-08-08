@@ -9,6 +9,13 @@ import { Observable } from "rxjs";
 export class CoreService {
   constructor(private httpClient: HttpClient) {}
 
+  public generateToken(params: any): Observable<any> {
+    const httpParams = {
+      params: params,
+    };
+    return this.httpClient.get(API.GENERATE_TOKEN, httpParams);
+  }
+
   public getResumeDetails(params: any): Observable<any> {
     const httpParams = {
       params: params,

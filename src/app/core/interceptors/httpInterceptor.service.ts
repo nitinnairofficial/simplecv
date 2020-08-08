@@ -11,10 +11,14 @@ import {
 import { Observable, throwError } from "rxjs";
 import { catchError, map } from "rxjs/operators";
 import { AuthenticationService } from "src/app/authentication/services/authentication/authentication.service";
+import { AccessService } from "../services/access/access.service";
 
 @Injectable()
 export class HttpInterceptorService implements HttpInterceptor {
-  constructor(private authenticationService: AuthenticationService) {}
+  constructor(
+    private authenticationService: AuthenticationService,
+    private accessService: AccessService
+  ) {}
 
   public intercept(
     req: HttpRequest<any>,
@@ -24,7 +28,7 @@ export class HttpInterceptorService implements HttpInterceptor {
     /**
      * Get Token from localstorage
      */
-    const loginInfo = null;
+    const loginInfo = this.accessService.getLoginInfo();
     /**
      * Clone the request object and set the headers
      */

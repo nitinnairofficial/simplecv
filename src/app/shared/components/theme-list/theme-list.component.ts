@@ -21,7 +21,6 @@ export class ThemeListComponent implements OnInit {
   }
 
   public selectedTheme(themeValue) {
-    console.log(themeValue);
     this.dialogRef.close({
       themeColor: themeValue,
     });

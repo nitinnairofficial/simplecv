@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { FormGroup, FormBuilder, Validators, Form } from "@angular/forms";
 import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
 import { CoreService } from "src/app/core/services/core/core.service";
-import { PRIVATE_RESUME_LIST } from '../../constants/resume-builder.constants';
+import { PRIVATE_RESUME_LIST } from "../../constants/resume-builder.constants";
 
 @Component({
   selector: "app-share",
@@ -16,6 +16,7 @@ export class ShareComponent implements OnInit {
   public publicResumeLoader = false;
   public privateResumeLoader = false;
   public privateResumeList = PRIVATE_RESUME_LIST;
+  private currentIndex: number;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -83,5 +84,33 @@ export class ShareComponent implements OnInit {
       (res) => {},
       (err) => {}
     );
+  }
+
+  public openStatsPanel(index) {
+    if (this.currentIndex == index) {
+      this.privateResumeList[index].isOpened = false;
+      this.currentIndex = null;
+      return;
+    }
+    this.privateResumeList.map((item, i) => {
+      if (i == index) {
+        item.isOpened = true;
+        this.currentIndex = index;
+      } else {
+        item.isOpened = false;
+      }
+    });
+  }
+
+  public copyToClipboard(copyText: string) {
+    const listener = (e: ClipboardEvent) => {
+      e.clipboardData.setData("text/plain", copyText);
+      e.preventDefault();
+    };
+
+    document.addEventListener("copy", listener);
+    document.execCommand("copy");
+    document.removeEventListener("copy", listener);
+    this.snackbarService.show("Private resume link copied", "success");
   }
 }
