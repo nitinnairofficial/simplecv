@@ -65,12 +65,12 @@ export class EditorComponent implements OnInit {
       this.webStorageService.setStorageValue("RESUME_DETAILS", {
         ...DUMMY_FORM,
         ...savedForm,
-        resumeFormData: val,
+        resumeData: val,
       });
       this.resumeBuilderService.modifyData(val);
     });
 
-    this.loadDataFromResponse(savedForm.resumeFormData);
+    this.loadDataFromResponse(savedForm.resumeData);
   }
 
   loadDataFromResponse(data) {

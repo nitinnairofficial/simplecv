@@ -13,9 +13,9 @@
       <button
         class="btn btn-theme"
         [ngStyle]="{ 'background-color': theme?.value }"
-        (click)="selectedTheme(theme?.value)"
+        (click)="selectedTheme(theme?.label)"
       >
-      <img *ngIf="theme?.value == selectedThemeColor" src="assets/icons/save.svg">
+      <img *ngIf="theme?.label == selectedThemeColor" src="assets/icons/save.svg">
     </button>
     </div>
   </ng-container>

@@ -1,7 +1,7 @@
 <div
   class="template-container"
   [ngStyle]="{
-    'border-left-color': data?.resumeStyles?.themeColor
+    'border-left-color': data?.resumeSettings?.themeColor
   }"
 >
   <div class="template-content">
@@ -22,7 +22,7 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor
           }"
         >
           CONTACT INFO
@@ -31,7 +31,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.resumeStyles?.themeColor
+            'background-color': data?.resumeSettings?.themeColor | themeColor
           }"
         />
 
@@ -43,7 +43,10 @@
           </span>
         </div>
 
-        <div class="mb-4" *ngIf="data?.resumeSettings?.hideEmailAndPhone == false">
+        <div
+          class="mb-4"
+          *ngIf="data?.resumeSettings?.hideEmailAndPhone == false"
+        >
           <span class="d-block text-extra-light-color">Email</span>
           <span class="d-block">{{ (data?.aboutSection)[0]?.emailId }}</span>
         </div>
@@ -53,7 +56,10 @@
           <span class="d-block"> {{ (data?.aboutSection)[0]?.website }}</span>
         </div>
 
-        <div class="mb-4" *ngIf="data?.resumeSettings?.hideEmailAndPhone == false">
+        <div
+          class="mb-4"
+          *ngIf="data?.resumeSettings?.hideEmailAndPhone == false"
+        >
           <span class="d-block text-extra-light-color">Phone number</span>
           <span class="d-block">
             {{ (data?.aboutSection)[0]?.phoneNumber }}
@@ -64,7 +70,7 @@
           *ngIf="(data?.projectsSection)[0]?.projectName"
           class="pt-4 mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor
           }"
         >
           SKILLS
@@ -73,7 +79,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.resumeStyles?.themeColor
+            'background-color': data?.resumeSettings?.themeColor | themeColor
           }"
         />
 
@@ -89,7 +95,7 @@
           *ngIf="(data?.languagesSection)[0]?.languageName"
           class="pt-4 mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor
           }"
         >
           LANGUAGES
@@ -98,7 +104,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.resumeStyles?.themeColor
+            'background-color': data?.resumeSettings?.themeColor | themeColor
           }"
         />
 
@@ -110,13 +116,42 @@
             }}</span>
           </div>
         </ng-container>
+
+        <div class="clearfix"></div>
+
+        <h6
+          *ngIf="(data?.awardsSection)[0]?.awardName"
+          class="pt-4 mb-4"
+          [ngStyle]="{
+            color: data?.resumeSettings?.themeColor | themeColor
+          }"
+        >
+          AWARDS
+        </h6>
+
+        <hr
+          class="divider"
+          [ngStyle]="{
+            'background-color': data?.resumeSettings?.themeColor | themeColor
+          }"
+        />
+
+        <ng-container *ngFor="let award of data?.awardsSection">
+          <div class="mb-4">
+            <h5 class="d-block text-bold">{{ award?.awardName }}</h5>
+            <span class="d-block text-extra-light-color mb-4">{{
+              award?.awardDate
+            }}</span>
+            <span class="d-block text-normal">{{ award?.summary }}</span>
+          </div>
+        </ng-container>
       </div>
 
       <div class="col-lg-8">
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor
           }"
         >
           SUMMARY
@@ -125,7 +160,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.resumeStyles?.themeColor
+            'background-color': data?.resumeSettings?.themeColor | themeColor
           }"
         />
 
@@ -137,7 +172,7 @@
           *ngIf="(data?.workExperienceSection)[0]?.employerName"
           class="pt-4 mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor
           }"
         >
           WORK EXPERIENCE
@@ -146,7 +181,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.resumeStyles?.themeColor
+            'background-color': data?.resumeSettings?.themeColor | themeColor
           }"
         />
 
@@ -174,7 +209,7 @@
           *ngIf="(data?.educationSection)[0]?.schoolName"
           class="pt-4 mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor
           }"
         >
           EDUCATION
@@ -183,7 +218,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.resumeStyles?.themeColor
+            'background-color': data?.resumeSettings?.themeColor | themeColor
           }"
         />
 
@@ -207,7 +242,7 @@
           *ngIf="(data?.projectsSection)[0]?.projectName"
           class="pt-4 mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor
           }"
         >
           EDUCATION
@@ -216,7 +251,7 @@
         <hr
           class="divider"
           [ngStyle]="{
-            'background-color': data?.resumeStyles?.themeColor
+            'background-color': data?.resumeSettings?.themeColor | themeColor
           }"
         />
 
@@ -238,35 +273,6 @@
             <li *ngIf="project?.point2">{{ project?.point2 }}</li>
             <li *ngIf="project?.point3">{{ project?.point3 }}</li>
           </ul>
-        </ng-container>
-
-        <div class="clearfix"></div>
-
-        <h6
-          *ngIf="(data?.awardsSection)[0]?.awardName"
-          class="pt-4 mb-4"
-          [ngStyle]="{
-            color: data?.resumeStyles?.themeColor
-          }"
-        >
-          AWARDS
-        </h6>
-
-        <hr
-          class="divider"
-          [ngStyle]="{
-            'background-color': data?.resumeStyles?.themeColor
-          }"
-        />
-
-        <ng-container *ngFor="let award of data?.awardsSection">
-          <div class="mb-4">
-            <h5 class="d-block text-bold">{{ award?.awardName }}</h5>
-            <span class="d-block text-extra-light-color mb-4">{{
-              award?.awardDate
-            }}</span>
-            <span class="d-block text-normal">{{ award?.summary }}</span>
-          </div>
         </ng-container>
       </div>
     </div>

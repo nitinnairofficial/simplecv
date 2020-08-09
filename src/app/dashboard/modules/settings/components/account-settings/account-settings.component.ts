@@ -23,7 +23,7 @@ export class AccountSettingsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const userDetail = this.webStorageService.getStorageValue("user");
+    const userDetail = this.webStorageService.getStorageValue("USER_DETAILS");
     this.userEmail = userDetail && userDetail.email;
 
     this.changePasswordForm = this.formBuilder.group({

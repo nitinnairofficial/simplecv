@@ -24,6 +24,7 @@ import { OsloComponent } from "./templates/oslo/oslo.component";
 import { StockholmComponent } from "./templates/stockholm/stockholm.component";
 import { HelsinkiComponent } from "./templates/helsinki/helsinki.component";
 import { ResumeTemplateDirective } from "./components/dynamic-template/resume-template.directive";
+import { ThemeColorPipe } from "./pipe/theme-color/theme-color.pipe";
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ResumeTemplateDirective } from "./components/dynamic-template/resume-te
     OsloComponent,
     StockholmComponent,
     HelsinkiComponent,
+    ThemeColorPipe,
   ],
   imports: [
     CommonModule,
@@ -71,6 +73,7 @@ import { ResumeTemplateDirective } from "./components/dynamic-template/resume-te
     BerlinComponent,
     TokyoComponent,
     SafePipe,
+    ThemeColorPipe,
   ],
   entryComponents: [DialogComponent, TemplateListComponent, ThemeListComponent],
   providers: [DialogRef],

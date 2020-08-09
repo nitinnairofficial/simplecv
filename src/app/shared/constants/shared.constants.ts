@@ -22,7 +22,7 @@ export const THEME_LIST = [
   },
   {
     label: "darkorange",
-    value: "darkorange",
+    value: "#ff8c00",
   },
   {
     label: "brown",
@@ -38,7 +38,7 @@ export const THEME_LIST = [
   },
   {
     label: "purple",
-    value: "rgb(148,0,211)",
+    value: "#9400D3",
   },
   {
     label: "teal",

@@ -27,8 +27,8 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor,
-            'border-bottom-color': data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor,
+            'border-bottom-color': data?.resumeSettings?.themeColor | themeColor
           }"
         >
           SUMMARY
@@ -45,8 +45,8 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor,
-            'border-bottom-color': data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor,
+            'border-bottom-color': data?.resumeSettings?.themeColor | themeColor
           }"
         >
           WORK EXPERIENCE
@@ -79,8 +79,8 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor,
-            'border-bottom-color': data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor,
+            'border-bottom-color': data?.resumeSettings?.themeColor | themeColor
           }"
         >
           EDUCATION
@@ -107,8 +107,8 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor,
-            'border-bottom-color': data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor,
+            'border-bottom-color': data?.resumeSettings?.themeColor | themeColor
           }"
         >
           PROJECTS
@@ -141,8 +141,8 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor,
-            'border-bottom-color': data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor,
+            'border-bottom-color': data?.resumeSettings?.themeColor | themeColor
           }"
         >
           SKILLS
@@ -150,7 +150,7 @@
 
         <ul class="skill-list">
           <li *ngFor="let skill of data?.skillsSection">
-            {{ skill?.skillName }},&nbsp;
+            {{ skill?.skillName }}
           </li>
         </ul>
       </div>
@@ -161,8 +161,8 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor,
-            'border-bottom-color': data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor,
+            'border-bottom-color': data?.resumeSettings?.themeColor | themeColor
           }"
         >
           LANGUAGES
@@ -186,8 +186,8 @@
         <h6
           class="mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor,
-            'border-bottom-color': data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor,
+            'border-bottom-color': data?.resumeSettings?.themeColor | themeColor
           }"
         >
           AWARDS
@@ -195,7 +195,7 @@
 
         <ng-container *ngFor="let award of data?.awardsSection">
           <div class="mb-4">
-            <h5 class="d-block">{{ award?.awardName }}</h5>
+            <h5 class="d-block text-bold">{{ award?.awardName }}</h5>
             <span class="d-block text-extra-light-color mb-4">{{
               award?.awardDate
             }}</span>

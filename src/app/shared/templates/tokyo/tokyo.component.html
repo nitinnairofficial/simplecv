@@ -31,7 +31,7 @@
           *ngIf="(data?.workExperienceSection)[0]?.employerName"
           class="mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor
           }"
         >
           WORK EXPERIENCE
@@ -42,10 +42,11 @@
             {{ employer?.employerName }}
           </h5>
           <p class="text-light-color mb-16">
-            {{ employer?.jobTitle
-            }}<span *ngIf="employer?.startDate">{{ employer?.startDate }}</span>
+            {{ employer?.jobTitle }}&nbsp;<span *ngIf="employer?.startDate"
+              >|&nbsp;{{ employer?.startDate }}</span
+            >
             <span *ngIf="employer?.endDate"
-              >|&nbsp;{{ employer?.endDate }}</span
+              >-&nbsp;{{ employer?.endDate }}&nbsp;</span
             >
             <span *ngIf="employer?.employmentType"
               >|&nbsp;{{ employer?.employmentType }}</span
@@ -71,7 +72,7 @@
           *ngIf="(data?.educationSection)[0]?.schoolName"
           class="mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor
           }"
         >
           EDUCATION
@@ -99,7 +100,7 @@
           *ngIf="(data?.projectsSection)[0]?.projectName"
           class="mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor
           }"
         >
           PROJECTS
@@ -133,7 +134,7 @@
           *ngIf="(data?.projectsSection)[0]?.projectName"
           class="mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor
           }"
         >
           SKILLS
@@ -155,7 +156,7 @@
           *ngIf="(data?.languagesSection)[0]?.languageName"
           class="mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor
           }"
         >
           LANGUAGES
@@ -180,7 +181,7 @@
           *ngIf="(data?.awardsSection)[0]?.awardName"
           class="mb-4"
           [ngStyle]="{
-            color: data?.resumeStyles?.themeColor
+            color: data?.resumeSettings?.themeColor | themeColor
           }"
         >
           AWARDS

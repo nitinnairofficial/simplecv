@@ -40,36 +40,26 @@ export class PreviewComponent implements OnInit {
         },
       };
 
-      this.webStorageService.setStorageValue("RESUME_DETAILS", {
-        ...this.sendData,
-        resumeSettings: {
-          ...this.sendData.resumeSettings,
-          templateName: templateName,
-        },
-      });
+      this.webStorageService.setStorageValue("RESUME_DETAILS", this.sendData);
     });
   }
 
   public OpenChangeThemeDialog() {
     const dialogRef = this.dialogService.open(ThemeListComponent, {
       data: {
-        themeColor: this.sendData.resumeStyles.themeColor,
+        themeColor: this.sendData.resumeSettings.themeColor,
       },
     });
 
     dialogRef.afterClosed.subscribe((themeName) => {
       this.sendData = {
         ...this.sendData,
-        resumeStyles: {
-          themeColor: themeName.themeColor,
+        resumeSettings: {
+          ...this.sendData.resumeSettings,
+          themeColor: themeName,
         },
       };
-      this.webStorageService.setStorageValue("RESUME_DETAILS", {
-        ...this.sendData,
-        resumeStyles: {
-          themeColor: themeName.themeColor,
-        },
-      });
+      this.webStorageService.setStorageValue("RESUME_DETAILS", this.sendData);
     });
   }
 }

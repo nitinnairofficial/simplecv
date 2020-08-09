@@ -20,9 +20,7 @@ export class ThemeListComponent implements OnInit {
     this.selectedThemeColor = this.data.themeColor;
   }
 
-  public selectedTheme(themeValue) {
-    this.dialogRef.close({
-      themeColor: themeValue,
-    });
+  public selectedTheme(themeName) {
+    this.dialogRef.close(themeName);
   }
 }
