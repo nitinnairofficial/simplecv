@@ -14,7 +14,7 @@
           {{ (data?.aboutSection)[0]?.city }},
           {{ (data?.aboutSection)[0]?.state }} |
           {{ (data?.aboutSection)[0]?.website }}
-          <span **ngIf="data?.resumeSettings?.hideEmailAndPhone == false"
+          <span *ngIf="data?.resumeSettings?.hideEmailAndPhone == false"
             >| {{ (data?.aboutSection)[0]?.phoneNumber }} |
             {{ (data?.aboutSection)[0]?.emailId }}</span
           >

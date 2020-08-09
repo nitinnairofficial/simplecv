@@ -21,6 +21,7 @@
       <div class="col-lg-6">
         <div class="branding text-right">
           <button
+            *ngIf="sendData?.resumeSettings?.hideBranding == false"
             class="btn btn-light text-light-color"
             (click)="navigateToRoute('/home')"
             title="Visit CloudCV"

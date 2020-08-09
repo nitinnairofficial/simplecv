@@ -113,8 +113,11 @@ export const FORM_CONFIG = {
 
 export const DUMMY_FORM = {
   resumeSettings: {
-    templateName: "tokyo",
-    themeColor: "pink",
+    templateName: "berlin",
+    themeColor: "blue",
+    hideBranding: true,
+    hideEmailAndPhone: false,
+    resumeId: "emiliaparker",
   },
   resumeData: {
     aboutSection: [
@@ -261,7 +264,6 @@ export const INITIAL_FORM = {
     templateName: "tokyo",
     hideBranding: true,
     hideEmailAndPhone: true,
-    resumePermissionType: "public",
     resumeId: "emiliaparker",
     themeColor: "majesticMaroon",
   },
