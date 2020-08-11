@@ -16,7 +16,10 @@ export class CoreService {
     return this.httpClient.get(API.GENERATE_TOKEN, httpParams);
   }
 
-  public getResumeDetails(): Observable<any> {
+  public getResumeDetails(params: any): Observable<any> {
+    const httpParams = {
+      params: params,
+    };
     return this.httpClient.get(API.GET_RESUME_DETAILS);
   }
 

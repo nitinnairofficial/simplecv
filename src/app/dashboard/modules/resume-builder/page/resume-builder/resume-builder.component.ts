@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { CoreService } from "src/app/core/services/core/core.service";
 
 @Component({
   selector: "app-resume-builder",
@@ -22,12 +21,7 @@ export class ResumeBuilderComponent implements OnInit {
     },
   ];
 
-  constructor(private coreService: CoreService) {}
+  constructor() {}
 
-  public ngOnInit(): void {
-    this.coreService.getResumeDetails("").subscribe(
-      (res) => {},
-      (err) => {}
-    );
-  }
+  public ngOnInit(): void {}
 }
