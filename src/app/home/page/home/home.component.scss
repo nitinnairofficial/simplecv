@@ -1,12 +1,12 @@
 .bg {
   background-color: #0069db;
-  height: 600px;
   background-repeat: no-repeat;
   background-size: contain;
   align-items: center;
-  overflow: auto;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
+  position: relative;
+  display: block;
 
   h1 {
     margin: 0 auto;
@@ -36,6 +36,8 @@
   background-color: #222831;
   height: auto;
   padding: 6rem 0;
+  min-height: 20vh;
+  padding: 4rem 0;
 }
 
 .page-section {
@@ -46,8 +48,8 @@
   width: 100%;
   position: relative;
   border-radius: 0.5rem;
-  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
-    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  box-shadow: 0 4px 64px rgba(0, 150, 219, 0.2);
+  margin: 4rem 0;
 }
 
 @media (max-width: 640px) {

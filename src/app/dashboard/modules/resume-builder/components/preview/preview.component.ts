@@ -3,6 +3,9 @@ import { DialogService } from "src/app/core/services/dialog/dialog.service";
 import { TemplateListComponent } from "src/app/shared/components/template-list/template-list.component";
 import { ThemeListComponent } from "src/app/shared/components/theme-list/theme-list.component";
 import { WebStorageService } from "src/app/core/services/web-storage/web-storage.service";
+import { CoreService } from "src/app/core/services/core/core.service";
+import { finalize } from "rxjs/operators";
+import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
 
 @Component({
   selector: "app-preview",
@@ -12,11 +15,14 @@ import { WebStorageService } from "src/app/core/services/web-storage/web-storage
 export class PreviewComponent implements OnInit {
   public sendData: any;
   public defaultTemplate = "tokyo";
+  public defaultThemeColor = "blue";
   public loader = false;
 
   constructor(
     private dialogService: DialogService,
-    private webStorageService: WebStorageService
+    private webStorageService: WebStorageService,
+    private coreService: CoreService,
+    private snackbarService: SnackbarService
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +38,7 @@ export class PreviewComponent implements OnInit {
     });
 
     dialogRef.afterClosed.subscribe((templateName) => {
+      this.defaultTemplate = templateName;
       this.sendData = {
         ...this.sendData,
         resumeSettings: {
@@ -51,15 +58,42 @@ export class PreviewComponent implements OnInit {
       },
     });
 
-    dialogRef.afterClosed.subscribe((themeName) => {
+    dialogRef.afterClosed.subscribe((themeColorName) => {
+      this.defaultThemeColor = themeColorName;
       this.sendData = {
         ...this.sendData,
         resumeSettings: {
           ...this.sendData.resumeSettings,
-          themeColor: themeName,
+          themeColor: themeColorName,
         },
       };
       this.webStorageService.setStorageValue("RESUME_DETAILS", this.sendData);
     });
+  }
+
+  public saveResumeSettings() {
+    this.loader = true;
+    const params = {
+      templateName: this.defaultTemplate,
+      themeColor: this.defaultThemeColor,
+    };
+    this.coreService
+      .updateResumeDetails(params)
+      .pipe(
+        finalize(() => {
+          this.loader = false;
+        })
+      )
+      .subscribe(
+        () => {
+          this.snackbarService.show(
+            "Resume settings saved successfully",
+            "success"
+          );
+        },
+        () => {
+          this.snackbarService.show("Saving Failed", "error");
+        }
+      );
   }
 }

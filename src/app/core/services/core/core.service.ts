@@ -16,18 +16,12 @@ export class CoreService {
     return this.httpClient.get(API.GENERATE_TOKEN, httpParams);
   }
 
-  public getResumeDetails(params: any): Observable<any> {
-    const httpParams = {
-      params: params,
-    };
+  public getResumeDetails(): Observable<any> {
     return this.httpClient.get(API.GET_RESUME_DETAILS);
   }
 
   public updateResumeDetails(params: any): Observable<any> {
     const httpParams = {
-      resumeId: "nitinnairdev@gmail.com",
-      emailId: "nitinnairdev@gmail.com",
-      selectedTemplate: "nitinnairdev@gmail.com",
       params: params,
     };
     return this.httpClient.post(API.UPDATE_RESUME_DETAILS, httpParams);

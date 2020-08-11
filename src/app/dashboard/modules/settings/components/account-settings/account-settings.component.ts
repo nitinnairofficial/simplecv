@@ -4,6 +4,8 @@ import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service
 import { CoreService } from "src/app/core/services/core/core.service";
 import { finalize } from "rxjs/operators";
 import { WebStorageService } from "src/app/core/services/web-storage/web-storage.service";
+import { AccessService } from "src/app/core/services/access/access.service";
+import { AuthenticationService } from "src/app/authentication/services/authentication/authentication.service";
 
 @Component({
   selector: "app-account-settings",
@@ -19,7 +21,8 @@ export class AccountSettingsComponent implements OnInit {
     private formBuilder: FormBuilder,
     private snackbarService: SnackbarService,
     private coreService: CoreService,
-    private webStorageService: WebStorageService
+    private webStorageService: WebStorageService,
+    private authenticationService: AuthenticationService
   ) {}
 
   ngOnInit(): void {
@@ -56,10 +59,17 @@ export class AccountSettingsComponent implements OnInit {
         .pipe(finalize(() => (this.deleteAccountLoader = false)))
         .subscribe(
           (res) => {
-            this.snackbarService.show("", "");
+            this.snackbarService.show(
+              "Your account has been deleted successfully.",
+              "success"
+            );
+            this.authenticationService.logout();
           },
           (err) => {
-            this.snackbarService.show("", "");
+            this.snackbarService.show(
+              "Facing error while deleting your account, please try later.",
+              "Error"
+            );
           }
         );
     } else {
