@@ -1,3 +1,9 @@
+.logo-container {
+  padding: 1rem 1.25rem;
+  position: relative;
+  display: block;
+}
+
 .side-navigation {
   position: fixed;
   width: 5rem;
@@ -70,7 +76,7 @@
 .btn-logout {
   position: absolute !important;
   width: 100%;
-  bottom: 8rem;
+  bottom: 12rem;
 }
 
 .toggle-menu {

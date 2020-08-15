@@ -1,0 +1,22 @@
+.navbar {
+  height: 4rem;
+  background-color: #0069db;
+  position: fixed;
+  display: block;
+  z-index: 1000;
+}
+
+.nav-menu {
+  display: inline-block;
+
+  li {
+    list-style-type: none;
+    display: inline-block;
+    color: #fff;
+    padding: 1.25rem;
+  }
+}
+
+.logo {
+  margin-right: 1rem;
+}

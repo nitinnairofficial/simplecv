@@ -25,7 +25,7 @@
 }
 
 .bg2 {
-  background-color: #ddebff;
+  background-color: #fff;
 }
 
 .bg3 {
@@ -48,7 +48,7 @@
   width: 100%;
   position: relative;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 64px rgba(0, 150, 219, 0.2);
+  box-shadow: 0 4px 64px rgba(0, 0, 0, 0.2);
   margin: 4rem 0;
 }
 
@@ -64,5 +64,25 @@
 
   .bg h1 {
     max-width: 96%;
+  }
+}
+
+.navbar {
+  height: 4rem;
+  background-color: #0069db;
+  position: fixed;
+  display: block;
+  z-index: 1000;
+  border-bottom: 1px solid #FFF;
+}
+
+.nav-menu {
+  display: inline-block;
+
+  li {
+    list-style-type: none;
+    display: inline-block;
+    color: #fff;
+    padding: 1.25rem;
   }
 }

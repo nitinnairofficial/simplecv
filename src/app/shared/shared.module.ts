@@ -25,6 +25,7 @@ import { StockholmComponent } from "./templates/stockholm/stockholm.component";
 import { HelsinkiComponent } from "./templates/helsinki/helsinki.component";
 import { ResumeTemplateDirective } from "./components/dynamic-template/resume-template.directive";
 import { ThemeColorPipe } from "./pipe/theme-color/theme-color.pipe";
+import { PageNavigationComponent } from "./components/page-navigation/page-navigation.component";
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ThemeColorPipe } from "./pipe/theme-color/theme-color.pipe";
     StockholmComponent,
     HelsinkiComponent,
     ThemeColorPipe,
+    PageNavigationComponent,
   ],
   imports: [
     CommonModule,
@@ -63,6 +65,7 @@ import { ThemeColorPipe } from "./pipe/theme-color/theme-color.pipe";
     ChartsModule,
     SideNavigationComponent,
     TopNavigationComponent,
+    PageNavigationComponent,
     PageNotFoundComponent,
     SnackbarComponent,
     DynamicTemplateComponent,
