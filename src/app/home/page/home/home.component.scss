@@ -3,7 +3,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   align-items: center;
-  min-height: 100vh;
+  min-height: 80vh;
   width: 100vw;
   position: relative;
   display: block;
@@ -24,12 +24,18 @@
   }
 }
 
+.hero-image {
+  margin: 4rem 0 2rem;
+  width: 20rem;
+  height: 10rem;
+}
+
 .bg2 {
   background-color: #fff;
 }
 
 .bg3 {
-  background-color: #0069db;
+  background-color: #f1f7f9;
 }
 
 .footer {
@@ -73,7 +79,7 @@
   position: fixed;
   display: block;
   z-index: 1000;
-  border-bottom: 1px solid #FFF;
+  border-bottom: 1px solid #fff;
 }
 
 .nav-menu {

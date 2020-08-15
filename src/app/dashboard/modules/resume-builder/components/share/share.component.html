@@ -18,18 +18,25 @@
   <h5 class="card-title mb-4">Public resume</h5>
   <form [formGroup]="publicResumeForm" (ngSubmit)="onPublicResumeFormSubmit()">
     <div class="row pt-4 mb-4">
-      <div class="col-lg-4">
+      <div class="col-lg-6">
         <div class="form-group">
           <label class="text-light-color"
             >Enter the unique custom link name</label
           >
-          <input
-            type="text"
-            class="form-control"
-            aria-describedby="customURL"
-            placeholder="Enter Custom URL (Eg. emiliaparker)"
-            formControlName="resumeId"
-          />
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              aria-describedby="customURL"
+              placeholder="Enter Custom URL (Eg. emiliaparker)"
+              formControlName="resumeId"
+              aria-label="Recipient's username"
+            />
+            <div class="input-group-append">
+              <span class="input-group-text">Check availability</span>
+            </div>
+          </div>
+
           <div class="text-small text-light-color mt-2">
             This must only contain alphabets and numbers
           </div>
