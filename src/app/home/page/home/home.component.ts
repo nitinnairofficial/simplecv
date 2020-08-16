@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { AccessService } from "src/app/core/services/access/access.service";
 
 @Component({
   selector: "app-home",
@@ -7,9 +8,12 @@ import { Router } from "@angular/router";
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  constructor(private router: Router) {}
+  public isLoggedIn = false;
+  constructor(private router: Router, private accessService: AccessService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isLoggedIn = this.accessService.isLoggedIn();
+  }
 
   public navigateToRoute(route) {
     this.router.navigate([route]);

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
+import { AccessService } from "src/app/core/services/access/access.service";
 
 @Component({
   selector: "app-top-navigation",
@@ -9,7 +10,5 @@ export class TopNavigationComponent implements OnInit {
   @Input()
   public topNavigationRoutes = [];
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  public ngOnInit() {}
 }

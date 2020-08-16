@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { AccessService } from "src/app/core/services/access/access.service";
 
 @Component({
   selector: "app-page-navigation",
@@ -6,7 +8,14 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./page-navigation.component.scss"],
 })
 export class PageNavigationComponent implements OnInit {
-  constructor() {}
+  public isLoggedIn = false;
+  constructor(private router: Router, private accessService: AccessService) {}
 
-  ngOnInit(): void {}
+  public ngOnInit(): void {
+    this.isLoggedIn = this.accessService.isLoggedIn();
+  }
+
+  public navigateTo(route) {
+    this.router.navigate([route]);
+  }
 }

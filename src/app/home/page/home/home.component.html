@@ -11,16 +11,30 @@
           We will help you create your web resume in 5 minutes. Explore
           different templates to help your create magnificent resumes.
         </div>
-        <button
-          class="btn btn-success mr-4"
-          (click)="navigateToRoute('/auth/signup')"
-        >
-          Get Started<img
-            class="btn-icon-right icon"
-            src="assets/icons/right-arrow.svg"
-          />
-        </button>
-        <button class="btn btn-outline-primary">Live demo</button>
+        <ng-container *ngIf="!isLoggedIn">
+          <button
+            class="btn btn-success mr-4"
+            (click)="navigateToRoute('/auth/signup')"
+          >
+            Get Started<img
+              class="btn-icon-right icon"
+              src="assets/icons/right-arrow.svg"
+            />
+          </button>
+          <button class="btn btn-outline-primary">Live demo</button>
+        </ng-container>
+
+        <ng-container *ngIf="isLoggedIn">
+          <button
+            class="btn btn-success mr-4"
+            (click)="navigateToRoute('/dashboard')"
+          >
+            Go to dashboard<img
+              class="btn-icon-right icon"
+              src="assets/icons/right-arrow.svg"
+            />
+          </button>
+        </ng-container>
       </div>
     </div>
   </div>

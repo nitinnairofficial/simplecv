@@ -1,15 +1,33 @@
 <div class="container-fluid navbar">
   <div class="container">
-    <div class="float-left text-white" style="padding: 1rem 0;">
-      <img src="assets/icons/logo.svg" class="logo" /> QuickResume
+    <div class="float-left text-white logo-container">
+      <button class="btn-home no-btn" (click)="navigateTo('/home')">
+        <img src="assets/icons/logo.svg" class="logo" />
+        <span class="text-white">QuickResume</span>
+      </button>
     </div>
     <div class="float-right">
-      <ul class="nav-menu">
+      <ul class="nav-menu mr-4">
         <li>Features</li>
         <li>Examples</li>
-        <li>Login</li>
-        <li>Sign Up</li> 
+        <li *ngIf="!isLoggedIn">Login</li>
       </ul>
+
+      <button
+        class="btn btn-nav"
+        *ngIf="!isLoggedIn"
+        (click)="navigateTo('/auth/signup')"
+      >
+        Sign Up
+      </button>
+
+      <button
+        class="btn btn-nav"
+        *ngIf="isLoggedIn"
+        (click)="navigateTo('/dashboard')"
+      >
+        Go to dashboard
+      </button>
     </div>
   </div>
 </div>

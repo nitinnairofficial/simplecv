@@ -54,9 +54,8 @@ export class LoginComponent implements OnInit {
             "error"
           );
         } else {
-          this.webStorageService.setStorageValue(
-            "USER_DETAILS",res.user
-          );
+          this.webStorageService.setStorageValue("USER_DETAILS", res.user);
+          this.accessService.setLoginInfo(res.user);
 
           setTimeout(() => {
             this.router.navigate(["/dashboard"]);
