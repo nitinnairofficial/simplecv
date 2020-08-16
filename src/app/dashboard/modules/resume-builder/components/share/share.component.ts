@@ -16,6 +16,7 @@ export class ShareComponent implements OnInit {
   public privateResumeForm: FormGroup;
   public publicResumeLoader = false;
   public privateResumeLoader = false;
+  public checkLoader = false;
   public privateResumeList = PRIVATE_RESUME_LIST;
   private currentIndex: number;
 
@@ -114,5 +115,13 @@ export class ShareComponent implements OnInit {
     document.execCommand("copy");
     document.removeEventListener("copy", listener);
     this.snackbarService.show("Private resume link copied", "success");
+  }
+
+  public checkAvailabilty() {
+    console.log(this.publicResumeForm.value.resumeId);
+    this.checkLoader = true;
+    setTimeout(() => {
+      this.checkLoader = false;
+    }, 2000);
   }
 }

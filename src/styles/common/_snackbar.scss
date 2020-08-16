@@ -1,6 +1,6 @@
 .snackbar {
   display: block;
-  width: 20rem;
+  min-width: 20rem;
   min-height: 3rem;
   border-radius: 0.15rem;
   position: fixed;
@@ -43,4 +43,10 @@
 
 .snackbar-title.error {
   color: red;
+}
+
+@media screen and (max-width: 640px) {
+  .snackbar {
+    width: 100%;
+  }
 }
