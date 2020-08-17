@@ -92,3 +92,23 @@
     padding: 1.25rem;
   }
 }
+
+.footer-menu {
+  margin: 1rem 0;
+  list-style-type: none;
+
+  .footer-item {
+    margin-bottom: 0.5rem;
+    color: #ccc;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.banner {
+  background-color: #0069db;
+  padding: 4rem 0;
+}
