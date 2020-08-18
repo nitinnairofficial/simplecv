@@ -129,7 +129,12 @@
           Get started with the best resume builder today.
         </h1>
         <div class="pt-4">
-          <button class="btn btn-light text-primary">Create Resume now</button>
+          <button
+            class="btn btn-light text-primary"
+            (click)="navigateToRoute('/auth/signup')"
+          >
+            Create Resume now
+          </button>
         </div>
       </div>
     </div>
@@ -139,7 +144,7 @@
 <div class="container-fluid footer">
   <div class="container sub-container">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-6 mb-4">
         <img src="assets/icons/logo.svg" class="mb-4 mr-4" /><span
           class="text-white"
           >QuickResume</span
@@ -154,7 +159,7 @@
 
       <div class="col-lg-6">
         <div class="row">
-          <div class="col-lg-6 text-right">
+          <div class="col-lg-6 col-xs-6 col-sm-6 mb-4 text-alignment">
             <p class="text-extra-light-color">MENU</p>
             <ul class="footer-menu">
               <li class="footer-item">
@@ -171,7 +176,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-lg-6 text-right">
+          <div class="col-lg-6 col-xs-6 col-sm-6 mb-4 text-alignment">
             <p class="text-extra-light-color">SOCIAL</p>
             <ul class="footer-menu">
               <li class="footer-item">

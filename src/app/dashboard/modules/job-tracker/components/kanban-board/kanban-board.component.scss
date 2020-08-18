@@ -1,0 +1,48 @@
+.kanban-board {
+  .group {
+    display: block;
+    position: relative;
+    background-color: #efefef;
+    min-height: 80vh;
+    padding: 0.25rem 0.5rem;
+    margin: 0.25rem;
+    width: 23.75%;
+    border-radius: 0.125rem;
+
+    .area {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: relative;
+    }
+
+    .group-name {
+      margin: 0.5rem;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #666;
+    }
+
+    .card {
+      border-radius: 0.25rem;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+      min-height: 5rem;
+      margin-bottom: 0.5rem;
+      border: none;
+      cursor: move;
+
+      .card-title {
+        margin-bottom: 0.25rem;
+        color: #333;
+        cursor: pointer !important;
+
+        &:hover {
+          color: #0069db;
+        }
+      }
+      .card-body {
+        padding: 0.5rem 0.75rem;
+      }
+    }
+  }
+}

@@ -57,7 +57,34 @@ p {
 }
 
 .text-small {
-  font-size: 0.875rem !important;
+  font-size: 1rem !important;
+}
+
+.indicator {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #eee;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.25rem;
+  vertical-align: middle;
+}
+
+.indicator.applied {
+  background-color: #0069db;
+}
+
+.indicator.interview {
+  background-color: #ffc107;
+}
+
+.indicator.offer {
+  background-color: #28a745;
+}
+
+.indicator.rejected {
+  background-color: #dc3545;
 }
 
 .btn-icon {
@@ -112,4 +139,35 @@ p {
     width: 100% !important;
     margin-bottom: 1rem !important;
   }
+}
+
+// dragula css
+
+/* in-flight clone */
+.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  pointer-events: none;
+}
+/* high-performance display:none; helper */
+.gu-hide {
+  left: -9999px !important;
+}
+/* added to mirrorContainer (default = body) while dragging */
+.gu-unselectable {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+/* added to the source element while its mirror is dragged */
+.gu-transit {
+  opacity: 0.2;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: alpha(opacity=20);
+  border: 1px dotted #333;
 }

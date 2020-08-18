@@ -4,7 +4,6 @@ import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service
 import { CoreService } from "src/app/core/services/core/core.service";
 import { finalize } from "rxjs/operators";
 import { WebStorageService } from "src/app/core/services/web-storage/web-storage.service";
-import { AccessService } from "src/app/core/services/access/access.service";
 import { AuthenticationService } from "src/app/authentication/services/authentication/authentication.service";
 
 @Component({

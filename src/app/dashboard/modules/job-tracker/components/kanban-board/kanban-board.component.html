@@ -1,0 +1,121 @@
+<div class="container sub-container" style="padding: 10rem 0;">
+  <div class="row mb-4">
+    <div class="col">
+      <h5 class="card-title">Job Tracker</h5>
+      <p class="text-light-color">
+        You can track all your jobs here and drag each card to organize into
+        different categories.
+      </p>
+    </div>
+  </div>
+
+  <div class="kanban-board">
+    <div class="row">
+      <div class="group">
+        <h5 class="group-name">APPLIED - {{ appliedList?.length || "0" }}</h5>
+
+        <div
+          class="area"
+          id="appliedList"
+          dragula="KANBAN"
+          [(dragulaModel)]="appliedList"
+        >
+          <div class="card" *ngFor="let item of appliedList">
+            <div class="card-body">
+              <div class="card-title" (click)="openJobDetailDialog(item)">
+                <span class="indicator applied"></span>&nbsp;{{
+                  item?.companyName
+                }}
+              </div>
+              <p class="card-text text-small text-extra-light-color">
+                Lorem ipsum sit dolor set amet.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="group">
+        <h5 class="group-name">
+          INTERVIEW - {{ interviewList?.length || "0" }}
+        </h5>
+        <div
+          class="area"
+          id="interviewList"
+          dragula="KANBAN"
+          [(dragulaModel)]="interviewList"
+        >
+          <div
+            class="card"
+            *ngFor="let item of interviewList"
+            (click)="openJobDetailDialog(item)"
+          >
+            <div class="card-body">
+              <div class="card-title">
+                <span class="indicator interview"></span>&nbsp;{{
+                  item?.companyName
+                }}
+              </div>
+              <p class="card-text text-small text-extra-light-color">
+                Lorem ipsum sit dolor set amet.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="group">
+        <h5 class="group-name">OFFER - {{ offerList?.length || "0" }}</h5>
+        <div
+          class="area"
+          id="offerList"
+          dragula="KANBAN"
+          [(dragulaModel)]="offerList"
+        >
+          <div class="card" *ngFor="let item of offerList">
+            <div class="card-body">
+              <div class="card-title" (click)="openJobDetailDialog(item)">
+                <span class="indicator offer"></span>&nbsp;{{
+                  item?.companyName
+                }}
+              </div>
+              <p class="card-text text-small text-extra-light-color">
+                Lorem ipsum sit dolor set amet.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="group">
+        <h5 class="group-name">REJECTED - {{ rejectedList?.length || "0" }}</h5>
+        <div
+          class="area"
+          id="rejectedList"
+          dragula="KANBAN"
+          [(dragulaModel)]="rejectedList"
+        >
+          <div class="card" *ngFor="let item of rejectedList">
+            <div class="card-body">
+              <div class="card-title" (click)="openJobDetailDialog(item)">
+                <span class="indicator rejected"></span>&nbsp;{{
+                  item?.companyName
+                }}
+              </div>
+              <p class="card-text text-small text-extra-light-color">
+                Lorem ipsum sit dolor set amet.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button
+  class="fab btn btn-primary rounded-circle"
+  (click)="openJobDetailDialog()"
+>
+  <img src="assets/icons/add.svg" />
+</button>

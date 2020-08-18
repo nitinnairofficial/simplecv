@@ -96,6 +96,7 @@
 .footer-menu {
   margin: 1rem 0;
   list-style-type: none;
+  padding: 0;
 
   .footer-item {
     margin-bottom: 0.5rem;
@@ -108,7 +109,17 @@
   }
 }
 
+.text-alignment {
+  text-align: right;
+}
+
 .banner {
   background-color: #0069db;
-  padding: 4rem 0;
+  padding: 4rem 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .text-alignment {
+    text-align: left;
+  }
 }

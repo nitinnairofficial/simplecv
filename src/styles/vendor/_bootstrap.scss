@@ -211,7 +211,8 @@ input[type="time"] {
 }
 textarea {
   overflow: auto;
-  resize: vertical;
+  resize: none;
+  height: 10rem;
 }
 progress {
   vertical-align: baseline;

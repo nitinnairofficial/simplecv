@@ -2,6 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 
+import { DragulaModule, DragulaService } from 'ng2-dragula';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { SharedModule } from "./shared/shared.module";
@@ -35,8 +36,11 @@ const firebaseConfig = {
     CoreModule,
     SharedModule,
     HomeModule,
+    DragulaModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    DragulaService
+  ],
 
   entryComponents: [],
   bootstrap: [AppComponent],

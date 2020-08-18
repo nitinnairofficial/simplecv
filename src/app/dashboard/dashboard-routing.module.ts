@@ -24,6 +24,11 @@ const routes: Routes = [
           import("./modules/stats/stats.module").then((m) => m.StatsModule),
       },
       {
+        path: "job-tracker",
+        loadChildren: () =>
+          import("./modules/job-tracker/job-tracker.module").then((m) => m.JobTrackerModule),
+      },
+      {
         path: "faq",
         loadChildren: () =>
           import("./modules/faq/faq.module").then((m) => m.FaqModule),
