@@ -1,13 +1,13 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { AuthenticationService } from "../../services/authentication/authentication.service";
-import { AngularFireAuth } from "@angular/fire/auth";
-import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthenticationService } from '../../services/authentication/authentication.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { SnackbarService } from 'src/app/core/services/snackbar/snackbar.service';
 
 @Component({
-  selector: "app-forgot-password",
-  templateUrl: "./forgot-password.component.html",
-  styleUrls: ["./forgot-password.component.scss"],
+  selector: 'app-forgot-password',
+  templateUrl: './forgot-password.component.html',
+  styleUrls: ['./forgot-password.component.scss'],
 })
 export class ForgotPasswordComponent implements OnInit {
   public forgotPasswordForm: FormGroup;
@@ -20,7 +20,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   ngOnInit(): void {
     this.forgotPasswordForm = this.fb.group({
-      emailId: ["", [Validators.required, Validators.email]],
+      emailId: ['', [Validators.required, Validators.email]],
     });
   }
 
@@ -39,7 +39,7 @@ export class ForgotPasswordComponent implements OnInit {
         console.log(res);
       })
       .catch((err) => {
-        this.snackbarService.show(err.message, "error");
+        this.snackbarService.show(err.message, 'error');
         this.loader = false;
       });
   }

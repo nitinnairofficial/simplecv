@@ -1,51 +1,51 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule, PreloadAllModules } from "@angular/router";
-import { PageNotFoundComponent } from "./shared/components/page-not-found/page-not-found.component";
-import { AuthGuard } from "./core/guards/auth/auth.guard";
-import { SecureGuard } from "./core/guards/secure/secure.guard";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
+import { AuthGuard } from './core/guards/auth/auth.guard';
+import { SecureGuard } from './core/guards/secure/secure.guard';
 
 const routes: Routes = [
   {
-    path: "",
-    redirectTo: "home",
-    pathMatch: "full",
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
   },
   {
-    path: "home",
-    loadChildren: () => import("./home/home.module").then((m) => m.HomeModule),
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
-    path: "auth",
+    path: 'auth',
     loadChildren: () =>
-      import("./authentication/authentication.module").then(
+      import('./authentication/authentication.module').then(
         (m) => m.AuthenticationModule
       ),
     canActivate: [SecureGuard],
   },
   {
-    path: "dashboard",
+    path: 'dashboard',
     loadChildren: () =>
-      import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
     canActivate: [AuthGuard],
   },
   {
-    path: "resume/:resumeId",
-    loadChildren: () => import("./resume/resume.module").then((m) => m.ResumeModule),
+    path: 'resume/:resumeId',
+    loadChildren: () => import('./resume/resume.module').then((m) => m.ResumeModule),
   },
   {
-    path: "page-not-found",
+    path: 'page-not-found',
     component: PageNotFoundComponent,
   },
   {
-    path: "**",
-    redirectTo: "page-not-found",
+    path: '**',
+    redirectTo: 'page-not-found',
   },
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      scrollPositionRestoration: "enabled",
+      scrollPositionRestoration: 'enabled',
       preloadingStrategy: PreloadAllModules
     }),
   ],

@@ -1,19 +1,19 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { AngularFireAuth } from "@angular/fire/auth";
-import { Router } from "@angular/router";
-import * as firebase from "firebase/app";
-import "firebase/auth";
-import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
-import { CoreService } from "src/app/core/services/core/core.service";
-import { finalize } from "rxjs/operators";
-import { AccessService } from "src/app/core/services/access/access.service";
-import { WebStorageService } from "src/app/core/services/web-storage/web-storage.service";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import { SnackbarService } from 'src/app/core/services/snackbar/snackbar.service';
+import { CoreService } from 'src/app/core/services/core/core.service';
+import { finalize } from 'rxjs/operators';
+import { AccessService } from 'src/app/core/services/access/access.service';
+import { WebStorageService } from 'src/app/core/services/web-storage/web-storage.service';
 
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.scss"],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
@@ -32,8 +32,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      emailId: ["", [Validators.required, Validators.email]],
-      password: ["", [Validators.required]],
+      emailId: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
     });
   }
 
@@ -50,21 +50,21 @@ export class LoginComponent implements OnInit {
       .then((res) => {
         if (res.user.emailVerified !== true) {
           this.snackbarService.show(
-            "Please verify your email address.",
-            "error"
+            'Please verify your email address.',
+            'error'
           );
         } else {
-          this.webStorageService.setStorageValue("USER_DETAILS", res.user);
+          this.webStorageService.setStorageValue('USER_DETAILS', res.user);
           this.accessService.setLoginInfo(res.user);
 
           setTimeout(() => {
-            this.router.navigate(["/dashboard"]);
+            this.router.navigate(['/dashboard']);
           }, 100);
         }
         this.loader = false;
       })
       .catch((err) => {
-        this.snackbarService.show(err.message, "error");
+        this.snackbarService.show(err.message, 'error');
         this.loader = false;
       });
   }
@@ -86,10 +86,10 @@ export class LoginComponent implements OnInit {
     this.googleLoader = true;
     this.oAuthProvider(new firebase.auth.GoogleAuthProvider())
       .then((res) => {
-        console.log("Successfully logged in!");
+        console.log('Successfully logged in!');
         this.googleLoader = false;
         setTimeout(() => {
-          this.router.navigate(["dashboard"]);
+          this.router.navigate(['dashboard']);
         }, 100);
       })
       .catch((error) => {

@@ -5,14 +5,14 @@ import {
   Input,
   ComponentFactoryResolver,
   OnChanges,
-} from "@angular/core";
-import { ResumeTemplateDirective } from "./resume-template.directive";
-import { TEMPLATE_CONFIG } from "../../constants/shared.constants";
+} from '@angular/core';
+import { ResumeTemplateDirective } from './resume-template.directive';
+import { TEMPLATE_CONFIG } from '../../constants/shared.constants';
 
 @Component({
-  selector: "app-dynamic-template",
-  templateUrl: "./dynamic-template.component.html",
-  styleUrls: ["./dynamic-template.component.scss"],
+  selector: 'app-dynamic-template',
+  templateUrl: './dynamic-template.component.html',
+  styleUrls: ['./dynamic-template.component.scss'],
 })
 export class DynamicTemplateComponent implements OnInit, OnChanges {
   @Input() data: any;
@@ -42,6 +42,6 @@ export class DynamicTemplateComponent implements OnInit, OnChanges {
     const viewContainerRef = this.resumeTemplate.viewContainerRef;
     viewContainerRef.clear();
     const componentRef = viewContainerRef.createComponent(componentFactory);
-    (<DynamicTemplateComponent>componentRef.instance).data = this.data;
+    (componentRef.instance as DynamicTemplateComponent).data = this.data;
   }
 }

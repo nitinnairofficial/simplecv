@@ -1,4 +1,4 @@
-import { environment } from "src/environments/environment";
+import { environment } from 'src/environments/environment';
 
 export class API {
   public static SERVER_URL = environment.serverUrl;

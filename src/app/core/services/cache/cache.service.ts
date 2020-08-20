@@ -14,8 +14,6 @@ export class HttpCacheService {
   /**
    *
    * @description: Store response into cache
-   * @param req
-   * @param resp
    */
   public setCache(req: HttpRequest<any>, resp: HttpResponse<any>, expiry: number = this.DEFAULT_MAX_AGE): void {
     expiry = expiry * 1000 * 60;
@@ -24,7 +22,6 @@ export class HttpCacheService {
 
   /**
    * @description: Retrieve response from cache
-   * @param req
    */
   public getCache(req: HttpRequest<any>): HttpResponse<any> | null {
     const key = req.urlWithParams;

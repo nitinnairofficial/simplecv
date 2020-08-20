@@ -8,17 +8,17 @@ import {
   ViewChild,
   ComponentFactoryResolver,
   ChangeDetectorRef,
-} from "@angular/core";
-import { Subject } from "rxjs";
+} from '@angular/core';
+import { Subject } from 'rxjs';
 import { DialogInsertionDirective } from '../../directives/dialog-insertion/dialog-insertion.directive';
 import { DialogRef } from 'src/app/core/models/dialog-ref';
 import { DialogConfig } from 'src/app/core/models/dialog-config';
 
 
 @Component({
-  selector: "app-dialog",
-  templateUrl: "./dialog.component.html",
-  styleUrls: ["./dialog.component.scss"],
+  selector: 'app-dialog',
+  templateUrl: './dialog.component.html',
+  styleUrls: ['./dialog.component.scss'],
 })
 export class DialogComponent implements OnInit, AfterViewInit, OnDestroy {
   private readonly $onClose = new Subject<any>();

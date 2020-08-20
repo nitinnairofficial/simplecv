@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class WebStorageService {
   private defaultStorage: string;
@@ -12,13 +12,13 @@ export class WebStorageService {
 
   private initializeStorageService() {
     try {
-      this.setLocalStorageValue("checkingStorage", "1");
-      if (this.getLocalStorageValue("checkingStorage")) {
-        this.defaultStorage = "LocalStorage";
-        this.removeLocalStorageValue("checkingStorage");
+      this.setLocalStorageValue('checkingStorage', '1');
+      if (this.getLocalStorageValue('checkingStorage')) {
+        this.defaultStorage = 'LocalStorage';
+        this.removeLocalStorageValue('checkingStorage');
       }
     } catch (e) {
-      this.defaultStorage = "Cookie";
+      this.defaultStorage = 'Cookie';
     }
   }
 

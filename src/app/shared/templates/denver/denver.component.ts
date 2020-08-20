@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: "app-denver",
-  templateUrl: "./denver.component.html",
-  styleUrls: ["./denver.component.scss"],
+  selector: 'app-denver',
+  templateUrl: './denver.component.html',
+  styleUrls: ['./denver.component.scss'],
 })
 export class DenverComponent implements OnInit {
   @Input() data: any;

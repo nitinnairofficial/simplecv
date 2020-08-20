@@ -1,21 +1,21 @@
-import { Component, OnInit } from "@angular/core";
-import { DialogService } from "src/app/core/services/dialog/dialog.service";
-import { TemplateListComponent } from "src/app/shared/components/template-list/template-list.component";
-import { ThemeListComponent } from "src/app/shared/components/theme-list/theme-list.component";
-import { WebStorageService } from "src/app/core/services/web-storage/web-storage.service";
-import { CoreService } from "src/app/core/services/core/core.service";
-import { finalize } from "rxjs/operators";
-import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
+import { Component, OnInit } from '@angular/core';
+import { DialogService } from 'src/app/core/services/dialog/dialog.service';
+import { TemplateListComponent } from 'src/app/shared/components/template-list/template-list.component';
+import { ThemeListComponent } from 'src/app/shared/components/theme-list/theme-list.component';
+import { WebStorageService } from 'src/app/core/services/web-storage/web-storage.service';
+import { CoreService } from 'src/app/core/services/core/core.service';
+import { finalize } from 'rxjs/operators';
+import { SnackbarService } from 'src/app/core/services/snackbar/snackbar.service';
 
 @Component({
-  selector: "app-preview",
-  templateUrl: "./preview.component.html",
-  styleUrls: ["./preview.component.scss"],
+  selector: 'app-preview',
+  templateUrl: './preview.component.html',
+  styleUrls: ['./preview.component.scss'],
 })
 export class PreviewComponent implements OnInit {
   public sendData: any;
-  public defaultTemplate = "tokyo";
-  public defaultThemeColor = "blue";
+  public defaultTemplate = 'tokyo';
+  public defaultThemeColor = 'blue';
   public loader = false;
 
   constructor(
@@ -26,7 +26,7 @@ export class PreviewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const savedForm = this.webStorageService.getStorageValue("RESUME_DETAILS");
+    const savedForm = this.webStorageService.getStorageValue('RESUME_DETAILS');
     this.sendData = savedForm;
   }
 
@@ -43,11 +43,11 @@ export class PreviewComponent implements OnInit {
         ...this.sendData,
         resumeSettings: {
           ...this.sendData.resumeSettings,
-          templateName: templateName,
+          templateName,
         },
       };
 
-      this.webStorageService.setStorageValue("RESUME_DETAILS", this.sendData);
+      this.webStorageService.setStorageValue('RESUME_DETAILS', this.sendData);
     });
   }
 
@@ -67,7 +67,7 @@ export class PreviewComponent implements OnInit {
           themeColor: themeColorName,
         },
       };
-      this.webStorageService.setStorageValue("RESUME_DETAILS", this.sendData);
+      this.webStorageService.setStorageValue('RESUME_DETAILS', this.sendData);
     });
   }
 
@@ -87,12 +87,12 @@ export class PreviewComponent implements OnInit {
       .subscribe(
         () => {
           this.snackbarService.show(
-            "Resume settings saved successfully",
-            "success"
+            'Resume settings saved successfully',
+            'success'
           );
         },
         () => {
-          this.snackbarService.show("Saving Failed", "error");
+          this.snackbarService.show('Saving Failed', 'error');
         }
       );
   }

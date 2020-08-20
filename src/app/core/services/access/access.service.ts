@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { WebStorageService } from "../web-storage/web-storage.service";
-import { LOGIN_INFO } from "../../constants/core.constants";
+import { Injectable } from '@angular/core';
+import { WebStorageService } from '../web-storage/web-storage.service';
+import { LOGIN_INFO } from '../../constants/core.constants';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class AccessService {
   constructor(private webStorageService: WebStorageService) {}

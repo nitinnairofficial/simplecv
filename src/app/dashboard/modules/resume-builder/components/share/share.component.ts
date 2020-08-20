@@ -1,14 +1,14 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { FormGroup, FormBuilder, Validators, Form } from "@angular/forms";
-import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
-import { CoreService } from "src/app/core/services/core/core.service";
-import { PRIVATE_RESUME_LIST } from "../../constants/resume-builder.constants";
-import { WebStorageService } from "src/app/core/services/web-storage/web-storage.service";
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, Form } from '@angular/forms';
+import { SnackbarService } from 'src/app/core/services/snackbar/snackbar.service';
+import { CoreService } from 'src/app/core/services/core/core.service';
+import { PRIVATE_RESUME_LIST } from '../../constants/resume-builder.constants';
+import { WebStorageService } from 'src/app/core/services/web-storage/web-storage.service';
 
 @Component({
-  selector: "app-share",
-  templateUrl: "./share.component.html",
-  styleUrls: ["./share.component.scss"],
+  selector: 'app-share',
+  templateUrl: './share.component.html',
+  styleUrls: ['./share.component.scss'],
 })
 export class ShareComponent implements OnInit {
   public sendData: any;
@@ -28,18 +28,18 @@ export class ShareComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const savedForm = this.webStorageService.getStorageValue("RESUME_DETAILS");
+    const savedForm = this.webStorageService.getStorageValue('RESUME_DETAILS');
     this.sendData = savedForm;
 
     this.publicResumeForm = this.formBuilder.group({
-      resumePermissionType: ["private", Validators.required],
-      resumeId: ["", Validators.required],
+      resumePermissionType: ['private', Validators.required],
+      resumeId: ['', Validators.required],
       hideBranding: [false],
       hideEmailAndPhone: [false],
     });
 
     this.privateResumeForm = this.formBuilder.group({
-      sharingWith: ["", Validators.required],
+      sharingWith: ['', Validators.required],
     });
 
     if (savedForm) {
@@ -65,7 +65,7 @@ export class ShareComponent implements OnInit {
     };
     this.publicResumeLoader = true;
     setTimeout(() => {
-      this.snackbarService.show("Resume details saved successfully", "success");
+      this.snackbarService.show('Resume details saved successfully', 'success');
       this.publicResumeLoader = false;
     }, 2000);
   }
@@ -75,8 +75,8 @@ export class ShareComponent implements OnInit {
     this.privateResumeLoader = true;
     setTimeout(() => {
       this.snackbarService.show(
-        "Succesfully created private resume",
-        "success"
+        'Succesfully created private resume',
+        'success'
       );
       this.privateResumeLoader = false;
     }, 2000);
@@ -90,13 +90,13 @@ export class ShareComponent implements OnInit {
   }
 
   public openStatsPanel(index) {
-    if (this.currentIndex == index) {
+    if (this.currentIndex === index) {
       this.privateResumeList[index].isOpened = false;
       this.currentIndex = null;
       return;
     }
     this.privateResumeList.map((item, i) => {
-      if (i == index) {
+      if (i === index) {
         item.isOpened = true;
         this.currentIndex = index;
       } else {
@@ -107,14 +107,14 @@ export class ShareComponent implements OnInit {
 
   public copyToClipboard(copyText: string) {
     const listener = (e: ClipboardEvent) => {
-      e.clipboardData.setData("text/plain", copyText);
+      e.clipboardData.setData('text/plain', copyText);
       e.preventDefault();
     };
 
-    document.addEventListener("copy", listener);
-    document.execCommand("copy");
-    document.removeEventListener("copy", listener);
-    this.snackbarService.show("Private resume link copied", "success");
+    document.addEventListener('copy', listener);
+    document.execCommand('copy');
+    document.removeEventListener('copy', listener);
+    this.snackbarService.show('Private resume link copied', 'success');
   }
 
   public checkAvailabilty() {

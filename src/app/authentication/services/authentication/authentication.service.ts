@@ -1,12 +1,12 @@
-import { Injectable } from "@angular/core";
-import { AngularFireAuth } from "@angular/fire/auth";
-import { Router } from "@angular/router";
-import * as firebase from "firebase/app";
-import "firebase/auth";
-import { WebStorageService } from "src/app/core/services/web-storage/web-storage.service";
+import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import { WebStorageService } from 'src/app/core/services/web-storage/web-storage.service';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class AuthenticationService {
   public userData: any; // Save logged in user data
@@ -18,9 +18,9 @@ export class AuthenticationService {
     this.angularFireAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
-        this.webStorageService.setStorageValue("USER_DETAILS", this.userData);
+        this.webStorageService.setStorageValue('USER_DETAILS', this.userData);
       } else {
-        this.webStorageService.setStorageValue("USER_DETAILS", null);
+        this.webStorageService.setStorageValue('USER_DETAILS', null);
       }
     });
   }
@@ -31,9 +31,9 @@ export class AuthenticationService {
     this.angularFireAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
-        this.webStorageService.setStorageValue("USER_DETAILS", this.userData);
+        this.webStorageService.setStorageValue('USER_DETAILS', this.userData);
       } else {
-        this.webStorageService.setStorageValue("USER_DETAILS", null);
+        this.webStorageService.setStorageValue('USER_DETAILS', null);
       }
     });
   }
@@ -45,7 +45,7 @@ export class AuthenticationService {
         return user.sendEmailVerification();
       })
       .then(() => {
-        console.log("sent");
+        console.log('sent');
       });
   }
 
@@ -54,11 +54,11 @@ export class AuthenticationService {
     this.angularFireAuth
       .createUserWithEmailAndPassword(email, password)
       .then((res) => {
-        console.log("Successfully signed up!", res);
+        console.log('Successfully signed up!', res);
         this.sendVerificationMail();
       })
       .catch((error) => {
-        console.log("Something is wrong:", error.message);
+        console.log('Something is wrong:', error.message);
       });
   }
 
@@ -71,14 +71,14 @@ export class AuthenticationService {
         if (res.user.emailVerified !== true) {
           this.sendVerificationMail();
           window.alert(
-            "Please validate your email address. Kindly check your inbox."
+            'Please validate your email address. Kindly check your inbox.'
           );
         } else {
-          console.log("Successfully signed in!");
+          console.log('Successfully signed in!');
         }
       })
       .catch((err) => {
-        console.log("Something is wrong:", err.message);
+        console.log('Something is wrong:', err.message);
       });
   }
 
@@ -96,7 +96,7 @@ export class AuthenticationService {
   public signinWithGoogle() {
     return this.oAuthProvider(new firebase.auth.GoogleAuthProvider())
       .then((res) => {
-        console.log("Successfully logged in!");
+        console.log('Successfully logged in!');
       })
       .catch((error) => {
         console.log(error);
@@ -108,7 +108,7 @@ export class AuthenticationService {
     return this.angularFireAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
-        window.alert("Password reset email sent, check your inbox.");
+        window.alert('Password reset email sent, check your inbox.');
       })
       .catch((error) => {
         window.alert(error);
@@ -117,7 +117,7 @@ export class AuthenticationService {
 
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
-    const user = this.webStorageService.getStorageValue("USER_DETAILS");
+    const user = this.webStorageService.getStorageValue('USER_DETAILS');
     return user !== null && user.emailVerified !== false ? true : false;
   }
 
@@ -125,7 +125,7 @@ export class AuthenticationService {
   public logout() {
     return this.angularFireAuth.signOut().then(() => {
       this.webStorageService.clearAll();
-      this.router.navigate(["/auth/login"]);
+      this.router.navigate(['/auth/login']);
     });
   }
 }

@@ -1,14 +1,14 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { AngularFireAuth } from "@angular/fire/auth";
-import * as firebase from "firebase/app";
-import "firebase/auth";
-import { Router } from "@angular/router";
-import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AngularFireAuth } from '@angular/fire/auth';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import { Router } from '@angular/router';
+import { SnackbarService } from 'src/app/core/services/snackbar/snackbar.service';
 @Component({
-  selector: "app-signup",
-  templateUrl: "./signup.component.html",
-  styleUrls: ["./signup.component.scss"],
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
   public signupForm: FormGroup;
@@ -25,8 +25,8 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
-      emailId: ["", [Validators.required, Validators.email]],
-      password: ["", [Validators.required]],
+      emailId: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
     });
   }
 
@@ -45,7 +45,7 @@ export class SignupComponent implements OnInit {
         return user.sendEmailVerification();
       })
       .then(() => {
-        console.log("sent");
+        console.log('sent');
         this.loader = false;
       });
   }
@@ -57,11 +57,11 @@ export class SignupComponent implements OnInit {
       .then((res) => {
         this.sendVerificationMail();
         this.loader = false;
-        this.router.navigate(["/auth/verify-email"]);
+        this.router.navigate(['/auth/verify-email']);
       })
       .catch((error) => {
         this.loader = false;
-        this.snackbarService.show(error.message, "error");
+        this.snackbarService.show(error.message, 'error');
       });
   }
 
@@ -80,10 +80,10 @@ export class SignupComponent implements OnInit {
     this.googleLoader = true;
     return this.oAuthProvider(new firebase.auth.GoogleAuthProvider())
       .then((res) => {
-        console.log("Successfully logged in!");
+        console.log('Successfully logged in!');
         this.googleLoader = false;
         setTimeout(() => {
-          this.router.navigate(["/dashboard"]);
+          this.router.navigate(['/dashboard']);
         }, 100);
       })
       .catch((error) => {

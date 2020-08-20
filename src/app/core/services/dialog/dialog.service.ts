@@ -11,22 +11,22 @@ import {
   InjectionToken,
   Optional,
   Inject,
-} from "@angular/core";
-import { DialogConfig } from "../../models/dialog-config";
-import { DialogComponent } from "src/app/shared/components/dialog/dialog.component";
-import { DialogRef } from "../../models/dialog-ref";
-import { DialogInjector } from "../../models/dialog-injector";
+} from '@angular/core';
+import { DialogConfig } from '../../models/dialog-config';
+import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
+import { DialogRef } from '../../models/dialog-ref';
+import { DialogInjector } from '../../models/dialog-injector';
 
 /** Injection token that can be used to access the data that was passed in to a dialog. */
-export const DIALOG_DATA = new InjectionToken<any>("DialogData");
+export const DIALOG_DATA = new InjectionToken<any>('DialogData');
 
 /** Injection token that can be used to specify default dialog options. */
 export const DIALOG_DEFAULT_OPTIONS = new InjectionToken<DialogConfig>(
-  "dialog-default-options"
+  'dialog-default-options'
 );
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class DialogService {
   dialogComponentRef: ComponentRef<DialogComponent>;
@@ -73,8 +73,8 @@ export class DialogService {
     this.applyOtherConfiguration(domElem, config);
 
     // to disable htmlbody scrolling
-    document.body.classList.add("modal-open");
-    document.getElementById("html").classList.add("modal-open");
+    document.body.classList.add('modal-open');
+    document.getElementById('html').classList.add('modal-open');
 
     this.dialogComponentRef = componentRef;
 
@@ -88,8 +88,8 @@ export class DialogService {
   private removeDialogComponentFromBody() {
     this.appRef.detachView(this.dialogComponentRef.hostView);
     this.dialogComponentRef.destroy();
-    document.body.classList.remove("modal-open");
-    document.getElementById("html").classList.remove("modal-open");
+    document.body.classList.remove('modal-open');
+    document.getElementById('html').classList.remove('modal-open');
   }
 
   private updateElementSize(domElem: HTMLElement, config?: DialogConfig) {
@@ -142,17 +142,17 @@ export class DialogService {
     }
 
     if (overlayElem && config.removeOverlayBackground) {
-      overlayElem.style.background = "none";
+      overlayElem.style.background = 'none';
     }
   }
 
   /** Coerces a value to a CSS pixel value. */
   private coerceCssPixelValue(value: any): string {
     if (value == null) {
-      return "";
+      return '';
     }
 
-    return typeof value === "string" ? value : `${value}px`;
+    return typeof value === 'string' ? value : `${value}px`;
   }
 
   public open(componentType: Type<any>, config?: DialogConfig) {

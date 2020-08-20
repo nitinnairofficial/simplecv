@@ -1,11 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { WebStorageService } from "src/app/core/services/web-storage/web-storage.service";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { WebStorageService } from 'src/app/core/services/web-storage/web-storage.service';
 
 @Component({
-  selector: "app-verify-email",
-  templateUrl: "./verify-email.component.html",
-  styleUrls: ["./verify-email.component.scss"],
+  selector: 'app-verify-email',
+  templateUrl: './verify-email.component.html',
+  styleUrls: ['./verify-email.component.scss'],
 })
 export class VerifyEmailComponent implements OnInit {
   public userEmail: string;
@@ -15,7 +15,7 @@ export class VerifyEmailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const userDetail = this.webStorageService.getStorageValue("USER_DETAILS");
+    const userDetail = this.webStorageService.getStorageValue('USER_DETAILS');
     this.userEmail = userDetail && userDetail.email;
   }
 

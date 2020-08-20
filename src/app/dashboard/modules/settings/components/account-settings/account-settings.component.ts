@@ -1,15 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { SnackbarService } from "src/app/core/services/snackbar/snackbar.service";
-import { CoreService } from "src/app/core/services/core/core.service";
-import { finalize } from "rxjs/operators";
-import { WebStorageService } from "src/app/core/services/web-storage/web-storage.service";
-import { AuthenticationService } from "src/app/authentication/services/authentication/authentication.service";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { SnackbarService } from 'src/app/core/services/snackbar/snackbar.service';
+import { CoreService } from 'src/app/core/services/core/core.service';
+import { finalize } from 'rxjs/operators';
+import { WebStorageService } from 'src/app/core/services/web-storage/web-storage.service';
+import { AuthenticationService } from 'src/app/authentication/services/authentication/authentication.service';
 
 @Component({
-  selector: "app-account-settings",
-  templateUrl: "./account-settings.component.html",
-  styleUrls: ["./account-settings.component.scss"],
+  selector: 'app-account-settings',
+  templateUrl: './account-settings.component.html',
+  styleUrls: ['./account-settings.component.scss'],
 })
 export class AccountSettingsComponent implements OnInit {
   public changePasswordForm: FormGroup;
@@ -25,12 +25,12 @@ export class AccountSettingsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const userDetail = this.webStorageService.getStorageValue("USER_DETAILS");
+    const userDetail = this.webStorageService.getStorageValue('USER_DETAILS');
     this.userEmail = userDetail && userDetail.email;
 
     this.changePasswordForm = this.formBuilder.group({
-      newPassword: ["", [Validators.required]],
-      confirmPassword: ["", [Validators.required]],
+      newPassword: ['', [Validators.required]],
+      confirmPassword: ['', [Validators.required]],
     });
   }
 
@@ -39,35 +39,35 @@ export class AccountSettingsComponent implements OnInit {
     const changePasswordFormValue = this.changePasswordForm.value;
 
     this.coreService
-      .changeUserPassword("")
+      .changeUserPassword('')
       .pipe(finalize(() => (this.changePasswordloader = false)))
       .subscribe(
         (res) => {
-          this.snackbarService.show("", "");
+          this.snackbarService.show('', '');
         },
         (err) => {
-          this.snackbarService.show("", "");
+          this.snackbarService.show('', '');
         }
       );
   }
 
   public onDeleteAccount() {
-    if (confirm("Are you sure you want to delete your account?")) {
+    if (confirm('Are you sure you want to delete your account?')) {
       this.coreService
-        .deleteUserAccount("")
+        .deleteUserAccount('')
         .pipe(finalize(() => (this.deleteAccountLoader = false)))
         .subscribe(
           (res) => {
             this.snackbarService.show(
-              "Your account has been deleted successfully.",
-              "success"
+              'Your account has been deleted successfully.',
+              'success'
             );
             this.authenticationService.logout();
           },
           (err) => {
             this.snackbarService.show(
-              "Facing error while deleting your account, please try later.",
-              "Error"
+              'Facing error while deleting your account, please try later.',
+              'Error'
             );
           }
         );

@@ -30,11 +30,26 @@
     "@app-shared/*": [
       "src/app/shared/*"
     ],
+    "@app-home/*": [
+      "src/app/home/*"
+    ],
+    "@app-resume/*": [
+      "src/app/resume/*"
+    ],
     "@app-resume-builder/*": [
-      "src/app/resume-builder/*"
+      "src/app/dashboard/resume-builder/*"
+    ],
+    "@app-job-tracker/*": [
+      "src/app/dashboard/job-tracker/*"
     ],
     "@app-settings/*": [
-      "src/app/settings/*"
+      "src/app/dashboard/settings/*"
+    ],
+    "@app-faq/*": [
+      "src/app/dashboard/faq/*"
+    ],
+    "@app-stats/*": [
+      "src/app/dashboard/stats/*"
     ],
   }
 }

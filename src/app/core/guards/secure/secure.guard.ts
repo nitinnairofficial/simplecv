@@ -1,16 +1,16 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
   CanActivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   UrlTree,
   Router,
-} from "@angular/router";
-import { Observable } from "rxjs";
-import { AuthenticationService } from "src/app/authentication/services/authentication/authentication.service";
+} from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthenticationService } from 'src/app/authentication/services/authentication/authentication.service';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class SecureGuard implements CanActivate {
   constructor(
@@ -27,7 +27,7 @@ export class SecureGuard implements CanActivate {
     | boolean
     | UrlTree {
     if (this.authenticationService.isLoggedIn) {
-      this.router.navigate(["/dashboard"]);
+      this.router.navigate(['/dashboard']);
     }
     return true;
   }

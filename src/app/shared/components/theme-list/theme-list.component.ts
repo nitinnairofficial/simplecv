@@ -1,12 +1,12 @@
-import { Component, OnInit, Inject, Optional } from "@angular/core";
-import { DialogRef } from "src/app/core/models/dialog-ref";
-import { THEME_LIST } from "../../constants/shared.constants";
-import { DIALOG_DATA } from "src/app/core/services/dialog/dialog.service";
+import { Component, OnInit, Inject, Optional } from '@angular/core';
+import { DialogRef } from 'src/app/core/models/dialog-ref';
+import { THEME_LIST } from '../../constants/shared.constants';
+import { DIALOG_DATA } from 'src/app/core/services/dialog/dialog.service';
 
 @Component({
-  selector: "app-theme-list",
-  templateUrl: "./theme-list.component.html",
-  styleUrls: ["./theme-list.component.scss"],
+  selector: 'app-theme-list',
+  templateUrl: './theme-list.component.html',
+  styleUrls: ['./theme-list.component.scss'],
 })
 export class ThemeListComponent implements OnInit {
   public themeList = THEME_LIST;

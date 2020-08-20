@@ -1,11 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { AccessService } from "src/app/core/services/access/access.service";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AccessService } from 'src/app/core/services/access/access.service';
 
 @Component({
-  selector: "app-page-navigation",
-  templateUrl: "./page-navigation.component.html",
-  styleUrls: ["./page-navigation.component.scss"],
+  selector: 'app-page-navigation',
+  templateUrl: './page-navigation.component.html',
+  styleUrls: ['./page-navigation.component.scss'],
 })
 export class PageNavigationComponent implements OnInit {
   public isLoggedIn = false;

@@ -1,12 +1,12 @@
-import { Component, OnInit, Optional, Inject } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { DIALOG_DATA } from "src/app/core/services/dialog/dialog.service";
-import { DialogRef } from "src/app/core/models/dialog-ref";
+import { Component, OnInit, Optional, Inject } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { DIALOG_DATA } from 'src/app/core/services/dialog/dialog.service';
+import { DialogRef } from 'src/app/core/models/dialog-ref';
 
 @Component({
-  selector: "app-job-details",
-  templateUrl: "./job-details.component.html",
-  styleUrls: ["./job-details.component.scss"],
+  selector: 'app-job-details',
+  templateUrl: './job-details.component.html',
+  styleUrls: ['./job-details.component.scss'],
 })
 export class JobDetailsComponent implements OnInit {
   public jobDetailsForm: FormGroup;
@@ -19,14 +19,14 @@ export class JobDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.jobDetailsForm = this.formBuilder.group({
-      companyName: ["", [Validators.required]],
-      jobTitle: [""],
-      currentStatus: ["", [Validators.required]],
-      jobDescription: [""],
-      createdDate: [""],
-      jobLocation: [""],
-      jobLink: [""],
-      additionalNote: [""],
+      companyName: ['', [Validators.required]],
+      jobTitle: [''],
+      currentStatus: ['', [Validators.required]],
+      jobDescription: [''],
+      createdDate: [''],
+      jobLocation: [''],
+      jobLink: [''],
+      additionalNote: [''],
     });
 
     this.jobDetailsForm.patchValue({

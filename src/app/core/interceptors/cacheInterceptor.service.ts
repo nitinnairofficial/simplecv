@@ -1,15 +1,15 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
   HttpRequest,
   HttpResponse,
-} from "@angular/common/http";
-import { Observable, of } from "rxjs";
-import { tap } from "rxjs/operators";
-import { HttpCacheService } from "../services/cache/cache.service";
-import { APIS_TO_CACHE } from "../constants/core.constants";
+} from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { HttpCacheService } from '../services/cache/cache.service';
+import { APIS_TO_CACHE } from '../constants/core.constants';
 
 @Injectable()
 export class CacheInterceptorService implements HttpInterceptor {

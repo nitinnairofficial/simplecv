@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: "app-tokyo",
-  templateUrl: "./tokyo.component.html",
-  styleUrls: ["./tokyo.component.scss"],
+  selector: 'app-tokyo',
+  templateUrl: './tokyo.component.html',
+  styleUrls: ['./tokyo.component.scss'],
 })
 export class TokyoComponent implements OnInit {
   @Input() data: any;

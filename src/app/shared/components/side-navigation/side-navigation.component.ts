@@ -1,37 +1,37 @@
-import { Component, OnInit } from "@angular/core";
-import { AuthenticationService } from "src/app/authentication/services/authentication/authentication.service";
+import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/authentication/services/authentication/authentication.service';
 
 @Component({
-  selector: "app-side-navigation",
-  templateUrl: "./side-navigation.component.html",
-  styleUrls: ["./side-navigation.component.scss"],
+  selector: 'app-side-navigation',
+  templateUrl: './side-navigation.component.html',
+  styleUrls: ['./side-navigation.component.scss'],
 })
 export class SideNavigationComponent implements OnInit {
   public sideNavigationRoutes = [
     {
-      routeLink: "resume-builder",
-      routeLabel: "Resume Builder",
-      routeIcon: "assets/icons/resume.svg",
+      routeLink: 'resume-builder',
+      routeLabel: 'Resume Builder',
+      routeIcon: 'assets/icons/resume.svg',
     },
     {
-      routeLink: "stats",
-      routeLabel: "Stats",
-      routeIcon: "assets/icons/stats.svg",
+      routeLink: 'stats',
+      routeLabel: 'Stats',
+      routeIcon: 'assets/icons/stats.svg',
     },
     {
-      routeLink: "job-tracker",
-      routeLabel: "Job Tracker",
-      routeIcon: "assets/icons/job-tracker.svg",
+      routeLink: 'job-tracker',
+      routeLabel: 'Job Tracker',
+      routeIcon: 'assets/icons/job-tracker.svg',
     },
     {
-      routeLink: "settings",
-      routeLabel: "Settings",
-      routeIcon: "assets/icons/settings.svg",
+      routeLink: 'settings',
+      routeLabel: 'Settings',
+      routeIcon: 'assets/icons/settings.svg',
     },
     {
-      routeLink: "faq",
-      routeLabel: "FAQs",
-      routeIcon: "assets/icons/faq.svg",
+      routeLink: 'faq',
+      routeLabel: 'FAQs',
+      routeIcon: 'assets/icons/faq.svg',
     },
   ];
 

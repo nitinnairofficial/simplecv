@@ -6,15 +6,15 @@ import { KanbanBoardComponent } from './components/kanban-board/kanban-board.com
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: JobTrackerComponent,
     children: [
       {
-        path: "",
-        redirectTo: "kanban-board",
+        path: '',
+        redirectTo: 'kanban-board',
       },
       {
-        path: "kanban-board",
+        path: 'kanban-board',
         component: KanbanBoardComponent,
       },
     ],
