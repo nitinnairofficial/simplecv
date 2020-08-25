@@ -11,17 +11,13 @@ import { DialogRef } from 'src/app/core/models/dialog-ref';
 export class JobDetailsComponent implements OnInit {
   public jobDetailsForm: FormGroup;
   public loader = false;
-  constructor(
-    private formBuilder: FormBuilder,
-    private dialogRef: DialogRef,
-    @Optional() @Inject(DIALOG_DATA) public data: any = {}
-  ) {}
+  constructor(private formBuilder: FormBuilder, private dialogRef: DialogRef, @Optional() @Inject(DIALOG_DATA) public data: any = {}) {}
 
   ngOnInit(): void {
     this.jobDetailsForm = this.formBuilder.group({
       companyName: ['', [Validators.required]],
       jobTitle: [''],
-      currentStatus: ['', [Validators.required]],
+      jobCategory: ['', [Validators.required]],
       jobDescription: [''],
       createdDate: [''],
       jobLocation: [''],
@@ -30,8 +26,8 @@ export class JobDetailsComponent implements OnInit {
     });
 
     this.jobDetailsForm.patchValue({
-      ...this.data
-    })
+      ...this.data,
+    });
   }
 
   onSubmit() {}

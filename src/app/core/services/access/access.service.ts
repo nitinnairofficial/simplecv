@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { WebStorageService } from '../web-storage/web-storage.service';
-import { LOGIN_INFO } from '../../constants/core.constants';
 
 @Injectable({
   providedIn: 'root',
@@ -9,11 +8,11 @@ export class AccessService {
   constructor(private webStorageService: WebStorageService) {}
 
   public setLoginInfo(info) {
-    this.webStorageService.setStorageValue(LOGIN_INFO, info);
+    this.webStorageService.setStorageValue('USER_DETAILS', info);
   }
 
   public getLoginInfo() {
-    return this.webStorageService.getStorageValue(LOGIN_INFO) || {};
+    return this.webStorageService.getStorageValue('USER_DETAILS') || {};
   }
 
   public isLoggedIn() {

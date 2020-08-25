@@ -131,9 +131,8 @@ export const DUMMY_FORM = {
         city: 'San Francisco',
         state: 'CA',
         country: '',
-        summary: `Responsible for designing and developing interactive websites 
-          and use innovative design patterns to create cutting edge experiences. 
-          Currently, learning modern frontend web frameworks and simple design strategies for enhanced and optimized UI/UX. `,
+        summary:
+          'Responsible for designing and developing interactive websites and use innovative design patterns to create cutting edge experiences. Currently, learning modern frontend web frameworks and simple design strategies for enhanced and optimized UI/UX.',
       },
     ],
     workExperienceSection: [
@@ -147,8 +146,8 @@ export const DUMMY_FORM = {
         city: 'San Francisco',
         state: 'CA',
         country: '',
-        summary: `Currently, I lead a team to maintain the internal style guide & implement new design patterns in Photos on web & mobile. 
-          I collaborate closely with product managers, developers, researchers & the marketing team.`,
+        summary:
+          'Currently, I lead a team to maintain the internal style guide & implement new design patterns in Photos on web & mobile. I collaborate closely with product managers, developers, researchers & the marketing team.',
         point1: '',
         point2: '',
         point3: '',

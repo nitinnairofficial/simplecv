@@ -70,21 +70,16 @@ export class KanbanBoardComponent implements OnInit {
     },
   ];
 
-  constructor(
-    private dragulaService: DragulaService,
-    private dialogService: DialogService
-  ) {
-    this.dragulaService
-      .dropModel('KANBAN')
-      .subscribe(({ source, target, sourceIndex, targetIndex }) => {
-        const sendData = {
-          sourceIndex,
-          sourceGroup: source.id,
-          targetIndex,
-          targetGroup: target.id,
-        };
-        console.log(sendData);
-      });
+  constructor(private dragulaService: DragulaService, private dialogService: DialogService) {
+    this.dragulaService.dropModel('KANBAN').subscribe(({ source, target, sourceIndex, targetIndex }) => {
+      const sendData = {
+        sourceIndex,
+        sourceCategory: source.id,
+        targetIndex,
+        targetCategory: target.id,
+      };
+      console.log(sendData);
+    });
   }
 
   ngOnInit(): void {}
@@ -95,7 +90,10 @@ export class KanbanBoardComponent implements OnInit {
     });
   }
 
-  public deleteJob() {
-    
+  public deleteJobDetails(category: string, index: number) {
+    if (confirm('Are you sure you want to delete this job card?')) {
+    } else {
+      return;
+    }
   }
 }

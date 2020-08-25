@@ -1,5 +1,5 @@
 .kanban-board {
-  .group {
+  .category {
     display: block;
     position: relative;
     background-color: #efefef;
@@ -16,7 +16,7 @@
       position: relative;
     }
 
-    .group-name {
+    .category-name {
       margin: 0.5rem;
       font-size: 1rem;
       margin-bottom: 1rem;
@@ -30,6 +30,10 @@
       margin-bottom: 0.5rem;
       border: none;
       cursor: move;
+
+      &:hover .btn-delete {
+        display: block;
+      }
 
       .card-title {
         margin-bottom: 0.25rem;
@@ -46,4 +50,14 @@
       }
     }
   }
+}
+
+.btn-delete {
+  position: absolute;
+  display: none;
+  right: 0.75rem;
+  top: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
 }
