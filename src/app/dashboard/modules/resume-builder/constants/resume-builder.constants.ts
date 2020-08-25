@@ -132,6 +132,7 @@ export const DUMMY_FORM = {
         state: 'CA',
         country: '',
         summary:
+          // tslint:disable:max-line-length
           'Responsible for designing and developing interactive websites and use innovative design patterns to create cutting edge experiences. Currently, learning modern frontend web frameworks and simple design strategies for enhanced and optimized UI/UX.',
       },
     ],
@@ -164,6 +165,7 @@ export const DUMMY_FORM = {
         state: 'CA',
         country: [''],
         summary:
+          // tslint:disable:max-line-length
           'Designed a iOS App for revenue forecasting for an internal client, incorporating user research and usability test findings.',
         point1: '',
         point2: '',
