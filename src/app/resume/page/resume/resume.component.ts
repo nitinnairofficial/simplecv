@@ -13,6 +13,14 @@ import { DUMMY_FORM } from 'src/app/dashboard/modules/resume-builder/constants/r
 export class ResumeComponent implements OnInit {
   public sendData: any;
   public loader = false;
+  public shareCount = 0;
+  public downloadCount = 0;
+  public timeSpent = 0;
+  public deviceType = null;
+
+  public resumeType = null;
+  public resumeId = null;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -21,12 +29,23 @@ export class ResumeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe((params) => {
+    const routeUrl = this.router.url;
+    if (routeUrl.includes('/resume')) {
+      this.resumeType = 'public';
+    } else if (routeUrl.includes('/cv')) {
+      this.resumeType = 'private';
+    }
+    console.log(this.resumeType);
+    this.activatedRoute.paramMap.subscribe((routeParams) => {
       this.loader = true;
-      const uniqueResumeUrl = params.get('resumeId');
+      this.resumeId = routeParams.get('resumeId');
 
+      const params = {
+        resumeType: this.resumeType,
+        resumeId: this.resumeId,
+      };
       this.coreService
-        .getResumeDetails(uniqueResumeUrl)
+        .getResumeDetails(params)
         .pipe(finalize(() => (this.loader = false)))
         .subscribe(
           (res) => {
@@ -40,14 +59,16 @@ export class ResumeComponent implements OnInit {
     });
 
     this.sendData = DUMMY_FORM;
+    this.deviceType = this.getDeviceType();
 
     // send beacon
-
+    this.timeSpent = performance.now();
     window.addEventListener('unload', (event) => {
       const data = JSON.stringify({
-        totalTimeSpent: '2min',
-        resumeDownloaded: true,
-        totalShared: 2,
+        totalTimeSpent: this.timeSpent,
+        downloadCount: this.downloadCount,
+        shareCount: this.shareCount,
+        deviceType: this.deviceType,
       });
       if (navigator.sendBeacon) {
         navigator.sendBeacon('http://localhost:8081/api/resume/nitinnair@gmail.com', data);
@@ -58,8 +79,6 @@ export class ResumeComponent implements OnInit {
         xhr.send(data);
       }
     });
-
-    this.getDeviceType();
   }
 
   public navigateToRoute(route) {
@@ -67,10 +86,12 @@ export class ResumeComponent implements OnInit {
   }
 
   public downloadResume() {
+    this.downloadCount += 1;
     this.snackbarService.show('Resume downloaded successfully', 'success');
   }
 
   public shareResume() {
+    this.shareCount += 1;
     this.snackbarService.show('Resume link copied successfully', 'success');
   }
 

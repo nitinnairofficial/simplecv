@@ -16,20 +16,20 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: () =>
-      import('./authentication/authentication.module').then(
-        (m) => m.AuthenticationModule
-      ),
+    loadChildren: () => import('./authentication/authentication.module').then((m) => m.AuthenticationModule),
     canActivate: [SecureGuard],
   },
   {
     path: 'dashboard',
-    loadChildren: () =>
-      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+    loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
     canActivate: [AuthGuard],
   },
   {
     path: 'resume/:resumeId',
+    loadChildren: () => import('./resume/resume.module').then((m) => m.ResumeModule),
+  },
+  {
+    path: 'cv/:resumeId',
     loadChildren: () => import('./resume/resume.module').then((m) => m.ResumeModule),
   },
   {
@@ -46,7 +46,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       scrollPositionRestoration: 'enabled',
-      preloadingStrategy: PreloadAllModules
+      preloadingStrategy: PreloadAllModules,
     }),
   ],
   exports: [RouterModule],
