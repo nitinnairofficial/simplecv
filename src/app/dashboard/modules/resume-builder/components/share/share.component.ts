@@ -61,6 +61,7 @@ export class ShareComponent implements OnInit {
         resumeCustomUrl: publicResumeFormValue.resumeCustomUrl,
         hideBranding: publicResumeFormValue.hideBranding,
         hideEmailAndPhone: publicResumeFormValue.hideEmailAndPhone,
+        hideDownloadButton: publicResumeFormValue.hideDownloadButton,
       },
     };
     this.publicResumeLoader = true;
@@ -74,10 +75,7 @@ export class ShareComponent implements OnInit {
     const privateResumeFormValue = this.privateResumeForm.value;
     this.privateResumeLoader = true;
     setTimeout(() => {
-      this.snackbarService.show(
-        'Succesfully created private resume',
-        'success'
-      );
+      this.snackbarService.show('Succesfully created private resume', 'success');
       this.privateResumeLoader = false;
     }, 2000);
   }

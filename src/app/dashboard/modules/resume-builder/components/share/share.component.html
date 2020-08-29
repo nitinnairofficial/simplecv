@@ -6,10 +6,7 @@
   </div>
   <div class="row mb-4">
     <div class="col">
-      <button class="btn btn-primary mr-4">
-        <img src="assets/icons/download-pdf.svg" class="mr-2" />Download Resume
-        PDF
-      </button>
+      <button class="btn btn-primary mr-4"><img src="assets/icons/download-pdf.svg" class="mr-2" />Download Resume PDF</button>
     </div>
   </div>
 
@@ -20,9 +17,7 @@
     <div class="row pt-4 mb-4">
       <div class="col-lg-6">
         <div class="form-group">
-          <label class="text-light-color"
-            >Enter resume name (only alphabets and numbers allowed)</label
-          >
+          <label class="text-light-color">Enter resume name (only alphabets and numbers allowed)</label>
           <div class="input-group">
             <input
               type="text"
@@ -33,19 +28,11 @@
               aria-label="Recipient's username"
             />
             <div class="input-group-append">
-              <button
-                (click)="checkAvailabilty()"
-                type="button"
-                role="button"
-                class="input-group-text btn-check"
-              >
+              <button (click)="checkAvailabilty()" type="button" role="button" class="input-group-text btn-check">
                 <span *ngIf="!checkLoader">Check availability </span>
 
                 <ng-container *ngIf="checkLoader">
-                  <div
-                    class="spinner-border text-primary btn-icon-left"
-                    role="status"
-                  >
+                  <div class="spinner-border text-primary btn-icon-left" role="status">
                     <span class="sr-only">Checking...</span>
                   </div>
 
@@ -54,9 +41,7 @@
               </button>
             </div>
 
-            <div class="message">
-              
-            </div>
+            <div class="message"></div>
           </div>
         </div>
       </div>
@@ -82,12 +67,20 @@
       </div>
     </div>
 
+    <div class="row mb-4">
+      <div class="col">
+        <label class="switch mr-4">
+          <input type="checkbox" formControlName="hideDownloadButton" />
+          <span class="slider round"></span>
+        </label>
+        <span>Hide Download button</span>
+      </div>
+    </div>
+
     <div class="row pt-4">
       <div class="col">
         <button class="btn btn-success">
-          <span *ngIf="!publicResumeLoader">
-            <img class="btn-icon-left" src="assets/icons/save.svg" />Publish
-          </span>
+          <span *ngIf="!publicResumeLoader"> <img class="btn-icon-left" src="assets/icons/save.svg" />Publish </span>
 
           <ng-container *ngIf="publicResumeLoader">
             <div class="spinner-border text-light btn-icon-left" role="status">
@@ -107,17 +100,11 @@
 
   <h5 class="card-title mb-4">Private resume</h5>
 
-  <form
-    [formGroup]="privateResumeForm"
-    (ngSubmit)="onPrivateResumeFormSubmit()"
-  >
+  <form [formGroup]="privateResumeForm" (ngSubmit)="onPrivateResumeFormSubmit()">
     <div class="row pt-4 mb-4">
       <div class="col-lg-4">
         <div class="form-group">
-          <label class="text-light-color"
-            >Enter the name of company or the person sharing this resume
-            with</label
-          >
+          <label class="text-light-color">Enter the name of company or the person sharing this resume with</label>
           <input
             type="text"
             class="form-control"
@@ -132,10 +119,7 @@
     <div class="row">
       <div class="col">
         <button class="btn btn-primary">
-          <span *ngIf="!privateResumeLoader">
-            <img class="btn-icon-left" src="assets/icons/save.svg" />Create
-            private resume link
-          </span>
+          <span *ngIf="!privateResumeLoader"> <img class="btn-icon-left" src="assets/icons/save.svg" />Create private resume link </span>
 
           <ng-container *ngIf="privateResumeLoader">
             <div class="spinner-border text-light btn-icon-left" role="status">
@@ -172,10 +156,7 @@
             <td>{{ item?.createdDate }}</td>
             <td>{{ item?.expiryDate }}</td>
             <td>
-              <button
-                class="no-btn btn-icon"
-                (click)="copyToClipboard(item?.resumeId)"
-              >
+              <button class="no-btn btn-icon" (click)="copyToClipboard(item?.resumeId)">
                 <img src="assets/icons/copy.svg" />
               </button>
             </td>
