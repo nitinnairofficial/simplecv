@@ -36,6 +36,7 @@ export class ShareComponent implements OnInit {
       resumeId: ['', Validators.required],
       hideBranding: [false],
       hideEmailAndPhone: [false],
+      hideDownloadButton: [false],
     });
 
     this.privateResumeForm = this.formBuilder.group({
