@@ -69,6 +69,8 @@ export class ResumeComponent implements OnInit {
         downloadCount: this.downloadCount,
         shareCount: this.shareCount,
         deviceType: this.deviceType,
+        resumeId: this.resumeId,
+        resumeType: this.resumeType,
       });
       if (navigator.sendBeacon) {
         navigator.sendBeacon('http://localhost:8081/api/resume/nitinnair@gmail.com', data);

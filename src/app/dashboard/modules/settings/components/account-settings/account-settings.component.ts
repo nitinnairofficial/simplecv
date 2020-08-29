@@ -16,6 +16,10 @@ export class AccountSettingsComponent implements OnInit {
   public changePasswordloader = false;
   public deleteAccountLoader = false;
   public userEmail: string;
+
+  public passwordTextType = false;
+  public confirmPasswordTextType = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private snackbarService: SnackbarService,
@@ -43,10 +47,11 @@ export class AccountSettingsComponent implements OnInit {
       .pipe(finalize(() => (this.changePasswordloader = false)))
       .subscribe(
         (res) => {
-          this.snackbarService.show('', '');
+          this.snackbarService.show('Password changed successfully.', 'success');
+          this.authenticationService.logout();
         },
         (err) => {
-          this.snackbarService.show('', '');
+          this.snackbarService.show('Password change failed', 'error');
         }
       );
   }
@@ -58,21 +63,23 @@ export class AccountSettingsComponent implements OnInit {
         .pipe(finalize(() => (this.deleteAccountLoader = false)))
         .subscribe(
           (res) => {
-            this.snackbarService.show(
-              'Your account has been deleted successfully.',
-              'success'
-            );
+            this.snackbarService.show('Your account has been deleted successfully.', 'success');
             this.authenticationService.logout();
           },
           (err) => {
-            this.snackbarService.show(
-              'Facing error while deleting your account, please try later.',
-              'Error'
-            );
+            this.snackbarService.show('Facing error while deleting your account, please try later.', 'Error');
           }
         );
     } else {
       return;
     }
+  }
+
+  public togglePasswordType() {
+    this.passwordTextType = !this.passwordTextType;
+  }
+
+  public toggleConfirmPasswordType() {
+    this.confirmPasswordTextType = !this.confirmPasswordTextType;
   }
 }
