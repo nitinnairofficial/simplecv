@@ -123,3 +123,18 @@
     text-align: left;
   }
 }
+
+.feature-card {
+  height: 280px;
+  border: 0;
+  box-shadow: 0.25rem 0.25rem 1rem rgba(160, 160, 160, 0.1);
+  h4 {
+    color: #0069db;
+  }
+}
+
+.icon-container {
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 2rem;
+}
