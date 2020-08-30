@@ -137,6 +137,22 @@ p {
   }
 }
 
+.accordion-item {
+  border-radius: 0.25rem;
+  box-shadow: 0.25rem 0.125rem 0.25rem rgba(160, 160, 160, 0.1);
+}
+
+.accordion-item .accordion-header {
+  background-color: #fff !important;
+  text-transform: none !important;
+}
+
+.accordion-item .accordion-text {
+  padding: 1.5rem;
+  padding-top: 0 !important;
+  margin-bottom: 1rem;
+}
+
 .icon-container {
   width: 4rem;
   height: 4rem;
