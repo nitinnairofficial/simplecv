@@ -12,9 +12,8 @@
         </div>
         <ng-container *ngIf="!isLoggedIn">
           <button class="btn btn-success mr-4" (click)="navigateToRoute('/auth/signup')">
-            Get Started<img class="btn-icon-right icon" src="assets/icons/right-arrow.svg" />
+            Create Resume<img class="btn-icon-right icon" src="assets/icons/right-arrow.svg" />
           </button>
-          <button class="btn btn-outline-primary">Live demo</button>
         </ng-container>
 
         <ng-container *ngIf="isLoggedIn">
@@ -136,6 +135,37 @@
         <div class="text text-dark">
           We will help you create your web resume in 5 minutes. Explore different templates to help your create magnificent resumes.
         </div>
+
+        <div>
+          <img class="section-image" src="assets/images/step1.svg" />
+          <p class="text-primary mb-1">Step #1 - Add details</p>
+          <p class="text-light-color">Fill details of which ever section you would like in your resume.</p>
+          <img src="assets/images/down.svg" />
+        </div>
+
+        <div>
+          <img class="section-image" src="assets/images/step2.svg" />
+          <p class="text-primary mb-1">Step #2 - Customize your resume</p>
+          <p class="text-light-color">Fill details of which ever section you would like in your resume.</p>
+          <img src="assets/images/down.svg" />
+        </div>
+        <div>
+          <img class="section-image" src="assets/images/step3.svg" />
+          <p class="text-primary mb-1">Step #3 - Generate private shareable links</p>
+          <p class="text-light-color">Fill details of which ever section you would like in your resume.</p>
+          <img src="assets/images/down.svg" />
+        </div>
+        <div>
+          <img class="section-image" src="assets/images/step4.svg" />
+          <p class="text-primary mb-1">Step #4 - Send your resume to the company</p>
+          <p class="text-light-color">Fill details of which ever section you would like in your resume.</p>
+          <img src="assets/images/down.svg" />
+        </div>
+        <div>
+          <img class="section-image" src="assets/images/step5.svg" />
+          <p class="text-primary mb-1">Step #5 - Track and Analyze</p>
+          <p class="text-light-color">Fill details of which ever section you would like in your resume.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -188,11 +218,12 @@
   </div>
 </div>
 
-<div class="container-fluid banner">
-  <div class="container">
+<div class="container-fluid bg">
+  <div class="container sub-container page-section">
     <div class="row">
       <div class="col text-center">
-        <h1 class="text-white mb-4">
+        <img class="section-image mb-4" src="assets/images/resume.svg" />
+        <h1 class="text-white pt-4 mb-4">
           Get started with the best resume builder today.
         </h1>
         <div class="pt-4">

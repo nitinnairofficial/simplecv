@@ -15,7 +15,11 @@
             </a>
           </li>
         </ng-container>
-        <li *ngIf="!isLoggedIn">Login</li>
+        <li *ngIf="!isLoggedIn">
+          <a (click)="navigateTo('/auth/login')" routerLinkActive="page-navigation-active">
+            Login
+          </a>
+        </li>
       </ul>
 
       <button class="btn btn-nav" *ngIf="!isLoggedIn" (click)="navigateTo('/auth/signup')">
