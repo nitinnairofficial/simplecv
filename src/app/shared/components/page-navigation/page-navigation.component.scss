@@ -16,6 +16,10 @@
     color: #fff;
     padding: 1.25rem;
   }
+
+  a {
+    color: #fff;
+  }
 }
 
 .btn-home {
@@ -40,14 +44,17 @@
   color: #0069db;
   border-radius: 0.25rem;
   background-color: #fff;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   margin-bottom: 0 !important;
 
   &:hover {
     background-color: #0069db;
     color: #fff;
   }
+}
+
+.page-navigation-active {
+  border-bottom: 2px solid #fff;
 }
 
 .logo {

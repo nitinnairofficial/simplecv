@@ -8,6 +8,23 @@ import { AccessService } from 'src/app/core/services/access/access.service';
   styleUrls: ['./page-navigation.component.scss'],
 })
 export class PageNavigationComponent implements OnInit {
+  public pageNavigationList = [
+    {
+      routeLink: '/',
+      routeLabel: 'Home',
+      fragmentName: 'home',
+    },
+    {
+      routeLink: '/',
+      routeLabel: 'Features',
+      fragmentName: 'features',
+    },
+    {
+      routeLink: '/',
+      routeLabel: 'How it works',
+      fragmentName: 'how-it-works',
+    },
+  ];
   public isLoggedIn = false;
   constructor(private router: Router, private accessService: AccessService) {}
 

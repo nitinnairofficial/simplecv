@@ -8,24 +8,21 @@
     </div>
     <div class="float-right">
       <ul class="nav-menu mr-4">
-        <li>Features</li>
-        <li>Examples</li>
+        <ng-container *ngFor="let route of pageNavigationList">
+          <li>
+            <a routerLink="{{ route?.routeLink }}" [fragment]="route?.fragmentName">
+              {{ route?.routeLabel }}
+            </a>
+          </li>
+        </ng-container>
         <li *ngIf="!isLoggedIn">Login</li>
       </ul>
 
-      <button
-        class="btn btn-nav"
-        *ngIf="!isLoggedIn"
-        (click)="navigateTo('/auth/signup')"
-      >
+      <button class="btn btn-nav" *ngIf="!isLoggedIn" (click)="navigateTo('/auth/signup')">
         Sign Up
       </button>
 
-      <button
-        class="btn btn-nav"
-        *ngIf="isLoggedIn"
-        (click)="navigateTo('/dashboard')"
-      >
+      <button class="btn btn-nav" *ngIf="isLoggedIn" (click)="navigateTo('/dashboard')">
         Go to dashboard
       </button>
     </div>
