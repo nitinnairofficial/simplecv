@@ -60,6 +60,13 @@ p {
   font-size: 1rem !important;
 }
 
+.text-hint {
+  font-size: 0.95rem;
+  font-weight: normal;
+  color: #dc3545;
+  margin-top: 0.5rem;
+}
+
 .indicator {
   width: 0.5rem;
   height: 0.5rem;
@@ -149,7 +156,7 @@ p {
   margin: 0 !important;
   z-index: 9999 !important;
   opacity: 0.8;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=80)';
   filter: alpha(opacity=80);
   pointer-events: none;
 }
@@ -167,7 +174,7 @@ p {
 /* added to the source element while its mirror is dragged */
 .gu-transit {
   opacity: 0.2;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)';
   filter: alpha(opacity=20);
   border: 1px dotted #333;
 }

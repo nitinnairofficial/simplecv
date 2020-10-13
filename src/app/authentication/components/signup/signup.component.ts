@@ -5,6 +5,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import { Router } from '@angular/router';
 import { SnackbarService } from 'src/app/core/services/snackbar/snackbar.service';
+import { EMAIL_PATTERN, PASSWORD_PATTERN } from 'src/app/core/constants/core.constants';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -23,14 +24,26 @@ export class SignupComponent implements OnInit {
     private snackbarService: SnackbarService
   ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.signupForm = this.fb.group({
-      emailId: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      emailId: ['', [Validators.required, Validators.email, Validators.pattern(EMAIL_PATTERN)]],
+      password: ['', [Validators.required, Validators.pattern(PASSWORD_PATTERN)]],
     });
   }
 
+  public get emailId() {
+    return this.signupForm.get('emailId');
+  }
+
+  public get password() {
+    return this.signupForm.get('password');
+  }
+
   public onSignup() {
+    if (this.signupForm.invalid) {
+      this.signupForm.markAllAsTouched();
+      return;
+    }
     this.loader = true;
     const signupFormValue = this.signupForm.value;
     this.signUp(signupFormValue.emailId, signupFormValue.password);

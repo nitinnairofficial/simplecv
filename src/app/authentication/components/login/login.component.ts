@@ -9,6 +9,7 @@ import { CoreService } from 'src/app/core/services/core/core.service';
 import { finalize } from 'rxjs/operators';
 import { AccessService } from 'src/app/core/services/access/access.service';
 import { WebStorageService } from 'src/app/core/services/web-storage/web-storage.service';
+import { EMAIL_PATTERN, PASSWORD_PATTERN } from 'src/app/core/constants/core.constants';
 
 @Component({
   selector: 'app-login',
@@ -32,12 +33,26 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      emailId: ['', [Validators.required, Validators.email]],
+      emailId: ['', [Validators.required, Validators.email, Validators.pattern(EMAIL_PATTERN)]],
+      // password: ['', [Validators.required, Validators.pattern(PASSWORD_PATTERN)]],
       password: ['', [Validators.required]],
     });
   }
 
+  public get emailId() {
+    return this.loginForm.get('emailId');
+  }
+
+  public get password() {
+    return this.loginForm.get('password');
+  }
+
   public onLogin() {
+    if (this.loginForm.invalid) {
+      console.log('IN');
+      this.loginForm.markAllAsTouched();
+      return;
+    }
     this.loader = true;
     const loginFormValue = this.loginForm.value;
     this.login(loginFormValue.emailId, loginFormValue.password);
@@ -49,10 +64,7 @@ export class LoginComponent implements OnInit {
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
         if (res.user.emailVerified !== true) {
-          this.snackbarService.show(
-            'Please verify your email address.',
-            'error'
-          );
+          this.snackbarService.show('Please verify your email address.', 'error');
         } else {
           this.webStorageService.setStorageValue('USER_DETAILS', res.user);
           this.accessService.setLoginInfo(res.user);

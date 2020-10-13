@@ -5,6 +5,7 @@ import { CoreService } from 'src/app/core/services/core/core.service';
 import { finalize } from 'rxjs/operators';
 import { WebStorageService } from 'src/app/core/services/web-storage/web-storage.service';
 import { AuthenticationService } from 'src/app/authentication/services/authentication/authentication.service';
+import { PASSWORD_PATTERN } from 'src/app/core/constants/core.constants';
 
 @Component({
   selector: 'app-account-settings',
@@ -28,17 +29,30 @@ export class AccountSettingsComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     const userDetail = this.webStorageService.getStorageValue('USER_DETAILS');
     this.userEmail = userDetail && userDetail.email;
 
     this.changePasswordForm = this.formBuilder.group({
-      newPassword: ['', [Validators.required]],
-      confirmPassword: ['', [Validators.required]],
+      newPassword: ['', [Validators.required, Validators.pattern(PASSWORD_PATTERN)]],
+      confirmPassword: ['', [Validators.required, Validators.pattern(PASSWORD_PATTERN)]],
     });
   }
 
+  public get newPassword() {
+    return this.changePasswordForm.get('newPassword');
+  }
+
+  public get confirmPassword() {
+    return this.changePasswordForm.get('confirmPassword');
+  }
+
   public onChangePassword() {
+    if (this.changePasswordForm.invalid || this.newPassword.value !== this.confirmPassword.value) {
+      this.changePasswordForm.markAllAsTouched();
+      return;
+    }
+
     this.changePasswordloader = true;
     const changePasswordFormValue = this.changePasswordForm.value;
 

@@ -10,20 +10,25 @@
             class="form-control"
             id="emailId"
             aria-describedby="emailHelp"
-            placeholder="Enter email"
+            placeholder="Enter email address"
             formControlName="emailId"
           />
+          <div *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)" class="text-hint">
+            <div *ngIf="emailId.errors.required">Email address is required.</div>
+            <div *ngIf="emailId.invalid">Invalid email address format.</div>
+          </div>
         </div>
         <div class="form-group">
-          <input
-            type="password"
-            class="form-control"
-            id="passwordText"
-            placeholder="Password"
-            formControlName="password"
-          />
+          <input type="password" class="form-control" id="passwordText" placeholder="Password" formControlName="password" />
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-hint">
+            <div *ngIf="password.errors.required">
+              Password is required.
+            </div>
+            <div *ngIf="password.invalid">
+              Password must contain minimum eight characters, at least one letter, one number and one special character.
+            </div>
+          </div>
         </div>
-
         <div class="card-text mb-4">
           <a routerLink="/auth/forgot-password">Forgot password?</a>
         </div>
@@ -39,15 +44,8 @@
       <div class="text-center text-light-color divider">OR</div>
 
       <button class="btn btn-danger" (click)="loginWithGoogle()">
-        <span *ngIf="!googleLoader"
-          ><img class="btn-icon-left" src="assets/icons/google.svg" />Login with
-          Google</span
-        >
-        <div
-          *ngIf="googleLoader"
-          class="spinner-border text-light"
-          role="status"
-        >
+        <span *ngIf="!googleLoader"><img class="btn-icon-left" src="assets/icons/google.svg" />Login with Google</span>
+        <div *ngIf="googleLoader" class="spinner-border text-light" role="status">
           <span class="sr-only">Loading...</span>
         </div>
       </button>
