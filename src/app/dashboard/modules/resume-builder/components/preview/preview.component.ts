@@ -86,13 +86,10 @@ export class PreviewComponent implements OnInit {
       )
       .subscribe(
         () => {
-          this.snackbarService.show(
-            'Resume settings saved successfully',
-            'success'
-          );
+          this.snackbarService.show('Resume settings saved successfully', 'success');
         },
         () => {
-          this.snackbarService.show('Saving Failed', 'error');
+          this.snackbarService.show('Saving resume settings failed', 'error');
         }
       );
   }

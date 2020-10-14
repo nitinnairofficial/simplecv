@@ -41,3 +41,11 @@
     box-shadow: none;
   }
 }
+
+@media print {
+  .template-container {
+    .template-content {
+      margin: 0 !important;
+    }
+  }
+}

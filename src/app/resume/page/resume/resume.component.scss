@@ -10,6 +10,12 @@
 }
 
 .resume-container {
-  background-color: #f1f7f9 !important;
+  background-color: #f1f7f9;
   padding: 6rem 0;
+}
+
+@media print {
+  .resume-action {
+    display: none !important;
+  }
 }

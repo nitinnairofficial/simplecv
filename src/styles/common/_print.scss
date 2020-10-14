@@ -1,0 +1,41 @@
+@media print {
+  body,
+  h1,
+  h2,
+  h3,
+  ol,
+  ul,
+  div,
+  span,
+  p {
+    width: auto !important;
+    position: static !important;
+    overflow: visible !important;
+  }
+
+  .resume-container {
+    background-color: #fff !important;
+    padding: 0 !important;
+  }
+
+  .col-lg-8 {
+    width: 66.66% !important;
+  }
+
+  .col-lg-4 {
+    width: 33.33% !important;
+  }
+
+  .skill-list {
+    padding: 0;
+    li {
+      background-color: #f1f5f9 !important;
+    }
+  }
+}
+
+@page {
+  size: auto; /* auto is the initial value */
+  /* this affects the margin in the printer settings */
+  margin: 20mm 10mm !important;
+}

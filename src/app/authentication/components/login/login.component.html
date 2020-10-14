@@ -19,7 +19,7 @@
           </div>
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" id="passwordText" placeholder="Password" formControlName="password" />
+          <input type="password" class="form-control" id="passwordText" placeholder="Enter password" formControlName="password" />
           <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-hint">
             <div *ngIf="password.errors.required">
               Password is required.
