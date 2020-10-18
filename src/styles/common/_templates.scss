@@ -46,6 +46,7 @@
   .template-container {
     .template-content {
       margin: 0 !important;
+      page-break-inside: avoid;
     }
   }
 }

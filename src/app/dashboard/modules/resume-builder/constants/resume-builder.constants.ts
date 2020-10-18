@@ -1,3 +1,5 @@
+export const RESUME_ID_PATTERN = '[a-zA-Z0-9]{3,}';
+
 export const PRIVATE_RESUME_LIST = [
   {
     resumeId: 'abcxyz123456',
@@ -113,7 +115,7 @@ export const FORM_CONFIG = {
 
 export const DUMMY_FORM = {
   resumeSettings: {
-    templateName: 'berlin',
+    templateName: 'stockholm',
     themeColor: 'blue',
     hideBranding: true,
     hideEmailAndPhone: false,

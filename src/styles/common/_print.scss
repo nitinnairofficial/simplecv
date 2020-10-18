@@ -26,6 +26,18 @@
     width: 33.33% !important;
   }
 
+  .col-lg-9 {
+    width: 75% !important;
+  }
+
+  .col-lg-3 {
+    width: 25% !important;
+  }
+
+  .text-orientation {
+    text-align: right !important;
+  }
+
   .skill-list {
     padding: 0;
     li {
@@ -37,5 +49,5 @@
 @page {
   size: auto; /* auto is the initial value */
   /* this affects the margin in the printer settings */
-  margin: 20mm 10mm !important;
+  margin: 20mm 15mm !important;
 }

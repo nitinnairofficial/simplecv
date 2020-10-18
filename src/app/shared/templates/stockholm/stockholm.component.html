@@ -28,7 +28,7 @@
     </div>
 
     <div class="row">
-      <div class="col-lg-4 text-orientation">
+      <div class="col-lg-4">
         <h6
           class="text-bold mb-4 pt-4 pb-4"
           [ngStyle]="{
@@ -47,10 +47,7 @@
           </span>
         </div>
 
-        <div
-          class="mb-4"
-          *ngIf="data?.resumeSettings?.hideEmailAndPhone == false"
-        >
+        <div class="mb-4" *ngIf="data?.resumeSettings?.hideEmailAndPhone == false">
           <span class="d-block text-extra-light-color">Email</span>
           <span class="d-block">{{ (data?.aboutSection)[0]?.emailId }}</span>
         </div>
@@ -60,10 +57,7 @@
           <span class="d-block"> {{ (data?.aboutSection)[0]?.website }}</span>
         </div>
 
-        <div
-          class="mb-4"
-          *ngIf="data?.resumeSettings?.hideEmailAndPhone == false"
-        >
+        <div class="mb-4" *ngIf="data?.resumeSettings?.hideEmailAndPhone == false">
           <span class="d-block text-extra-light-color">Phone number</span>
           <span class="d-block">
             {{ (data?.aboutSection)[0]?.phoneNumber }}
@@ -131,9 +125,7 @@
         <ng-container *ngFor="let language of data?.languagesSection">
           <div class="mb-4">
             <span class="d-block"> {{ language?.languageName }}</span>
-            <span class="d-block text-extra-light-color">{{
-              language?.proficiency
-            }}</span>
+            <span class="d-block text-extra-light-color">{{ language?.proficiency }}</span>
           </div>
         </ng-container>
       </div>
@@ -155,8 +147,7 @@
             {{ employer?.employerName }}
           </h5>
           <p class="text-light-color mb-16">
-            {{ employer?.jobTitle }} | {{ employer?.startDate }} -
-            {{ employer?.endDate }} | {{ employer?.employmentType }}
+            {{ employer?.jobTitle }} | {{ employer?.startDate }} - {{ employer?.endDate }} | {{ employer?.employmentType }}
           </p>
 
           <p class="text-dark-color">
@@ -217,9 +208,7 @@
         <ng-container *ngFor="let award of data?.awardsSection">
           <div class="mb-4">
             <h5 class="d-block text-bold">{{ award?.awardName }}</h5>
-            <span class="d-block text-extra-light-color">{{
-              award?.awardDate
-            }}</span>
+            <span class="d-block text-extra-light-color">{{ award?.awardDate }}</span>
             <span class="d-block text-normal">{{ award?.summary }}</span>
           </div>
         </ng-container>

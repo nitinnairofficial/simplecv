@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, Form } from '@angular/forms';
 import { SnackbarService } from 'src/app/core/services/snackbar/snackbar.service';
 import { CoreService } from 'src/app/core/services/core/core.service';
-import { PRIVATE_RESUME_LIST } from '../../constants/resume-builder.constants';
+import { PRIVATE_RESUME_LIST, RESUME_ID_PATTERN } from '../../constants/resume-builder.constants';
 import { WebStorageService } from 'src/app/core/services/web-storage/web-storage.service';
 
 @Component({
@@ -33,7 +33,7 @@ export class ShareComponent implements OnInit {
 
     this.publicResumeForm = this.formBuilder.group({
       resumePermissionType: ['private', Validators.required],
-      resumeId: ['', Validators.required],
+      resumeId: ['', [Validators.required, Validators.pattern(RESUME_ID_PATTERN)]],
       hideBranding: [false],
       hideEmailAndPhone: [false],
       hideDownloadButton: [false],
@@ -49,8 +49,13 @@ export class ShareComponent implements OnInit {
         resumePermissionType: savedForm.resumeSettings.resumePermissionType,
         resumeId: savedForm.resumeSettings.resumeId,
         hideEmailAndPhone: savedForm.resumeSettings.hideEmailAndPhone,
+        hideDownloadButton: savedForm.resumeSettings.hideDownloadButton,
       });
     }
+  }
+
+  public get resumeId() {
+    return this.publicResumeForm.get('resumeId');
   }
 
   public onPublicResumeFormSubmit() {

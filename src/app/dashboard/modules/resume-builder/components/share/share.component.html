@@ -41,7 +41,14 @@
               </button>
             </div>
 
-            <div class="message"></div>
+            <div *ngIf="resumeId.invalid && (resumeId.dirty || resumeId.touched)" class="text-hint">
+              <div *ngIf="resumeId.errors.required">
+                Resume Id is required.
+              </div>
+              <div *ngIf="resumeId.invalid">
+                Resume Id must contain minimum three characters, number or alphabet.
+              </div>
+            </div>
           </div>
         </div>
       </div>
