@@ -49,7 +49,6 @@ export class LoginComponent implements OnInit {
 
   public onLogin() {
     if (this.loginForm.invalid) {
-      console.log('IN');
       this.loginForm.markAllAsTouched();
       return;
     }

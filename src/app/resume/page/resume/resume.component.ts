@@ -35,7 +35,6 @@ export class ResumeComponent implements OnInit {
     } else if (routeUrl.includes('/cv')) {
       this.resumeType = 'private';
     }
-    console.log(this.resumeType);
     this.activatedRoute.paramMap.subscribe((routeParams) => {
       this.loader = true;
       this.resumeId = routeParams.get('resumeId');

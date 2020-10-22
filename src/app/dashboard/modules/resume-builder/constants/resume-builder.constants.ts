@@ -1,4 +1,6 @@
-export const RESUME_ID_PATTERN = '[a-zA-Z0-9]{3,}';
+export const RESUME_ID_PATTERN = '[a-zA-Z][a-zA-Z0-9]{2,32}';
+
+export const SHARE_RESUME_PATTERN = '[a-zA-Z][a-zA-Z0-9]{2,32}';
 
 export const PRIVATE_RESUME_LIST = [
   {

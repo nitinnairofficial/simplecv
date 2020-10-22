@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, Form } from '@angular/forms';
 import { SnackbarService } from 'src/app/core/services/snackbar/snackbar.service';
 import { CoreService } from 'src/app/core/services/core/core.service';
-import { PRIVATE_RESUME_LIST, RESUME_ID_PATTERN } from '../../constants/resume-builder.constants';
+import { PRIVATE_RESUME_LIST, RESUME_ID_PATTERN, SHARE_RESUME_PATTERN } from '../../constants/resume-builder.constants';
 import { WebStorageService } from 'src/app/core/services/web-storage/web-storage.service';
 
 @Component({
@@ -32,7 +32,6 @@ export class ShareComponent implements OnInit {
     this.sendData = savedForm;
 
     this.publicResumeForm = this.formBuilder.group({
-      resumePermissionType: ['private', Validators.required],
       resumeId: ['', [Validators.required, Validators.pattern(RESUME_ID_PATTERN)]],
       hideBranding: [false],
       hideEmailAndPhone: [false],
@@ -40,7 +39,7 @@ export class ShareComponent implements OnInit {
     });
 
     this.privateResumeForm = this.formBuilder.group({
-      sharingWith: ['', Validators.required],
+      sharingWith: ['', [Validators.required, Validators.pattern(SHARE_RESUME_PATTERN)]],
     });
 
     if (savedForm) {
@@ -58,7 +57,15 @@ export class ShareComponent implements OnInit {
     return this.publicResumeForm.get('resumeId');
   }
 
+  public get sharingWith() {
+    return this.privateResumeForm.get('sharingWith');
+  }
+
   public onPublicResumeFormSubmit() {
+    if (this.publicResumeForm.invalid) {
+      this.publicResumeForm.markAllAsTouched();
+      return;
+    }
     const publicResumeFormValue = this.publicResumeForm.value;
     this.sendData = {
       ...this.sendData,
@@ -78,6 +85,10 @@ export class ShareComponent implements OnInit {
   }
 
   public onPrivateResumeFormSubmit() {
+    if (this.privateResumeForm.invalid) {
+      this.privateResumeForm.markAllAsTouched();
+      return;
+    }
     const privateResumeFormValue = this.privateResumeForm.value;
     this.privateResumeLoader = true;
     setTimeout(() => {

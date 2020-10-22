@@ -19,3 +19,34 @@
     display: none !important;
   }
 }
+
+.btn-download,
+.btn-share {
+  border-radius: 50%;
+  width: 3rem !important;
+  height: 3rem;
+  padding: 0 !important;
+  box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.25);
+  position: fixed;
+  z-index: 1000;
+}
+
+.btn-download {
+  right: 1.5rem;
+  bottom: 1.5rem;
+}
+
+.btn-share {
+  right: 1.5rem;
+  bottom: 5rem;
+}
+
+@media screen and (max-width: 640px) {
+  .btn-download {
+    bottom: 0rem;
+  }
+
+  .btn-share {
+    bottom: 4rem;
+  }
+}
