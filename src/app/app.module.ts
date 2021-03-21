@@ -14,14 +14,13 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { HttpClientModule } from '@angular/common/http';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCYPUG0XN1rA89dbTE9snXWUn5xFpwUiRA',
-  authDomain: 'fir-auth-45b4a.firebaseapp.com',
-  databaseURL: 'https://fir-auth-45b4a.firebaseio.com',
-  projectId: 'fir-auth-45b4a',
-  storageBucket: 'fir-auth-45b4a.appspot.com',
-  messagingSenderId: '248041844902',
-  appId: '1:248041844902:web:9e80fe6ac60e26b112c467',
-  measurementId: 'G-6CDYH8CDZJ',
+  apiKey: 'AIzaSyC3sTTIoSPQJaExJVnufcZtjGkMkU44sxE',
+  authDomain: 'quickresume-8cd4a.firebaseapp.com',
+  databaseURL: 'https://quickresume-8cd4a-default-rtdb.firebaseio.com',
+  projectId: 'quickresume-8cd4a',
+  storageBucket: 'quickresume-8cd4a.appspot.com',
+  messagingSenderId: '125926849092',
+  appId: '1:125926849092:web:4903c22cf2f99953dcda11',
 };
 
 @NgModule({
@@ -36,11 +35,9 @@ const firebaseConfig = {
     CoreModule,
     SharedModule,
     HomeModule,
-    DragulaModule.forRoot()
+    DragulaModule.forRoot(),
   ],
-  providers: [
-    DragulaService
-  ],
+  providers: [DragulaService],
 
   entryComponents: [],
   bootstrap: [AppComponent],
