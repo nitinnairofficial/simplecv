@@ -1,5 +1,5 @@
 .bg {
-  background-color: #0069db;
+  background-color: #0040ca;
   background-repeat: no-repeat;
   background-size: contain;
   align-items: center;
@@ -16,7 +16,7 @@
   }
 
   .text {
-    font-size: 1rem !important;
+    font-size: 0.975rem !important;
     margin: 0 auto;
     margin-bottom: 2rem;
     max-width: 60%;
@@ -35,7 +35,7 @@
 }
 
 .bg3 {
-  background-color: #f1f7f9;
+  background-color: #f2f4f6;
 }
 
 .footer {
@@ -51,7 +51,7 @@
 }
 
 p {
-  font-size: 1rem !important;
+  font-size: 0.975rem !important;
 }
 
 .home-image {
@@ -68,7 +68,7 @@ p {
   }
 
   .bg .text {
-    font-size: 1rem !important;
+    font-size: 0.975rem !important;
     max-width: 96%;
   }
 
@@ -79,7 +79,7 @@ p {
 
 .navbar {
   height: 4rem;
-  background-color: #0069db;
+  background-color: #0040ca;
   position: fixed;
   display: block;
   z-index: 1000;
@@ -118,7 +118,7 @@ p {
 }
 
 .banner {
-  background-color: #0069db;
+  background-color: #0040ca;
   padding: 4rem 1rem;
 }
 
@@ -134,7 +134,9 @@ p {
   box-shadow: 0.25rem 0.25rem 1rem rgba(160, 160, 160, 0.1);
   margin-bottom: 2rem;
   h5 {
-    color: #0069db;
+    color: #0040ca;
+    margin-bottom: 0.5rem !important;
+    font-weight: 700;
   }
 }
 
