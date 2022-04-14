@@ -44,7 +44,7 @@
       <div class="text-center text-light-color divider">OR</div>
 
       <button class="btn btn-danger" (click)="loginWithGoogle()">
-        <span *ngIf="!googleLoader"><img class="btn-icon-left" src="assets/icons/google.svg" />Login with Google</span>
+        <span *ngIf="!googleLoader">Login with Google</span>
         <div *ngIf="googleLoader" class="spinner-border text-light" role="status">
           <span class="sr-only">Loading...</span>
         </div>

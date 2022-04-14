@@ -129,7 +129,7 @@ export class ShareComponent implements OnInit {
     document.addEventListener('copy', listener);
     document.execCommand('copy');
     document.removeEventListener('copy', listener);
-    this.snackbarService.show('Private resume link copied', 'success');
+    this.snackbarService.show('Resume link copied', 'success');
   }
 
   public checkAvailabilty() {

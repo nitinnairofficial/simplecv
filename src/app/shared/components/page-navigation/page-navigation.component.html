@@ -1,32 +1,43 @@
 <div class="container-fluid navbar">
-  <div class="container">
-    <div class="float-left text-white logo-container">
+  <div class="container nav-menu">
+    <div class="logo-container">
       <button class="btn-home no-btn" (click)="navigateTo('/home')">
-        <img src="assets/icons/logo.svg" class="logo" />
-        <span class="text-white">QuickResume</span>
+        <img class="logo" src="assets/images/logo.svg" />
       </button>
     </div>
-    <div class="float-right">
-      <ul class="nav-menu mr-4">
-        <ng-container *ngFor="let route of pageNavigationList">
-          <li>
-            <a routerLink="{{ route?.routeLink }}" [fragment]="route?.fragmentName">
-              {{ route?.routeLabel }}
-            </a>
-          </li>
-        </ng-container>
-        <li *ngIf="!isLoggedIn">
-          <a (click)="navigateTo('/auth/login')" routerLinkActive="page-navigation-active">
-            Login
+
+    <ul class="page-navigation-list">
+      <ng-container *ngFor="let route of pageNavigationList">
+        <li class="page-navigation-item">
+          <a
+            class="page-navigation-link"
+            routerLink="{{ route?.routeLink }}"
+            routerLinkActive="page-navigation-active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            [fragment]="route?.fragmentName"
+          >
+            {{ route?.routeLabel }}
           </a>
         </li>
-      </ul>
+      </ng-container>
+    </ul>
 
-      <button class="btn btn-nav" *ngIf="!isLoggedIn" (click)="navigateTo('/auth/signup')">
+    <div>
+      <a
+        *ngIf="!isLoggedIn"
+        class="btn btn-sm btn-light"
+        style="margin-right: 0.5rem;"
+        (click)="navigateTo('/auth/login')"
+        routerLinkActive="page-navigation-active"
+      >
+        Login
+      </a>
+
+      <button class="btn btn-sm btn-success" *ngIf="!isLoggedIn" (click)="navigateTo('/auth/signup')">
         Sign Up
       </button>
 
-      <button class="btn btn-nav" *ngIf="isLoggedIn" (click)="navigateTo('/dashboard')">
+      <button class="btn btn-success" *ngIf="isLoggedIn" (click)="navigateTo('/dashboard')">
         Go to dashboard
       </button>
     </div>

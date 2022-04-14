@@ -3,28 +3,15 @@
     <div class="row mb-4">
       <div class="col">
         <div class="float-right">
-          <button class="btn btn-link mr-4" (click)="OpenChangeThemeDialog()">
-            <img class="btn-icon-left" src="assets/icons/theme.svg" />Choose
-            Theme
-          </button>
-          <button
-            class="btn btn-primary mr-4"
-            (click)="OpenChangeTemplateDialog()"
-          >
-            <img class="btn-icon-left" src="assets/icons/templates.svg" />
+          <button class="btn btn-link mr-4" (click)="OpenChangeThemeDialog()">Choose Theme</button>
+          <button class="btn btn-primary mr-4" (click)="OpenChangeTemplateDialog()">
             Change Template
           </button>
 
           <button class="btn btn-success" (click)="saveResumeSettings()">
-            <span *ngIf="!loader">
-              <img class="btn-icon-left" src="assets/icons/save.svg" />Save
-              Changes
-            </span>
+            <span *ngIf="!loader">Save Changes </span>
             <ng-container *ngIf="loader">
-              <div
-                class="spinner-border text-light btn-icon-left"
-                role="status"
-              >
+              <div class="spinner-border text-light btn-icon-left" role="status">
                 <span class="sr-only">Saving...</span>
               </div>
 

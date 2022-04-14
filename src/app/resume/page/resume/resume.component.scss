@@ -1,12 +1,9 @@
 .branding {
   position: relative;
-  text-align: right;
-  font-size: 0.875rem;
-
-  .branding-link {
-    font-weight: 500;
-    color: #0040ca;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .resume-container {
@@ -14,8 +11,19 @@
   padding: 6rem 0;
 }
 
+.logo-container {
+  padding: 1rem !important;
+  min-width: 120px;
+  margin-bottom: 1.5rem;
+  .logo {
+    max-width: 120px;
+    max-height: 48px;
+  }
+}
+
 @media print {
-  .resume-action {
+  .resume-action,
+  .logo-container {
     display: none !important;
   }
 }
@@ -29,6 +37,9 @@
   box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.25);
   position: fixed;
   z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-download {

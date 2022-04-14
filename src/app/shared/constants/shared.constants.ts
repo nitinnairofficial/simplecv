@@ -10,7 +10,7 @@ import { StockholmComponent } from '../templates/stockholm/stockholm.component';
 export const THEME_LIST = [
   {
     label: 'blue',
-    value: '#0040ca',
+    value: '#5D3FD3',
   },
   {
     label: 'red',

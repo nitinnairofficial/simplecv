@@ -3,10 +3,7 @@
     <div class="row desktop">
       <div class="col">
         <button class="btn btn-success float-right ml-4 mb-4">
-          <span *ngIf="!formLoader">
-            <img class="btn-icon-left" src="assets/icons/save.svg" />Save
-            Details
-          </span>
+          <span *ngIf="!formLoader">Save Details </span>
           <ng-container *ngIf="formLoader">
             <div class="spinner-border text-light btn-icon-left" role="status">
               <span class="sr-only">Saving...</span>
@@ -16,11 +13,7 @@
           </ng-container>
         </button>
 
-        <button
-          type="button"
-          class="btn btn-outline-danger float-right"
-          (click)="resetForm()"
-        >
+        <button type="button" class="btn btn-outline-danger float-right" (click)="resetForm()">
           Clear Form
         </button>
       </div>
@@ -35,70 +28,24 @@
         </div>
 
         <div class="accordion-text">
-          <ng-container
-            *ngFor="
-              let aboutSectionGroup of resumeEditorForm?.controls?.aboutSection?.controls;
-              let i = index
-            "
-            ;
-          >
+          <ng-container *ngFor="let aboutSectionGroup of resumeEditorForm?.controls?.aboutSection?.controls; let i = index" ;>
             <div>
               <div [formGroup]="aboutSectionGroup">
-                <input
-                  class="custom-input width-50"
-                  type="text"
-                  formControlName="firstName"
-                  placeholder="First Name"
-                />
+                <input class="custom-input width-50" type="text" formControlName="firstName" placeholder="First Name" />
 
-                <input
-                  class="custom-input width-50"
-                  type="text"
-                  formControlName="lastName"
-                  placeholder="Last Name"
-                />
+                <input class="custom-input width-50" type="text" formControlName="lastName" placeholder="Last Name" />
 
-                <input
-                  class="custom-input width-100"
-                  type="text"
-                  formControlName="jobTitle"
-                  placeholder="Job Title"
-                />
+                <input class="custom-input width-100" type="text" formControlName="jobTitle" placeholder="Job Title" />
 
-                <input
-                  class="custom-input width-50"
-                  type="text"
-                  formControlName="city"
-                  placeholder="City"
-                />
+                <input class="custom-input width-50" type="text" formControlName="city" placeholder="City" />
 
-                <input
-                  class="custom-input width-50"
-                  type="text"
-                  formControlName="state"
-                  placeholder="State"
-                />
+                <input class="custom-input width-50" type="text" formControlName="state" placeholder="State" />
 
-                <input
-                  class="custom-input width-100"
-                  type="text"
-                  formControlName="country"
-                  placeholder="Country"
-                />
+                <input class="custom-input width-100" type="text" formControlName="country" placeholder="Country" />
 
-                <input
-                  class="custom-input width-50"
-                  type="text"
-                  formControlName="emailId"
-                  placeholder="Email Id"
-                />
+                <input class="custom-input width-50" type="text" formControlName="emailId" placeholder="Email Id" />
 
-                <input
-                  class="custom-input width-50"
-                  type="text"
-                  formControlName="phoneNumber"
-                  placeholder="Phone number"
-                />
+                <input class="custom-input width-50" type="text" formControlName="phoneNumber" placeholder="Phone number" />
 
                 <div style="position: relative;">
                   <input
@@ -109,25 +56,13 @@
                     placeholder="Your Website"
                     #aboutWebsite
                   />
-                  <a
-                    class="test-link"
-                    [href]="aboutWebsite?.value"
-                    target="_blank"
-                    >Test Link</a
-                  >
+                  <a class="test-link" [href]="aboutWebsite?.value" target="_blank">Test Link</a>
                 </div>
 
                 <div style="position: relative;">
-                  <textarea
-                    class="custom-textarea"
-                    type="text"
-                    formControlName="summary"
-                    placeholder="Summary"
-                    #aboutSummary
-                  ></textarea>
+                  <textarea class="custom-textarea" type="text" formControlName="summary" placeholder="Summary" #aboutSummary></textarea>
                   <div class="text-count text-extra-light-color">
-                    {{ aboutSummary?.value?.length }} characters |
-                    {{ aboutSummary?.value?.split(" ").length - 1 }} words
+                    {{ aboutSummary?.value?.length }} characters | {{ aboutSummary?.value?.split(' ').length - 1 }} words
                   </div>
                 </div>
 
@@ -147,39 +82,13 @@
         </div>
 
         <div class="accordion-text">
-          <ng-container
-            *ngFor="
-              let workExperienceGroup of resumeEditorForm?.controls?.workExperienceSection
-                ?.controls;
-              let i = index
-            "
-          >
+          <ng-container *ngFor="let workExperienceGroup of resumeEditorForm?.controls?.workExperienceSection?.controls; let i = index">
             <div [formGroup]="workExperienceGroup">
               <p class="text-dark-color">Job {{ i + 1 }} Section</p>
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="employerName"
-                placeholder="Employer/Company Name"
-              />
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="jobTitle"
-                placeholder="Job Title"
-              />
-              <input
-                class="custom-input width-50"
-                type="text"
-                formControlName="startDate"
-                placeholder="Start Date"
-              />
-              <input
-                class="custom-input width-50"
-                type="text"
-                formControlName="endDate"
-                placeholder="End Date / Present"
-              />
+              <input class="custom-input width-100" type="text" formControlName="employerName" placeholder="Employer/Company Name" />
+              <input class="custom-input width-100" type="text" formControlName="jobTitle" placeholder="Job Title" />
+              <input class="custom-input width-50" type="text" formControlName="startDate" placeholder="Start Date" />
+              <input class="custom-input width-50" type="text" formControlName="endDate" placeholder="End Date / Present" />
 
               <div style="position: relative;">
                 <input
@@ -190,79 +99,28 @@
                   placeholder="Employer/Company Website"
                   #employerWebsite
                 />
-                <a
-                  class="test-link"
-                  [href]="employerWebsite?.value"
-                  target="_blank"
-                  >Test Link</a
-                >
+                <a class="test-link" [href]="employerWebsite?.value" target="_blank">Test Link</a>
               </div>
-              <input
-                class="custom-input width-50"
-                type="text"
-                formControlName="city"
-                placeholder="City"
-              />
-              <input
-                class="custom-input width-50"
-                type="text"
-                formControlName="state"
-                placeholder="State"
-              />
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="country"
-                placeholder="Country"
-              />
+              <input class="custom-input width-50" type="text" formControlName="city" placeholder="City" />
+              <input class="custom-input width-50" type="text" formControlName="state" placeholder="State" />
+              <input class="custom-input width-100" type="text" formControlName="country" placeholder="Country" />
               <div style="position: relative;">
-                <textarea
-                  class="custom-textarea"
-                  type="text"
-                  formControlName="summary"
-                  placeholder="Summary"
-                  #workSummary
-                ></textarea>
+                <textarea class="custom-textarea" type="text" formControlName="summary" placeholder="Summary" #workSummary></textarea>
                 <div class="text-count text-extra-light-color">
-                  {{ workSummary?.value?.length }} characters |
-                  {{ workSummary?.value?.split(" ").length - 1 }} words
+                  {{ workSummary?.value?.length }} characters | {{ workSummary?.value?.split(' ').length - 1 }} words
                 </div>
               </div>
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="point1"
-                placeholder="Summary point 1"
-              />
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="point2"
-                placeholder="Summary point 2"
-              />
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="point3"
-                placeholder="Summary point 3"
-              />
+              <input class="custom-input width-100" type="text" formControlName="point1" placeholder="Summary point 1" />
+              <input class="custom-input width-100" type="text" formControlName="point2" placeholder="Summary point 2" />
+              <input class="custom-input width-100" type="text" formControlName="point3" placeholder="Summary point 3" />
               <button
                 *ngIf="i == resumeEditorForm?.controls?.workExperienceSection?.length - 1"
                 class="btn btn-outline-primary mt-4 mr-4"
-                (click)="
-                  addFormControl(
-                    'workExperienceSection',
-                    'workExperienceSection'
-                  )
-                "
+                (click)="addFormControl('workExperienceSection', 'workExperienceSection')"
               >
                 Add Job
               </button>
-              <button
-                *ngIf="i != 0"
-                class="btn btn-outline-danger mt-4"
-                (click)="removeFormControl('workExperienceSection', i)"
-              >
+              <button *ngIf="i != 0" class="btn btn-outline-danger mt-4" (click)="removeFormControl('workExperienceSection', i)">
                 Delete Job
               </button>
               <br /><br />
@@ -280,76 +138,27 @@
         </div>
 
         <div class="accordion-text">
-          <ng-container
-            *ngFor="
-              let educationSectionGroup of resumeEditorForm?.controls?.educationSection
-                ?.controls;
-              let i = index
-            "
-            ;
-          >
+          <ng-container *ngFor="let educationSectionGroup of resumeEditorForm?.controls?.educationSection?.controls; let i = index" ;>
             <p class="text-dark-color">School {{ i + 1 }} Section</p>
             <div [formGroup]="educationSectionGroup">
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="schoolName"
-                placeholder="School Name"
-              />
+              <input class="custom-input width-100" type="text" formControlName="schoolName" placeholder="School Name" />
 
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="degree"
-                placeholder="Degree/Major"
-              />
+              <input class="custom-input width-100" type="text" formControlName="degree" placeholder="Degree/Major" />
 
-              <input
-                class="custom-input width-50"
-                type="text"
-                formControlName="startDate"
-                placeholder="Start Date"
-              />
+              <input class="custom-input width-50" type="text" formControlName="startDate" placeholder="Start Date" />
 
-              <input
-                class="custom-input width-50"
-                type="text"
-                formControlName="endDate"
-                placeholder="End Date"
-              />
+              <input class="custom-input width-50" type="text" formControlName="endDate" placeholder="End Date" />
 
-              <input
-                class="custom-input width-50"
-                type="text"
-                formControlName="city"
-                placeholder="City"
-              />
+              <input class="custom-input width-50" type="text" formControlName="city" placeholder="City" />
 
-              <input
-                class="custom-input width-50"
-                type="text"
-                formControlName="state"
-                placeholder="State"
-              />
+              <input class="custom-input width-50" type="text" formControlName="state" placeholder="State" />
 
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="country"
-                placeholder="Country"
-              />
+              <input class="custom-input width-100" type="text" formControlName="country" placeholder="Country" />
 
               <div style="position: relative;">
-                <textarea
-                  class="custom-textarea"
-                  type="text"
-                  formControlName="summary"
-                  placeholder="Summary"
-                  #educationSummary
-                ></textarea>
+                <textarea class="custom-textarea" type="text" formControlName="summary" placeholder="Summary" #educationSummary></textarea>
                 <div class="text-count text-extra-light-color">
-                  {{ educationSummary?.value?.length }} characters |
-                  {{ educationSummary?.value?.split(" ").length - 1 }} words
+                  {{ educationSummary?.value?.length }} characters | {{ educationSummary?.value?.split(' ').length - 1 }} words
                 </div>
               </div>
               <button
@@ -359,11 +168,7 @@
               >
                 Add School
               </button>
-              <button
-                *ngIf="i != 0"
-                class="btn btn-outline-danger mt-4"
-                (click)="removeFormControl('educationSection', i)"
-              >
+              <button *ngIf="i != 0" class="btn btn-outline-danger mt-4" (click)="removeFormControl('educationSection', i)">
                 Delete School
               </button>
               <br /><br />
@@ -381,43 +186,16 @@
         </div>
 
         <div class="accordion-text">
-          <ng-container
-            *ngFor="
-              let projectsSectionGroup of resumeEditorForm?.controls?.projectsSection
-                ?.controls;
-              let i = index
-            "
-            ;
-          >
+          <ng-container *ngFor="let projectsSectionGroup of resumeEditorForm?.controls?.projectsSection?.controls; let i = index" ;>
             <p class="text-dark-color">Project {{ i + 1 }} Section</p>
             <div [formGroup]="projectsSectionGroup">
-              <input
-                class="custom-input width-50"
-                type="text"
-                formControlName="projectName"
-                placeholder="Project Name"
-              />
+              <input class="custom-input width-50" type="text" formControlName="projectName" placeholder="Project Name" />
 
-              <input
-                class="custom-input width-50"
-                type="text"
-                formControlName="role"
-                placeholder="Your Role in Project"
-              />
+              <input class="custom-input width-50" type="text" formControlName="role" placeholder="Your Role in Project" />
 
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="startDate"
-                placeholder="Start Date"
-              />
+              <input class="custom-input width-100" type="text" formControlName="startDate" placeholder="Start Date" />
 
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="endDate"
-                placeholder="End Date"
-              />
+              <input class="custom-input width-100" type="text" formControlName="endDate" placeholder="End Date" />
 
               <div style="position: relative;">
                 <input
@@ -428,46 +206,19 @@
                   placeholder="Project Website"
                   #projectWebsite
                 />
-                <a
-                  class="test-link"
-                  [href]="projectWebsite?.value"
-                  target="_blank"
-                  >Test Link</a
-                >
+                <a class="test-link" [href]="projectWebsite?.value" target="_blank">Test Link</a>
               </div>
 
               <div style="position: relative;">
-                <textarea
-                  class="custom-textarea"
-                  type="text"
-                  formControlName="summary"
-                  placeholder="Summary"
-                  #projectSummary
-                ></textarea>
+                <textarea class="custom-textarea" type="text" formControlName="summary" placeholder="Summary" #projectSummary></textarea>
                 <div class="text-count text-extra-light-color">
-                  {{ projectSummary?.value?.length }} characters |
-                  {{ projectSummary?.value?.split(" ").length - 1 }} words
+                  {{ projectSummary?.value?.length }} characters | {{ projectSummary?.value?.split(' ').length - 1 }} words
                 </div>
               </div>
 
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="point1"
-                placeholder="Summary point 1"
-              />
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="point2"
-                placeholder="Summary point 2"
-              />
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="point3"
-                placeholder="Summary point 3"
-              />
+              <input class="custom-input width-100" type="text" formControlName="point1" placeholder="Summary point 1" />
+              <input class="custom-input width-100" type="text" formControlName="point2" placeholder="Summary point 2" />
+              <input class="custom-input width-100" type="text" formControlName="point3" placeholder="Summary point 3" />
 
               <button
                 *ngIf="i == resumeEditorForm?.controls?.projectsSection?.length - 1"
@@ -476,11 +227,7 @@
               >
                 Add New Project
               </button>
-              <button
-                *ngIf="i != 0"
-                class="btn btn-outline-danger mt-4"
-                (click)="removeFormControl('projectsSection', i)"
-              >
+              <button *ngIf="i != 0" class="btn btn-outline-danger mt-4" (click)="removeFormControl('projectsSection', i)">
                 Delete Project
               </button>
               <br /><br />
@@ -498,20 +245,10 @@
         </div>
 
         <div class="accordion-text">
-          <ng-container
-            *ngFor="
-              let skillsGroup of resumeEditorForm?.controls?.skillsSection?.controls;
-              let i = index
-            "
-          >
+          <ng-container *ngFor="let skillsGroup of resumeEditorForm?.controls?.skillsSection?.controls; let i = index">
             <div [formGroup]="skillsGroup">
               <p class="text-dark-color" *ngIf="i == 0">Skills Section</p>
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="skillName"
-                placeholder="Skill {{ i + 1 }}"
-              />
+              <input class="custom-input width-100" type="text" formControlName="skillName" placeholder="Skill {{ i + 1 }}" />
 
               <button
                 *ngIf="i == resumeEditorForm?.controls?.skillsSection?.length - 1"
@@ -521,9 +258,7 @@
                 Add new skill
               </button>
               <button
-                *ngIf="
-                  i != 0 && i == resumeEditorForm?.controls?.skillsSection?.length - 1
-                "
+                *ngIf="i != 0 && i == resumeEditorForm?.controls?.skillsSection?.length - 1"
                 class="btn btn-outline-danger mt-4"
                 (click)="removeFormControl('skillsSection', i)"
               >
@@ -544,28 +279,12 @@
         </div>
 
         <div class="accordion-text">
-          <ng-container
-            *ngFor="
-              let languagesGroup of resumeEditorForm?.controls?.languagesSection
-                ?.controls;
-              let i = index
-            "
-          >
+          <ng-container *ngFor="let languagesGroup of resumeEditorForm?.controls?.languagesSection?.controls; let i = index">
             <div [formGroup]="languagesGroup">
               <p class="text-dark-color" *ngIf="i == 0">Languages Section</p>
-              <input
-                class="custom-input width-50"
-                type="text"
-                formControlName="languageName"
-                placeholder="Language {{ i + 1 }}"
-              />
+              <input class="custom-input width-50" type="text" formControlName="languageName" placeholder="Language {{ i + 1 }}" />
 
-              <input
-                class="custom-input width-50"
-                type="text"
-                formControlName="proficiency"
-                placeholder="Proficiency"
-              />
+              <input class="custom-input width-50" type="text" formControlName="proficiency" placeholder="Proficiency" />
               <button
                 *ngIf="i == resumeEditorForm?.controls?.languagesSection?.length - 1"
                 class="btn btn-outline-primary mt-4 mr-4"
@@ -574,9 +293,7 @@
                 Add new language
               </button>
               <button
-                *ngIf="
-                  i != 0 && i == resumeEditorForm?.controls?.languagesSection?.length - 1
-                "
+                *ngIf="i != 0 && i == resumeEditorForm?.controls?.languagesSection?.length - 1"
                 class="btn btn-outline-danger mt-4"
                 (click)="removeFormControl('languagesSection', i)"
               >
@@ -597,29 +314,12 @@
         </div>
 
         <div class="accordion-text">
-          <ng-container
-            *ngFor="
-              let awardsSectionGroup of resumeEditorForm?.controls?.awardsSection
-                ?.controls;
-              let i = index
-            "
-            ;
-          >
+          <ng-container *ngFor="let awardsSectionGroup of resumeEditorForm?.controls?.awardsSection?.controls; let i = index" ;>
             <p class="text-dark-color">Award {{ i + 1 }} Section</p>
             <div [formGroup]="awardsSectionGroup">
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="awardName"
-                placeholder="Award Name"
-              />
+              <input class="custom-input width-100" type="text" formControlName="awardName" placeholder="Award Name" />
 
-              <input
-                class="custom-input width-100"
-                type="text"
-                formControlName="awardDate"
-                placeholder="Date"
-              />
+              <input class="custom-input width-100" type="text" formControlName="awardDate" placeholder="Date" />
 
               <div style="position: relative;">
                 <input
@@ -630,25 +330,13 @@
                   placeholder="Website"
                   #awardWebsite
                 />
-                <a
-                  class="test-link"
-                  [href]="awardWebsite?.value"
-                  target="_blank"
-                  >Test Link</a
-                >
+                <a class="test-link" [href]="awardWebsite?.value" target="_blank">Test Link</a>
               </div>
 
               <div style="position: relative;">
-                <textarea
-                  class="custom-textarea"
-                  type="text"
-                  formControlName="summary"
-                  placeholder="Summary"
-                  #awardSummary
-                ></textarea>
+                <textarea class="custom-textarea" type="text" formControlName="summary" placeholder="Summary" #awardSummary></textarea>
                 <div class="text-count text-extra-light-color">
-                  {{ awardSummary?.value?.length }} characters |
-                  {{ awardSummary?.value?.split(" ").length - 1 }} words
+                  {{ awardSummary?.value?.length }} characters | {{ awardSummary?.value?.split(' ').length - 1 }} words
                 </div>
               </div>
               <button
@@ -658,11 +346,7 @@
               >
                 Add Award
               </button>
-              <button
-                *ngIf="i != 0"
-                class="btn btn-outline-danger mt-4"
-                (click)="removeFormControl('awardsSection', i)"
-              >
+              <button *ngIf="i != 0" class="btn btn-outline-danger mt-4" (click)="removeFormControl('awardsSection', i)">
                 Delete Award
               </button>
               <br /><br />
@@ -675,10 +359,7 @@
     <div class="row mobile">
       <div class="col">
         <button class="btn btn-success float-right ml-4 mb-4">
-          <span *ngIf="!formLoader">
-            <img class="btn-icon-left" src="assets/icons/save.svg" />Save
-            Details
-          </span>
+          <span *ngIf="!formLoader">Save Details </span>
           <ng-container *ngIf="formLoader">
             <div class="spinner-border text-light btn-icon-left" role="status">
               <span class="sr-only">Saving...</span>
@@ -688,10 +369,7 @@
           </ng-container>
         </button>
 
-        <button
-          class="btn btn-outline-danger float-right"
-          (click)="resetForm()"
-        >
+        <button class="btn btn-outline-danger float-right" (click)="resetForm()">
           Clear Form
         </button>
       </div>

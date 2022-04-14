@@ -117,9 +117,9 @@ export const FORM_CONFIG = {
 
 export const DUMMY_FORM = {
   resumeSettings: {
-    templateName: 'stockholm',
+    templateName: 'oslo',
     themeColor: 'blue',
-    hideBranding: true,
+    hideBranding: false,
     hideEmailAndPhone: false,
     resumeId: 'emiliaparker',
   },

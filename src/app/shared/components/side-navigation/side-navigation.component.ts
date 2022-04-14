@@ -9,19 +9,9 @@ import { AuthenticationService } from 'src/app/authentication/services/authentic
 export class SideNavigationComponent implements OnInit {
   public sideNavigationRoutes = [
     {
-      routeLink: 'resume-builder',
-      routeLabel: 'Resume Builder',
+      routeLink: 'editor',
+      routeLabel: 'Editor',
       routeIcon: 'assets/icons/resume.svg',
-    },
-    {
-      routeLink: 'stats',
-      routeLabel: 'Stats',
-      routeIcon: 'assets/icons/stats.svg',
-    },
-    {
-      routeLink: 'job-tracker',
-      routeLabel: 'Job Tracker',
-      routeIcon: 'assets/icons/job-tracker.svg',
     },
     {
       routeLink: 'settings',

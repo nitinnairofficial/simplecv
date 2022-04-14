@@ -86,9 +86,8 @@ export class ResumeComponent implements OnInit {
     this.router.navigate([route]);
   }
 
-  public downloadResume() {
-    this.downloadCount += 1;
-    this.snackbarService.show('Resume downloaded successfully', 'success');
+  public printResume() {
+    window.print();
   }
 
   public shareResume() {

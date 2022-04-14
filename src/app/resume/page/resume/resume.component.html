@@ -1,22 +1,19 @@
-<div class="container-fluid resume-container">
+<div id="print-block" class="container-fluid resume-container">
   <div class="container sub-container">
     <app-dynamic-template [data]="sendData"></app-dynamic-template>
     <div class="row pt-4 resume-action">
       <div class="col-lg-6">
-        <button class="btn btn-light btn-download" title="Download resume" (click)="downloadResume()">
-          <img src="assets/icons/download.svg" />
+        <button class="btn btn-light btn-download" title="Print resume" (click)="printResume()">
+          <span class="material-icons text-primary">print</span>
         </button>
         <button class="btn btn-light btn-share" title="Share resume" (click)="shareResume()">
-          <img src="assets/icons/share.svg" />
+          <span class="material-icons text-primary">share</span>
         </button>
       </div>
-      <div class="col-lg-6" style="display: none;">
-        <div class="branding text-right">
-          <button class="btn btn-light text-light-color" (click)="navigateToRoute('/home')" title="Visit QuickResume">
-            Made with
-            <span class="text-primary">QuickResume</span>
-          </button>
-        </div>
+      <div class="col-lg-12" *ngIf="!sendData?.resumeSettings?.hideBranding">
+        <a href="https://simplecv.vercel.app" target="_blank" class="branding logo-container">
+          <img class="logo" src="assets/images/logo-gray.svg" />
+        </a>
       </div>
     </div>
   </div>

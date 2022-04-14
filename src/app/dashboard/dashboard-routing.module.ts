@@ -9,36 +9,19 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'resume-builder',
+        redirectTo: 'editor',
       },
       {
-        path: 'resume-builder',
-        loadChildren: () =>
-          import('./modules/resume-builder/resume-builder.module').then(
-            (m) => m.ResumeBuilderModule
-          ),
-      },
-      {
-        path: 'stats',
-        loadChildren: () =>
-          import('./modules/stats/stats.module').then((m) => m.StatsModule),
-      },
-      {
-        path: 'job-tracker',
-        loadChildren: () =>
-          import('./modules/job-tracker/job-tracker.module').then((m) => m.JobTrackerModule),
+        path: 'editor',
+        loadChildren: () => import('./modules/resume-builder/resume-builder.module').then((m) => m.ResumeBuilderModule),
       },
       {
         path: 'faq',
-        loadChildren: () =>
-          import('./modules/faq/faq.module').then((m) => m.FaqModule),
+        loadChildren: () => import('./modules/faq/faq.module').then((m) => m.FaqModule),
       },
       {
         path: 'settings',
-        loadChildren: () =>
-          import('./modules/settings/settings.module').then(
-            (m) => m.SettingsModule
-          ),
+        loadChildren: () => import('./modules/settings/settings.module').then((m) => m.SettingsModule),
       },
     ],
   },

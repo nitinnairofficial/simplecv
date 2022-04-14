@@ -14,13 +14,12 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { HttpClientModule } from '@angular/common/http';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyC3sTTIoSPQJaExJVnufcZtjGkMkU44sxE',
-  authDomain: 'quickresume-8cd4a.firebaseapp.com',
-  databaseURL: 'https://quickresume-8cd4a-default-rtdb.firebaseio.com',
-  projectId: 'quickresume-8cd4a',
-  storageBucket: 'quickresume-8cd4a.appspot.com',
-  messagingSenderId: '125926849092',
-  appId: '1:125926849092:web:4903c22cf2f99953dcda11',
+  apiKey: 'AIzaSyAb3MILrQsXRcK6L4wfkprbkunyHR-GgWA',
+  authDomain: 'simplecv-users.firebaseapp.com',
+  projectId: 'simplecv-users',
+  storageBucket: 'simplecv-users.appspot.com',
+  messagingSenderId: '445111787922',
+  appId: '1:445111787922:web:f81798a87bf87ea877614b',
 };
 
 @NgModule({

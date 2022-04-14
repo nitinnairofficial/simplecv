@@ -11,11 +11,6 @@ export class PageNavigationComponent implements OnInit {
   public pageNavigationList = [
     {
       routeLink: '/',
-      routeLabel: 'Home',
-      fragmentName: 'home',
-    },
-    {
-      routeLink: '/',
       routeLabel: 'Features',
       fragmentName: 'features',
     },
@@ -23,6 +18,11 @@ export class PageNavigationComponent implements OnInit {
       routeLink: '/',
       routeLabel: 'How it works',
       fragmentName: 'how-it-works',
+    },
+    {
+      routeLink: '/',
+      routeLabel: 'FAQ',
+      fragmentName: 'faq',
     },
   ];
   public isLoggedIn = false;

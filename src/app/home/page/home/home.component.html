@@ -1,24 +1,25 @@
 <app-page-navigation></app-page-navigation>
 
-<div id="home" class="container-fluid bg bg2" style="margin-top: 4rem;">
+<div id="home" class="container-fluid bg bg2">
   <div class="container sub-container page-section">
-    <div class="row" style="margin-top: 4rem;">
+    <div class="row">
       <div class="col text-center">
+        <img class="section-image mb-4" src="assets/images/resume.svg" />
         <h1 class="text-primary">
-          Send resumes as links and track easily.
+          Write. Preview. Download.
         </h1>
         <div class="text text-light-color">
-          We will help you create your web resume in 5 minutes. Explore different templates to help your create magnificent resumes.
+          Easily create your web resume in 5 minutes.<br />Explore different templates to create magnificent resumes.
         </div>
         <ng-container *ngIf="!isLoggedIn">
           <button class="btn btn-success mr-4" (click)="navigateToRoute('/auth/signup')">
-            Create Resume<img class="btn-icon-right icon" src="assets/icons/right-arrow.svg" />
+            Create Resume
           </button>
         </ng-container>
 
         <ng-container *ngIf="isLoggedIn">
           <button class="btn btn-success mr-4" (click)="navigateToRoute('/dashboard')">
-            Go to dashboard<img class="btn-icon-right icon" src="assets/icons/right-arrow.svg" />
+            Go to dashboard
           </button>
         </ng-container>
       </div>
@@ -31,7 +32,7 @@
     <div class="row mb-4">
       <div class="col text-center">
         <h1 class="text-primary">
-          Features to help you create effective resume effortlessly
+          Simple Features
         </h1>
         <div class="text text-light-color">
           We will help you create your web resume in 5 minutes.
@@ -80,48 +81,6 @@
         </div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col-lg-4 text-center">
-        <div class="card feature-card">
-          <div class="card-body text-left">
-            <div class="icon-container">
-              <img src="assets/icons/mobile.png" />
-            </div>
-            <h5>Mobile friendly</h5>
-            <div class="text-light-color">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 text-center">
-        <div class="card feature-card">
-          <div class="card-body text-left">
-            <div class="icon-container">
-              <img src="assets/icons/chart.png" />
-            </div>
-            <h5>Track & Analyze</h5>
-            <div class="text-light-color">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 text-center">
-        <div class="card feature-card">
-          <div class="card-body text-left">
-            <div class="icon-container">
-              <img src="assets/icons/secure.png" />
-            </div>
-            <h5>Secure Data</h5>
-            <div class="text-light-color">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -130,42 +89,8 @@
     <div class="row">
       <div class="col text-center">
         <h1 class="text-primary">
-          How it works?
+          How It Works?
         </h1>
-        <div class="text text-dark">
-          We will help you create your web resume in 5 minutes. Explore different templates to help your create magnificent resumes.
-        </div>
-
-        <div>
-          <img class="section-image" src="assets/images/step1.svg" />
-          <h5 class="text-primary mb-1">Step #1 - Add details</h5>
-          <p class="text-light-color">Fill details of which ever section you would like in your resume.</p>
-          <img src="assets/images/down.svg" />
-        </div>
-
-        <div>
-          <img class="section-image" src="assets/images/step2.svg" />
-          <h5 class="text-primary mb-1">Step #2 - Customize your resume</h5>
-          <p class="text-light-color">Fill details of which ever section you would like in your resume.</p>
-          <img src="assets/images/down.svg" />
-        </div>
-        <div>
-          <img class="section-image" src="assets/images/step3.svg" />
-          <h5 class="text-primary mb-1">Step #3 - Generate shareable links</h5>
-          <p class="text-light-color">Fill details of which ever section you would like in your resume.</p>
-          <img src="assets/images/down.svg" />
-        </div>
-        <div>
-          <img class="section-image" src="assets/images/step4.svg" />
-          <h5 class="text-primary mb-1">Step #4 - Send your resume</h5>
-          <p class="text-light-color">Fill details of which ever section you would like in your resume.</p>
-          <img src="assets/images/down.svg" />
-        </div>
-        <div>
-          <img class="section-image" src="assets/images/step5.svg" />
-          <h5 class="text-primary mb-1">Step #5 - Track and Analyze</h5>
-          <p class="text-light-color">Fill details of which ever section you would like in your resume.</p>
-        </div>
       </div>
     </div>
   </div>
@@ -176,7 +101,7 @@
     <div class="row">
       <div class="col text-center">
         <h1 class="text-white">
-          Get started with professionally designed templates.
+          Professional Templates.
         </h1>
         <div class="text text-white">
           We will help you create your web resume in 5 minutes. Explore different templates to help your create magnificent resumes.
@@ -191,7 +116,7 @@
     <div class="row">
       <div class="col text-center">
         <h1 class="text-primary">
-          Simple & powerful resume builder
+          Powerful Editor
         </h1>
         <div class="text text-dark">
           We will help you create your web resume in 5 minutes. Explore different templates to help your create magnificent resumes.
@@ -203,7 +128,7 @@
 
 <div class="clearfix"></div>
 
-<div class="container-fluid bg bg3">
+<div class="container-fluid bg bg3" id="faq">
   <div class="container sub-container page-section">
     <div class="row mb-4">
       <div class="col text-center">
@@ -223,7 +148,9 @@
             <div class="accordion-header">
               How to create multiple shareable links to send?
               <div class="float-right">
-                <img class="accordion-icon" src="assets/icons/chevron.svg" />
+                <span class="material-icons accordion-icon">
+                  expand_more
+                </span>
               </div>
             </div>
 
@@ -237,7 +164,9 @@
             <div class="accordion-header">
               In how many days private resume links expire?
               <div class="float-right">
-                <img class="accordion-icon" src="assets/icons/chevron.svg" />
+                <span class="material-icons accordion-icon">
+                  expand_more
+                </span>
               </div>
             </div>
 
@@ -251,7 +180,9 @@
             <div class="accordion-header">
               Is my data secure?
               <div class="float-right">
-                <img class="accordion-icon" src="assets/icons/chevron.svg" />
+                <span class="material-icons accordion-icon">
+                  expand_more
+                </span>
               </div>
             </div>
 
@@ -265,7 +196,9 @@
             <div class="accordion-header">
               How many private resumes I can create?
               <div class="float-right">
-                <img class="accordion-icon" src="assets/icons/chevron.svg" />
+                <span class="material-icons accordion-icon">
+                  expand_more
+                </span>
               </div>
             </div>
 
@@ -279,7 +212,9 @@
             <div class="accordion-header">
               How to deactivate or hide my public resume?
               <div class="float-right">
-                <img class="accordion-icon" src="assets/icons/chevron.svg" />
+                <span class="material-icons accordion-icon">
+                  expand_more
+                </span>
               </div>
             </div>
 
@@ -299,11 +234,11 @@
         <div class="col text-center">
           <img class="section-image mb-4" src="assets/images/resume.svg" />
           <h1 class="text-white pt-4 mb-4">
-            Get started with the best resume builder today.
+            Get started today!
           </h1>
           <div class="pt-4">
             <button class="btn btn-light text-primary" (click)="navigateToRoute('/auth/signup')">
-              Create Resume now
+              Create Resume
             </button>
           </div>
         </div>
@@ -315,7 +250,10 @@
     <div class="container sub-container">
       <div class="row">
         <div class="col-lg-6 mb-4">
-          <img src="assets/icons/logo.svg" class="mb-4 mr-4" /><span class="text-white">QuickResume</span>
+          <div class="logo-container">
+            <img class="logo" src="assets/images/logo-light.svg" />
+          </div>
+
           <div class="mb-4">
             <p style="color: #ccc;">
               We will help you create your web resume in 5 minutes. Explore different templates to help your create magnificent resumes.
@@ -366,7 +304,7 @@
       <div class="row">
         <div class="col text-left">
           <p style="color: #ccc;">
-            &copy; QuickResume | 2020 | Made In India<span class="ml-2"><img src="assets/icons/india.png" /></span>
+            &copy; SimpleCV &bull; 2022 &bull; Made In India<span class="ml-2"><img src="assets/icons/india.png" /></span>
           </p>
         </div>
       </div>

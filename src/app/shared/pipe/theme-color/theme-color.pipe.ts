@@ -8,7 +8,7 @@ export class ThemeColorPipe implements PipeTransform {
     const themeColorValue = value.toLowerCase();
     switch (themeColorValue) {
       case 'blue': {
-        return '#0040ca';
+        return '#5D3FD3';
       }
       case 'red': {
         return '#FF4500';
@@ -44,7 +44,7 @@ export class ThemeColorPipe implements PipeTransform {
         return '#808080';
       }
       default: {
-        return '#0040ca';
+        return '#5D3FD3';
       }
     }
   }
