@@ -20,6 +20,7 @@ const firebaseConfig = {
   storageBucket: 'simplecv-users.appspot.com',
   messagingSenderId: '445111787922',
   appId: '1:445111787922:web:f81798a87bf87ea877614b',
+  databaseURL: 'https://simplecv-users-default-rtdb.firebaseio.com',
 };
 
 @NgModule({

@@ -6,6 +6,7 @@ import { WebStorageService } from 'src/app/core/services/web-storage/web-storage
 import { CoreService } from 'src/app/core/services/core/core.service';
 import { finalize } from 'rxjs/operators';
 import { SnackbarService } from 'src/app/core/services/snackbar/snackbar.service';
+import { ResumeBuilderService } from '../../services/resume-builder/resume-builder.service';
 
 @Component({
   selector: 'app-preview',
@@ -22,12 +23,20 @@ export class PreviewComponent implements OnInit {
     private dialogService: DialogService,
     private webStorageService: WebStorageService,
     private coreService: CoreService,
-    private snackbarService: SnackbarService
+    private snackbarService: SnackbarService,
+    private resumeBuilderService: ResumeBuilderService
   ) {}
 
   ngOnInit(): void {
-    const savedForm = this.webStorageService.getStorageValue('RESUME_DETAILS');
-    this.sendData = savedForm;
+    this.resumeBuilderService.resumeData.subscribe((val) => {
+      this.sendData = val;
+      if (this.sendData) {
+        const { resumeSettings = {} } = this.sendData;
+        const { themeColor = 'blue', templateName = 'oslo' } = resumeSettings;
+        this.defaultTemplate = templateName;
+        this.defaultThemeColor = themeColor;
+      }
+    });
   }
 
   public OpenChangeTemplateDialog() {
@@ -46,8 +55,6 @@ export class PreviewComponent implements OnInit {
           templateName,
         },
       };
-
-      this.webStorageService.setStorageValue('RESUME_DETAILS', this.sendData);
     });
   }
 
@@ -67,15 +74,18 @@ export class PreviewComponent implements OnInit {
           themeColor: themeColorName,
         },
       };
-      this.webStorageService.setStorageValue('RESUME_DETAILS', this.sendData);
     });
   }
 
   public saveResumeSettings() {
     this.loader = true;
     const params = {
-      templateName: this.defaultTemplate,
-      themeColor: this.defaultThemeColor,
+      ...this.sendData,
+      resumeSettings: {
+        ...this.sendData.resumeSettings,
+        templateName: this.defaultTemplate,
+        themeColor: this.defaultThemeColor,
+      },
     };
     this.coreService
       .updateResumeDetails(params)
@@ -86,10 +96,11 @@ export class PreviewComponent implements OnInit {
       )
       .subscribe(
         () => {
-          this.snackbarService.show('Resume settings saved successfully', 'success');
+          this.resumeBuilderService.modifyData(this.sendData);
+          this.snackbarService.show('Resume settings saved successfully');
         },
         () => {
-          this.snackbarService.show('Saving resume settings failed', 'error');
+          this.snackbarService.show('Saving resume settings failed');
         }
       );
   }

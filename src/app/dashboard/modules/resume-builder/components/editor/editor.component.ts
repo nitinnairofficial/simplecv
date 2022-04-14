@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { SnackbarService } from 'src/app/core/services/snackbar/snackbar.service';
-import {
-  FORM_CONFIG,
-  DUMMY_FORM,
-  INITIAL_FORM,
-} from '../../constants/resume-builder.constants';
+import { FORM_CONFIG, DUMMY_FORM, INITIAL_FORM } from '../../constants/resume-builder.constants';
 import { CoreService } from 'src/app/core/services/core/core.service';
 import { finalize } from 'rxjs/operators';
 import { ResumeBuilderService } from '../../services/resume-builder/resume-builder.service';
@@ -20,6 +16,9 @@ export class EditorComponent implements OnInit {
   public resumeEditorForm: FormGroup;
   public config = FORM_CONFIG;
   public formLoader = false;
+  public loader = false;
+  public userId: string;
+  public data: any;
 
   constructor(
     private fb: FormBuilder,
@@ -55,25 +54,27 @@ export class EditorComponent implements OnInit {
       awardsSection: this.fb.array([]),
     });
 
+    this.getResumeData();
+
     if (this.webStorageService.getStorageValue('RESUME_DETAILS') == null) {
       this.webStorageService.setStorageValue('RESUME_DETAILS', DUMMY_FORM);
     }
 
-    const savedForm = this.webStorageService.getStorageValue('RESUME_DETAILS');
-
     this.resumeEditorForm.valueChanges.subscribe((val) => {
       this.webStorageService.setStorageValue('RESUME_DETAILS', {
-        ...DUMMY_FORM,
-        ...savedForm,
         resumeData: val,
       });
-      this.resumeBuilderService.modifyData(val);
+      this.resumeBuilderService.modifyData({
+        ...this.data,
+        resumeData: {
+          ...this.data.resumeData,
+          ...val,
+        },
+      });
     });
-
-    this.loadDataFromResponse(savedForm.resumeData);
   }
 
-  loadDataFromResponse(data) {
+  private loadDataFromResponse(data: any) {
     Object.keys(data).forEach((x) => {
       const formConfig = data[x];
       const getCon = this.resumeEditorForm.get(x) as FormArray;
@@ -102,11 +103,13 @@ export class EditorComponent implements OnInit {
 
   public onSubmit() {
     this.formLoader = true;
-    this.resumeBuilderService.modifyData(this.resumeEditorForm.value);
 
-    const formChanges = this.getDirtyValues(this.resumeEditorForm);
+    const formChanges = this.resumeEditorForm.value;
     this.coreService
-      .updateResumeDetails(formChanges)
+      .updateResumeDetails({
+        ...this.data,
+        resumeData: formChanges,
+      })
       .pipe(
         finalize(() => {
           this.formLoader = false;
@@ -114,16 +117,14 @@ export class EditorComponent implements OnInit {
       )
       .subscribe(
         () => {
-          this.snackbarService.show(
-            'Resume details saved successfully.',
-            'success'
-          );
+          this.resumeBuilderService.modifyData({
+            ...this.data,
+            resumeData: formChanges,
+          });
+          this.snackbarService.show('Resume details saved successfully.');
         },
         (err) => {
-          this.snackbarService.show(
-            'Resume details saving failed. Please try again later.',
-            'error'
-          );
+          this.snackbarService.show('Resume details saving failed. Please try again later.');
         }
       );
   }
@@ -146,11 +147,30 @@ export class EditorComponent implements OnInit {
       if (currentControl.dirty) {
         if (currentControl.controls) {
           dirtyValues[key] = this.getDirtyValues(currentControl);
+        } else {
+          dirtyValues[key] = currentControl.value;
         }
-        else { dirtyValues[key] = currentControl.value; }
       }
     });
 
     return dirtyValues;
+  }
+
+  public getResumeData() {
+    this.coreService
+      .getResumeDetails()
+      .pipe(
+        finalize(() => {
+          this.loader = false;
+        })
+      )
+      .subscribe(
+        (res) => {
+          this.data = res;
+          const { resumeData = {} } = res;
+          this.loadDataFromResponse(resumeData);
+        },
+        () => {}
+      );
   }
 }

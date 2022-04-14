@@ -25,10 +25,6 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'resume/:resumeId',
-    loadChildren: () => import('./resume/resume.module').then((m) => m.ResumeModule),
-  },
-  {
     path: 'cv/:resumeId',
     loadChildren: () => import('./resume/resume.module').then((m) => m.ResumeModule),
   },

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverUrl: '',
+  databaseURL: 'https://simplecv-users-default-rtdb.firebaseio.com',
 };
 
 /*

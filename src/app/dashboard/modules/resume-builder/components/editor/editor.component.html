@@ -56,7 +56,7 @@
                     placeholder="Your Website"
                     #aboutWebsite
                   />
-                  <a class="test-link" [href]="aboutWebsite?.value" target="_blank">Test Link</a>
+                  <a class="test-link" href="https://{{ aboutWebsite?.value }}" target="_blank">Test Link</a>
                 </div>
 
                 <div style="position: relative;">
@@ -99,7 +99,7 @@
                   placeholder="Employer/Company Website"
                   #employerWebsite
                 />
-                <a class="test-link" [href]="employerWebsite?.value" target="_blank">Test Link</a>
+                <a class="test-link" href="https://{{ employerWebsite?.value }}" target="_blank">Test Link</a>
               </div>
               <input class="custom-input width-50" type="text" formControlName="city" placeholder="City" />
               <input class="custom-input width-50" type="text" formControlName="state" placeholder="State" />
@@ -206,7 +206,7 @@
                   placeholder="Project Website"
                   #projectWebsite
                 />
-                <a class="test-link" [href]="projectWebsite?.value" target="_blank">Test Link</a>
+                <a class="test-link" href="https://{{ projectWebsite?.value }}" target="_blank">Test Link</a>
               </div>
 
               <div style="position: relative;">
@@ -330,7 +330,7 @@
                   placeholder="Website"
                   #awardWebsite
                 />
-                <a class="test-link" [href]="awardWebsite?.value" target="_blank">Test Link</a>
+                <a class="test-link" href="https://{{ awardWebsite?.value }}" target="_blank">Test Link</a>
               </div>
 
               <div style="position: relative;">

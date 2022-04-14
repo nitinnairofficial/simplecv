@@ -2,10 +2,10 @@
   display: block;
   min-width: 20rem;
   min-height: 3rem;
-  border-radius: 0.15rem;
+  border-radius: 0.25rem;
   position: fixed;
   z-index: 1000;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
   font-family: $default-font-family;
   overflow: hidden;
@@ -13,7 +13,7 @@
 
 .snackbar-message {
   display: block;
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   word-wrap: wrap;
   white-space: wrap;
 }

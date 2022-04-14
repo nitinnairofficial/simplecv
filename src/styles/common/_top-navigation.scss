@@ -2,13 +2,12 @@
   display: block;
   position: fixed;
   height: 3.75rem;
-  width: 100vw;
+  width: 85vw;
   border-bottom: 1px solid $top-navigation-border-color;
   background-color: $white-color;
   z-index: $zindex-top-navigation;
   top: 0;
   padding: 0;
-  left: 2rem;
 
   .top-navigation-item {
     position: relative;

@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
         if (res.user.emailVerified !== true) {
-          this.snackbarService.show('Please verify your email address.', 'error');
+          this.snackbarService.show('Please verify your email address.');
         } else {
           this.webStorageService.setStorageValue('USER_DETAILS', res.user);
           this.accessService.setLoginInfo(res.user);
@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit {
         this.loader = false;
       })
       .catch((err) => {
-        this.snackbarService.show(err.message, 'error');
+        this.snackbarService.show(err.message);
         this.loader = false;
       });
   }
@@ -107,17 +107,5 @@ export class LoginComponent implements OnInit {
         console.log(error);
         this.googleLoader = false;
       });
-  }
-
-  public generateToken() {
-    this.coreService
-      .generateToken({})
-      .pipe(finalize(() => {}))
-      .subscribe(
-        (res) => {
-          this.accessService.setLoginInfo(res);
-        },
-        (err) => {}
-      );
   }
 }

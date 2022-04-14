@@ -1,20 +1,7 @@
 <div class="container sub-container" style="padding: 10rem 0;">
-  <div class="row mb-4">
-    <div class="col">
-      <h5 class="card-title">Download Options</h5>
-    </div>
-  </div>
-  <div class="row mb-4">
-    <div class="col">
-      <button class="btn btn-primary mr-4"><img src="assets/icons/download-pdf.svg" class="mr-2" />Download Resume PDF</button>
-    </div>
-  </div>
-
-  <hr style="margin: 3rem 0;" />
-
-  <h5 class="card-title mb-4">Public resume</h5>
-  <form [formGroup]="publicResumeForm" (ngSubmit)="onPublicResumeFormSubmit()">
-    <div class="row pt-4 mb-4">
+  <h5 class="card-title mb-4">Share options</h5>
+  <form [formGroup]="resumeSettingsForm" (ngSubmit)="onSubmit()">
+    <div class="row pt-4 pb-4">
       <div class="col-lg-6">
         <div class="form-group">
           <label class="text-light-color">Enter resume name (only alphabets and numbers allowed)</label>
@@ -54,34 +41,49 @@
       </div>
     </div>
 
-    <div class="row pt-4 mb-4">
-      <div class="col">
-        <label class="switch mr-4">
-          <input type="checkbox" formControlName="hideBranding" />
-          <span class="slider round"></span>
-        </label>
-        <span>Hide Branding</span>
+    <div class="mb-4 pt-4">
+      <h5 class="card-title">Privacy options</h5>
+
+      <div class="row pt-4 mb-4">
+        <div class="col">
+          <label class="switch mr-4">
+            <input type="checkbox" formControlName="hideBranding" />
+            <span class="slider round"></span>
+          </label>
+          <span>Hide Branding</span>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col">
+          <label class="switch mr-4">
+            <input type="checkbox" formControlName="hideEmailAndPhone" />
+            <span class="slider round"></span>
+          </label>
+          <span>Hide Email & Phone number</span>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col">
+          <label class="switch mr-4">
+            <input type="checkbox" formControlName="hideDownloadButton" />
+            <span class="slider round"></span>
+          </label>
+          <span>Hide Download button</span>
+        </div>
       </div>
     </div>
 
-    <div class="row mb-4">
-      <div class="col">
-        <label class="switch mr-4">
-          <input type="checkbox" formControlName="hideEmailAndPhone" />
-          <span class="slider round"></span>
-        </label>
-        <span>Hide Email & Phone number</span>
-      </div>
-    </div>
+    <button class="btn btn-success float-left mt-xl-4">
+      <span *ngIf="!loader">Save Details </span>
+      <ng-container *ngIf="loader">
+        <div class="spinner-border text-light btn-icon-left" role="status">
+          <span class="sr-only">Saving...</span>
+        </div>
 
-    <div class="row mb-4">
-      <div class="col">
-        <label class="switch mr-4">
-          <input type="checkbox" formControlName="hideDownloadButton" />
-          <span class="slider round"></span>
-        </label>
-        <span>Hide Download button</span>
-      </div>
-    </div>
+        <span>Saving...</span>
+      </ng-container>
+    </button>
   </form>
 </div>

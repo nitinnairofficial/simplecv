@@ -61,11 +61,11 @@ export class AccountSettingsComponent implements OnInit {
       .pipe(finalize(() => (this.changePasswordloader = false)))
       .subscribe(
         (res) => {
-          this.snackbarService.show('Password changed successfully.', 'success');
+          this.snackbarService.show('Password changed successfully.');
           this.authenticationService.logout();
         },
         (err) => {
-          this.snackbarService.show('Password change failed', 'error');
+          this.snackbarService.show('Password change failed');
         }
       );
   }
@@ -77,11 +77,11 @@ export class AccountSettingsComponent implements OnInit {
         .pipe(finalize(() => (this.deleteAccountLoader = false)))
         .subscribe(
           (res) => {
-            this.snackbarService.show('Your account has been deleted successfully.', 'success');
+            this.snackbarService.show('Your account has been deleted successfully.');
             this.authenticationService.logout();
           },
           (err) => {
-            this.snackbarService.show('Facing error while deleting your account, please try later.', 'Error');
+            this.snackbarService.show('Facing error while deleting your account, please try later.');
           }
         );
     } else {

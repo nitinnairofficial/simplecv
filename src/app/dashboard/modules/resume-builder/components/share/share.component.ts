@@ -1,9 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, Form } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, Form, FormControl } from '@angular/forms';
 import { SnackbarService } from 'src/app/core/services/snackbar/snackbar.service';
 import { CoreService } from 'src/app/core/services/core/core.service';
-import { PRIVATE_RESUME_LIST, RESUME_ID_PATTERN, SHARE_RESUME_PATTERN } from '../../constants/resume-builder.constants';
-import { WebStorageService } from 'src/app/core/services/web-storage/web-storage.service';
+import { PRIVATE_RESUME_LIST, RESUME_ID_PATTERN } from '../../constants/resume-builder.constants';
+import { ResumeBuilderService } from '../../services/resume-builder/resume-builder.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-share',
@@ -12,112 +13,77 @@ import { WebStorageService } from 'src/app/core/services/web-storage/web-storage
 })
 export class ShareComponent implements OnInit {
   public sendData: any;
-  public publicResumeForm: FormGroup;
-  public privateResumeForm: FormGroup;
-  public publicResumeLoader = false;
-  public privateResumeLoader = false;
+  public resumeSettingsForm: FormGroup;
+  public loader = false;
   public checkLoader = false;
-  public privateResumeList = PRIVATE_RESUME_LIST;
-  private currentIndex: number;
 
   constructor(
     private formBuilder: FormBuilder,
     private snackbarService: SnackbarService,
-    private coreSerivce: CoreService,
-    private webStorageService: WebStorageService
+    private coreService: CoreService,
+    private resumeBuilderService: ResumeBuilderService
   ) {}
 
   ngOnInit(): void {
-    const savedForm = this.webStorageService.getStorageValue('RESUME_DETAILS');
-    this.sendData = savedForm;
-
-    this.publicResumeForm = this.formBuilder.group({
-      resumeId: ['', [Validators.required, Validators.pattern(RESUME_ID_PATTERN)]],
-      hideBranding: [false],
-      hideEmailAndPhone: [false],
-      hideDownloadButton: [false],
+    this.resumeSettingsForm = this.formBuilder.group({
+      resumeId: new FormControl('', [Validators.required, Validators.pattern(RESUME_ID_PATTERN)]),
+      hideBranding: new FormControl(false),
+      hideEmailAndPhone: new FormControl(false),
+      hideDownloadButton: new FormControl(false),
     });
 
-    this.privateResumeForm = this.formBuilder.group({
-      sharingWith: ['', [Validators.required, Validators.pattern(SHARE_RESUME_PATTERN)]],
+    this.resumeBuilderService.resumeData.subscribe((val) => {
+      this.sendData = val;
+      if (this.sendData) {
+        const { resumeSettings = {} } = this.sendData;
+        const { resumeId = '', hideBranding = false, hideEmailAndPhone = false, hideDownloadButton = false } = resumeSettings;
+        this.resumeSettingsForm.patchValue({
+          resumeId,
+          hideBranding,
+          hideEmailAndPhone,
+          hideDownloadButton,
+        });
+      }
     });
-
-    if (savedForm) {
-      this.publicResumeForm.patchValue({
-        hideBranding: savedForm.resumeSettings.hideBranding,
-        resumePermissionType: savedForm.resumeSettings.resumePermissionType,
-        resumeId: savedForm.resumeSettings.resumeId,
-        hideEmailAndPhone: savedForm.resumeSettings.hideEmailAndPhone,
-        hideDownloadButton: savedForm.resumeSettings.hideDownloadButton,
-      });
-    }
   }
 
   public get resumeId() {
-    return this.publicResumeForm.get('resumeId');
+    return this.resumeSettingsForm.get('resumeId');
   }
 
-  public get sharingWith() {
-    return this.privateResumeForm.get('sharingWith');
-  }
-
-  public onPublicResumeFormSubmit() {
-    if (this.publicResumeForm.invalid) {
-      this.publicResumeForm.markAllAsTouched();
+  public onSubmit() {
+    if (this.resumeSettingsForm.invalid) {
+      this.resumeSettingsForm.markAllAsTouched();
       return;
     }
-    const publicResumeFormValue = this.publicResumeForm.value;
+    const { resumeId = '', hideBranding = false, hideEmailAndPhone = false, hideDownloadButton = false } = this.resumeSettingsForm.value;
     this.sendData = {
       ...this.sendData,
       resumeSettings: {
-        resumePermissionType: publicResumeFormValue.resumePermissionType,
-        resumeCustomUrl: publicResumeFormValue.resumeCustomUrl,
-        hideBranding: publicResumeFormValue.hideBranding,
-        hideEmailAndPhone: publicResumeFormValue.hideEmailAndPhone,
-        hideDownloadButton: publicResumeFormValue.hideDownloadButton,
+        ...this.sendData.resumeSettings,
+        resumeId,
+        hideBranding,
+        hideEmailAndPhone,
+        hideDownloadButton,
       },
     };
-    this.publicResumeLoader = true;
-    setTimeout(() => {
-      this.snackbarService.show('Resume details saved successfully', 'success');
-      this.publicResumeLoader = false;
-    }, 2000);
-  }
-
-  public onPrivateResumeFormSubmit() {
-    if (this.privateResumeForm.invalid) {
-      this.privateResumeForm.markAllAsTouched();
-      return;
-    }
-    const privateResumeFormValue = this.privateResumeForm.value;
-    this.privateResumeLoader = true;
-    setTimeout(() => {
-      this.snackbarService.show('Succesfully created private resume', 'success');
-      this.privateResumeLoader = false;
-    }, 2000);
-  }
-
-  public downloadResume(fileType) {
-    this.coreSerivce.downloadResume(fileType).subscribe(
-      (res) => {},
-      (err) => {}
-    );
-  }
-
-  public openStatsPanel(index) {
-    if (this.currentIndex === index) {
-      this.privateResumeList[index].isOpened = false;
-      this.currentIndex = null;
-      return;
-    }
-    this.privateResumeList.map((item, i) => {
-      if (i === index) {
-        item.isOpened = true;
-        this.currentIndex = index;
-      } else {
-        item.isOpened = false;
-      }
-    });
+    this.loader = true;
+    this.coreService
+      .updateResumeDetails(this.sendData)
+      .pipe(
+        finalize(() => {
+          this.loader = false;
+        })
+      )
+      .subscribe(
+        () => {
+          this.resumeBuilderService.modifyData(this.sendData);
+          this.snackbarService.show('Resume details saved successfully.');
+        },
+        (err) => {
+          this.snackbarService.show('Resume details saving failed. Please try again later.');
+        }
+      );
   }
 
   public copyToClipboard(copyText: string) {
@@ -129,11 +95,11 @@ export class ShareComponent implements OnInit {
     document.addEventListener('copy', listener);
     document.execCommand('copy');
     document.removeEventListener('copy', listener);
-    this.snackbarService.show('Resume link copied', 'success');
+    this.snackbarService.show('Resume link copied');
   }
 
   public checkAvailabilty() {
-    console.log(this.publicResumeForm.value.resumeId);
+    console.log(this.resumeSettingsForm.value.resumeId);
     this.checkLoader = true;
     setTimeout(() => {
       this.checkLoader = false;

@@ -10,10 +10,9 @@ export class SnackbarService {
 
   constructor() {}
 
-  show(message: string, type: string) {
+  show(message: string) {
     this.snackbarSubject.next({
       message,
-      type,
     });
   }
 }

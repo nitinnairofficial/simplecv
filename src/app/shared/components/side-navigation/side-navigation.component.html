@@ -1,17 +1,10 @@
-<div
-  class="side-navigation animate mobile-menu"
-  [ngStyle]="{ transform: 'translateX(' + translateVal + 'rem)' }"
->
+<div class="side-navigation animate mobile-menu" [ngStyle]="{ transform: 'translateX(' + translateVal + 'rem)' }">
   <div class="close-menu" (click)="closeMenu()">
     <img src="assets/icons/close-white.svg" />
   </div>
   <ul class="navigation-list">
     <ng-container *ngFor="let route of sideNavigationRoutes">
-      <li
-        class="navigation-item"
-        routerLinkActive="side-navigation-active"
-        (click)="closeMenu()"
-      >
+      <li class="navigation-item" routerLinkActive="side-navigation-active" (click)="closeMenu()">
         <a class="navigation-link" [routerLink]="route?.routeLink">
           <img class="icon navigation-icon" [src]="route?.routeIcon" />
 
@@ -32,15 +25,11 @@
 <div *ngIf="translateVal == 0" class="menu-overlay mobile-menu" (click)="closeMenu()"></div>
 
 <div class="side-navigation desktop-menu">
-  <div class="logo-container">
-    <img src="assets/icons/logo.svg" />
-  </div>
+  <a routerLink="/home" class="logo-container">
+    <img class="logo" src="assets/images/logo-sidenav.svg" />
+  </a>
   <ul class="navigation-list">
-    <li
-      class="navigation-item"
-      routerLinkActive="side-navigation-active"
-      *ngFor="let route of sideNavigationRoutes"
-    >
+    <li class="navigation-item" routerLinkActive="side-navigation-active" *ngFor="let route of sideNavigationRoutes">
       <a class="navigation-link" [routerLink]="route?.routeLink">
         <img class="icon navigation-icon" [src]="route?.routeIcon" />
 

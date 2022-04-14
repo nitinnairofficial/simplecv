@@ -2,12 +2,13 @@
   <div class="container sub-container">
     <div class="row mb-4">
       <div class="col">
+        <div class="float-left">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-outline-primary mr-4" (click)="OpenChangeThemeDialog()">Choose Theme</button>
+            <button type="button" class="btn btn-outline-primary" (click)="OpenChangeTemplateDialog()">Change Template</button>
+          </div>
+        </div>
         <div class="float-right">
-          <button class="btn btn-link mr-4" (click)="OpenChangeThemeDialog()">Choose Theme</button>
-          <button class="btn btn-primary mr-4" (click)="OpenChangeTemplateDialog()">
-            Change Template
-          </button>
-
           <button class="btn btn-success" (click)="saveResumeSettings()">
             <span *ngIf="!loader">Save Changes </span>
             <ng-container *ngIf="loader">

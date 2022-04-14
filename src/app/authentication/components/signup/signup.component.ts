@@ -74,7 +74,7 @@ export class SignupComponent implements OnInit {
       })
       .catch((error) => {
         this.loader = false;
-        this.snackbarService.show(error.message, 'error');
+        this.snackbarService.show(error.message);
       });
   }
 
