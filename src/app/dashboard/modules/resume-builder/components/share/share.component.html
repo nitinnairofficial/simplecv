@@ -4,7 +4,7 @@
     <div class="row pt-4 pb-4">
       <div class="col-lg-6">
         <div class="form-group">
-          <label class="text-light-color">Enter resume name (only alphabets and numbers allowed)</label>
+          <label class="text-light-color">Unique CV ID</label>
           <div class="input-group">
             <input
               type="text"
@@ -14,8 +14,9 @@
               formControlName="resumeId"
               aria-label="Recipient's username"
               maxlength="32"
+              readonly
             />
-            <div class="input-group-append">
+            <!-- <div class="input-group-append">
               <button (click)="checkAvailabilty()" type="button" role="button" class="input-group-text btn-check">
                 <span *ngIf="!checkLoader">Check availability </span>
 
@@ -26,6 +27,12 @@
 
                   <span>Checking...</span>
                 </ng-container>
+              </button>
+            </div> -->
+
+            <div class="input-group-append">
+              <button (click)="copyToClipboard(userId)" type="button" role="button" class="input-group-text btn-check">
+                Copy share link
               </button>
             </div>
           </div>

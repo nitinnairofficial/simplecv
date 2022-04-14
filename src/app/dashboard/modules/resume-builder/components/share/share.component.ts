@@ -5,6 +5,8 @@ import { CoreService } from 'src/app/core/services/core/core.service';
 import { PRIVATE_RESUME_LIST, RESUME_ID_PATTERN } from '../../constants/resume-builder.constants';
 import { ResumeBuilderService } from '../../services/resume-builder/resume-builder.service';
 import { finalize } from 'rxjs/operators';
+import { AuthenticationService } from 'src/app/authentication/services/authentication/authentication.service';
+import { CV_SHARE_URL_PREFIX } from 'src/app/core/constants/core.constants';
 
 @Component({
   selector: 'app-share',
@@ -16,17 +18,21 @@ export class ShareComponent implements OnInit {
   public resumeSettingsForm: FormGroup;
   public loader = false;
   public checkLoader = false;
+  public userId: string
 
   constructor(
     private formBuilder: FormBuilder,
     private snackbarService: SnackbarService,
     private coreService: CoreService,
-    private resumeBuilderService: ResumeBuilderService
+    private resumeBuilderService: ResumeBuilderService,
+    private authenticationService: AuthenticationService
   ) {}
 
   ngOnInit(): void {
+    this.userId = this.authenticationService.getUserId();
+
     this.resumeSettingsForm = this.formBuilder.group({
-      resumeId: new FormControl('', [Validators.required, Validators.pattern(RESUME_ID_PATTERN)]),
+      resumeId: new FormControl(this.userId, [Validators.required, Validators.pattern(RESUME_ID_PATTERN)]),
       hideBranding: new FormControl(false),
       hideEmailAndPhone: new FormControl(false),
       hideDownloadButton: new FormControl(false),
@@ -88,7 +94,8 @@ export class ShareComponent implements OnInit {
 
   public copyToClipboard(copyText: string) {
     const listener = (e: ClipboardEvent) => {
-      e.clipboardData.setData('text/plain', copyText);
+      const url = `${CV_SHARE_URL_PREFIX}/${copyText}`;
+      e.clipboardData.setData('text/plain', url);
       e.preventDefault();
     };
 

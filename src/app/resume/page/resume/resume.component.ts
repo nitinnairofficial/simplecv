@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CoreService } from 'src/app/core/services/core/core.service';
 import { SnackbarService } from 'src/app/core/services/snackbar/snackbar.service';
 import { finalize } from 'rxjs/operators';
-import { DUMMY_FORM } from 'src/app/dashboard/modules/resume-builder/constants/resume-builder.constants';
 
 @Component({
   selector: 'app-resume',

@@ -70,9 +70,7 @@ export class AuthenticationService {
         console.log(res);
         if (res.user.emailVerified !== true) {
           this.sendVerificationMail();
-          window.alert(
-            'Please validate your email address. Kindly check your inbox.'
-          );
+          window.alert('Please validate your email address. Kindly check your inbox.');
         } else {
           console.log('Successfully signed in!');
         }
@@ -119,6 +117,11 @@ export class AuthenticationService {
   get isLoggedIn(): boolean {
     const user = this.webStorageService.getStorageValue('USER_DETAILS');
     return user !== null && user.emailVerified !== false ? true : false;
+  }
+
+  public getUserId() {
+    const { uid = '' } = this.webStorageService.getStorageValue('USER_DETAILS');
+    return uid;
   }
 
   /* log out */
