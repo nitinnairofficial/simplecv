@@ -16,12 +16,12 @@ export class PageNavigationComponent implements OnInit {
     },
     {
       routeLink: '/',
-      routeLabel: 'How it works',
-      fragmentName: 'how-it-works',
+      routeLabel: 'Templates',
+      fragmentName: 'templates',
     },
     {
       routeLink: '/',
-      routeLabel: 'FAQ',
+      routeLabel: 'FAQs',
       fragmentName: 'faq',
     },
   ];

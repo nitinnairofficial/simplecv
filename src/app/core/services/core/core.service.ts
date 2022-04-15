@@ -3,13 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { API } from '../../constants/api.constants';
 import { Observable } from 'rxjs';
 import { WebStorageService } from '../web-storage/web-storage.service';
+import { tap } from 'rxjs/operators';
+import { HttpCacheService } from '../cache/cache.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CoreService {
   private userId: string;
-  constructor(private httpClient: HttpClient, private webStorageService: WebStorageService) {
+  constructor(private httpClient: HttpClient, private webStorageService: WebStorageService, private cacheService: HttpCacheService) {
     const { uid = '' } = this.webStorageService.getStorageValue('USER_DETAILS');
     this.userId = uid;
   }
@@ -26,7 +28,11 @@ export class CoreService {
     const httpParams = {
       [this.userId]: params,
     };
-    return this.httpClient.patch(API.UPDATE_RESUME_DETAILS, httpParams);
+    return this.httpClient.patch(API.UPDATE_RESUME_DETAILS, httpParams).pipe(
+      tap(() => {
+        this.cacheService.burstCache$.next(API.GET_RESUME_DETAILS);
+      })
+    );
   }
 
   public getResumeStats(params: any): Observable<any> {

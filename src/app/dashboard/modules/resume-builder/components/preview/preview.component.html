@@ -9,6 +9,9 @@
           </div>
         </div>
         <div class="float-right">
+          <button *ngIf="userId" type="button" class="btn btn-outline-primary mr-4" (click)="navigateToPublicPreview()">
+            Public Preview
+          </button>
           <button class="btn btn-success" (click)="saveResumeSettings()">
             <span *ngIf="!loader">Save Changes </span>
             <ng-container *ngIf="loader">

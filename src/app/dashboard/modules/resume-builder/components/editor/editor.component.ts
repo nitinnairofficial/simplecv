@@ -6,6 +6,7 @@ import { CoreService } from 'src/app/core/services/core/core.service';
 import { finalize } from 'rxjs/operators';
 import { ResumeBuilderService } from '../../services/resume-builder/resume-builder.service';
 import { WebStorageService } from 'src/app/core/services/web-storage/web-storage.service';
+import { AuthenticationService } from 'src/app/authentication/services/authentication/authentication.service';
 
 @Component({
   selector: 'app-editor',
@@ -25,10 +26,12 @@ export class EditorComponent implements OnInit {
     private resumeBuilderService: ResumeBuilderService,
     private snackbarService: SnackbarService,
     private coreService: CoreService,
-    private webStorageService: WebStorageService
+    private webStorageService: WebStorageService,
+    private authenticationService: AuthenticationService
   ) {}
 
   ngOnInit() {
+    this.userId = this.authenticationService.getUserId();
     // accordion-start
     const accordion = document.querySelectorAll('.accordion-header');
 
@@ -69,6 +72,10 @@ export class EditorComponent implements OnInit {
         resumeData: {
           ...this.data.resumeData,
           ...val,
+        },
+        resumeSettings: {
+          ...this.data.resumeSettings,
+          resumeId: this.userId,
         },
       });
     });
@@ -120,6 +127,10 @@ export class EditorComponent implements OnInit {
           this.resumeBuilderService.modifyData({
             ...this.data,
             resumeData: formChanges,
+            resumeSettings: {
+              ...this.data.resumeSettings,
+              resumeId: this.userId,
+            },
           });
           this.snackbarService.show('Resume details saved successfully.');
         },
@@ -157,6 +168,7 @@ export class EditorComponent implements OnInit {
   }
 
   public getResumeData() {
+    this.loader = true;
     this.coreService
       .getResumeDetails()
       .pipe(

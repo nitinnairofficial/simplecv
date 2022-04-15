@@ -1,5 +1,6 @@
 import { HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 interface CacheContent {
   expiry: number;
@@ -10,6 +11,14 @@ interface CacheContent {
 export class HttpCacheService {
   private store: Map<string, CacheContent> = new Map<string, CacheContent>();
   private readonly DEFAULT_MAX_AGE = 15; // in min
+
+  public burstCache$: Subject<string> = new Subject<string>();
+
+  constructor() {
+    this.burstCache$.subscribe((url) => {
+      this.findAndDeleteCache(url);
+    });
+  }
 
   /**
    *
@@ -40,5 +49,24 @@ export class HttpCacheService {
 
   private isExpired(val): boolean {
     return val < Date.now();
+  }
+
+  public clearCache() {
+    this.store.clear();
+  }
+
+  public deleteItem(key: string) {
+    this.store.delete(key);
+  }
+
+  public findAndDeleteCache(url = '') {
+    if (!url) {
+      return;
+    }
+    this.store.forEach((value, key) => {
+      if (key.indexOf(url) > -1) {
+        this.deleteItem(key);
+      }
+    });
   }
 }

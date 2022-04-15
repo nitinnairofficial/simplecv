@@ -1,8 +1,10 @@
 .template-image {
-  height: 28rem;
+  min-height: 40rem;
+  max-height: 40rem;
   width: 100%;
   outline: none;
   border: 2px solid #ddd;
+  border-radius: 0.25rem;
   &:hover {
     border-color: #5d3fd3;
   }

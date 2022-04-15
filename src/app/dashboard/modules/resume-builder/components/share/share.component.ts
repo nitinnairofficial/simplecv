@@ -18,7 +18,7 @@ export class ShareComponent implements OnInit {
   public resumeSettingsForm: FormGroup;
   public loader = false;
   public checkLoader = false;
-  public userId: string
+  public userId: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -102,6 +102,7 @@ export class ShareComponent implements OnInit {
     document.addEventListener('copy', listener);
     document.execCommand('copy');
     document.removeEventListener('copy', listener);
+
     this.snackbarService.show('Resume link copied');
   }
 

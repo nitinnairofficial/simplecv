@@ -29,7 +29,8 @@
 }
 
 .btn-download,
-.btn-share {
+.btn-share,
+.btn-back {
   border-radius: 50%;
   width: 3rem !important;
   height: 3rem;
@@ -50,6 +51,11 @@
 .btn-share {
   right: 1.5rem;
   bottom: 5rem;
+}
+
+.btn-back {
+  top: 1.5rem;
+  left: 1.5rem;
 }
 
 @media screen and (max-width: 640px) {

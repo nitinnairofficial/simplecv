@@ -7,6 +7,8 @@ import { CoreService } from 'src/app/core/services/core/core.service';
 import { finalize } from 'rxjs/operators';
 import { SnackbarService } from 'src/app/core/services/snackbar/snackbar.service';
 import { ResumeBuilderService } from '../../services/resume-builder/resume-builder.service';
+import { Router } from '@angular/router';
+import { CV_SHARE_URL_PREFIX } from 'src/app/core/constants/core.constants';
 
 @Component({
   selector: 'app-preview',
@@ -18,13 +20,15 @@ export class PreviewComponent implements OnInit {
   public defaultTemplate = 'tokyo';
   public defaultThemeColor = 'blue';
   public loader = false;
+  public userId: string;
 
   constructor(
     private dialogService: DialogService,
     private webStorageService: WebStorageService,
     private coreService: CoreService,
     private snackbarService: SnackbarService,
-    private resumeBuilderService: ResumeBuilderService
+    private resumeBuilderService: ResumeBuilderService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -32,9 +36,10 @@ export class PreviewComponent implements OnInit {
       this.sendData = val;
       if (this.sendData) {
         const { resumeSettings = {} } = this.sendData;
-        const { themeColor = 'blue', templateName = 'oslo' } = resumeSettings;
+        const { themeColor = 'blue', templateName = 'oslo', resumeId } = resumeSettings;
         this.defaultTemplate = templateName;
         this.defaultThemeColor = themeColor;
+        this.userId = resumeId;
       }
     });
   }
@@ -103,5 +108,10 @@ export class PreviewComponent implements OnInit {
           this.snackbarService.show('Saving resume settings failed');
         }
       );
+  }
+
+  public navigateToPublicPreview() {
+    const url = `cv/${this.userId}`;
+    this.router.navigate([url]);
   }
 }

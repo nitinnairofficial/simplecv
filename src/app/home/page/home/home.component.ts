@@ -9,9 +9,13 @@ import { AccessService } from 'src/app/core/services/access/access.service';
 })
 export class HomeComponent implements OnInit {
   public isLoggedIn = false;
+  public currentYear: number;
+
   constructor(private router: Router, private accessService: AccessService) {}
 
   ngOnInit(): void {
+    this.currentYear = new Date().getFullYear();
+
     const accordion = document.querySelectorAll('.accordion-header');
 
     accordion.forEach((el) =>

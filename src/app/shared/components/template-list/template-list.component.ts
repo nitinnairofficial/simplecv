@@ -11,15 +11,15 @@ export class TemplateListComponent implements OnInit {
   public templateList = [
     {
       templateName: 'tokyo',
-      templateImage: 'assets/images/oslo.png',
+      templateImage: 'assets/images/tokyo.png',
     },
     {
       templateName: 'rio',
-      templateImage: 'assets/images/oslo.png',
+      templateImage: 'assets/images/rio.png',
     },
     {
       templateName: 'berlin',
-      templateImage: 'assets/images/oslo.png',
+      templateImage: 'assets/images/berlin.png',
     },
     {
       templateName: 'denver',
@@ -44,10 +44,7 @@ export class TemplateListComponent implements OnInit {
   ];
 
   public selectedTemplateName = null;
-  constructor(
-    private dialogRef: DialogRef,
-    @Optional() @Inject(DIALOG_DATA) public data: any = {}
-  ) {}
+  constructor(private dialogRef: DialogRef, @Optional() @Inject(DIALOG_DATA) public data: any = {}) {}
 
   ngOnInit(): void {
     this.selectedTemplateName = this.data.templateName;

@@ -1,12 +1,36 @@
 <div id="print-block" class="container-fluid resume-container">
   <div class="container sub-container">
-    <app-dynamic-template [data]="data"></app-dynamic-template>
+    <div class="skeleton-loader" style="height: 960px;" *ngIf="loader"></div>
+
+    <app-dynamic-template [data]="data" [ngStyle]="{ display: loader ? 'none' : 'block' }"></app-dynamic-template>
     <div class="row pt-4 resume-action">
       <div class="col-lg-6">
-        <button class="btn btn-light btn-download" title="Print resume" (click)="printResume()">
+        <button
+          *ngIf="isUserLoggedIn"
+          class="btn btn-light btn-back"
+          (click)="navigateToPreview()"
+          aria-label="Back to Preview"
+          data-microtip-position="right"
+          role="tooltip"
+        >
+          <span class="material-icons text-primary">keyboard_backspace</span>
+        </button>
+        <button
+          class="btn btn-light btn-download"
+          (click)="printResume()"
+          aria-label="Print Resume"
+          data-microtip-position="left"
+          role="tooltip"
+        >
           <span class="material-icons text-primary">print</span>
         </button>
-        <button class="btn btn-light btn-share" title="Share resume" (click)="shareResume()">
+        <button
+          class="btn btn-light btn-share"
+          (click)="shareResume()"
+          aria-label="Share Resume"
+          data-microtip-position="left"
+          role="tooltip"
+        >
           <span class="material-icons text-primary">share</span>
         </button>
       </div>
