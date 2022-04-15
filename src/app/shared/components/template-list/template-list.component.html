@@ -16,9 +16,7 @@
           {{ template?.templateName | titlecase }}
         </p>
 
-        <div class="selected-item" *ngIf="selectedTemplateName === template?.templateName">
-          <img src="assets/icons/save.svg" class="mr-2" />
-        </div>
+        <span *ngIf="selectedTemplateName === template?.templateName" class="material-icons selected-item text-primary">check_circle</span>
       </div>
     </div>
   </ng-container>

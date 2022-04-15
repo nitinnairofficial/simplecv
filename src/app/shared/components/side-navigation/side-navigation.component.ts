@@ -11,7 +11,7 @@ export class SideNavigationComponent implements OnInit {
     {
       routeLink: 'editor',
       routeLabel: 'Editor',
-      routeIcon: 'task',
+      routeIcon: 'edit',
     },
     {
       routeLink: 'settings',

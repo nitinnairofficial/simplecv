@@ -91,7 +91,7 @@
         <div class="accordion-text">
           <ng-container *ngFor="let workExperienceGroup of resumeEditorForm?.controls?.workExperienceSection?.controls; let i = index">
             <div [formGroup]="workExperienceGroup">
-              <p class="text-dark-color">Job {{ i + 1 }} Section</p>
+              <p class="text-dark-color">Job #{{ i + 1 }} Section</p>
               <input class="custom-input width-100" type="text" formControlName="employerName" placeholder="Employer/Company Name" />
               <input class="custom-input width-100" type="text" formControlName="jobTitle" placeholder="Job Title" />
               <input class="custom-input width-50" type="text" formControlName="startDate" placeholder="Start Date" />
@@ -148,7 +148,7 @@
 
         <div class="accordion-text">
           <ng-container *ngFor="let educationSectionGroup of resumeEditorForm?.controls?.educationSection?.controls; let i = index" ;>
-            <p class="text-dark-color">School {{ i + 1 }} Section</p>
+            <p class="text-dark-color">School #{{ i + 1 }} Section</p>
             <div [formGroup]="educationSectionGroup">
               <input class="custom-input width-100" type="text" formControlName="schoolName" placeholder="School Name" />
 
@@ -198,7 +198,7 @@
 
         <div class="accordion-text">
           <ng-container *ngFor="let projectsSectionGroup of resumeEditorForm?.controls?.projectsSection?.controls; let i = index" ;>
-            <p class="text-dark-color">Project {{ i + 1 }} Section</p>
+            <p class="text-dark-color">Project #{{ i + 1 }} Section</p>
             <div [formGroup]="projectsSectionGroup">
               <input class="custom-input width-50" type="text" formControlName="projectName" placeholder="Project Name" />
 
@@ -261,7 +261,7 @@
           <ng-container *ngFor="let skillsGroup of resumeEditorForm?.controls?.skillsSection?.controls; let i = index">
             <div [formGroup]="skillsGroup">
               <p class="text-dark-color" *ngIf="i == 0">Skills Section</p>
-              <input class="custom-input width-100" type="text" formControlName="skillName" placeholder="Skill {{ i + 1 }}" />
+              <input class="custom-input width-100" type="text" formControlName="skillName" placeholder="Skill #{{ i + 1 }}" />
 
               <button
                 *ngIf="i == resumeEditorForm?.controls?.skillsSection?.length - 1"
@@ -297,7 +297,7 @@
           <ng-container *ngFor="let languagesGroup of resumeEditorForm?.controls?.languagesSection?.controls; let i = index">
             <div [formGroup]="languagesGroup">
               <p class="text-dark-color" *ngIf="i == 0">Languages Section</p>
-              <input class="custom-input width-50" type="text" formControlName="languageName" placeholder="Language {{ i + 1 }}" />
+              <input class="custom-input width-50" type="text" formControlName="languageName" placeholder="Language #{{ i + 1 }}" />
 
               <input class="custom-input width-50" type="text" formControlName="proficiency" placeholder="Proficiency" />
               <button
@@ -332,7 +332,7 @@
 
         <div class="accordion-text">
           <ng-container *ngFor="let awardsSectionGroup of resumeEditorForm?.controls?.awardsSection?.controls; let i = index" ;>
-            <p class="text-dark-color">Award {{ i + 1 }} Section</p>
+            <p class="text-dark-color">Award #{{ i + 1 }} Section</p>
             <div [formGroup]="awardsSectionGroup">
               <input class="custom-input width-100" type="text" formControlName="awardName" placeholder="Award Name" />
 

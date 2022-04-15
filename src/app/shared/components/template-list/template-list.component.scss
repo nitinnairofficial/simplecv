@@ -1,6 +1,5 @@
 .template-image {
-  min-height: 40rem;
-  max-height: 40rem;
+  height: 40rem;
   width: 100%;
   outline: none;
   border: 2px solid #ddd;
@@ -17,11 +16,9 @@
 }
 
 .selected-item {
-  background-color: #5d3fd3;
   width: 2rem;
   height: 2rem;
   padding: 0.25rem;
-  color: #fff;
   top: 45%;
   left: 50%;
   text-align: center;

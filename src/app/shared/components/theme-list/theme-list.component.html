@@ -15,7 +15,7 @@
         [ngStyle]="{ 'background-color': theme?.value }"
         (click)="selectedTheme(theme?.label)"
       >
-      <img *ngIf="theme?.label == selectedThemeColor" src="assets/icons/save.svg">
+      <span *ngIf="theme?.label == selectedThemeColor" class="material-icons text-white">check_circle</span>
     </button>
     </div>
   </ng-container>
