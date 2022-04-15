@@ -12,7 +12,7 @@ import { HttpCacheService } from '../cache/cache.service';
 export class CoreService {
   private userId: string;
   constructor(private httpClient: HttpClient, private webStorageService: WebStorageService, private cacheService: HttpCacheService) {
-    const { uid = '' } = this.webStorageService.getStorageValue('USER_DETAILS');
+    const { uid = '' } = this.webStorageService.getStorageValue('USER_DETAILS') ||  {};
     this.userId = uid;
   }
 

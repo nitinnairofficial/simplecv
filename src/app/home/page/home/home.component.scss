@@ -180,6 +180,11 @@ p {
   width: 4rem;
   height: 4rem;
   margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f4f6;
+  border-radius: 50%;
 }
 
 .section-image {

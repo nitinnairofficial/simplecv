@@ -11,17 +11,17 @@ export class SideNavigationComponent implements OnInit {
     {
       routeLink: 'editor',
       routeLabel: 'Editor',
-      routeIcon: 'assets/icons/resume.svg',
+      routeIcon: 'task',
     },
     {
       routeLink: 'settings',
       routeLabel: 'Settings',
-      routeIcon: 'assets/icons/settings.svg',
+      routeIcon: 'settings',
     },
     {
       routeLink: 'faq',
       routeLabel: 'FAQs',
-      routeIcon: 'assets/icons/faq.svg',
+      routeIcon: 'help',
     },
   ];
 

@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
     public angularFireAuth: AngularFireAuth,
     private router: Router,
     private snackbarService: SnackbarService,
-    private coreService: CoreService,
     private accessService: AccessService,
     private webStorageService: WebStorageService
   ) {}

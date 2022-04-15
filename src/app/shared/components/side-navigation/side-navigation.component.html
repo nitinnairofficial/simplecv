@@ -6,7 +6,7 @@
     <ng-container *ngFor="let route of sideNavigationRoutes">
       <li class="navigation-item" routerLinkActive="side-navigation-active" (click)="closeMenu()">
         <a class="navigation-link" [routerLink]="route?.routeLink">
-          <span class="material-icon navigation-icon">{{ route?.routeIcon }}</span>
+          <span class="material-icons navigation-icon">{{ route?.routeIcon }}</span>
           <span class="navigation-text">{{ route?.routeLabel }}</span>
         </a>
       </li>
@@ -14,7 +14,7 @@
 
     <li class="navigation-item" role="button" (click)="logout()">
       <a class="navigation-link">
-        <img class="icon navigation-icon" src="assets/icons/logout.svg" />
+        <span class="material-icons navigation-icon">power_settings_new</span>
         <span class="navigation-text">Logout</span>
       </a>
     </li>
@@ -30,14 +30,14 @@
   <ul class="navigation-list">
     <li class="navigation-item" routerLinkActive="side-navigation-active" *ngFor="let route of sideNavigationRoutes">
       <a class="navigation-link" [routerLink]="route?.routeLink">
-        <img class="icon navigation-icon" [src]="route?.routeIcon" />
+        <span class="material-icons navigation-icon">{{ route?.routeIcon }}</span>
 
         <span class="navigation-text">{{ route?.routeLabel }}</span>
       </a>
     </li>
     <li class="navigation-item btn-logout" role="button" (click)="logout()">
       <a class="navigation-link">
-        <img class="icon navigation-icon" src="assets/icons/logout.svg" />
+        <span class="material-icons navigation-icon">power_settings_new</span>
         <span class="navigation-text">Logout</span>
       </a>
     </li>
