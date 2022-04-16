@@ -4,8 +4,20 @@
       <div class="col">
         <div class="float-left">
           <div class="btn-group" role="group">
-            <button type="button" class="btn btn-outline-primary mr-4" (click)="OpenChangeThemeDialog()">Choose Theme</button>
-            <button type="button" class="btn btn-outline-primary" (click)="OpenChangeTemplateDialog()">Change Template</button>
+            <button type="button" class="btn btn-outline-primary" (click)="OpenChangeThemeDialog()" aria-label="Choose Theme"
+            data-microtip-position="bottom"
+            role="tooltip">
+              <span class="material-icons">
+                color_lens
+                </span>
+            </button>
+            <button type="button" class="btn btn-outline-primary" (click)="OpenChangeTemplateDialog()" aria-label="Change Template"
+            data-microtip-position="bottom"
+            role="tooltip">
+              <span class="material-icons">
+                insert_drive_file
+                </span>
+            </button>
           </div>
         </div>
         <div class="float-right">

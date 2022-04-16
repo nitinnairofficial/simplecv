@@ -10,7 +10,6 @@ import { Subscription } from 'rxjs';
 export class SnackbarComponent implements OnInit, OnDestroy {
   public showSnackbar = false;
   public snackbarMessage: string;
-  public snackbarType: string;
   private snackbarSubscription: Subscription;
 
   constructor(private snackbarService: SnackbarService) {}
@@ -18,11 +17,10 @@ export class SnackbarComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.snackbarSubscription = this.snackbarService.snackbarState.subscribe((res) => {
       this.snackbarMessage = res.message;
-      this.snackbarType = res.type;
       this.showSnackbar = true;
       setTimeout(() => {
         this.showSnackbar = false;
-      }, 4000);
+      }, 3000);
     });
   }
 

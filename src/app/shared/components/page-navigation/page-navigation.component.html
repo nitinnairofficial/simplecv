@@ -10,7 +10,7 @@
       <ng-container *ngFor="let route of pageNavigationList">
         <li class="page-navigation-item">
           <a
-            class="page-navigation-link"
+            class="page-navigation-link btn btn-light"
             routerLink="{{ route?.routeLink }}"
             routerLinkActive="page-navigation-active"
             [routerLinkActiveOptions]="{ exact: true }"
@@ -25,7 +25,7 @@
     <div>
       <a
         *ngIf="!isLoggedIn"
-        class="btn btn-sm btn-light"
+        class="btn  btn-light"
         style="margin-right: 0.5rem;"
         (click)="navigateTo('/auth/login')"
         routerLinkActive="page-navigation-active"
@@ -33,11 +33,11 @@
         Login
       </a>
 
-      <button class="btn btn-sm btn-success" *ngIf="!isLoggedIn" (click)="navigateTo('/auth/signup')">
+      <button class="btn  btn-success" *ngIf="!isLoggedIn" (click)="navigateTo('/auth/signup')">
         Sign Up
       </button>
 
-      <button class="btn btn-sm btn-success" *ngIf="isLoggedIn" (click)="navigateTo('/dashboard')">
+      <button class="btn  btn-success" *ngIf="isLoggedIn" (click)="navigateTo('/dashboard')">
         Go to dashboard
       </button>
     </div>

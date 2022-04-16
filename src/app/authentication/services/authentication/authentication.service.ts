@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
+import { SnackbarService } from 'src/app/core/services/snackbar/snackbar.service';
 import { WebStorageService } from 'src/app/core/services/web-storage/web-storage.service';
 
 @Injectable({
@@ -13,7 +14,8 @@ export class AuthenticationService {
   constructor(
     public angularFireAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
-    private webStorageService: WebStorageService
+    private webStorageService: WebStorageService,
+    private snackbarService: SnackbarService
   ) {
     this.angularFireAuth.authState.subscribe((user) => {
       if (user) {
@@ -129,6 +131,7 @@ export class AuthenticationService {
     return this.angularFireAuth.signOut().then(() => {
       this.webStorageService.clearAll();
       this.router.navigate(['/auth/login']);
+      this.snackbarService.show('Logged out successfully.');
     });
   }
 }

@@ -23,8 +23,8 @@
   text-transform: uppercase;
 }
 
-.snackbar-bottom-center {
-  bottom: 1.5rem;
+.snackbar-top-center {
+  top: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -50,8 +50,8 @@
     border-radius: 0;
   }
 
-  .snackbar-bottom-center {
-    bottom: 0;
+  .snackbar-top-center {
+    top: 0;
     left: 0;
     transform: translateX(0%);
   }
